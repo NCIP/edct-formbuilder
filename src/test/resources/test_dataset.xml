@@ -1,0 +1,1588 @@
+<!DOCTYPE dataset SYSTEM "formbuilder-dataset.dtd">
+<dataset>
+
+<!-- ********************************************************** Users Settings  **********************************************************-->
+
+	<roles
+		id="10"
+		name="ROLE_AUTHOR" />
+	<roles
+		id="20"
+		name="ROLE_DEPLOYER" />
+	<roles
+		id="30"
+		name="ROLE_APPROVER" />
+	<roles
+		id="40"
+		name="ROLE_LIBRARIAN" />
+	<roles
+		id="999"
+		name="ROLE_ADMIN" />
+		
+	<rpt_users
+		id="1"
+		username="lkagan"
+		password="a564de63c2d0da68cf47586ee05984d7"
+		created_date="2010-04-19"
+		email_addr="lkagan@healthcit.com" />
+		
+	<user_roles
+		user_id="1"
+		role_id="10" />
+	<user_roles
+		user_id="1"
+		role_id="999" />
+	<user_roles
+		user_id="1"
+		role_id="20" />
+		
+	<rpt_users
+		id="2"
+		username="test"
+		password="9ddc44f3f7f78da5781d6cab571b2fc5"
+		created_date="2010-04-19" />
+		
+	<rpt_users
+		id="3"
+		username="dolson"
+		password="65d15fe9156f9c4bbffd98085992a44e"
+		created_date="2010-04-29"
+		email_addr="" />
+	<user_roles
+		user_id="3"
+		role_id="10" />
+		
+	<rpt_users
+		id="4"
+		username="GuestUser"
+		password="084e0343a0486ff05530df6c705c8bb4"
+		created_date="2010-08-12"
+		email_addr="howard.shang@duke.edu" />
+	<user_roles
+		user_id="4"
+		role_id="999" />
+		
+	<rpt_users
+		id="5"
+		username="pgupta"
+		password="a564de63c2d0da68cf47586ee05984d7"
+		created_date="2010-04-29"
+		email_addr="gupta@healthcit.com" />
+	<user_roles
+		user_id="5"
+		role_id="10" />
+		
+	<rpt_users
+		id="7"
+		username="ROLE_AUTHOR_USER"
+		password="e0d8e47fc8bed0bfe0db233703aaad1b"
+		created_date="2011-05-31"
+		email_addr="role.author.user@test.healthcit.com" />
+		
+	<user_roles
+		user_id="7"
+		role_id="10" />
+		
+	<rpt_users
+		id="8"
+		username="ROLE_APPROVER_USER"
+		password="09d7e4018dc445d10ab292e7782a1e65"
+		created_date="2011-05-31"
+		email_addr="role.approver.user@test.healthcit.com" />
+	
+	<user_roles
+		user_id="8"
+		role_id="30" />
+		
+	<rpt_users
+		id="9"
+		username="ROLE_DEPLOYER_USER"
+		password="d1ddd6bcad2c344e08f2826db37642c2"
+		created_date="2011-05-31"
+		email_addr="role.deployer.user@test.healthcit.com" />
+		
+	<user_roles
+		user_id="9"
+		role_id="20" />
+			
+	<rpt_users
+		id="10"
+		username="ROLE_ADMIN_USER"
+		password="bc93fa02c7691476007a85ddfefbb144"
+		created_date="2011-05-31"
+		email_addr="role.admin.user@test.healthcit.com" />
+	
+	<user_roles
+		user_id="10"
+		role_id="999" />
+		
+	<rpt_users
+		id="11"
+		username="ROLE_LIBRARIAN_USER"
+		password="62009a42b18b662a7f9378bce505657b"
+		created_date="2011-05-31"
+		email_addr="role.librarian.user@test.healthcit.com" />
+		
+	<user_roles
+		user_id="11"
+		role_id="40" />
+		
+	<rpt_users
+		id="12"
+		username="ALL_ROLES_USER"
+		password="afce8983d0b0922d4b82a67286586bc6"
+		created_date="2011-05-31"
+		email_addr="all.roles.user@test.healthcit.com" />
+		
+	<user_roles
+		user_id="12"
+		role_id="10" />
+	<user_roles
+		user_id="12"
+		role_id="30" />
+	<user_roles
+		user_id="12"
+		role_id="20" />
+	<user_roles
+		user_id="12"
+		role_id="999" />
+	<user_roles
+		user_id="12"
+		role_id="40" />		
+		
+<!-- ********************************************************** Question Library Block  **********************************************************-->
+
+	<module
+		id="1"
+		description="Question Library"
+		update_date="2011-05-20 16:55:08.171"
+		author_user_id="1"
+		status="QUESTION_LIBRARY"
+		is_library="true"
+		module_type="questionLibrary"
+		comments="Question Library Comments"/> 
+	<form
+		id="1"
+		name="Question Form"
+		module_id="1"
+		ord="1"
+		status="QUESTION_LIBRARY"
+		update_date="2011-06-27 16:33:23.828"
+		author_user_id="1"
+		uuid="2eb81d8c-8587-43f7-b324-a78f1780634e"
+		form_type="questionLibraryForm" />
+	
+	<form_element
+		id="1062"
+		description="Question From QL"
+		form_id="1"
+		ord="1"
+		learn_more="Question From QL Learn More"
+		is_required="true"
+		uuid="94c36ee1-4bf9-4885-a8c7-6419a2106498"
+		is_visible="true"
+		element_type="question" />
+		
+	<form_element
+		id="1072"
+		description="dropdown question"
+		form_id="1"
+		ord="2"
+		learn_more="dropdown question learn more"
+		is_required="false"
+		uuid="4a9bc9a9-3e46-437b-a3d0-7fc177efe344"
+		is_visible="true"
+		element_type="question" />
+		
+	<form_element
+		id="1077"
+		description="checkbox question"
+		form_id="1"
+		ord="3"
+		learn_more="checkbox question learn more"
+		is_required="true"
+		uuid="6d7021ee-cf25-4c6a-b664-d1b50be990f7"
+		is_visible="true"
+		element_type="question" />
+		
+	<form_element
+		id="1090"
+		description="skip question 1"
+		form_id="1"
+		ord="4"
+		learn_more="skip question 1 learn more"
+		is_required="false"
+		uuid="4d7bb6ee-c509-4dc4-82e0-1523e35b630a"
+		is_visible="true"
+		element_type="question" />
+		
+<!-- ********************************************************** Form Library Block  **********************************************************-->
+
+	<module
+		id="2"
+		description="Form Library"
+		update_date="2011-05-20 16:55:08.171"
+		author_user_id="1"
+		status="FORM_LIBRARY"
+		is_library="true"
+		module_type="formLibrary"
+		comments="Form Library Comments" /> 
+	
+	<form
+		id="1111"
+		name="Form Library Section"
+		module_id="2"
+		ord="1"
+		status="FORM_LIBRARY"
+		update_date="2011-06-27 16:41:38.703"
+		author_user_id="1"
+		uuid="1a0a76cd-f4ca-4016-91ac-23a633d94b32"
+		locked_by_user_id="1"
+		last_updated_by_user_id="1"
+		form_type="formLibraryForm" />
+		
+	<form_element
+		id="1112"
+		description="checkbox question"
+		form_id="1111"
+		ord="1"
+		learn_more="checkbox question learn more"
+		is_required="false"
+		uuid="eb201003-7291-4222-b559-56e5dc12faf8"
+		link_id="6d7021ee-cf25-4c6a-b664-d1b50be990f7"
+		is_visible="true"
+		element_type="link" />
+		
+<!-- ********************************************************** Questionnaire Block  **********************************************************-->
+
+	<module
+		id="1001"
+		description="Questionnaire Module"
+		comments="Questionnaire Module Comments"
+		update_date="2011-05-31 11:00:43.812"
+		release_date="2011-08-30"
+		author_user_id="1"
+		status="IN_PROGRESS"
+		is_library="false"
+		module_type="module"
+		completiontime="1/01/2020" />
+	
+<!-- **************************** All Kind Of Elements Section  **************************** -->
+
+	<form
+		id="1002"
+		name="All Kind Of Elements Section"
+		module_id="1001"
+		ord="2"
+		status="IN_PROGRESS"
+		update_date="2011-05-31 11:02:50.828"
+		author_user_id="1"
+		uuid="da1e9eaf-aafa-445c-9a82-57712caa128f"
+		locked_by_user_id="1"
+		last_updated_by_user_id="1"
+		form_type="questionnaireForm" />
+		
+	<form_element
+		id="1004"
+		description="It&apos;s content. HTML is allowed.&lt;b&gt;bold&lt;/b&gt;&lt;i&gt;italic&lt;/i&gt;"
+		form_id="1002"
+		ord="2"
+		is_required="false"
+		uuid="ef6315aa-8124-416c-8da6-627503dba6de"
+		is_visible="true"
+		element_type="content" />\
+		
+	<form_element
+		id="1005"
+		description="Text Question"
+		form_id="1002"
+		ord="1"
+		learn_more="It&apos;s simple test question with text answer type."
+		is_required="true"
+		uuid="18a23b86-e68a-49f4-8fe8-068bab9ae092"
+		is_visible="false"
+		element_type="question" />
+	<form_element
+		id="1010"
+		description="Number Question"
+		form_id="1002"
+		ord="3"
+		learn_more="Simple Number From Element"
+		is_required="false"
+		uuid="30761569-e975-40c2-bb43-704a2e55a960"
+		is_visible="true"
+		element_type="question" />
+		
+	<form_element
+		id="1014"
+		description="Radio Question"
+		form_id="1002"
+		ord="4"
+		learn_more="Radio Question Learn More"
+		is_required="true"
+		uuid="b0601ce3-527a-4c67-bcf8-26ec8814b1be"
+		is_visible="true"
+		element_type="question" />
+		
+	<form_element
+		id="1017"
+		description="Dropdown Question"
+		form_id="1002"
+		ord="5"
+		learn_more="Dropdown Question Learn More"
+		is_required="false"
+		uuid="117a855a-525d-4657-bd0d-c632afa35c66"
+		is_visible="true"
+		element_type="question" />
+		
+	<form_element
+		id="1020"
+		description="Year Question"
+		form_id="1002"
+		ord="6"
+		learn_more="Year Question Learn More"
+		is_required="true"
+		uuid="651438d4-3de8-4b9e-9c03-fcfd1fdac648"
+		is_visible="true"
+		element_type="question" />
+		
+	<form_element
+		id="1023"
+		description="Monthyear Question"
+		form_id="1002"
+		ord="7"
+		learn_more="Monthyear Question Learn More"
+		is_required="false"
+		uuid="b0f9012d-ac9f-465e-8035-9d8c5598082b"
+		is_visible="true"
+		element_type="question" />
+		
+	<form_element
+		id="1027"
+		description="Date Question"
+		form_id="1002"
+		ord="8"
+		learn_more="Date Question Learn More"
+		is_required="true"
+		uuid="52dd5e3c-c85f-44f0-973d-ff4f2fc4a8cb"
+		is_visible="true"
+		element_type="question" />
+		
+	<form_element
+		id="1033"
+		description="Checkbox Question"
+		form_id="1002"
+		ord="9"
+		learn_more="Checkbox Question (Multi-Answer) Learn More"
+		is_required="true"
+		uuid="09cfd092-e1ee-46a1-b701-6b4e0156598c"
+		is_visible="true"
+		element_type="question" />
+		
+	<form_element
+		id="1037"
+		description="Simple Checkbox Table Question"
+		form_id="1002"
+		ord="10"
+		learn_more="Simple Checkbox Table Question Learn More"
+		is_required="true"
+		uuid="ca5853a8-ca03-4157-81d7-091c11bc125c"
+		is_visible="true"
+		element_type="table"
+		table_type="SIMPLE" />
+		
+	<form_element
+		id="1044"
+		description="Static Table Question"
+		form_id="1002"
+		ord="11"
+		learn_more="Static Table Question Learn More"
+		is_required="false"
+		uuid="c6a75d3f-2205-409d-b32f-c5ea098c2e89"
+		is_visible="true"
+		element_type="table"
+		table_type="STATIC" />
+		
+	<form_element
+		id="1053"
+		description="Dynamic Table Question"
+		form_id="1002"
+		ord="12"
+		learn_more="Dynamic Table Question Learn More"
+		is_required="false"
+		uuid="dc44251b-9917-480c-be70-007e2a9e1d92"
+		is_visible="true"
+		element_type="table"
+		table_type="DYNAMIC" />
+		
+	<form_element
+		id="1066"
+		description="Question From QL"
+		form_id="1002"
+		ord="13"
+		is_required="false"
+		uuid="9d7ecc04-6a0e-464e-9b2c-f8b79b65ca6f"
+		link_id="94c36ee1-4bf9-4885-a8c7-6419a2106498"
+		is_visible="true"
+		element_type="link" />
+		
+<!-- **************************** Skips &amp; Links Section  **********************************************************-->
+
+	<form
+		id="1070"
+		name="Skips &amp; Links"
+		module_id="1001"
+		ord="1"
+		status="IN_PROGRESS"
+		update_date="2011-06-27 16:28:36.796"
+		author_user_id="1"
+		uuid="dfb74912-f069-4195-8069-7d687c9ada57"
+		locked_by_user_id="1"
+		last_updated_by_user_id="1"
+		form_type="questionnaireForm" />
+		
+	<form_element
+		id="1082"
+		description="dropdown question 2"
+		form_id="1070"
+		ord="1"
+		learn_more="dropdown question 2 learn more"
+		is_required="false"
+		uuid="17dac366-a35f-48b3-b2f2-06e6bd67481d"
+		is_visible="true"
+		element_type="question" />
+		
+	<form_element
+		id="1085"
+		description="checkbox question 2"
+		form_id="1070"
+		ord="2"
+		learn_more="checkbox question 2 learn more"
+		is_required="false"
+		uuid="45b05b5e-5500-470a-86bc-e77530ed7920"
+		is_visible="true"
+		element_type="question" />
+		
+	<form_element
+		id="1089"
+		description="checkbox question"
+		form_id="1070"
+		ord="3"
+		learn_more="checkbox question learn more"
+		is_required="false"
+		uuid="426ad07c-ce81-41b0-87ff-b7d41c13fe15"
+		link_id="6d7021ee-cf25-4c6a-b664-d1b50be990f7"
+		is_visible="true"
+		element_type="link" />
+	
+	<form_element
+		id="1097"
+		description="skip question 1"
+		form_id="1070"
+		ord="4"
+		learn_more="skip question 1 learn more"
+		is_required="false"
+		uuid="9872a638-b00f-4715-a8b3-9dfe9ef7c78f"
+		link_id="4d7bb6ee-c509-4dc4-82e0-1523e35b630a"
+		is_visible="true"
+		element_type="link" />
+		
+	<form_element
+		id="1098"
+		description="skip question 2"
+		form_id="1070"
+		ord="5"
+		learn_more="skip question 2 learn more"
+		is_required="false"
+		uuid="0de73999-1f30-408c-a5ff-4b2f9f6cf8a2"
+		is_visible="true"
+		element_type="question" />
+		
+	<question
+		id="1007"
+		uuid="b0c55f47-5a6a-4212-8e85-64668a056d74"
+		short_name="txt_quest"
+		parent_id="1005"
+		question_type="question"
+		type="SINGLE_ANSWER" />
+	<question
+		id="1012"
+		uuid="791bda91-a4e5-4bd5-9fea-a32ee80472c9"
+		short_name="num_quest"
+		parent_id="1010"
+		question_type="question"
+		type="SINGLE_ANSWER" />
+	<question
+		id="1016"
+		uuid="212bad9c-c6dd-4cf3-8d56-063ed5f4fec0"
+		short_name="radio_quest"
+		parent_id="1014"
+		question_type="question"
+		type="SINGLE_ANSWER" />
+	<question
+		id="1019"
+		uuid="47b9478d-f1f4-4bc3-8967-c0ff7557c3b5"
+		short_name="dropdown_quest"
+		parent_id="1017"
+		question_type="question"
+		type="SINGLE_ANSWER" />
+	<question
+		id="1022"
+		uuid="64c31ac6-737f-4121-b89a-3fbdda37bcf2"
+		short_name="year_quest"
+		parent_id="1020"
+		question_type="question"
+		type="SINGLE_ANSWER" />
+	<question
+		id="1025"
+		uuid="1fe19e1f-17d3-41a1-aa08-fb6b2144f3b7"
+		short_name="monthyear_quest"
+		parent_id="1023"
+		question_type="question"
+		type="SINGLE_ANSWER" />
+	<question
+		id="1029"
+		uuid="bb78c2da-df6f-4852-a886-923498ebb43d"
+		short_name="date_quest"
+		parent_id="1027"
+		question_type="question"
+		type="SINGLE_ANSWER" />
+	<question
+		id="1035"
+		uuid="7bc731e8-5c85-4107-a601-b0526abdeba5"
+		short_name="checkbox question"
+		parent_id="1033"
+		question_type="question"
+		type="MULTI_ANSWER" />
+	<question
+		id="1039"
+		uuid="0e9f66e8-7626-4bec-9ee1-0712387c1bf5"
+		short_name="rat 1"
+		parent_id="1037"
+		ord="1"
+		description="Row Answer Text 1"
+		question_type="tableQuestion"
+		type="SINGLE_ANSWER"
+		is_identifying="false" />
+	<question
+		id="1041"
+		uuid="6a0f7bf9-e7c3-4b4c-9e0c-dbbdf0ec8b6e"
+		short_name="rat 2"
+		parent_id="1037"
+		ord="2"
+		description="Row Answer Text 2"
+		question_type="tableQuestion"
+		type="SINGLE_ANSWER"
+		is_identifying="false" />
+	<question
+		id="1042"
+		uuid="f502528a-af1b-4c13-a294-0bf0cdf451cf"
+		short_name="rat 3"
+		parent_id="1037"
+		ord="3"
+		description="Row Answer Text 3"
+		question_type="tableQuestion"
+		type="SINGLE_ANSWER"
+		is_identifying="false" />
+	<question
+		id="1046"
+		uuid="0412d5eb-819d-4f29-a033-0c8092f988c2"
+		short_name="sn_text"
+		parent_id="1044"
+		ord="2"
+		description="text"
+		question_type="tableQuestion"
+		type="SINGLE_ANSWER"
+		is_identifying="false" />
+	<question
+		id="1047"
+		uuid="8b5ca725-59b3-4088-a576-07926a4615fb"
+		short_name="sn_text"
+		parent_id="1044"
+		ord="3"
+		description="number"
+		question_type="tableQuestion"
+		type="SINGLE_ANSWER"
+		is_identifying="false" />
+	<question
+		id="1048"
+		uuid="4bd48754-8d19-4658-bb2a-ee2fca5205a4"
+		short_name="sn_dropdown"
+		parent_id="1044"
+		ord="4"
+		description="dropdown"
+		question_type="tableQuestion"
+		type="SINGLE_ANSWER"
+		is_identifying="false" />
+	<question
+		id="1049"
+		uuid="2327acf1-b3f2-41de-9c2f-0e792fcb3879"
+		short_name="sn_year"
+		parent_id="1044"
+		ord="5"
+		description="year"
+		question_type="tableQuestion"
+		type="SINGLE_ANSWER"
+		is_identifying="false" />
+	<question
+		id="1050"
+		uuid="c55a4746-629e-4983-8ded-7e2f82a70f81"
+		short_name="sn_monthyear"
+		parent_id="1044"
+		ord="6"
+		description="monthyear"
+		question_type="tableQuestion"
+		type="SINGLE_ANSWER"
+		is_identifying="false" />
+	<question
+		id="1052"
+		uuid="6e1ee310-ec3e-4235-a5cf-fb812647ec90"
+		short_name="sn_date"
+		parent_id="1044"
+		ord="7"
+		description="date"
+		question_type="tableQuestion"
+		type="SINGLE_ANSWER"
+		is_identifying="false" />
+	<question
+		id="1055"
+		uuid="422b25c4-97c3-43ba-b67d-91f10c6ba6ae"
+		short_name="id_col"
+		parent_id="1053"
+		ord="1"
+		description="Identifing Column"
+		question_type="tableQuestion"
+		type="SINGLE_ANSWER"
+		is_identifying="true" />
+	<question
+		id="1056"
+		uuid="6916fd72-9cd1-4ef4-b199-42d28070d805"
+		short_name="text_column"
+		parent_id="1053"
+		ord="2"
+		description="text"
+		question_type="tableQuestion"
+		type="SINGLE_ANSWER"
+		is_identifying="false" />
+	<question
+		id="1057"
+		uuid="872ccee6-6b9f-4435-832c-165707626f2b"
+		short_name="number_column"
+		parent_id="1053"
+		ord="3"
+		description="number"
+		question_type="tableQuestion"
+		type="SINGLE_ANSWER"
+		is_identifying="false" />
+	<question
+		id="1058"
+		uuid="2ea33e6b-58a5-4799-9ee7-ac0061cc4391"
+		short_name="year_column"
+		parent_id="1053"
+		ord="4"
+		description="year"
+		question_type="tableQuestion"
+		type="SINGLE_ANSWER"
+		is_identifying="false" />
+	<question
+		id="1060"
+		uuid="75330d11-5f3d-4da8-8e47-d824d5c07c54"
+		short_name="monthyear_column"
+		parent_id="1053"
+		ord="5"
+		description="monthyear"
+		question_type="tableQuestion"
+		type="SINGLE_ANSWER"
+		is_identifying="false" />
+	<question
+		id="1061"
+		uuid="1c6a70e2-04aa-4b31-9b1d-89995f2211ed"
+		short_name="date_column"
+		parent_id="1053"
+		ord="6"
+		description="date"
+		question_type="tableQuestion"
+		type="SINGLE_ANSWER"
+		is_identifying="false" />
+	<question
+		id="1064"
+		uuid="10182993-22f7-4d58-9600-631c63010fcb"
+		short_name="ql_text_question"
+		parent_id="1062"
+		question_type="question"
+		type="SINGLE_ANSWER" />
+	<question
+		id="1069"
+		uuid="b377a849-1338-4ad4-829e-473e054cf79a"
+		short_name=""
+		parent_id="1044"
+		ord="1"
+		description=""
+		question_type="tableQuestion"
+		type="SINGLE_ANSWER"
+		is_identifying="true" />
+	<question
+		id="1074"
+		uuid="34bdce20-0334-4484-bd07-b9e9b6585ff6"
+		short_name="dropdown_question"
+		parent_id="1072"
+		question_type="question"
+		type="SINGLE_ANSWER" />
+	<question
+		id="1079"
+		uuid="6758a05a-9f28-4ad6-9fb2-44aa6b476397"
+		short_name="checkbox_question"
+		parent_id="1077"
+		question_type="question"
+		type="MULTI_ANSWER" />
+	<question
+		id="1084"
+		uuid="34bdce20-0334-4484-bd07-b9e9b6585ff6"
+		short_name="dropdown_question2"
+		parent_id="1082"
+		question_type="question"
+		type="SINGLE_ANSWER" />
+	<question
+		id="1087"
+		uuid="6758a05a-9f28-4ad6-9fb2-44aa6b476397"
+		short_name="checkbox_question 2"
+		parent_id="1085"
+		question_type="question"
+		type="MULTI_ANSWER" />
+	<question
+		id="1096"
+		uuid="8cab63cc-a539-4747-8524-06f47d4be4d8"
+		short_name="skip_question1"
+		parent_id="1090"
+		question_type="question"
+		type="SINGLE_ANSWER" />
+	<question
+		id="1109"
+		uuid="b108c379-1edd-43df-9930-ed987ff473d1"
+		short_name="skip_question2"
+		parent_id="1098"
+		question_type="question"
+		type="SINGLE_ANSWER" />
+		
+	<answer
+		id="5040"
+		type="TEXT"
+		description="Text Answer"
+		group_name=""
+		question_id="1007"
+		answer_column_heading=""
+		display_style="Medium"
+		value_constraint="99"
+		uuid="c9f87c9c-77dc-4d39-84eb-a5786ff3eb7c" />
+	<answer
+		id="5041"
+		type="NUMBER"
+		description="Number Answer"
+		group_name=""
+		question_id="1012"
+		answer_column_heading=""
+		display_style=""
+		value_constraint="min:10;max:110"
+		uuid="184f7d02-b799-4ff3-b160-fd1ee7f2d856" />
+	<answer
+		id="5042"
+		type="RADIO"
+		description="Radio Answer 1"
+		group_name=""
+		question_id="1016"
+		answer_column_heading=""
+		display_style="Horizontal"
+		uuid="52a70205-02df-4bea-a97b-75a2d59bb1a6" />
+	<answer
+		id="5043"
+		type="DROPDOWN"
+		description="Dropdown Answer 1"
+		group_name=""
+		question_id="1019"
+		answer_column_heading=""
+		display_style=""
+		uuid="9dfc8143-ec2e-46c8-8d70-abece0d5a375" />
+	<answer
+		id="5044"
+		type="YEAR"
+		description="Year Answer"
+		group_name=""
+		question_id="1022"
+		answer_column_heading=""
+		display_style=""
+		uuid="80457844-5d16-4996-a854-61ae1c31c2f8" />
+	<answer
+		id="5130"
+		type="MONTHYEAR"
+		description="Monthyear Answer"
+		group_name=""
+		question_id="1025"
+		answer_column_heading=""
+		display_style=""
+		uuid="a5f732b9-c178-4af5-adbd-57f928f025f3" />
+	<answer
+		id="5131"
+		type="DATE"
+		description="Date Answer"
+		group_name=""
+		question_id="1029"
+		answer_column_heading=""
+		display_style=""
+		uuid="bc9b3d24-6a33-46b9-817f-40db978259a7" />
+	<answer
+		id="5132"
+		type="CHECKBOX"
+		description="Checkbox Answer 1"
+		group_name=""
+		question_id="1035"
+		answer_column_heading=""
+		display_style="Horizontal"
+		uuid="02836107-99c3-4769-94df-9bee202a93b7" />
+	<answer
+		id="5133"
+		type="CHECKBOX"
+		description=""
+		group_name=""
+		question_id="1039"
+		answer_column_heading=""
+		display_style=""
+		uuid="6d7ecd8b-e095-49dd-a6d2-a05e4df715f7" />
+	<answer
+		id="5134"
+		type="CHECKBOX"
+		description=""
+		group_name=""
+		question_id="1041"
+		answer_column_heading=""
+		display_style=""
+		uuid="134bb167-de63-49cc-af7f-e3126ad4780b" />
+	<answer
+		id="5215"
+		type="CHECKBOX"
+		description=""
+		group_name=""
+		question_id="1042"
+		answer_column_heading=""
+		display_style=""
+		uuid="6c485812-1669-4073-a88b-cf11e1fb0706" />
+	<answer
+		id="5216"
+		type="TEXT"
+		description=""
+		group_name=""
+		question_id="1046"
+		answer_column_heading=""
+		display_style=""
+		uuid="78862f9e-e535-4a86-a891-42451dfe359d" />
+	<answer
+		id="5217"
+		type="NUMBER"
+		description=""
+		group_name=""
+		question_id="1047"
+		answer_column_heading=""
+		display_style=""
+		uuid="eeffc9d0-3c94-4079-abcc-2f600b91ed4b" />
+	<answer
+		id="5218"
+		type="DROPDOWN"
+		description="Table Dropdown Answer 1"
+		group_name=""
+		question_id="1048"
+		answer_column_heading=""
+		display_style=""
+		uuid="16ca5386-c2ba-4a09-ae79-c4ce2ccd0d7a" />
+	<answer
+		id="5219"
+		type="YEAR"
+		description=""
+		group_name=""
+		question_id="1049"
+		answer_column_heading=""
+		display_style=""
+		uuid="1b878393-644b-4244-9594-fb41978b6421" />
+	<answer
+		id="5255"
+		type="MONTHYEAR"
+		description=""
+		group_name=""
+		question_id="1050"
+		answer_column_heading=""
+		display_style=""
+		uuid="3ee34f54-42d9-42df-afe3-f3266350c5f8" />
+	<answer
+		id="5256"
+		type="DATE"
+		description=""
+		group_name=""
+		question_id="1052"
+		answer_column_heading=""
+		display_style=""
+		uuid="3b0b4d17-73b8-4286-9587-26aaec3d789e" />
+	<answer
+		id="5257"
+		type="DROPDOWN"
+		description="Id Text 1"
+		group_name=""
+		question_id="1055"
+		answer_column_heading=""
+		display_style=""
+		uuid="4ae4287e-aaa5-4727-ac92-0d780cf8e7b6" />
+	<answer
+		id="5258"
+		type="TEXT"
+		description=""
+		group_name=""
+		question_id="1056"
+		answer_column_heading=""
+		display_style=""
+		value_constraint=""
+		uuid="156eb5b6-f2ce-43fe-abaf-af236d0969a9" />
+	<answer
+		id="5259"
+		type="NUMBER"
+		description=""
+		group_name=""
+		question_id="1057"
+		answer_column_heading=""
+		display_style=""
+		value_constraint=""
+		uuid="f74951e5-4da1-453b-adf2-d61e4f99f8f8" />
+	<answer
+		id="5295"
+		type="YEAR"
+		description=""
+		group_name=""
+		question_id="1058"
+		answer_column_heading=""
+		display_style=""
+		uuid="ecc0effa-16c6-4eb5-8f14-9a04fe2e06db" />
+	<answer
+		id="5296"
+		type="MONTHYEAR"
+		description=""
+		group_name=""
+		question_id="1060"
+		answer_column_heading=""
+		display_style=""
+		uuid="19fc656d-f026-4e23-b2fc-4d10a87555d3" />
+	<answer
+		id="5297"
+		type="DATE"
+		description=""
+		group_name=""
+		question_id="1061"
+		answer_column_heading=""
+		display_style=""
+		uuid="62118a8e-49b0-4736-9945-aaa1bea4c9d0" />
+	<answer
+		id="5298"
+		type="TEXT"
+		description="text"
+		group_name=""
+		question_id="1064"
+		answer_column_heading=""
+		display_style="Short"
+		value_constraint="30"
+		uuid="89f8da52-84b9-41e0-814e-e308143bde95" />
+	<answer
+		id="5299"
+		type="DROPDOWN"
+		description=""
+		group_name=""
+		question_id="1069"
+		answer_column_heading=""
+		display_style=""
+		uuid="b38df339-7a1b-463b-9051-1138e90400c3" />
+	<answer
+		id="5375"
+		type="DROPDOWN"
+		description="yes"
+		group_name=""
+		question_id="1074"
+		answer_column_heading=""
+		display_style=""
+		uuid="22dc744d-0507-4e39-a391-1b2493924068" />
+	<answer
+		id="5376"
+		type="CHECKBOX"
+		description="one"
+		group_name=""
+		question_id="1079"
+		answer_column_heading=""
+		display_style="Vertical"
+		uuid="b5a65d3e-aa89-491e-87e0-84fae86a48a4" />
+	<answer
+		id="5377"
+		type="DROPDOWN"
+		description="yes"
+		group_name=""
+		question_id="1084"
+		answer_column_heading=""
+		display_style=""
+		uuid="22dc744d-0507-4e39-a391-1b2493924068" />
+	<answer
+		id="5378"
+		type="CHECKBOX"
+		description="one"
+		group_name=""
+		question_id="1087"
+		answer_column_heading=""
+		display_style="Vertical"
+		uuid="b5a65d3e-aa89-491e-87e0-84fae86a48a4" />
+	<answer
+		id="5379"
+		type="TEXT"
+		description="text"
+		group_name=""
+		question_id="1096"
+		answer_column_heading=""
+		display_style="Short"
+		value_constraint="44"
+		uuid="f5a6b371-76ea-481b-a3b4-d67de4b90622" />
+	<answer
+		id="5550"
+		type="TEXT"
+		description="text"
+		group_name=""
+		question_id="1109"
+		answer_column_heading=""
+		display_style="Short"
+		value_constraint="55"
+		uuid="fbfc8bd3-02b5-4834-a55e-67dbbe346b77" />
+	<answer_skip_rule
+		id="1093"
+		parent_id="1092"
+		answer_value_id="7726a579-479e-4f99-a132-a8274520d990"
+		form_id="1070" />
+	<answer_skip_rule
+		id="1095"
+		parent_id="1094"
+		answer_value_id="cec70da2-98fe-4be9-bd1e-b7287d34ac0b"
+		form_id="1070" />
+	<answer_skip_rule
+		id="1101"
+		parent_id="1100"
+		answer_value_id="f3783b2e-cd2d-42d9-9240-3b481ff9f212"
+		form_id="1070" />
+	<answer_skip_rule
+		id="1102"
+		parent_id="1100"
+		answer_value_id="47132cd7-9fee-4d1b-b682-f7c418fafc6e"
+		form_id="1070" />
+	<answer_skip_rule
+		id="1104"
+		parent_id="1103"
+		answer_value_id="a69d3507-ceda-4b95-b504-555585c900a8"
+		form_id="1070" />
+	<answer_skip_rule
+		id="1105"
+		parent_id="1103"
+		answer_value_id="e6af3f81-b272-4b03-944a-71e95970e36c"
+		form_id="1070" />
+	<answer_skip_rule
+		id="1107"
+		parent_id="1106"
+		answer_value_id="8cdb45b8-3e08-4d60-929a-9b565c34c91e"
+		form_id="1070" />
+	<answer_skip_rule
+		id="1108"
+		parent_id="1106"
+		answer_value_id="64e621dc-f089-431c-99a7-1109af5bc91e"
+		form_id="1070" />
+	<answer_value
+		id="10092"
+		short_name=""
+		value=""
+		answer_id="5041"
+		description="Number Answer"
+		ord="1"
+		permanent_id="c30e4cc8-34ab-45ad-933a-a25ab1a7b405" />
+	<answer_value
+		id="10093"
+		short_name=""
+		value="Radio Answer Value 1"
+		answer_id="5042"
+		description="Radio Answer 1"
+		ord="1"
+		permanent_id="8e326570-9b52-4971-8d8f-3b89fd251b3d" />
+	<answer_value
+		id="10094"
+		short_name=""
+		value="Radio Answer Value 2"
+		answer_id="5042"
+		description="Radio Answer 2"
+		ord="2"
+		permanent_id="130c0d3f-3608-4cb5-b286-23bfe6b833b2" />
+	<answer_value
+		id="10098"
+		short_name=""
+		value=""
+		answer_id="5044"
+		description="Year Answer"
+		ord="1"
+		permanent_id="44869b16-122c-4968-a4a1-3b6abab44d3a" />
+	<answer_value
+		id="10099"
+		short_name=""
+		value=""
+		answer_id="5130"
+		description="Monthyear Answer"
+		ord="1"
+		permanent_id="8f8833e6-2fff-4395-b480-1ef275d44732" />
+	<answer_value
+		id="10300"
+		short_name=""
+		value=""
+		answer_id="5131"
+		description="Date Answer"
+		ord="1"
+		permanent_id="200b5fa9-68e4-457e-8c54-92363d56d8a9" />
+	<answer_value
+		id="10301"
+		short_name=""
+		value=""
+		answer_id="5040"
+		description="Text Answer"
+		ord="1"
+		permanent_id="7a073089-b60b-4dca-b04f-3e284fecb8a0" />
+	<answer_value
+		id="10302"
+		short_name=""
+		value="Dropdown Answer Value 1"
+		answer_id="5043"
+		description="Dropdown Answer 1"
+		ord="1"
+		permanent_id="6d8abe3f-9b35-4a71-b960-f15771f8a2ac" />
+	<answer_value
+		id="10303"
+		short_name=""
+		value="Dropdown Answer Value 2"
+		answer_id="5043"
+		description="Dropdown Answer 2"
+		ord="2"
+		permanent_id="3f7f4280-be46-4752-80d5-535d73dbceb1" />
+	<answer_value
+		id="10304"
+		short_name=""
+		value="Dropdown Answer Value 3"
+		answer_id="5043"
+		description="Dropdown Answer 3"
+		ord="3"
+		permanent_id="570cdad4-1218-4439-a89c-6e9c1f068fb4" />
+	<answer_value
+		id="10305"
+		short_name=""
+		value="Checkbox Answer Value 1"
+		answer_id="5132"
+		description="Checkbox Answer 1"
+		ord="1"
+		permanent_id="bbf93530-5e72-46fd-a333-f40d7ed498e1" />
+	<answer_value
+		id="10306"
+		short_name=""
+		value="Checkbox Answer Value 2"
+		answer_id="5132"
+		description="Checkbox Answer 2"
+		ord="2"
+		permanent_id="0ead5a0b-8af6-49b4-83a1-905b731843b8" />
+	<answer_value
+		id="10307"
+		short_name=""
+		value="Checkbox Answer Value 3"
+		answer_id="5132"
+		description="Checkbox Answer 3"
+		ord="3"
+		permanent_id="6127fee1-8811-46da-a35e-05f5c32e512c" />
+	<answer_value
+		id="10308"
+		short_name=""
+		value="Checkbox Answer Value 4"
+		answer_id="5132"
+		description="Checkbox Answer 4"
+		ord="4"
+		permanent_id="5521b407-0a19-48d1-9914-31a3f4a7b8d5" />
+	<answer_value
+		id="10309"
+		short_name=""
+		value="Simple Answer Value 1"
+		answer_id="5133"
+		description="Simple Answer Text 1"
+		ord="1"
+		permanent_id="c13258bc-d53b-4bc3-a9dd-7db6a5604bdd" />
+	<answer_value
+		id="10400"
+		short_name=""
+		value="Simple Answer Value 2"
+		answer_id="5133"
+		description="Simple Answer Text 2"
+		ord="2"
+		permanent_id="b7614561-23c7-4249-a71d-da8d0ed08090" />
+	<answer_value
+		id="10401"
+		short_name=""
+		value="Simple Answer Value 1"
+		answer_id="5134"
+		description="Simple Answer Text 1"
+		ord="3"
+		permanent_id="ed5d17a7-7737-432d-bad7-8611723752cc" />
+	<answer_value
+		id="10402"
+		short_name=""
+		value="Simple Answer Value 2"
+		answer_id="5134"
+		description="Simple Answer Text 2"
+		ord="4"
+		permanent_id="7fd359c0-a9b2-4b47-bf05-dd07ec4134d2" />
+	<answer_value
+		id="10403"
+		short_name=""
+		value="Simple Answer Value 1"
+		answer_id="5215"
+		description="Simple Answer Text 1"
+		ord="5"
+		permanent_id="e050c9dc-42e9-4363-9ff3-f60b1f394c44" />
+	<answer_value
+		id="10404"
+		short_name=""
+		value="Simple Answer Value 2"
+		answer_id="5215"
+		description="Simple Answer Text 2"
+		ord="6"
+		permanent_id="fa096545-0265-4ee7-89fb-f7973a3c18be" />
+	<answer_value
+		id="10405"
+		short_name=""
+		value="Table Dropdown Answer Value 1"
+		answer_id="5218"
+		description="Table Dropdown Answer 1"
+		ord="4"
+		permanent_id="d05a5baa-a3f6-4bf4-8067-5a5ab3e2896c" />
+	<answer_value
+		id="10406"
+		short_name=""
+		value="Table Dropdown Answer Value 2"
+		answer_id="5218"
+		description="Table Dropdown Answer 2"
+		ord="5"
+		permanent_id="198882d2-a166-49db-ba9a-51f1ddf4654e" />
+	<answer_value
+		id="10407"
+		short_name=""
+		value="Id Value 1"
+		answer_id="5257"
+		description="Id Text 1"
+		ord="1"
+		permanent_id="0d3889d8-fa96-4d04-9161-6ef4f8b11d0d" />
+	<answer_value
+		id="10408"
+		short_name=""
+		value="Id Value 2"
+		answer_id="5257"
+		description="Id Text 2"
+		ord="2"
+		permanent_id="66a63292-514a-4b05-a4c5-9df99dcf7d1c" />
+	<answer_value
+		id="10409"
+		short_name=""
+		value="Id Value 3"
+		answer_id="5257"
+		description="Id Text 3"
+		ord="3"
+		permanent_id="abff7c01-5fd9-4e57-80c7-08f0694690ec" />
+	<answer_value
+		id="10650"
+		short_name=""
+		value=""
+		answer_id="5298"
+		description="text"
+		ord="1"
+		permanent_id="1f1c8a3d-31c8-4321-b8c8-71e6f4078165" />
+	<answer_value
+		id="10651"
+		short_name="Row 1"
+		value="Row 1"
+		answer_id="5299"
+		description="Row 1"
+		ord="1"
+		permanent_id="b7f94552-9290-43b9-93c6-de843c549d0f" />
+	<answer_value
+		id="10652"
+		short_name="Row 2"
+		value="Row 2"
+		answer_id="5299"
+		description="Row 2"
+		ord="2"
+		permanent_id="f35bc941-e164-455f-9174-897e96567672" />
+	<answer_value
+		id="10653"
+		short_name="Row 3"
+		value="Row 3"
+		answer_id="5299"
+		description="Row 3"
+		ord="3"
+		permanent_id="7aea330d-7c25-491b-8d58-a435d8b4d3a9" />
+	<answer_value
+		id="10760"
+		short_name=""
+		value="yes"
+		answer_id="5375"
+		description="yes"
+		ord="1"
+		permanent_id="c2a65594-42cf-42a7-a7a6-b81e8d10ec50" />
+	<answer_value
+		id="10761"
+		short_name=""
+		value="no"
+		answer_id="5375"
+		description="no"
+		ord="2"
+		permanent_id="81900b7b-6247-4299-b00d-1c614cbe1292" />
+	<answer_value
+		id="10762"
+		short_name=""
+		value="maybe"
+		answer_id="5375"
+		description="maybe"
+		ord="3"
+		permanent_id="c85cfa26-0a8a-42b8-b1b9-8278e62cafd5" />
+	<answer_value
+		id="10763"
+		short_name=""
+		value="one"
+		answer_id="5376"
+		description="one"
+		ord="1"
+		permanent_id="cec70da2-98fe-4be9-bd1e-b7287d34ac0b" />
+	<answer_value
+		id="10764"
+		short_name=""
+		value="two"
+		answer_id="5376"
+		description="two"
+		ord="2"
+		permanent_id="f3783b2e-cd2d-42d9-9240-3b481ff9f212" />
+	<answer_value
+		id="10765"
+		short_name=""
+		value="three"
+		answer_id="5376"
+		description="three"
+		ord="3"
+		permanent_id="47132cd7-9fee-4d1b-b682-f7c418fafc6e" />
+	<answer_value
+		id="10766"
+		short_name=""
+		value="yes"
+		answer_id="5377"
+		description="yes"
+		ord="1"
+		permanent_id="7726a579-479e-4f99-a132-a8274520d990" />
+	<answer_value
+		id="10767"
+		short_name=""
+		value="no"
+		answer_id="5377"
+		description="no"
+		ord="2"
+		permanent_id="a69d3507-ceda-4b95-b504-555585c900a8" />
+	<answer_value
+		id="10768"
+		short_name=""
+		value="maybe"
+		answer_id="5377"
+		description="maybe"
+		ord="3"
+		permanent_id="e6af3f81-b272-4b03-944a-71e95970e36c" />
+	<answer_value
+		id="10769"
+		short_name=""
+		value="one"
+		answer_id="5378"
+		description="one"
+		ord="1"
+		permanent_id="cd185872-38a0-4ecb-8629-b34e6b4a1857" />
+	<answer_value
+		id="10880"
+		short_name=""
+		value="two"
+		answer_id="5378"
+		description="two"
+		ord="2"
+		permanent_id="8cdb45b8-3e08-4d60-929a-9b565c34c91e" />
+	<answer_value
+		id="10881"
+		short_name=""
+		value="three"
+		answer_id="5378"
+		description="three"
+		ord="3"
+		permanent_id="64e621dc-f089-431c-99a7-1109af5bc91e" />
+	<answer_value
+		id="10882"
+		short_name=""
+		value=""
+		answer_id="5379"
+		description="text"
+		ord="1"
+		permanent_id="437d306a-6643-4652-a401-17fc64ed524b" />
+	<answer_value
+		id="10883"
+		short_name=""
+		value=""
+		answer_id="5550"
+		description="text"
+		ord="1"
+		permanent_id="1c335ddf-8654-4a6b-a4a9-fedecb21a7c5" />
+		
+	<category
+		id="2072"
+		name="Category"
+		description="Category Description" />
+	<category
+		id="58050"
+		name="About Me"
+		description="Patient Demographic" />
+	<question_categries
+		category_id="58050"
+		question_id="1005" />
+	<question_categries
+		category_id="58050"
+		question_id="1017" />
+	<question_categries
+		category_id="58050"
+		question_id="1033" />
+	<question_categries
+		category_id="2072"
+		question_id="1033" />
+	<question_categries
+		category_id="2072"
+		question_id="1037" />
+	<question_categries
+		category_id="58050"
+		question_id="1044" />
+	<question_categries
+		category_id="2072"
+		question_id="1077" />
+	<question_categries
+		category_id="2072"
+		question_id="1085" />
+		
+	<question_skip_rule
+		id="1092"
+		parent_id="1091"
+		rule_value="show" />
+	<question_skip_rule
+		id="1094"
+		parent_id="1091"
+		rule_value="show" />
+	<question_skip_rule
+		id="1100"
+		parent_id="1099"
+		rule_value="show"
+		logical_op="OR" />
+	<question_skip_rule
+		id="1103"
+		parent_id="1099"
+		rule_value="show"
+		logical_op="OR" />
+	<question_skip_rule
+		id="1106"
+		parent_id="1099"
+		rule_value="show"
+		logical_op="OR" />
+		
+		<skip_rule
+		id="1003"
+		parent_id="1002"
+		logical_op="AND"
+		parent_type="formSkip" />
+		
+	<skip_rule
+		id="1013"
+		parent_id="1010"
+		logical_op="AND"
+		parent_type="formElementSkip" />
+		
+	<skip_rule
+		id="1015"
+		parent_id="1014"
+		logical_op="AND"
+		parent_type="formElementSkip" />
+	<skip_rule
+		id="1021"
+		parent_id="1020"
+		logical_op="AND"
+		parent_type="formElementSkip" />
+	<skip_rule
+		id="1024"
+		parent_id="1023"
+		logical_op="AND"
+		parent_type="formElementSkip" />
+	<skip_rule
+		id="1028"
+		parent_id="1027"
+		logical_op="AND"
+		parent_type="formElementSkip" />
+	<skip_rule
+		id="1031"
+		parent_id="1005"
+		logical_op="AND"
+		parent_type="formElementSkip" />
+	<skip_rule
+		id="1032"
+		parent_id="1017"
+		logical_op="AND"
+		parent_type="formElementSkip" />
+	<skip_rule
+		id="1034"
+		parent_id="1033"
+		logical_op="AND"
+		parent_type="formElementSkip" />
+	<skip_rule
+		id="1038"
+		parent_id="1037"
+		logical_op="AND"
+		parent_type="formElementSkip" />
+	<skip_rule
+		id="1054"
+		parent_id="1053"
+		logical_op="AND"
+		parent_type="formElementSkip" />
+	<skip_rule
+		id="1063"
+		parent_id="1062"
+		logical_op="AND"
+		parent_type="formElementSkip" />
+	<skip_rule
+		id="1068"
+		parent_id="1044"
+		logical_op="AND"
+		parent_type="formElementSkip" />
+	<skip_rule
+		id="1071"
+		parent_id="1070"
+		logical_op="AND"
+		parent_type="formSkip" />
+	<skip_rule
+		id="1083"
+		parent_id="1082"
+		logical_op="AND"
+		parent_type="formElementSkip" />
+	<skip_rule
+		id="1086"
+		parent_id="1085"
+		logical_op="AND"
+		parent_type="formElementSkip" />
+	<skip_rule
+		id="1091"
+		parent_id="1097"
+		logical_op="OR"
+		parent_type="formElementSkip" />
+	<skip_rule
+		id="1099"
+		parent_id="1098"
+		logical_op="AND"
+		parent_type="formElementSkip" />
+
+</dataset>

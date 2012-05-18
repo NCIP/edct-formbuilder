@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.0.xsd">
+
+
+    <!-- Context Integration Filter -->
+    <bean id="httpSessionIntegrationFilter"
+			class="org.springframework.security.web.context.SecurityContextPersistenceFilter"/>
+
+	<bean id="passwordEncoder"
+		class="org.springframework.security.authentication.encoding.Md5PasswordEncoder"/>
+   
+	<bean id="daoAuthenticationProvider"
+			class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
+		<property name="userDetailsService" ref="userMgr"/>
+		<property name="passwordEncoder" ref="passwordEncoder"/>
+	</bean>
+
+   	<bean id="authenticationManager" class="org.springframework.security.authentication.ProviderManager">
+		<property name="providers">
+			<list>
+				<!-- <ref bean="inMemoryProvider"/>  for testing purposes only -->
+				<ref bean="daoAuthenticationProvider"/>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="authenticationEntryPoint"
+			class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
+		<property name="loginFormUrl" value="/login" />
+		<property name="forceHttps" value="false" />
+		<!-- <property name="serverSideRedirect" value="false"/> -->
+	</bean>
+
+    <bean id="simpleSuccessHandler" class="org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler">
+       <property name="defaultTargetUrl" value="/moduleList.view"/>
+    </bean>
+    <bean id="simpleFailureHandler" class="org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler">
+       <property name="defaultFailureUrl" value="/login?err=1"/>
+    </bean>
+	<bean id="authenticationProcessingFilter" class="org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter">
+<!-- 	<bean id="authenticationProcessingFilter" class="com.healthcit.cacure.security.AuthenticationProcessingFilter">  -->
+ <!--  		<property name="filterProcessesUrl" value="/FormBuilder/j_security_check" /> --> 
+		<property name="usernameParameter" value="userName" />
+		<property name="passwordParameter" value="password" />
+ <!-- 		<property name="authenticationFailureUrl" value="/login?err=1" />
+		<property name="defaultTargetUrl" value="/moduleList.view" />    -->
+		<property name="authenticationManager" ref="authenticationManager"/>
+		<property name="authenticationSuccessHandler" ref="simpleSuccessHandler"/>
+		<property name="authenticationFailureHandler" ref="simpleFailureHandler" />
+		
+	</bean>
+
+
+	<!-- Anonymous Processing -->
+	<bean id="anonymousProcessingFilter"
+			class="org.springframework.security.web.authentication.AnonymousAuthenticationFilter">
+		<property name="key" value="foobar"/>
+		<property name="userAttribute" value="anonymousUser,ROLE_ANONYMOUS"/>
+	</bean>
+
+	<!-- Handling authentication errors -->
+	<bean id="accessDeniedHandler"
+			class="org.springframework.security.web.access.AccessDeniedHandlerImpl">
+		<property name="errorPage" value="/denied" />
+	</bean>
+
+	<!-- Security Context Holder Aware Filter - enables request.getUserPrincipal/isUserInRole -->
+	<bean id="securityContextHolderAwareRequestFilter"
+    	class="org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter" />
+    	
+	
+	<bean id="exceptionTranslationFilter"
+			class="org.springframework.security.web.access.ExceptionTranslationFilter">
+		<property name="authenticationEntryPoint" ref="authenticationEntryPoint" />
+		<property name="accessDeniedHandler" ref="accessDeniedHandler" />
+	</bean>
+
+
+	<!-- Define AccessDesisionManager as UnanimousBased -->
+	<bean id="accessDecisionManager" class="org.springframework.security.access.vote.AffirmativeBased">
+		<property name="allowIfAllAbstainDecisions" value="false"/>
+		<property name="decisionVoters">
+			<list>
+				<bean class="org.springframework.security.access.vote.RoleVoter" />
+				<bean class="org.springframework.security.access.vote.AuthenticatedVoter" />
+			</list>
+		</property>
+	</bean>
+
+	<!-- Checking grants and enforcing security -->
+ 	<bean id="filterSecurityInterceptor"
+			class="org.springframework.security.web.access.intercept.FilterSecurityInterceptor">
+		<property name="authenticationManager" ref="authenticationManager" />
+		<property name="accessDecisionManager" ref="accessDecisionManager" />
+		<property name="securityMetadataSource">
+            <security:filter-security-metadata-source>
+                 <security:intercept-url pattern="/home" access="ROLE_AUTHOR,ROLE_DEPLOYER,ROLE_APPROVER,ROLE_ADMIN,ROLE_LIBRARIAN"/>
+                 <security:intercept-url pattern="/**/admin/**" access="ROLE_ADMIN"/>
+                 <security:intercept-url pattern="/**/util/**" access="ROLE_ADMIN"/>
+                 <security:intercept-url pattern="/**/*.view" access="ROLE_ADMIN,ROLE_AUTHOR,ROLE_DEPLOYER,ROLE_APPROVER,ROLE_LIBRARIAN"/>
+                 <security:intercept-url pattern="/**/*.edit" access="ROLE_ADMIN,ROLE_AUTHOR,ROLE_DEPLOYER,ROLE_APPROVER,ROLE_LIBRARIAN"/>
+            </security:filter-security-metadata-source>
+        </property>
+		<!-- 
+		<property name="objectDefinitionSource">
+			<value>
+				CONVERT_URL_TO_LOWERCASE_BEFORE_COMPARISON
+				PATTERN_TYPE_APACHE_ANT
+				/home=ROLE_AUTHOR,ROLE_DEPLOYER,ROLE_APPROVER,ROLE_ADMIN
+				/**/admin/**=ROLE_ADMIN
+				/**/util/**=ROLE_ADMIN
+				/**/*.view=ROLE_AUTHOR,ROLE_DEPLOYER,ROLE_APPROVER
+				/**/*.edit=ROLE_AUTHOR,ROLE_DEPLOYER,ROLE_APPROVER
+			</value>
+		</property>
+		-->
+	</bean>
+	<bean id="securityFilterChainBean" class="org.springframework.security.web.FilterChainProxy">
+	
+   <security:filter-chain-map path-type="ant" >
+       <security:filter-chain pattern="/**" filters="httpSessionIntegrationFilter,authenticationProcessingFilter,securityContextHolderAwareRequestFilter,anonymousProcessingFilter,exceptionTranslationFilter,filterSecurityInterceptor" />
+   </security:filter-chain-map>
+   </bean>
+<!--      <bean id="securityFilterChainBean" class="org.springframework.security.util.FilterChainProxy">
+		<property name="filterInvocationDefinitionSource">
+			<value>
+				CONVERT_URL_TO_LOWERCASE_BEFORE_COMPARISON
+				PATTERN_TYPE_APACHE_ANT
+				/**=httpSessionIntegrationFilter,authenticationProcessingFilter,securityContextHolderAwareRequestFilter,anonymousProcessingFilter,exceptionTranslationFilter,filterSecurityInterceptor
+			</value>
+		</property>
+	</bean>
+	-->
+</beans>

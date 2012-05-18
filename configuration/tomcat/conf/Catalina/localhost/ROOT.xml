@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Context path="howformbuilder" reloadable="true" docBase="D:\BBRC\workspace\HowFormBuilder\build\build-local\dist\srv\how-local\www\webapps\ROOT" workDir="D:\BBRC\workspace\HowFormBuilder\work" >
+  <Logger className="org.apache.catalina.logger.SystemOutLogger" verbosity="4" timestamp="true"/>
+  <!-- 
+  <Resource 
+  	auth="Container" 
+  	description="MySQL DB Connection"
+    name="jdbc/vs_conf" 
+    type="javax.sql.DataSource"
+    username="vs_conf"
+    password="password" 
+    driverClassName="com.mysql.jdbc.Driver"
+    maxIdle="2" 
+    maxActive="4" 
+    maxWait="5000"     
+    url="jdbc:mysql://192.168.0.151:3306/vs_conf?autoReconnect=true"
+    removeAbandoned="true" 
+    removeAbandonedTimeout="60"
+    logAbandoned="true" />
+  -->
+  <!-- 
+  <Resource 
+  	auth="Container" 
+  	description="MySQL DB Connection"
+    name="jdbc/vs_conf" 
+    type="javax.sql.DataSource"
+    username="vs_confr"
+    password="password" 
+    driverClassName="com.mysql.jdbc.Driver"
+    maxIdle="2" 
+    maxActive="4" 
+    maxWait="5000"    
+    url="jdbc:mysql://localhost:3306/vs_confr?autoReconnect=true"
+    removeAbandoned="true" 
+    removeAbandonedTimeout="60"
+    logAbandoned="true" />
+  -->
+    
+    <Resource 
+  	auth="Container" 
+  	description="MySQL DB Connection"
+    name="jdbc/system_check" 
+    type="javax.sql.DataSource"
+    username="root"
+    password="root" 
+    driverClassName="com.mysql.jdbc.Driver"
+    maxIdle="10" 
+    maxActive="500" 
+    maxWait="5000"    
+    url="jdbc:mysql://localhost:3306/system_check"
+    validationQuery="select 1"
+    testOnBorrow="true"
+    testWhileIdle="true"
+    timeBetweenEvictionRunsMillis="10000"
+    minEvictableIdleTimeMillis="60000"
+    removeAbandoned="true" 
+    removeAbandonedTimeout="60"
+    logAbandoned="true" />
+  	
+ <Realm 
+ 	className="org.apache.catalina.realm.DataSourceRealm" 
+ 	debug="99"
+ 	localDataSource="true"
+   	dataSourceName="jdbc/system_check"
+   	userTable="person" 
+   	userNameCol="ldap_id" 
+   	userCredCol="password" 
+   	userRoleTable="person" 
+   	roleNameCol="is_active" />
+<!--
+  <Realm 
+  	className="org.apache.catalina.realm.JNDIRealm" 
+  	debug="99"
+  	connectionURL="ldap://ldap.cgsinc.ca:389"
+  	connectionName="cn=root"
+	connectionPassword="g0n0rin"
+	userPassword="userPassword"	
+	userRoleName="objectclass"
+  	userBase="dc=cgsinc,dc=ca" 
+  	userSubtree="true" 
+  	userSearch="(mail={0})" />
+
+  <Realm 
+  	className="org.apache.catalina.realm.JNDIRealm" 
+  	debug="99"
+  	connectionURL="ldap://ldap.cgsinc.ca:389"
+	userRoleName="objectclass"
+  	userBase="dc=cgsinc,dc=ca" 
+  	userSubtree="true" 
+  	userSearch="(mail={0})" />
+ -->
+  	
+  <Resource
+    name="mail/VSMailSession"
+    type="javax.mail.Session"
+    auth="Container"
+    mail.smtp.host="mailserv2.cgsinc.ca"/>
+</Context>

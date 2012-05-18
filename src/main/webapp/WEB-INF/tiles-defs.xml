@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+	"-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+	"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+
+<tiles-definitions>
+
+	<!-- Base Page Layout -->
+	<definition name=".base" template="/WEB-INF/layouts/basic-layout.jsp">
+		<put-attribute name="header" value="/WEB-INF/layouts/header.jsp"/>
+		<put-attribute name="footer" value="/WEB-INF/layouts/footer.jsp"/>
+		<put-attribute name="jspLocation" value="/WEB-INF/"/>
+		<!-- title and body should be overridden -->
+		<put-attribute name="title" value=""/>
+		<put-attribute name="body" value=""/>
+		<!-- Main Menu -->
+		<put-attribute name="mainMenu" value="main.menu"/>
+		<put-attribute name="currentPage" value=""/>
+		<put-attribute name="tabHeader" value=""/>
+	</definition>
+
+	<!-- Main Page Layout -->
+	<definition name=".root" extends=".base">
+		<put-attribute name="header" value="/WEB-INF/layouts/header.jsp"/>
+		<put-attribute name="footer" value="/WEB-INF/layouts/footer.jsp"/>
+		<put-attribute name="jspLocation" value="/WEB-INF/"/>
+		<!-- title and body should be overridden -->
+		<put-attribute name="title" value=""/>
+		<put-attribute name="body" value=""/>
+		<!-- Main Menu -->
+		<put-attribute name="mainMenu" value="main.menu"/>
+	</definition>
+
+	<!-- Top Menu -->
+	<definition name="base.menu" template="/WEB-INF/layouts/basic-menu.jsp"/>
+
+	<!-- Actions Menu -->
+	<definition name="actions.menu" template="/WEB-INF/layouts/actions-menu.jsp"/>
+
+	<!-- Full Menu -->
+	<definition name="main.menu" template="/WEB-INF/layouts/menu.jsp">
+		<put-attribute name="baseMenu" value="base.menu"/>
+		<put-attribute name="actionsMenu" value="actions.menu"/>
+		<put-attribute name="tabHeader" value=""/>
+		<put-attribute name="currentPage" value=""/>
+		<put-list-attribute name="adminLinks"/>
+	</definition>
+
+	<definition name="availableforms.main.menu" extends="main.menu">
+		<put-attribute name="currentPage" value="availableForms"/>
+		<put-attribute name="tabHeader" value="Manage Sections"/>
+	</definition>
+
+	<definition name="availablemodules.main.menu" extends="main.menu">
+		<put-attribute name="currentPage" value="availableModules"/>
+		<put-attribute name="tabHeader" value="Manage Modules"/>
+	</definition>
+	
+	<definition name="managelibrary.main.menu" extends="main.menu">
+		<put-attribute name="currentPage" value="manageLibrary"/>
+		<put-attribute name="tabHeader" value="Manage Library"/>
+	</definition>
+
+	<definition name="editcontent.main.menu" extends="main.menu">
+		<put-attribute name="currentPage" value="editContent"/>
+		<put-attribute name="tabHeader" value="Add/Edit Content"/>
+	</definition>
+
+	<definition name="editform.main.menu" extends="main.menu">
+		<put-attribute name="currentPage" value="editForm"/>
+		<put-attribute name="tabHeader" value="Add/Edit Section"/>
+	</definition>
+
+	<definition name="editmodule.main.menu" extends="main.menu">
+		<put-attribute name="currentPage" value="editModule"/>
+		<put-attribute name="tabHeader" value="Add/Edit Module"/>
+	</definition>
+	
+	<definition name="editlibrary.main.menu" extends="main.menu">
+		<put-attribute name="currentPage" value="editQuestionLibrary"/>
+		<put-attribute name="tabHeader" value="Add/Edit Question Library"/>
+	</definition>
+
+	<definition name="editformlibrary.main.menu" extends="main.menu">
+		<put-attribute name="currentPage" value="editFormLibrary"/>
+		<put-attribute name="tabHeader" value="Add/Edit Form Library"/>
+	</definition>
+
+	<definition name="editquestion.main.menu" extends="main.menu">
+		<put-attribute name="currentPage" value="editQuestion"/>
+		<put-attribute name="tabHeader" value="Add/Edit Question"/>
+	</definition>
+
+	<definition name="questionslist.main.menu" extends="main.menu">
+		<put-attribute name="currentPage" value="questionsList"/>
+		<put-attribute name="tabHeader" value=""/>
+	</definition>
+	
+	<definition name="userlist.main.menu" extends="main.menu">
+		<put-attribute name="currentPage" value="userList"/>
+		<put-attribute name="tabHeader" value="All Users"/>
+		<put-list-attribute name="adminLinks">
+			<item link="userList.view" value="Manage Users"/>
+			<item link="generateSampleData.view" value="Generate Sample Data"/>
+			<item link="preferences.view" value="Preferences"/>		
+		</put-list-attribute>
+	</definition>
+	
+	<definition name="useredit.main.menu" extends="main.menu">
+		<put-attribute name="currentPage" value="userEdit"/>
+		<put-attribute name="tabHeader" value="Editing User"/>		
+		<put-list-attribute name="adminLinks">
+			<item link="userList.view" value="Manage Users"/>
+			<item link="generateSampleData.view" value="Generate Sample Data"/>
+			<item link="preferences.view" value="Preferences"/>			
+		</put-list-attribute>
+	</definition>
+	
+	<definition name="generateSampleData.main.menu" extends="main.menu">
+		<put-attribute name="currentPage" value="generateSampleData"/>
+		<put-attribute name="tabHeader" value="Generate Sample Data"/>
+		<put-list-attribute name="adminLinks">
+			<item link="userList.view" value="Manage Users"/>
+			<item link="generateSampleData.view" value="Generate Sample Data"/>
+			<item link="preferences.view" value="Preferences"/>
+		</put-list-attribute>
+	</definition>
+	
+	<definition name="preferences.main.menu" extends="main.menu">
+		<put-attribute name="currentPage" value="preferences"/>
+		<put-attribute name="tabHeader" value="Preferences"/>
+		<put-list-attribute name="adminLinks">
+			<item link="userList.view" value="Manage Users"/>
+			<item link="generateSampleData.view" value="Generate Sample Data"/>
+			<item link="preferences.view" value="Preferences"/>
+		</put-list-attribute>
+	</definition>
+
+	<!-- Layout of Questionnaire Content page -->
+
+	<!-- Login page -->
+	<definition name="login" extends=".base">
+		<put-attribute name="title" value="Main Page"/>
+		<put-attribute name="body" value="/WEB-INF/tiles/login.jsp"/>
+	</definition>
+
+	<!-- module pages -->
+	<definition name="moduleList" extends=".root">
+		<put-attribute name="title" value="Main Page"/>
+		<put-attribute name="body" value="/WEB-INF/tiles/availableModules.jsp"/>
+		<put-attribute name="mainMenu" value="availablemodules.main.menu"/>
+	</definition>
+	
+	<definition name="manageLibrary" extends=".root">
+		<put-attribute name="title" value="Manage Library"/>
+		<put-attribute name="body" value="/WEB-INF/tiles/availableLibraries.jsp"/>
+		<put-attribute name="mainMenu" value="managelibrary.main.menu"/>
+	</definition>
+	
+	<definition name="appError" template="/WEB-INF/views/error.jsp">
+
+	</definition>
+	<definition name="moduleEdit" extends=".root">
+		<put-attribute name="title" value="Main Page"/>
+		<put-attribute name="body" value="/WEB-INF/tiles/editModule.jsp"/>
+		<put-attribute name="mainMenu" value="editmodule.main.menu"/>
+	</definition>
+	
+	<definition name="questionLibraryEdit" extends=".root">
+		<put-attribute name="title" value="Main Page"/>
+		<put-attribute name="body" value="/WEB-INF/tiles/editModule.jsp"/>
+		<put-attribute name="mainMenu" value="editlibrary.main.menu"/>
+	</definition>
+	
+	<definition name="formLibraryEdit" extends=".root">
+		<put-attribute name="title" value="Main Page"/>
+		<put-attribute name="body" value="/WEB-INF/tiles/editModule.jsp"/>
+		<put-attribute name="mainMenu" value="editformlibrary.main.menu"/>
+	</definition>
+
+	<!-- form pages -->
+	<definition name="formList" extends=".root">
+		<put-attribute name="title" value="Main Page"/>
+		<put-attribute name="body" value="/WEB-INF/tiles/availableForms.jsp"/>
+		<put-attribute name="mainMenu" value="availableforms.main.menu"/>
+	</definition>
+	<definition name="formEdit" extends=".root">
+		<put-attribute name="title" value="Main Page"/>
+		<put-attribute name="body" value="/WEB-INF/tiles/editForm.jsp"/>
+		<put-attribute name="mainMenu" value="editform.main.menu"/>
+	</definition>
+
+	<!-- question pages -->
+	<definition name="questionList" extends=".root">
+		<put-attribute name="title" value="Main Page"/>
+		<put-attribute name="body" value="/WEB-INF/tiles/questionsList.jsp"/>
+		<put-attribute name="mainMenu" value="questionslist.main.menu"/>
+	</definition>
+
+    <definition name="listSkip" template="/WEB-INF/tiles/listSkip.jsp">
+	</definition>
+
+<!-- 	<definition name="questionListSkip" template="/WEB-INF/tiles/questionsListSkip.jsp">
+	</definition>
+
+	<definition name="formListSkip" template="/WEB-INF/tiles/formsListSkip.jsp">
+	</definition>
+-->
+    <definition name="questionListSkip" extends="listSkip">
+    <put-attribute name="type" value="question"/>
+	</definition>
+
+	<definition name="formListSkip" extends="listSkip">
+	<put-attribute name="type" value="form"/>
+	</definition>
+
+	<definition name="questionEdit" extends=".root">
+		<put-attribute name="title" value="Main Page"/>
+		<put-attribute name="body" value="/WEB-INF/tiles/editQuestion.jsp"/>
+		<put-attribute name="mainMenu" value="editquestion.main.menu"/>
+	</definition>
+
+	<definition name="questionTableEdit" extends=".root">
+		<put-attribute name="title" value="Main Page"/>
+		<put-attribute name="body" value="/WEB-INF/tiles/editTableQuestion.jsp"/>
+		<put-attribute name="mainMenu" value="editquestion.main.menu"/>
+	</definition>
+
+	<definition name="contentEdit" extends=".root">
+		<put-attribute name="title" value="Main Page"/>
+		<put-attribute name="body" value="/WEB-INF/tiles/editContent.jsp"/>
+		<put-attribute name="mainMenu" value="editcontent.main.menu"/>
+	</definition>
+
+	<definition name="categoryList" extends=".root">
+		<put-attribute name="title" value="Main Page"/>
+		<put-attribute name="body" value="/WEB-INF/tiles/categoryList.jsp"/>
+	</definition>
+
+	<!--  Admin pages -->
+	<definition name="userList" extends=".root">
+		<put-attribute name="title" value="Main Page"/>
+		<put-attribute name="body" value="/WEB-INF/tiles/admin/listUsers.jsp"/>
+		<put-attribute name="mainMenu" value="userlist.main.menu"/>
+	</definition>
+	<definition name="userEdit" extends=".root">
+		<put-attribute name="title" value="Main Page"/>
+		<put-attribute name="body" value="/WEB-INF/tiles/admin/editUser.jsp"/>
+		<put-attribute name="mainMenu" value="useredit.main.menu"/>
+	</definition>
+	<definition name="generateSampleData" extends=".root">
+		<put-attribute name="title" value="Main Page"/>
+		<put-attribute name="body" value="/WEB-INF/tiles/admin/generateSampleData.jsp"/>
+		<put-attribute name="mainMenu" value="generateSampleData.main.menu"/>
+	</definition>
+	<definition name="generateSampleDataConfirm" extends=".root">
+		<put-attribute name="title" value="Main Page"/>
+		<put-attribute name="body" value="/WEB-INF/tiles/admin/generateSampleDataConfirm.jsp"/>
+		<put-attribute name="mainMenu" value="generateSampleData.main.menu"/>
+	</definition>
+	<definition name="preferences" extends=".root">
+		<put-attribute name="title" value="Main Page"/>
+		<put-attribute name="body" value="/WEB-INF/tiles/admin/preferences.jsp"/>
+		<put-attribute name="mainMenu" value="preferences.main.menu"/>
+	</definition>
+
+	<!--  XForms Preview pages -->
+
+	<!-- Layout -->
+	<definition name=".xform-root" template="/WEB-INF/layouts/xforms-layout.jsp">
+		<put-attribute name="header" value="/WEB-INF/layouts/header.jsp"/>
+		<put-attribute name="footer" value="/WEB-INF/layouts/footer.jsp"/>
+		<put-attribute name="jspLocation" value="/WEB-INF/"/>
+		<!-- title and body should be overridden -->
+		<put-attribute name="title" value=""/>
+		<put-attribute name="body" value=""/>
+		<put-attribute name="loadXForm" value="false"/>
+	</definition>
+
+	<definition name="xFormsPreview" extends=".xform-root">
+	    <put-attribute name="header" value="/WEB-INF/layouts/xforms-header.jsp"/>
+		<put-attribute name="title" value="Main Page"/>
+		<put-attribute name="body" value="/WEB-INF/tiles/xforms/xFormBody.jsp"/>
+	</definition>
+	
+	<definition name="xFormsProcess" extends=".xform-root">
+		<put-attribute name="title" value="Submission Successful"/>
+		<put-attribute name="body" value="/WEB-INF/tiles/xforms/xFormProcessedView.jsp"/>
+	</definition>
+
+
+</tiles-definitions>

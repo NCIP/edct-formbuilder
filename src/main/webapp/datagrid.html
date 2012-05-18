@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+	<link href="/FormBuilder/styles/styles.css" rel="stylesheet" type="text/css"/>
+
+    <link href="/FormBuilder/styles/jscal2.css" rel="stylesheet" type="text/css"/>
+    <link href="/FormBuilder/styles/border-radius.css" rel="stylesheet" type="text/css"/>
+    <link href="/FormBuilder/styles/steel/steel.css" rel="stylesheet" type="text/css"/>
+
+    <script src="/FormBuilder/scripts/common.js" type="text/javascript"></script>
+    <script src="/FormBuilder/scripts/jscal2.js"></script>
+    <script src="/FormBuilder/scripts/lang/en.js"></script>
+
+
+    <link href="/FormBuilder/dojoToolkit1.4.2/dijit/themes/nihilo/nihilo.css" rel="stylesheet" type="text/css" />
+	<link href="/FormBuilder/dojoToolkit1.4.2/dojo/resources/dojo.css" rel="stylesheet" type="text/css" />
+
+	<link href="/FormBuilder/dojoToolkit1.4.2/dijit/themes/tundra/Dialog.css" rel="stylesheet" type="text/css" />
+
+	<link href="/FormBuilder/dojoToolkit1.4.2/dojox/grid/resources/Grid.css" rel="stylesheet" type="text/css" />
+	<link href="/FormBuilder/dojoToolkit1.4.2/dojox/grid/enhanced/resources/EnhancedGrid.css" rel="stylesheet" type="text/css" />
+
+	<script type="text/javascript" src="/FormBuilder/dojoToolkit1.4.2/dojo/dojo.js.uncompressed.js"
+			djConfig="parseOnLoad: true, isDebug: false, debugAtAllCosts: false">
+	</script>
+
+	<script type="text/javascript">
+		dojo.require("dijit.Dialog");
+		dojo.require("dijit.form.Button");
+	    dojo.require("dojox.grid.cells.dijit");
+    	dojo.require("dojox.grid.DataGrid");
+    	dojo.require("dojox.data.CsvStore");
+	</script>
+
+	<style type="text/css">
+	    body, html { font-family:helvetica,arial,sans-serif; font-size:90%; }
+	</style>
+
+	<style type="text/css">
+	   .dojoxGrid table { margin: 0; } html, body { width: 100%; height: 100%; margin: 0; }
+	</style>
+
+
+</head>
+<body>
+<div id="container">
+  <div id="header">
+  	<div id="primDivContainer">
+    	<div id="primDiv">
+			<!-- Begin Module Navigation -->
+			<!-- End Module Navigation -->
+		</div>
+
+    <!-- end #primDivContainer --></div>
+		<div id="utilDiv">
+        	<div id="bannerLinks">
+
+            	<a href="/FormBuilder//home">Home</a> |
+
+
+            	<a href="/FormBuilder//admin/userList.view">Admin</a> |
+
+
+            	<a href="/FormBuilder//logout">Logout</a> |
+
+                <a href="javascript:alert('Not yet available')" >Help</a>
+			</div>
+
+		</div>
+  		<div id="spaceDiv"><p> <!-- --></p></div>
+  </div><!-- end #header -->
+
+<!-- Header End -->
+<div id="content">
+
+<!-- Main Menu -->
+
+<div id="tocDiv"></div>
+
+
+<div id="titlebar">
+   <h3 id="pageTabHeader">Edit Question</h3>
+   <div id="header_link">
+	<ul>
+
+			<li><a href="/FormBuilder//questionList.view?formId="><span>Cancel</span></a></li>
+
+
+	</ul>
+	<!-- Section Tabs -->
+
+	</div>
+</div><!-- Body -->
+
+<script type="text/javascript">
+
+    dojo.addOnLoad(function() {
+        // our test data store for this example:
+        //var store = new dojox.data.CsvStore({
+        //    url: '../../_static/dojo/dojox/grid/tests/support/movies.csv'
+        //});
+
+		var testData = "val1.1, val1.2, val1.3\n" + "val2.1, val2.2, val2.3\n";
+		var store = new dojox.data.CsvStore({identifier: "testData", data: testData});
+
+
+        // set the layout structure:
+        var layout = [{
+            field: 'Title',
+            name: 'Title of Movie',
+            width: '100px'
+        },
+        {
+            field: 'Year',
+            name: 'Year',
+            width: '50px'
+        },
+        {
+            field: 'Producer',
+            name: 'Producer',
+            width: 'auto'
+        }];
+
+        // create a new grid:
+        var grid = new dojox.grid.DataGrid({
+            store: store,
+            rowSelector: '20px',
+            structure: layout
+        },
+        document.createElement('div'));
+
+        // append the new grid to the div "gridContainer4":
+        dojo.byId("gridDiv").appendChild(grid.domNode);
+
+        // Call startup, in order to render the grid:
+        grid.startup();
+    });
+</script>
+
+Test
+
+<div id="gridDiv" style="width: 100%; height: 100%;"></div>
+
+<br class="clearfloat" />
+</div><!-- end #content -->
+
+<!-- end #container -->
+
+<!-- Footer Begin -->
+<div id="footer">
+	<!-- <div id="disclamer"><a href="javascript:alert('caCURE Form Builder version 0.2')">About caCURE Form Builder</a></div> -->
+
+    <div id="powered"><a href="javascript:alert('caCURE Form Builder version 0.5.1')">About caCURE Form Builder</a>  <a href="https://cabig.nci.nih.gov/"><img src="/FormBuilder/images/pb_cabig.gif" alt="Powered by caBIG&#174;" width="72" height="29" border="0" title="Powered by caBIG&#174;" /></a></div>
+	<br class="clearfloat" />
+	<div id="bot-bg"></div>
+</div><!-- end #footer -->
+<!-- Footer End -->
+</div></body>
+
+</html>

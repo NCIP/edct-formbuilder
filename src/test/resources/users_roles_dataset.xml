@@ -1,0 +1,72 @@
+<!DOCTYPE dataset SYSTEM "formbuilder-dataset.dtd">
+<dataset>
+	<roles
+		id="10"
+		name="ROLE_AUTHOR" />
+	<roles
+		id="20"
+		name="ROLE_DEPLOYER" />
+	<roles
+		id="30"
+		name="ROLE_APPROVER" />
+	<roles
+		id="40"
+		name="ROLE_LIBRARIAN" />
+	<roles
+		id="999"
+		name="ROLE_ADMIN" />
+		
+	<rpt_users
+		id="1"
+		username="lkagan"
+		password="a564de63c2d0da68cf47586ee05984d7"
+		created_date="2010-04-19"
+		email_addr="lkagan@healthcit.com" />
+		
+	<user_roles
+		user_id="1"
+		role_id="10" />
+	<user_roles
+		user_id="1"
+		role_id="999" />
+	<user_roles
+		user_id="1"
+		role_id="20" />
+		
+	<rpt_users
+		id="2"
+		username="test"
+		password="9ddc44f3f7f78da5781d6cab571b2fc5"
+		created_date="2010-04-19" />
+		
+	<rpt_users
+		id="3"
+		username="dolson"
+		password="65d15fe9156f9c4bbffd98085992a44e"
+		created_date="2010-04-29"
+		email_addr="" />
+	<user_roles
+		user_id="3"
+		role_id="10" />
+		
+	<rpt_users
+		id="4"
+		username="GuestUser"
+		password="084e0343a0486ff05530df6c705c8bb4"
+		created_date="2010-08-12"
+		email_addr="howard.shang@duke.edu" />
+	<user_roles
+		user_id="4"
+		role_id="999" />
+		
+	<rpt_users
+		id="5"
+		username="pgupta"
+		password="a564de63c2d0da68cf47586ee05984d7"
+		created_date="2010-04-29"
+		email_addr="gupta@healthcit.com" />
+	<user_roles
+		user_id="5"
+		role_id="10" />
+		
+</dataset>

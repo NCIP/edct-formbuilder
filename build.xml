@@ -1,0 +1,873 @@
+<?xml version="1.0"?>
+<project name="FormBuilder" default="all">
+
+	<!-- Allows for local developer to override settings in a non-versioned file -->
+	<property file="${basedir}/configuration/${user.name}.properties" />
+	
+	<!-- Sets up defaults, including target.context -->
+	<property file="build.properties" />
+
+	<!-- Allows for environment-specific properties -->
+	<property file="${target.context}-build.properties" />
+
+    <target name="set-properties" unless="webapp.name">
+        <!-- lib names -->
+        <property name="log4j.name" value="log4j-1.2.14.jar" />
+
+    	<!-- general directories -->
+        <property name="build.dir" value="${basedir}/build" />
+        <property name="build.classes.dir" value="${build.dir}/classes" />
+        <property name="build.war.dir" value="${build.dir}/wars" />
+
+    	<property name="src.dir" value="${basedir}/src/main" />
+    	<property name="webroot.dir" value="${src.dir}/webapp" />
+    	<property name="java.src.dir" value="${src.dir}/java" />
+    	<property name="resources.src.dir" value="${src.dir}/resources" />
+
+    	<property name="test.src.dir" value="${basedir}/src/test" />
+    	<property name="test.java.src.dir" value="${test.src.dir}/java" />
+    	<property name="test.resources.src.dir" value="${test.src.dir}/resources" />
+
+    	<property name="lib.dir" value="${basedir}/lib" />
+
+        <!-- war stuff -->
+        <property name="webapp.name" value="FormBuilder" />
+        <property name="war.name" value="${webapp.name}.war" />
+        <property name="javascript.dir" value="scripts" />
+        <property name="css.dir" value="styles" />
+        <property name="images.dir" value="images" />
+
+        <path id="jsp.files" >
+            <fileset dir="${webroot.dir}/WEB-INF" >
+            	<include name="includes/**"/>
+            	<include name="layouts/**"/>
+	        	<include name="tiles/**"/>
+	        	<include name="views/**"/>
+	        </fileset>
+        </path>
+        <property name="deploy.dir" value="${tomcat.home}/${tomcat.deploy.dir}"/>
+        <property name="build.war.unzipped.dir" value="${build.war.dir}/unzipped"/>
+
+         <!-- Classpaths for compilation -->
+        <fileset id="war.libs" dir="${lib.dir}" >
+        	<include name="*.jar" />
+        	<include name="dwr/*.jar"/>
+        	<include name="cadsr/*.jar"/>
+        	<include name="spring/*.jar"/>
+        	<include name="servlet-apis/*.jar"/>
+        </fileset>
+        <path id="main.compile.classpath">
+        	<fileset refid="war.libs"/>
+        </path>
+
+        <path id="test.extra.compile.classpath">
+            <fileset dir="${lib.dir}/easymock/" includes="*.jar"/>
+            <fileset dir="${lib.dir}/junit/" includes="*.jar"/>
+            <fileset dir="${lib.dir}/spring-test/" includes="*.jar"/>
+        </path>
+        
+        <path id="svntask.classpath">
+            <fileset dir="${lib.dir}/svnant/" includes="*.jar"/>
+        </path>
+
+		<taskdef resource="svntask.properties" classpathref="svntask.classpath"/>
+    </target>
+
+
+
+
+    <!-- Test directories -->
+    <property name="test"           value="${src}/test" />
+    <property name="test.java"      value="${test}/java" />
+    <property name="junit.style.dir" value="${test}"/>
+
+    <!-- build and temp directories -->
+    <property name="build.test"     value="${build}/test" />
+    <property name="build.testoutput" value="${build}/testoutput" />
+    <property name="build.testoutput.junit" value="${build}/testoutput/junit" />
+
+    <!-- webservice build -->
+    <property name="build.ws" value="${build}/webservice" />
+    <property name="build.ws.src" value="${build.ws}/src" />
+    <property name="build.ws.build" value="${build.ws}/build" />
+
+    <!-- tomcat webapp directories to use local build dir as catalina base -->
+    <property name="container.instance"  value="${dist}/srv/how-${target.context}/www" />
+    <property name="deploy.container.instance" value="/srv/how-${target.context}/www" />
+    <property name="tomcat.webapp.dir"   value="${container.instance}/webapps" />
+    <property name="build.classes"  value="${container.instance}/webapps/ROOT/WEB-INF/classes" />
+	<property name="war.dir" value="${container.instance}/webapps" />
+    <property name="war.file" value="${container.instance}/webapps/${ant.project.name}.war" />
+    <property name="tomcat.conf.dir"     value="${container.instance}/conf" />
+    <property name="tomcat.temp.dir"     value="${container.instance}/temp" />
+    <property name="tomcat.logs.dir"     value="${container.instance}/logs" />
+    <property name="tomcat.work.dir"     value="${container.instance}/work" />
+    <property name="tomcat.startup.delay" value="15" />
+
+
+    <property name="webapp.dist"    value="${tomcat.webapp.dir}/ROOT" />
+
+	<path id="master-classpath" description="Master CLASSPATH for this script">
+        <fileset dir="${lib.dir}">
+            <include name="*.jar" />
+        </fileset>
+        <pathelement location="${tomcat.webapp.dir}/ROOT/WEB-INF/classes/" />
+    </path>
+
+    <!-- configuration directories -->
+    <property name="conf.dir"       value="${basedir}/configuration" />
+    <!--<property name="cocoon.web.inf" value="${conf.dir}/cocoon/WEB-INF" /> -->
+    <property name="tomcat.conf"    value="${conf.dir}/tomcat/conf" />
+    <property name="manifest.dest"  value="${build}/manifest.dest" />
+
+    <property name="application.base.url"
+        value="http://localhost:${tomcat.http.port}/" />
+
+    <!-- Multi-platform support for build -->
+    <condition property="script.ext" value="sh">
+        <os family="unix" />
+    </condition>
+    <condition property="script.ext" value="bat">
+        <os family="windows" />
+    </condition>
+
+    <!-- tomcat start and stop scripts -->
+    <property name="tomcat.start.cmd"
+        value="${tomcat.dir}/bin/startup.${script.ext}" />
+
+    <property name="tomcat.stop.cmd"
+        value="${tomcat.dir}/bin/shutdown.${script.ext}" />
+
+    <property name="deploy.tomcat.start.cmd"
+        value="${tomcat.dir}/bin/startup.sh" />
+
+    <property name="deploy.tomcat.stop.cmd"
+        value="${tomcat.dir}/bin/shutdown.sh" />
+
+    <!-- classpath elements -->
+    <path id="axis.classpath">
+        <fileset dir="lib" id="axis.jars">
+            <include name="axis*/**/*.jar" />
+        </fileset>
+    </path>
+
+    <!--
+	<path id="cocoon.classpath">
+        <fileset dir="${cocoon.web.inf}" includes="**/*.jar" />
+    </path>
+	-->
+
+    <path id="build.class.path">
+        <fileset dir="${basedir}/lib" includes="**/*.jar" />
+    </path>
+
+    <path id="class.path">
+        <path refid="build.class.path" />
+        <fileset dir="${build.lib}" includes="**/*.jar" />
+    </path>
+
+    <!--
+	<taskdef resource="axis-tasks.properties"
+        classpathref="axis.classpath" />
+	-->
+
+	<filterset id="how.base.filter">
+	        <filter token="base" value="${how.base}"/>
+	        <filter token="webserver" value="${webserver.name}" />
+	    </filterset>
+    <target name="project-build-help"
+        description="Prints to the console build help">
+        <echo level="info"><![CDATA[
+This Ant build is for the How Form Builder project.
+
+    Prequisites:
+        Ant 1.6.1 or greater
+        Additional libraries in ant_home/lib directory
+        Task dependency     Library
+        <junit>             Junit3.8.1 - junit.jar
+        <replaceregexp>     OROMatcher jar
+        <JUnitReport>       Xalan2.x jar
+        <jdepend>           JDepend 2.6 jar
+        <clover>            Clover 1.1.1
+        <java2html>         j2h.jar 1.3
+
+The application should be built with JDK1.6.0.
+
+]]>
+        </echo>
+    </target>
+
+    <!-- prerequisite checks -->
+
+    <target name="checkPreconditions" depends="warn.fast.build">
+    </target>
+
+    <target name="warn.fast.build" if="fast.build">
+        <echo level="error"
+            message="DANGER, , fast build selected; no tests will be run! Use judiciously." />
+    </target>
+
+
+    <!-- write svn revision version to the file -->
+    <target name="svnrev" depends="set-properties" description="write svn revision version to the file">
+    	<svn javahl="false">
+			<status path="${basedir}" revisionProperty="svn.revision" />
+		</svn>
+        <echo file="${build.dir}/svn.rev">${svn.revision}</echo>
+     </target>
+      
+    <!-- clean targets -->
+    <target name="clean" depends="set-properties" description="remove all generated project files">
+        <echo level="info">Deleting all from the ${build.dir} directory.</echo>
+        <delete failonerror="false" dir="${build.war.dir}" />
+        <delete failonerror="false" dir="${build.classes.dir}" />
+      </target>
+
+    <!-- initialization -->
+    <target name="mkdirs" depends="checkPreconditions"
+        description="Creating all necessary directories for deployment">
+
+        <mkdir dir="${build.dir}" />
+    	<mkdir dir="${build.classes.dir}"/>
+    	<mkdir dir="${build.war.dir}"/>
+    </target>
+
+
+    <target
+        name="conf.scm"
+        description="Determines and loads SCM revision properties."
+        depends="mkdirs"
+        if="ci.build"
+    >
+        <chmod file="${basedir}/configuration/meta_scm.sh" perm="a+x"/>
+
+        <exec
+            os="Linux"
+            append="false"
+            failonerror="true"
+            logError="true"
+            executable="${basedir}/configuration/meta_scm.sh"
+            dir="${basedir}"
+            output="${build}/meta_scm.properties"
+        />
+
+        <property file="${build}/meta_scm.properties"/>
+
+        <echo level="debug">OS=${os.name}</echo>
+        <echo level="debug">meta.scm.modified=${meta.scm.modified}</echo>
+        <echo level="debug">meta.scm.source.module=${meta.scm.source.module}</echo>
+        <echo level="debug">meta.scm.source.tag=${meta.scm.source.tag}</echo>
+    </target>
+
+    <target name="copy.resources" >
+        <!-- copy resource from source to dest-->
+        <copy todir="${build.classes}" overwrite="yes">
+
+            <fileset dir="${src.java}" excludes="**/*.java"/>
+<!-- need to add code to copy appropiate deployment.properties file
+        	<filterset>
+                <filter token="hibernate.connection.url"
+                    value="${hibernate.connection.url}"/>
+                <filter token="hibernate.connection.username"
+                    value="${hibernate.connection.username}"/>
+                <filter token="hibernate.connection.password"
+                    value="${hibernate.connection.password}"/>
+            	<filter token="hibernate.showsql"
+            	    value="${hibernate.showsql}"/>
+            </filterset>
+-->
+        </copy>
+
+    </target>
+
+    <!-- build the application -->
+    <target name="compile" depends="set-properties,mkdirs"
+        description="Compiles all .java files in the ${src.java} dir.">
+
+    	<javac srcdir="${java.src.dir}" destdir="${build.classes.dir}"
+               debug="on" deprecation="yes">
+            <classpath refid="main.compile.classpath" />
+        </javac>
+        <copy todir="${build.classes.dir}">
+            <fileset dir="${resources.src.dir}">
+            	<include name="*/**"/>
+            </fileset>
+            <fileset dir="${java.src.dir}" excludes="**/*.java"/>
+        </copy>
+
+    </target>
+
+    <target name="jar" depends="compile, manifest"
+        description="Creates a .jar file named ${ant.project.name}.jar">
+        <jar jarfile="${build}/lib/${ant.project.name}.jar"
+            manifest="${manifest.dest}" >
+            <fileset dir="${build.classes}" />
+        </jar>
+    </target>
+
+    <target name="manifest">
+        <tstamp />
+        <manifest file="${manifest.dest}" >
+            <attribute name="Specification-Title"
+                value="caCURE Form Builder" />
+            <attribute name="Specification-Version"
+                value="${service.version}" />
+            <attribute name="Specification-Vendor"
+                value="Business Elite" />
+            <attribute name="Implementation-Title"
+                value="com.businesselite" />
+            <attribute name="Implementation-Vendor"
+                value="Business Elite" />
+            <attribute name="Implementation-Version"
+                value="${target.context} ${DSTAMP}.${TSTAMP} $Name:  $" />
+        </manifest>
+    </target>
+
+    <!-- build the tests -->
+    <target name="compile.tests"  unless="fast.build" depends="jar"
+        description="Compiles all .java files in the ${test.java} dir.">
+
+        <mkdir dir="${build.test}" />
+        <javac srcdir="${test.java}" destdir="${build.test}"
+            debug="on" deprecation="yes"
+            fork="yes" memoryMaximumSize="512m">
+            <classpath refid="class.path" />
+        </javac>
+
+        <copy todir="${build.test}">
+            <fileset dir="${test.java}" excludes="**/*.java" />
+        </copy>
+    </target>
+
+    <target name="ci.build.report" if="ci.build">
+        <copy overwrite="yes"
+            file="${test}/build-report.html"
+            tofile="${build.testoutput}/index.html">
+            <filterset refid="how.base.filter" />
+        </copy>
+     </target>
+    <target name="dev.build.report" >
+        <!-- copy regular build report index -->
+    </target>
+
+    <target name="build.report" depends="ci.build.report, dev.build.report" />
+
+    <target name="run.tests"
+        depends="build.report, copy.properties"
+        unless="fast.build">
+
+        <path id="test.class.path">
+            <path refid="class.path" />
+            <path location="${build.test}" />
+            <!-- for the *.properties file -->
+            <path location="${webapp.dist}/WEB-INF/classes" />
+            <!-- ByNameSearchStopWords.txt before it's copied to WEB-INF/classes
+            -->
+            <path location="configuration" />
+        </path>
+
+        <fileset id="standalone.test.classes"
+            dir="${build.test}"
+            includes="**/*TestCase.class"
+            excludes="**/*WebTestCase.class" />
+        <antcall target="junit.tests">
+            <reference refid="test.class.path" />
+            <reference refid="standalone.test.classes" torefid="test.classes" />
+        </antcall>
+    </target>
+
+    <target name="run.postdeploy.tests" depends="run.web.tests" />
+
+    <target name="run.web.tests" depends="compile.tests" unless="fast.build">
+        <antcall target="do.run.web.tests" />
+    </target>
+
+    <target name="do.run.web.tests" unless="fast.build">
+        <path id="test.class.path">
+            <path refid="class.path" />
+            <path location="${build.test}" />
+        </path>
+
+        <fileset id="standalone.test.classes"
+            dir="${build.test}"
+            includes="**/*WebTestCase.class" />
+        <antcall target="junit.tests">
+            <reference refid="test.class.path" />
+            <reference refid="standalone.test.classes" torefid="test.classes" />
+        </antcall>
+
+    </target>
+
+    <target name="make-build-war-dir">
+		<mkdir dir="${build.war.dir}"/>
+	</target>
+
+    <!-- Build the war -->
+    <target name="build-war" depends="set-properties, compile" description="builds the war file">
+        <delete file="${build.war.dir}/${war.name}" />
+
+        <war destfile="${build.war.dir}/${war.name}" webxml="${webroot.dir}/WEB-INF/web.xml" update="false">
+        	<classes dir="${build.classes.dir}"/>
+
+            <!-- All the libs -->
+            <lib dir="${lib.dir}" includes="*.jar"/>
+            <lib dir="${lib.dir}/dwr" includes="*.jar"/>
+        	<lib dir="${lib.dir}/cadsr" includes="*.jar"/>
+        	<lib dir="${lib.dir}/spring" includes="*.jar"/>
+        	<!-- lib dir="${lib.dir}/servlet-apis/" includes="*.jar"/ -->
+
+            <zipfileset dir="${build.dir}">
+                <include name="*.rev"/>
+            </zipfileset>
+            
+            <!-- css/* -->
+            <zipfileset dir="${webroot.dir}/${css.dir}" prefix="${css.dir}">
+                <include name="*/**"/>
+            </zipfileset>
+
+            <!-- images/* -->
+            <zipfileset dir="${webroot.dir}/${images.dir}" prefix="${images.dir}">
+                <include name="*/**"/>
+            </zipfileset>
+
+            <!-- js/* -->
+            <zipfileset dir="${webroot.dir}/${javascript.dir}" prefix="${javascript.dir}">
+                <include name="*/**"/>
+            </zipfileset>
+            
+        	<!-- XForms stuff -->
+            <zipfileset dir="${webroot.dir}/xsltforms" prefix="xsltforms">
+                <include name="*/**"/>
+            </zipfileset>
+
+            <!-- html, static jsps/* -->
+            <zipfileset dir="${webroot.dir}" >
+                <include name="*.html"/>
+                <include name="*.jsp"/>
+            	<exclude name="**/classes/**"/>
+            </zipfileset>
+
+            <!-- favicon.ico -->
+            <zipfileset dir="${webroot.dir}" >
+                <include name="favicon.ico"/>
+            </zipfileset>
+
+            <!-- properties from WEB-INF - duplicate then into both classpath and WEB-INF dir -->
+            <zipfileset dir="${webroot.dir}/WEB-INF" prefix="WEB-INF/classes" >
+                <include name="*.properties"/>
+            </zipfileset>
+        	
+        	<zipfileset dir="${lib.dir}/cadsr" prefix="WEB-INF/classes" >
+                <include name="*.xml"/>
+        		<include name="*.xsd"/>
+                <include name="*.dtd"/>
+            </zipfileset>
+
+        	<!-- WEB-INF/* copy all except properties and classes -->
+			<zipfileset dir="${webroot.dir}/WEB-INF" prefix="WEB-INF">
+            	<exclude name="**/classes/**"/>
+            </zipfileset>
+            
+            <!-- Adding all sql scripts to run on server -->
+			<zipfileset dir="${src.dir}/db/uppers" prefix="WEB-INF/classes/db">
+            	<include name="*.sql"/>
+            </zipfileset>
+		</war>
+    </target>
+
+	<!-- build distribution file -->
+	<target name="dist" depends="" />
+
+	<target name="local-clean-deployment" depends="set-properties">
+		<!-- remove file from local tomcat -->
+		<delete includeemptydirs="true">
+			<fileset dir="${tomcat.home}/webapps">
+				<include name="**/${webapp.name}/"/>
+				<include name="${war.name}"/>
+			</fileset>
+		</delete>
+
+		<delete includeemptydirs="true">
+			<fileset dir="${tomcat.home}/webapps">
+				<include name="**/${webapp.name}/"/>
+			</fileset>
+		</delete>
+	</target>
+
+	<target name="deploy-local-as-war" depends="set-properties,build-war,local-clean-deployment"
+		description="Cleans local tomcat and redeploys WAR file">
+		<!-- copy war file to local tomcat -->
+		<copy todir="${tomcat.home}/webapps" file="${build.war.dir}/${war.name}"/>
+	</target>
+
+	<target name="deploy-local-as-dir" depends="set-properties,build-war,local-clean-deployment"
+		description="Cleans local tomcat and redeploys application in extended form">
+		<!-- unwar war file to local tomcat -->
+		<unwar src="${build.war.dir}/${war.name}" dest="${tomcat.home}/webapps/${webapp.name}"/>
+	</target>
+
+	<target name="deploy-local-web-resources" depends="set-properties"
+		description="Deploys non-compilable resourses - HTML, CSS, JS, IMAGES, JSPs">
+		<!-- unwar war file to local tomcat -->
+        <!-- css/* -->
+		<property name="webapp.local.dir" value="${tomcat.home}/webapps/${webapp.name}"/>
+
+		<copy todir="${webapp.local.dir}/" description="Copying static resources" >
+			<fileset dir="${webroot.dir}" >
+				<include name="${css.dir}/**"/>
+				<include name="${javascript.dir}/**"/>
+				<include name="${images.dir}/**"/>
+				<include name="xsltforms/**"/>
+				<include name="*.html"/>
+			</fileset>
+		</copy>
+		<!--copy todir="${webapp.local.dir}/images" file="${images.dir}/**"/ -->
+		<copy todir="${webapp.local.dir}/WEB-INF" description="Copying WEB-INF resources">
+			<fileset dir="${webroot.dir}/WEB-INF" >
+	            <include name="**/*.html"/>
+	            <include name="**/*.jsp"/>
+	            <include name="forms/**"/>
+			</fileset>
+		</copy>
+
+	</target>
+
+	<target name="local-deploy-as-dir" depends="set-properties,compile">
+		<copy todir="${tomcat.home}/webapps" file="${build.war.dir}/${war.name}"/>
+	</target>
+
+    <target name="copy.to.deploy"
+        depends="conf.scm,
+                copy.properties, copy.scripts">
+        <copy todir="${tomcat.conf.dir}">
+            <fileset dir="${tomcat.conf}" />
+            <filterset>
+                <filter token="tomcat.server.port"
+                    value="${tomcat.server.port}"/>
+                <filter token="tomcat.http.port"
+                    value="${tomcat.http.port}"/>
+                <filter token="tomcat.ajp.port"
+                    value="${tomcat.ajp.port}"/>
+        <filter token="webserver" value="${webserver.name}" />
+				<filter token="proxyhost" value="${proxy.host.name}" />
+            </filterset>
+        </copy>
+        <copy todir="${webapp.dist}">
+            <fileset
+                dir="${src.docroot}"
+                excludes="**/*.html, **/*.js,views/**,fop/**,tags/**"
+            />
+        </copy>
+        <copy todir="${webapp.dist}">
+            <fileset
+                dir="${src.docroot}"
+                includes="**/*.html, **/*.xml, **/*.js"
+                excludes="views/**,fop/**,tags/**"
+            />
+        </copy>
+		<copy todir="${webapp.dist}/WEB-INF/" overwrite="yes">
+			<fileset
+				dir="${src.docroot}"
+				includes="views/**, **/*.properties, fop/**,tags/**" />
+		</copy>
+        <!-- Note that Tomcat cannot have sub dirs under lib -->
+        <copy todir="${webapp.dist}/WEB-INF/lib" flatten="yes" >
+            <fileset dir="${build}/lib/" includes="**/*.jar"  />
+            <fileset dir="${basedir}/lib">
+				<include name="**/*.jar" />
+				<exclude name="unittests/**/*.jar" />
+				<exclude name="**/servlet-api.jar" />
+            </fileset>
+        </copy>
+
+        <fixcrlf srcdir="${dist}"
+            includes="
+                **/*.sh, **/*.xml, **/*.xsl, **/*.xconf, **/*.txt,
+                **/*.xmap, **/*.properties, **/*.policy, **/*.html,
+                **/*.css, **/*.f*, **/*.js,
+                etc/init.d/${target.context}.how.tomcat"
+            excludes="**/*.jar, **/*.jpg, **/*.gif, **/*.ico"
+            eol="lf"
+            eof="remove" />
+    </target>
+
+	<filterset id="hibernate.filters">
+        <filter token="hibernate.connection.username"
+            value="${hibernate.connection.username}"/>
+        <filter token="hibernate.connection.password"
+            value="${hibernate.connection.password}"/>
+        <filter token="hibernate.connection.url"
+            value="${hibernate.connection.url}"/>
+        <filter token="hibernate.schema"
+            value="${hibernate.schema}"/>
+		<filter token="hibernate.showsql"
+		    value="${hibernate.showsql}"/>
+    </filterset>
+
+    <target name="copy.properties" >
+        <copy
+            todir="${webapp.dist}/WEB-INF/classes/"
+            overwrite="yes">
+            <mapper type="glob" from="*.properties.template" to="*.properties" />
+            <fileset dir="configuration" includes="*.properties.template"/>
+			<filterset>
+    			<filter token="url" value="${url.prop}" />
+    		</filterset>
+         </copy>
+        <!-- copy email templates -->
+        <copy
+            todir="${webapp.dist}/WEB-INF/classes/"
+            overwrite="yes">
+            <fileset dir="${src.context}" includes="emails/*.html"/>
+            <fileset dir="${src.context}" includes="pdfs/*.xml"/>
+            <fileset dir="${src.java}" includes="**/log4j.properties"/>
+        </copy>
+		<copy
+			todir="${webapp.dist}/WEB-INF/"
+			overwrite="yes">
+			<mapper type="glob" from="*.xml" to="*.xml" />
+			<fileset dir="${src.context}" includes="*.xml"/>
+			<filterset>
+    			<filter token="applicationContextLocations" value="${base.applicationContextLocations}" />
+				<filterset refid="hibernate.filters" />
+    		</filterset>
+		</copy>
+    </target>
+
+    <target name="copy.scripts" >
+        <mkdir dir="${dist}/opt/how"/>
+        <copy
+            todir="${dist}/opt/how"
+            overwrite="yes">
+            <mapper type="glob" from="*.sh.template" to="*.sh" />
+            <fileset dir="configuration" includes="*.sh.template"/>
+            <filterset>
+                <filter token="deploy.tomcat.start.cmd"
+                    value="${deploy.tomcat.start.cmd}" />
+                <filter token="deploy.tomcat.stop.cmd"
+                    value="${deploy.tomcat.stop.cmd}" />
+                <filter token="deploy.container.instance"
+                    value="${deploy.container.instance}" />
+                <filter token="tomcat.dir" value="${tomcat.dir}" />
+                <filter token="tomcat.java.home" value="${tomcat.java.home}" />
+                <filter token="tomcat.http.port" value="${tomcat.http.port}" />
+                <filter token="tomcat.java.opts" value="${tomcat.java.opts}" />
+                <filter token="catalina.opts" value="${catalina.opts}" />
+            </filterset>
+         </copy>
+    	<move file="${dist}/opt/how/how.tomcat.sh" tofile="${dist}/opt/how/${target.context}.how.tomcat.sh" />
+
+        <chmod perm="0755">
+            <fileset dir="${dist}/opt/how" includes="*.sh" />
+        </chmod>
+
+        <mkdir dir="${dist}/etc/init.d"/>
+        <copy file="configuration/how.tomcat.template" tofile="${dist}/etc/init.d/${target.context}.how.tomcat">
+            <filterset>
+                <filter token="target.context" value="${target.context}" />
+            </filterset>
+        </copy>
+
+        <chmod perm="0755">
+            <fileset dir="${dist}/etc/init.d" includes="**/*" />
+        </chmod>
+    </target>
+
+
+
+    <target name="clean.webapp.content" >
+		<echo level="info">Deleting the ${webapp.dist} directory.</echo>
+        <delete>
+            <fileset dir="${webapp.dist}" excludes="WEB-INF/lib/**" />
+        </delete>
+    </target>
+
+    <target name="clean.and.copy.to.deploy"
+        depends="clean.webapp.content, copy.to.deploy"
+        description="Refreshes webapp docroot content from src/docroot"
+    />
+
+    <target name="reload.application" >
+        <mkdir dir="${build.testoutput.junit}"/>
+        <get dest="${build.testoutput.junit}/manager.html"
+            src="http://localhost:${tomcat.http.port}/manager/html/reload?path=/"
+            username="admin" password="admin" />
+    </target>
+    <!-- helper targets -->
+
+    <target name="all" depends="build-war"
+        description="Full build locally, or build remote deployment tar file"/>
+
+    <target name="build.remote.deployment" if="tar.build">
+        <tar destfile="${build}/how.${target.context}.tar.bz2"
+            compression="bzip2"
+            longfile="gnu" >
+            <tarfileset dir="${dist}"
+                includes="**/*"
+                excludes="**/*.sh"
+                mode="0644"
+            />
+            <tarfileset dir="${dist}"
+                includes="**/*.sh, **/${target.context}.how.tomcat"
+                mode="0755"
+            />
+        </tar>
+    </target>
+
+    <target name="all-local"
+        description="Stops the Tomcat instance,
+            rebuilds the project from scratch,
+            then restarts Tomcat"
+        depends="mkdirs, tomcat.stop, local-clean-deployment,deploy-local-as-war" unless="tar.build" >
+        <antcall target="tomcat.start" />
+        <sleep seconds="${tomcat.startup.delay}"/>
+        <antcall target="run.postdeploy.tests" />
+    </target>
+
+	<!--target name="build-all"
+		        description="Stops the Tomcat instance,
+		            rebuilds the project from scratch,
+		            then restarts Tomcat"
+		        depends="mkdirs, tomcat.stop, deploy" unless="tar.build" >
+	</target -->
+
+    <!-- run the tomcat scripts -->
+    <target name="tomcat.stop" unless="tar.build">
+        <antcall target="tomcat.script">
+            <param name="tomcat.script" value="${tomcat.stop.cmd}"/>
+        </antcall>
+    </target>
+
+    <target name="tomcat.start" unless="tar.build">
+        <antcall target="tomcat.script">
+            <param name="tomcat.script" value="${tomcat.start.cmd}"/>
+        </antcall>
+    </target>
+
+	<target name="tomcat-start">
+	    <java jar="${tomcat.dir}/bin/bootstrap.jar" fork="true">
+	        <jvmarg value="-Dcatalina.home=${tomcat.dir}"/>
+	    </java>
+	</target>
+
+	<target name="tomcat-stop">
+	    <java jar="${tomcat.dir}/bin/bootstrap.jar" fork="true">
+	        <jvmarg value="-Dcatalina.home=${tomcat.dir}"/>
+	        <arg line="stop"/>
+	    </java>
+	</target>
+
+        <target name="tomcat.restart" unless="tar.build">
+        <antcall target="tomcat.stop"/>
+        <sleep seconds="${tomcat.startup.delay}"/>
+        <antcall target="tomcat.start"/>
+        </target>
+
+    <target name="tomcat.script">
+        <echo level="info">Starting ${tomcat.script} with docroot ${container.instance}</echo>
+        <echo level="info">HTTP Port ${tomcat.http.port}</echo>
+        <echo level="info">tomcat.start.cmd=${tomcat.script}</echo>
+        <echo level="info">JAVA_HOME=${tomcat.java.home}</echo>
+        <echo level="info">CATALINA_BASE=${container.instance}</echo>
+        <echo level="info">CATALINA_HOME=${tomcat.dir}</echo>
+        <echo level="info">JAVA_OPTS=${tomcat.java.opts}</echo>
+        <echo level="info">CATALINA_OPTS=${catalina.opts}</echo>
+        <exec spawn="true" dir="${container.instance}"
+              executable="${tomcat.start.cmd}">
+            <env key="CATALINA_BASE"
+                 value="${container.instance}" />
+            <env key="CATALINA_HOME"
+                 value="${tomcat.dir}" />
+            <env key="JAVA_HOME" value="${tomcat.java.home}" />
+            <env key="JAVA_OPTS"
+                 value="${tomcat.java.opts}" />
+            <env key="CATALINA_OPTS"
+                 value="${catalina.opts}" />
+        </exec>
+    </target>
+
+    <!--
+      Paramterized reusable targets meant to be pulled out into a library
+    -->
+
+    <target name="junit.tests" >
+        <description>
+            This target is meant to be called by other tasks.
+            Either the testcase property must be set to an individual test class
+            or the test-classes refid must refer to a fileset containing classes
+            to be tested.
+
+            After the tests are completed, a junit report will be produced by
+            calling the junit-report target.
+
+            If any test failures or errors occured, then the build will be
+            terminated after the report is generated.
+        </description>
+
+        <mkdir dir="${build.testoutput.junit}" />
+
+        <junit printsummary="yes" haltonfailure="false" fork="yes"
+            jvm="${junit.jvm}">
+
+            <jvmarg value="-Xmx512M"/>
+
+            <sysproperty key="junit.hibernate.connection.username"
+                value="${junit.hibernate.connection.username}"/>
+
+            <sysproperty key="junit.hibernate.connection.password"
+                value="${junit.hibernate.connection.password}"/>
+
+            <sysproperty key="junit.hibernate.hbm2ddl.auto"
+                value="${junit.hibernate.hbm2ddl.auto}"/>
+
+            <sysproperty key="junit.application.base.url"
+                value="${application.base.url}"/>
+
+            <classpath refid="test.class.path" />
+            <formatter type="xml" />
+
+            <test name="${testcase}"
+                todir="${build.testoutput.junit}"
+                failureproperty="test.failed"
+                if="testcase"/>
+            <batchtest todir="${build.testoutput.junit}"
+                unless="testcase"
+                failureproperty="test.failed" >
+                <fileset refid="test.classes" />
+            </batchtest>
+        </junit>
+
+        <antcall target="junit.report" />
+
+        <fail if="test.failed">Test failure, check test output for details ${build.testoutput}/index.html </fail>
+
+    </target>
+
+    <target name="junit.report" if="ci.build">
+        <description>
+            Produce an HTML report from the fileset
+            ${build.testoutput}/**/Test-*.xml
+            Report goes into ${build.testoutput}
+        </description>
+        <junitreport todir="${build.testoutput.junit}">
+            <fileset dir="${build.testoutput.junit}">
+                <include name="TEST-*.xml"/>
+            </fileset>
+            <report format="frames"
+                styledir="${junit.style.dir}"
+                todir="${build.testoutput.junit}"/>
+        </junitreport>
+
+        <tstamp />
+        <replace dir="${build.testoutput}"
+            includes="**/*.html">
+            <replacefilter
+                token="@@DATE_AND_TIME@@"
+                value="${DSTAMP} at ${TSTAMP}" />
+            <replacefilter
+                token="@@PROJECT_NAME@@"
+                value="${ant.project.name}" />
+        </replace>
+
+    </target>
+</project>

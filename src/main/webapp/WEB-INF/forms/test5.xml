@@ -1,0 +1,3339 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="/FormBuilder/xsltforms/xsltforms.xsl" type="text/xsl"?>
+    <!--  DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"  -->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:xform="http://www.w3.org/2002/xforms"
+      xmlns:ev="http://www.w3.org/2001/xml-events"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:ajx="http://www.ajaxforms.net/2006/ajx">
+
+<head>
+	<title>Main Page</title>
+	<xform:model>
+      <xsd:schema xmlns:hcitT="http://www.healthcit.com/2010/formbuilder" targetNamespace="http://www.healthcit.com/2010/formbuilder"/>
+      <xform:instance id="FormDataInstance">
+
+        <form xmlns="" name="My Reproductive Health" id="d5fff3c4-dd06-34c1-9bec-0ca8b55d291e">
+          <question id="a82155f1-4f1a-338d-86ca-c430a678c52e" sn="age of first menstrul cycle">
+            <text>How old were you when you had your first menstrual period?</text>
+            <answer id="57412"/>
+          </question>
+          <question id="82f5fedd-a89f-30d4-844c-57c60202917b" sn="Taken Oral Contraceptives">
+            <text>Have you ever taken birth control pills (oral contraceptives) for one month or longer? </text>
+            <answer id="58776"/>
+
+          </question>
+          <question id="a928e1df-c174-3c0a-b40a-83b6ae54fe0b" sn="Total years using contraceptives">
+            <text>How many years in TOTAL have you used birth control pills?</text>
+            <answer id="58777"/>
+          </question>
+          <question id="5a013066-5b10-3a25-acc9-6c8747612c38" sn="Taken Fertility Drugs">
+            <text>Have you ever taken fertility drugs?</text>
+            <answer id="58778"/>
+
+          </question>
+          <question id="a4a7e0f1-6c06-3074-931c-f477acfd29fe" sn="ever been Pregnant">
+            <text>Have you ever been pregnant?</text>
+            <answer id="58779"/>
+          </question>
+          <question id="5a17b1b4-b6d3-349c-97a3-058f0b7c6e14" sn="Pregnancy result of Infertility drugs">
+            <text>Were any of your pregnancies the result of taking fertility drugs?</text>
+            <answer id="58781"/>
+
+          </question>
+          <question id="9d384252-4bf0-3bed-a062-7b2a682f78ef" sn="Full term Pregnancy">
+            <text>Have you ever had a full-term pregnancy?</text>
+            <answer id="58780"/>
+          </question>
+          <question id="9ab1cba1-3657-3a53-9742-581a155edb1f" sn="how many pregnancies">
+            <text>How many full-term pregnancies have you had? </text>
+            <answer id="58782"/>
+
+          </question>
+          <question id="48050181-ff72-3592-b545-c0d30ef23530" sn="How old first gave birth">
+            <text>How old were you the first time you gave birth?</text>
+            <answer id="58783"/>
+          </question>
+          <question id="31c05993-a6d1-3b27-9583-27877781d5cc" sn="pregnant or nursing">
+            <text>Are you currently pregnant or nursing?</text>
+            <answer id="58784"/>
+
+          </question>
+          <question id="3303a992-81c7-34c2-8135-6ec49f1cfed4" sn="manupausal status">
+            <text>Do you currently have menstrual periods? </text>
+            <answer id="58785"/>
+          </question>
+          <question id="a77bfb83-7e24-399a-bddc-bdd32fe3997a" sn="Year">
+            <text>Do you want to tell in what year did you experience your last menstrual period?</text>
+            <answer id="58787"/>
+
+          </question>
+          <question id="846a77cd-0343-31ac-b341-c11fce3a036f" sn="last menstrual">
+            <text>Please enter the year  you experience your last menstrual period? </text>
+            <answer id="58786"/>
+          </question>
+          <question id="8dd91587-7dd5-35e3-bed8-06620f008637" sn="why Periods stop">
+            <text>Why did your periods stop?</text>
+            <answer id="58788"/>
+
+          </question>
+          <question id="259226c0-7754-3c07-a3d2-69a4815a4b79" sn="reason">
+            <text>Please specify the reason your periods stop?</text>
+            <answer id="58789"/>
+          </question>
+          <question id="e6992fe1-e80a-33ba-bae0-316ab1d36814" sn="">
+            <text>Have you ever taken menopausal hormone therapy?</text>
+            <answer id="58790"/>
+
+          </question>
+          <question id="c309820a-b4bd-39c0-a319-7a98b2dfcad5" sn="Formulation">
+            <text>What formulation (types) of menopausal hormone therapy have you taken?</text>
+            <answer id="58795"/>
+          </question>
+          <question id="8f95b074-6d64-385f-91fe-9782753a3014" sn="utreus surgery">
+            <text>Have you ever had a surgery to remove part or all of your uterus?</text>
+            <answer id="58796"/>
+
+          </question>
+          <question id="1335ea9a-033f-35db-90b4-9aa47a4d0db4" sn="year">
+            <text>Do you know the year you experience your uterine surgery (hysterectomy)?</text>
+            <answer id="58797"/>
+          </question>
+          <question id="206b4688-2bc3-389e-8cbc-b94821045a2b" sn="year of surgery">
+            <text>Please enter the year did you experience your uterine surgery (hysterectomy)?</text>
+            <answer id="58798"/>
+
+          </question>
+          <question id="e7a0c2c6-3d51-38d6-82e4-93faa783c132" sn="ovarien surgery">
+            <text>Have you ever had a surgery to remove part of an ovary or both ovaries?</text>
+            <answer id="58799"/>
+          </question>
+          <question id="0d899144-8a5a-304d-8ed2-04d10167524e" sn="year of overy surgery">
+            <text>Do you want to tell the  year did you experience your ovarian surgery (oophorectomy)?</text>
+            <answer id="59600"/>
+
+          </question>
+          <question id="0d9f3187-2d3f-3c5a-8f14-5e5c74737b9f" sn="year">
+            <text>Please enter the year you experience your ovarian surgery (oophorectomy)? (YYYY) </text>
+            <answer id="59601"/>
+          </question>
+        </form>
+      </xform:instance>
+      <xform:instance id="PureContentInstance">
+
+        <data xmlns="">
+          <pure-content id="Q.CONTENT-e211205b-1dce-3f4c-b563-73c1275ab072"/>
+        </data>
+      </xform:instance>
+      <xform:instance id="DataGroupInstance">
+        <data xmlns="">
+          <data-group id="Q.GRP-e211205b-1dce-3f4c-b563-73c1275ab072" visible="true()"/>
+          <data-group id="Q.GRP-a82155f1-4f1a-338d-86ca-c430a678c52e" visible="true()"/>
+          <data-group id="Q.GRP-82f5fedd-a89f-30d4-844c-57c60202917b" visible="true()"/>
+
+          <data-group id="Q.GRP-a928e1df-c174-3c0a-b40a-83b6ae54fe0b" visible="(contains(instance('FormDataInstance')//question[@id='82f5fedd-a89f-30d4-844c-57c60202917b']/answer, '2') or contains(instance('FormDataInstance')//question[@id='82f5fedd-a89f-30d4-844c-57c60202917b']/answer, '3'))"/>
+          <data-group id="Q.GRP-5a013066-5b10-3a25-acc9-6c8747612c38" visible="true()"/>
+          <data-group id="Q.GRP-a4a7e0f1-6c06-3074-931c-f477acfd29fe" visible="true()"/>
+          <data-group id="Q.GRP-5a17b1b4-b6d3-349c-97a3-058f0b7c6e14" visible="contains(instance('FormDataInstance')//question[@id='a4a7e0f1-6c06-3074-931c-f477acfd29fe']/answer, '2') and contains(instance('FormDataInstance')//question[@id='5a013066-5b10-3a25-acc9-6c8747612c38']/answer, '1')"/>
+          <data-group id="Q.GRP-9d384252-4bf0-3bed-a062-7b2a682f78ef" visible="contains(instance('FormDataInstance')//question[@id='a4a7e0f1-6c06-3074-931c-f477acfd29fe']/answer, '2') and (contains(instance('FormDataInstance')//question[@id='5a013066-5b10-3a25-acc9-6c8747612c38']/answer, '2') or contains(instance('FormDataInstance')//question[@id='5a013066-5b10-3a25-acc9-6c8747612c38']/answer, '888') or contains(instance('FormDataInstance')//question[@id='5a013066-5b10-3a25-acc9-6c8747612c38']/answer, '999'))"/>
+          <data-group id="Q.GRP-9ab1cba1-3657-3a53-9742-581a155edb1f" visible="contains(instance('FormDataInstance')//question[@id='9d384252-4bf0-3bed-a062-7b2a682f78ef']/answer, '2')"/>
+          <data-group id="Q.GRP-48050181-ff72-3592-b545-c0d30ef23530" visible="contains(instance('FormDataInstance')//question[@id='9d384252-4bf0-3bed-a062-7b2a682f78ef']/answer, '2')"/>
+          <data-group id="Q.GRP-31c05993-a6d1-3b27-9583-27877781d5cc" visible="contains(instance('FormDataInstance')//question[@id='9d384252-4bf0-3bed-a062-7b2a682f78ef']/answer, '2')"/>
+          <data-group id="Q.GRP-3303a992-81c7-34c2-8135-6ec49f1cfed4" visible="true()"/>
+
+          <data-group id="Q.GRP-a77bfb83-7e24-399a-bddc-bdd32fe3997a" visible="(contains(instance('FormDataInstance')//question[@id='3303a992-81c7-34c2-8135-6ec49f1cfed4']/answer, '4') or contains(instance('FormDataInstance')//question[@id='3303a992-81c7-34c2-8135-6ec49f1cfed4']/answer, '888') or contains(instance('FormDataInstance')//question[@id='3303a992-81c7-34c2-8135-6ec49f1cfed4']/answer, '999'))"/>
+          <data-group id="Q.GRP-846a77cd-0343-31ac-b341-c11fce3a036f" visible="true()"/>
+          <data-group id="Q.GRP-8dd91587-7dd5-35e3-bed8-06620f008637" visible="true()"/>
+          <data-group id="Q.GRP-259226c0-7754-3c07-a3d2-69a4815a4b79" visible="true()"/>
+          <data-group id="Q.GRP-e6992fe1-e80a-33ba-bae0-316ab1d36814" visible="true()"/>
+          <data-group id="Q.GRP-c309820a-b4bd-39c0-a319-7a98b2dfcad5" visible="true()"/>
+          <data-group id="Q.GRP-8f95b074-6d64-385f-91fe-9782753a3014" visible="true()"/>
+          <data-group id="Q.GRP-1335ea9a-033f-35db-90b4-9aa47a4d0db4" visible="true()"/>
+          <data-group id="Q.GRP-206b4688-2bc3-389e-8cbc-b94821045a2b" visible="true()"/>
+
+          <data-group id="Q.GRP-e7a0c2c6-3d51-38d6-82e4-93faa783c132" visible="true()"/>
+          <data-group id="Q.GRP-0d899144-8a5a-304d-8ed2-04d10167524e" visible="true()"/>
+          <data-group id="Q.GRP-0d9f3187-2d3f-3c5a-8f14-5e5c74737b9f" visible="true()"/>
+        </data>
+      </xform:instance>
+      <xform:instance id="CrossFormSkipInstance">
+        <data xmlns=""/>
+      </xform:instance>
+      <xform:instance id="URLInstance">
+
+        <data xmlns="">
+          <base-url>xform.view</base-url>
+          <full-url>xform.view</full-url>
+        </data>
+      </xform:instance>
+      <xform:instance id="Q-ANSWER_SET-a82155f1-4f1a-338d-86ca-c430a678c52e">
+        <options xmlns="">
+          <answer sn="" text="I have never had a period">1</answer>
+
+          <answer sn="" text="Under age 10">2</answer>
+          <answer sn="" text="10">3</answer>
+          <answer sn="" text="11">4</answer>
+          <answer sn="" text="12">5</answer>
+          <answer sn="" text="13">6</answer>
+          <answer sn="" text="14">7</answer>
+
+          <answer sn="" text="15">8</answer>
+          <answer sn="" text="16">9</answer>
+          <answer sn="" text="17 years old or older">10</answer>
+          <answer sn="" text="I don't know/I can't remember">888</answer>
+          <answer sn="" text="I'd rather not say">999</answer>	
+          <answer sn="" text="100">100</answer>
+<answer sn="" text="101">101</answer>
+<answer sn="" text="102">102</answer>
+<answer sn="" text="103">103</answer>
+<answer sn="" text="104">104</answer>
+<answer sn="" text="105">105</answer>
+<answer sn="" text="106">106</answer>
+<answer sn="" text="107">107</answer>
+<answer sn="" text="108">108</answer>
+<answer sn="" text="109">109</answer>
+<answer sn="" text="110">110</answer>
+<answer sn="" text="111">111</answer>
+<answer sn="" text="112">112</answer>
+<answer sn="" text="113">113</answer>
+<answer sn="" text="114">114</answer>
+<answer sn="" text="115">115</answer>
+<answer sn="" text="116">116</answer>
+<answer sn="" text="117">117</answer>
+<answer sn="" text="118">118</answer>
+<answer sn="" text="119">119</answer>
+<answer sn="" text="120">120</answer>
+<answer sn="" text="121">121</answer>
+<answer sn="" text="122">122</answer>
+<answer sn="" text="123">123</answer>
+<answer sn="" text="124">124</answer>
+<answer sn="" text="125">125</answer>
+<answer sn="" text="126">126</answer>
+<answer sn="" text="127">127</answer>
+<answer sn="" text="128">128</answer>
+<answer sn="" text="129">129</answer>
+<answer sn="" text="130">130</answer>
+<answer sn="" text="131">131</answer>
+<answer sn="" text="132">132</answer>
+<answer sn="" text="133">133</answer>
+<answer sn="" text="134">134</answer>
+<answer sn="" text="135">135</answer>
+<answer sn="" text="136">136</answer>
+<answer sn="" text="137">137</answer>
+<answer sn="" text="138">138</answer>
+<answer sn="" text="139">139</answer>
+<answer sn="" text="140">140</answer>
+<answer sn="" text="141">141</answer>
+<answer sn="" text="142">142</answer>
+<answer sn="" text="143">143</answer>
+<answer sn="" text="144">144</answer>
+<answer sn="" text="145">145</answer>
+<answer sn="" text="146">146</answer>
+<answer sn="" text="147">147</answer>
+<answer sn="" text="148">148</answer>
+<answer sn="" text="149">149</answer>
+<answer sn="" text="150">150</answer>
+<answer sn="" text="151">151</answer>
+<answer sn="" text="152">152</answer>
+<answer sn="" text="153">153</answer>
+<answer sn="" text="154">154</answer>
+<answer sn="" text="155">155</answer>
+<answer sn="" text="156">156</answer>
+<answer sn="" text="157">157</answer>
+<answer sn="" text="158">158</answer>
+<answer sn="" text="159">159</answer>
+<answer sn="" text="160">160</answer>
+<answer sn="" text="161">161</answer>
+<answer sn="" text="162">162</answer>
+<answer sn="" text="163">163</answer>
+<answer sn="" text="164">164</answer>
+<answer sn="" text="165">165</answer>
+<answer sn="" text="166">166</answer>
+<answer sn="" text="167">167</answer>
+<answer sn="" text="168">168</answer>
+<answer sn="" text="169">169</answer>
+<answer sn="" text="170">170</answer>
+<answer sn="" text="171">171</answer>
+<answer sn="" text="172">172</answer>
+<answer sn="" text="173">173</answer>
+<answer sn="" text="174">174</answer>
+<answer sn="" text="175">175</answer>
+<answer sn="" text="176">176</answer>
+<answer sn="" text="177">177</answer>
+<answer sn="" text="178">178</answer>
+<answer sn="" text="179">179</answer>
+<answer sn="" text="180">180</answer>
+<answer sn="" text="181">181</answer>
+<answer sn="" text="182">182</answer>
+<answer sn="" text="183">183</answer>
+<answer sn="" text="184">184</answer>
+<answer sn="" text="185">185</answer>
+<answer sn="" text="186">186</answer>
+<answer sn="" text="187">187</answer>
+<answer sn="" text="188">188</answer>
+<answer sn="" text="189">189</answer>
+<answer sn="" text="190">190</answer>
+<answer sn="" text="191">191</answer>
+<answer sn="" text="192">192</answer>
+<answer sn="" text="193">193</answer>
+<answer sn="" text="194">194</answer>
+<answer sn="" text="195">195</answer>
+<answer sn="" text="196">196</answer>
+<answer sn="" text="197">197</answer>
+<answer sn="" text="198">198</answer>
+<answer sn="" text="199">199</answer>
+<answer sn="" text="200">200</answer>
+<answer sn="" text="201">201</answer>
+<answer sn="" text="202">202</answer>
+<answer sn="" text="203">203</answer>
+<answer sn="" text="204">204</answer>
+<answer sn="" text="205">205</answer>
+<answer sn="" text="206">206</answer>
+<answer sn="" text="207">207</answer>
+<answer sn="" text="208">208</answer>
+<answer sn="" text="209">209</answer>
+<answer sn="" text="210">210</answer>
+<answer sn="" text="211">211</answer>
+<answer sn="" text="212">212</answer>
+<answer sn="" text="213">213</answer>
+<answer sn="" text="214">214</answer>
+<answer sn="" text="215">215</answer>
+<answer sn="" text="216">216</answer>
+<answer sn="" text="217">217</answer>
+<answer sn="" text="218">218</answer>
+<answer sn="" text="219">219</answer>
+<answer sn="" text="220">220</answer>
+<answer sn="" text="221">221</answer>
+<answer sn="" text="222">222</answer>
+<answer sn="" text="223">223</answer>
+<answer sn="" text="224">224</answer>
+<answer sn="" text="225">225</answer>
+<answer sn="" text="226">226</answer>
+<answer sn="" text="227">227</answer>
+<answer sn="" text="228">228</answer>
+<answer sn="" text="229">229</answer>
+<answer sn="" text="230">230</answer>
+<answer sn="" text="231">231</answer>
+<answer sn="" text="232">232</answer>
+<answer sn="" text="233">233</answer>
+<answer sn="" text="234">234</answer>
+<answer sn="" text="235">235</answer>
+<answer sn="" text="236">236</answer>
+<answer sn="" text="237">237</answer>
+<answer sn="" text="238">238</answer>
+<answer sn="" text="239">239</answer>
+<answer sn="" text="240">240</answer>
+<answer sn="" text="241">241</answer>
+<answer sn="" text="242">242</answer>
+<answer sn="" text="243">243</answer>
+<answer sn="" text="244">244</answer>
+<answer sn="" text="245">245</answer>
+<answer sn="" text="246">246</answer>
+<answer sn="" text="247">247</answer>
+<answer sn="" text="248">248</answer>
+<answer sn="" text="249">249</answer>
+<answer sn="" text="250">250</answer>
+<answer sn="" text="251">251</answer>
+<answer sn="" text="252">252</answer>
+<answer sn="" text="253">253</answer>
+<answer sn="" text="254">254</answer>
+<answer sn="" text="255">255</answer>
+<answer sn="" text="256">256</answer>
+<answer sn="" text="257">257</answer>
+<answer sn="" text="258">258</answer>
+<answer sn="" text="259">259</answer>
+<answer sn="" text="260">260</answer>
+<answer sn="" text="261">261</answer>
+<answer sn="" text="262">262</answer>
+<answer sn="" text="263">263</answer>
+<answer sn="" text="264">264</answer>
+<answer sn="" text="265">265</answer>
+<answer sn="" text="266">266</answer>
+<answer sn="" text="267">267</answer>
+<answer sn="" text="268">268</answer>
+<answer sn="" text="269">269</answer>
+<answer sn="" text="270">270</answer>
+<answer sn="" text="271">271</answer>
+<answer sn="" text="272">272</answer>
+<answer sn="" text="273">273</answer>
+<answer sn="" text="274">274</answer>
+<answer sn="" text="275">275</answer>
+<answer sn="" text="276">276</answer>
+<answer sn="" text="277">277</answer>
+<answer sn="" text="278">278</answer>
+<answer sn="" text="279">279</answer>
+<answer sn="" text="280">280</answer>
+<answer sn="" text="281">281</answer>
+<answer sn="" text="282">282</answer>
+<answer sn="" text="283">283</answer>
+<answer sn="" text="284">284</answer>
+<answer sn="" text="285">285</answer>
+<answer sn="" text="286">286</answer>
+<answer sn="" text="287">287</answer>
+<answer sn="" text="288">288</answer>
+<answer sn="" text="289">289</answer>
+<answer sn="" text="290">290</answer>
+<answer sn="" text="291">291</answer>
+<answer sn="" text="292">292</answer>
+<answer sn="" text="293">293</answer>
+<answer sn="" text="294">294</answer>
+<answer sn="" text="295">295</answer>
+<answer sn="" text="296">296</answer>
+<answer sn="" text="297">297</answer>
+<answer sn="" text="298">298</answer>
+<answer sn="" text="299">299</answer>
+<answer sn="" text="300">300</answer>
+<answer sn="" text="301">301</answer>
+<answer sn="" text="302">302</answer>
+<answer sn="" text="303">303</answer>
+<answer sn="" text="304">304</answer>
+<answer sn="" text="305">305</answer>
+<answer sn="" text="306">306</answer>
+<answer sn="" text="307">307</answer>
+<answer sn="" text="308">308</answer>
+<answer sn="" text="309">309</answer>
+<answer sn="" text="310">310</answer>
+<answer sn="" text="311">311</answer>
+<answer sn="" text="312">312</answer>
+<answer sn="" text="313">313</answer>
+<answer sn="" text="314">314</answer>
+<answer sn="" text="315">315</answer>
+<answer sn="" text="316">316</answer>
+<answer sn="" text="317">317</answer>
+<answer sn="" text="318">318</answer>
+<answer sn="" text="319">319</answer>
+<answer sn="" text="320">320</answer>
+<answer sn="" text="321">321</answer>
+<answer sn="" text="322">322</answer>
+<answer sn="" text="323">323</answer>
+<answer sn="" text="324">324</answer>
+<answer sn="" text="325">325</answer>
+<answer sn="" text="326">326</answer>
+<answer sn="" text="327">327</answer>
+<answer sn="" text="328">328</answer>
+<answer sn="" text="329">329</answer>
+<answer sn="" text="330">330</answer>
+<answer sn="" text="331">331</answer>
+<answer sn="" text="332">332</answer>
+<answer sn="" text="333">333</answer>
+<answer sn="" text="334">334</answer>
+<answer sn="" text="335">335</answer>
+<answer sn="" text="336">336</answer>
+<answer sn="" text="337">337</answer>
+<answer sn="" text="338">338</answer>
+<answer sn="" text="339">339</answer>
+<answer sn="" text="340">340</answer>
+<answer sn="" text="341">341</answer>
+<answer sn="" text="342">342</answer>
+<answer sn="" text="343">343</answer>
+<answer sn="" text="344">344</answer>
+<answer sn="" text="345">345</answer>
+<answer sn="" text="346">346</answer>
+<answer sn="" text="347">347</answer>
+<answer sn="" text="348">348</answer>
+<answer sn="" text="349">349</answer>
+<answer sn="" text="350">350</answer>
+<answer sn="" text="351">351</answer>
+<answer sn="" text="352">352</answer>
+<answer sn="" text="353">353</answer>
+<answer sn="" text="354">354</answer>
+<answer sn="" text="355">355</answer>
+<answer sn="" text="356">356</answer>
+<answer sn="" text="357">357</answer>
+<answer sn="" text="358">358</answer>
+<answer sn="" text="359">359</answer>
+<answer sn="" text="360">360</answer>
+<answer sn="" text="361">361</answer>
+<answer sn="" text="362">362</answer>
+<answer sn="" text="363">363</answer>
+<answer sn="" text="364">364</answer>
+<answer sn="" text="365">365</answer>
+<answer sn="" text="366">366</answer>
+<answer sn="" text="367">367</answer>
+<answer sn="" text="368">368</answer>
+<answer sn="" text="369">369</answer>
+<answer sn="" text="370">370</answer>
+<answer sn="" text="371">371</answer>
+<answer sn="" text="372">372</answer>
+<answer sn="" text="373">373</answer>
+<answer sn="" text="374">374</answer>
+<answer sn="" text="375">375</answer>
+<answer sn="" text="376">376</answer>
+<answer sn="" text="377">377</answer>
+<answer sn="" text="378">378</answer>
+<answer sn="" text="379">379</answer>
+<answer sn="" text="380">380</answer>
+<answer sn="" text="381">381</answer>
+<answer sn="" text="382">382</answer>
+<answer sn="" text="383">383</answer>
+<answer sn="" text="384">384</answer>
+<answer sn="" text="385">385</answer>
+<answer sn="" text="386">386</answer>
+<answer sn="" text="387">387</answer>
+<answer sn="" text="388">388</answer>
+<answer sn="" text="389">389</answer>
+<answer sn="" text="390">390</answer>
+<answer sn="" text="391">391</answer>
+<answer sn="" text="392">392</answer>
+<answer sn="" text="393">393</answer>
+<answer sn="" text="394">394</answer>
+<answer sn="" text="395">395</answer>
+<answer sn="" text="396">396</answer>
+<answer sn="" text="397">397</answer>
+<answer sn="" text="398">398</answer>
+<answer sn="" text="399">399</answer>
+<answer sn="" text="400">400</answer>
+<answer sn="" text="401">401</answer>
+<answer sn="" text="402">402</answer>
+<answer sn="" text="403">403</answer>
+<answer sn="" text="404">404</answer>
+<answer sn="" text="405">405</answer>
+<answer sn="" text="406">406</answer>
+<answer sn="" text="407">407</answer>
+<answer sn="" text="408">408</answer>
+<answer sn="" text="409">409</answer>
+<answer sn="" text="410">410</answer>
+<answer sn="" text="411">411</answer>
+<answer sn="" text="412">412</answer>
+<answer sn="" text="413">413</answer>
+<answer sn="" text="414">414</answer>
+<answer sn="" text="415">415</answer>
+<answer sn="" text="416">416</answer>
+<answer sn="" text="417">417</answer>
+<answer sn="" text="418">418</answer>
+<answer sn="" text="419">419</answer>
+<answer sn="" text="420">420</answer>
+<answer sn="" text="421">421</answer>
+<answer sn="" text="422">422</answer>
+<answer sn="" text="423">423</answer>
+<answer sn="" text="424">424</answer>
+<answer sn="" text="425">425</answer>
+<answer sn="" text="426">426</answer>
+<answer sn="" text="427">427</answer>
+<answer sn="" text="428">428</answer>
+<answer sn="" text="429">429</answer>
+<answer sn="" text="430">430</answer>
+<answer sn="" text="431">431</answer>
+<answer sn="" text="432">432</answer>
+<answer sn="" text="433">433</answer>
+<answer sn="" text="434">434</answer>
+<answer sn="" text="435">435</answer>
+<answer sn="" text="436">436</answer>
+<answer sn="" text="437">437</answer>
+<answer sn="" text="438">438</answer>
+<answer sn="" text="439">439</answer>
+<answer sn="" text="440">440</answer>
+<answer sn="" text="441">441</answer>
+<answer sn="" text="442">442</answer>
+<answer sn="" text="443">443</answer>
+<answer sn="" text="444">444</answer>
+<answer sn="" text="445">445</answer>
+<answer sn="" text="446">446</answer>
+<answer sn="" text="447">447</answer>
+<answer sn="" text="448">448</answer>
+<answer sn="" text="449">449</answer>
+<answer sn="" text="450">450</answer>
+<answer sn="" text="451">451</answer>
+<answer sn="" text="452">452</answer>
+<answer sn="" text="453">453</answer>
+<answer sn="" text="454">454</answer>
+<answer sn="" text="455">455</answer>
+<answer sn="" text="456">456</answer>
+<answer sn="" text="457">457</answer>
+<answer sn="" text="458">458</answer>
+<answer sn="" text="459">459</answer>
+<answer sn="" text="460">460</answer>
+<answer sn="" text="461">461</answer>
+<answer sn="" text="462">462</answer>
+<answer sn="" text="463">463</answer>
+<answer sn="" text="464">464</answer>
+<answer sn="" text="465">465</answer>
+<answer sn="" text="466">466</answer>
+<answer sn="" text="467">467</answer>
+<answer sn="" text="468">468</answer>
+<answer sn="" text="469">469</answer>
+<answer sn="" text="470">470</answer>
+<answer sn="" text="471">471</answer>
+<answer sn="" text="472">472</answer>
+<answer sn="" text="473">473</answer>
+<answer sn="" text="474">474</answer>
+<answer sn="" text="475">475</answer>
+<answer sn="" text="476">476</answer>
+<answer sn="" text="477">477</answer>
+<answer sn="" text="478">478</answer>
+<answer sn="" text="479">479</answer>
+<answer sn="" text="480">480</answer>
+<answer sn="" text="481">481</answer>
+<answer sn="" text="482">482</answer>
+<answer sn="" text="483">483</answer>
+<answer sn="" text="484">484</answer>
+<answer sn="" text="485">485</answer>
+<answer sn="" text="486">486</answer>
+<answer sn="" text="487">487</answer>
+<answer sn="" text="488">488</answer>
+<answer sn="" text="489">489</answer>
+<answer sn="" text="490">490</answer>
+<answer sn="" text="491">491</answer>
+<answer sn="" text="492">492</answer>
+<answer sn="" text="493">493</answer>
+<answer sn="" text="494">494</answer>
+<answer sn="" text="495">495</answer>
+<answer sn="" text="496">496</answer>
+<answer sn="" text="497">497</answer>
+<answer sn="" text="498">498</answer>
+<answer sn="" text="499">499</answer>
+<answer sn="" text="500">500</answer>
+<answer sn="" text="501">501</answer>
+<answer sn="" text="502">502</answer>
+<answer sn="" text="503">503</answer>
+<answer sn="" text="504">504</answer>
+<answer sn="" text="505">505</answer>
+<answer sn="" text="506">506</answer>
+<answer sn="" text="507">507</answer>
+<answer sn="" text="508">508</answer>
+<answer sn="" text="509">509</answer>
+<answer sn="" text="510">510</answer>
+<answer sn="" text="511">511</answer>
+<answer sn="" text="512">512</answer>
+<answer sn="" text="513">513</answer>
+<answer sn="" text="514">514</answer>
+<answer sn="" text="515">515</answer>
+<answer sn="" text="516">516</answer>
+<answer sn="" text="517">517</answer>
+<answer sn="" text="518">518</answer>
+<answer sn="" text="519">519</answer>
+<answer sn="" text="520">520</answer>
+<answer sn="" text="521">521</answer>
+<answer sn="" text="522">522</answer>
+<answer sn="" text="523">523</answer>
+<answer sn="" text="524">524</answer>
+<answer sn="" text="525">525</answer>
+<answer sn="" text="526">526</answer>
+<answer sn="" text="527">527</answer>
+<answer sn="" text="528">528</answer>
+<answer sn="" text="529">529</answer>
+<answer sn="" text="530">530</answer>
+<answer sn="" text="531">531</answer>
+<answer sn="" text="532">532</answer>
+<answer sn="" text="533">533</answer>
+<answer sn="" text="534">534</answer>
+<answer sn="" text="535">535</answer>
+<answer sn="" text="536">536</answer>
+<answer sn="" text="537">537</answer>
+<answer sn="" text="538">538</answer>
+<answer sn="" text="539">539</answer>
+<answer sn="" text="540">540</answer>
+<answer sn="" text="541">541</answer>
+<answer sn="" text="542">542</answer>
+<answer sn="" text="543">543</answer>
+<answer sn="" text="544">544</answer>
+<answer sn="" text="545">545</answer>
+<answer sn="" text="546">546</answer>
+<answer sn="" text="547">547</answer>
+<answer sn="" text="548">548</answer>
+<answer sn="" text="549">549</answer>
+<answer sn="" text="550">550</answer>
+<answer sn="" text="551">551</answer>
+<answer sn="" text="552">552</answer>
+<answer sn="" text="553">553</answer>
+<answer sn="" text="554">554</answer>
+<answer sn="" text="555">555</answer>
+<answer sn="" text="556">556</answer>
+<answer sn="" text="557">557</answer>
+<answer sn="" text="558">558</answer>
+<answer sn="" text="559">559</answer>
+<answer sn="" text="560">560</answer>
+<answer sn="" text="561">561</answer>
+<answer sn="" text="562">562</answer>
+<answer sn="" text="563">563</answer>
+<answer sn="" text="564">564</answer>
+<answer sn="" text="565">565</answer>
+<answer sn="" text="566">566</answer>
+<answer sn="" text="567">567</answer>
+<answer sn="" text="568">568</answer>
+<answer sn="" text="569">569</answer>
+<answer sn="" text="570">570</answer>
+<answer sn="" text="571">571</answer>
+<answer sn="" text="572">572</answer>
+<answer sn="" text="573">573</answer>
+<answer sn="" text="574">574</answer>
+<answer sn="" text="575">575</answer>
+<answer sn="" text="576">576</answer>
+<answer sn="" text="577">577</answer>
+<answer sn="" text="578">578</answer>
+<answer sn="" text="579">579</answer>
+<answer sn="" text="580">580</answer>
+<answer sn="" text="581">581</answer>
+<answer sn="" text="582">582</answer>
+<answer sn="" text="583">583</answer>
+<answer sn="" text="584">584</answer>
+<answer sn="" text="585">585</answer>
+<answer sn="" text="586">586</answer>
+<answer sn="" text="587">587</answer>
+<answer sn="" text="588">588</answer>
+<answer sn="" text="589">589</answer>
+<answer sn="" text="590">590</answer>
+<answer sn="" text="591">591</answer>
+<answer sn="" text="592">592</answer>
+<answer sn="" text="593">593</answer>
+<answer sn="" text="594">594</answer>
+<answer sn="" text="595">595</answer>
+<answer sn="" text="596">596</answer>
+<answer sn="" text="597">597</answer>
+<answer sn="" text="598">598</answer>
+<answer sn="" text="599">599</answer>
+<answer sn="" text="600">600</answer>
+
+        </options>
+
+      </xform:instance>
+      <xform:instance id="Q-ANSWER_SET-82f5fedd-a89f-30d4-844c-57c60202917b">
+        <options xmlns="">
+          <answer sn="" text="Yes, I used birth control pills in the past">2</answer>
+          <answer sn="" text="Yes, I am currently using birth control pills">3</answer>
+          <answer sn="" text="No">1</answer>
+          <answer sn="" text="I don't know/I can't remember">888</answer>
+
+          <answer sn="" text="I'd rather not say">999</answer>
+          <answer sn="" text="101">101</answer>
+<answer sn="" text="102">102</answer>
+<answer sn="" text="103">103</answer>
+<answer sn="" text="104">104</answer>
+<answer sn="" text="105">105</answer>
+<answer sn="" text="106">106</answer>
+<answer sn="" text="107">107</answer>
+<answer sn="" text="108">108</answer>
+<answer sn="" text="109">109</answer>
+<answer sn="" text="110">110</answer>
+<answer sn="" text="111">111</answer>
+<answer sn="" text="112">112</answer>
+<answer sn="" text="113">113</answer>
+<answer sn="" text="114">114</answer>
+<answer sn="" text="115">115</answer>
+<answer sn="" text="116">116</answer>
+<answer sn="" text="117">117</answer>
+<answer sn="" text="118">118</answer>
+<answer sn="" text="119">119</answer>
+<answer sn="" text="120">120</answer>
+<answer sn="" text="121">121</answer>
+<answer sn="" text="122">122</answer>
+<answer sn="" text="123">123</answer>
+<answer sn="" text="124">124</answer>
+<answer sn="" text="125">125</answer>
+<answer sn="" text="126">126</answer>
+<answer sn="" text="127">127</answer>
+<answer sn="" text="128">128</answer>
+<answer sn="" text="129">129</answer>
+<answer sn="" text="130">130</answer>
+<answer sn="" text="131">131</answer>
+<answer sn="" text="132">132</answer>
+<answer sn="" text="133">133</answer>
+<answer sn="" text="134">134</answer>
+<answer sn="" text="135">135</answer>
+<answer sn="" text="136">136</answer>
+<answer sn="" text="137">137</answer>
+<answer sn="" text="138">138</answer>
+<answer sn="" text="139">139</answer>
+<answer sn="" text="140">140</answer>
+<answer sn="" text="141">141</answer>
+<answer sn="" text="142">142</answer>
+<answer sn="" text="143">143</answer>
+<answer sn="" text="144">144</answer>
+<answer sn="" text="145">145</answer>
+<answer sn="" text="146">146</answer>
+<answer sn="" text="147">147</answer>
+<answer sn="" text="148">148</answer>
+<answer sn="" text="149">149</answer>
+<answer sn="" text="150">150</answer>
+<answer sn="" text="151">151</answer>
+<answer sn="" text="152">152</answer>
+<answer sn="" text="153">153</answer>
+<answer sn="" text="154">154</answer>
+<answer sn="" text="155">155</answer>
+<answer sn="" text="156">156</answer>
+<answer sn="" text="157">157</answer>
+<answer sn="" text="158">158</answer>
+<answer sn="" text="159">159</answer>
+<answer sn="" text="160">160</answer>
+<answer sn="" text="161">161</answer>
+<answer sn="" text="162">162</answer>
+<answer sn="" text="163">163</answer>
+<answer sn="" text="164">164</answer>
+<answer sn="" text="165">165</answer>
+<answer sn="" text="166">166</answer>
+<answer sn="" text="167">167</answer>
+<answer sn="" text="168">168</answer>
+<answer sn="" text="169">169</answer>
+<answer sn="" text="170">170</answer>
+<answer sn="" text="171">171</answer>
+<answer sn="" text="172">172</answer>
+<answer sn="" text="173">173</answer>
+<answer sn="" text="174">174</answer>
+<answer sn="" text="175">175</answer>
+<answer sn="" text="176">176</answer>
+<answer sn="" text="177">177</answer>
+<answer sn="" text="178">178</answer>
+<answer sn="" text="179">179</answer>
+<answer sn="" text="180">180</answer>
+<answer sn="" text="181">181</answer>
+<answer sn="" text="182">182</answer>
+<answer sn="" text="183">183</answer>
+<answer sn="" text="184">184</answer>
+<answer sn="" text="185">185</answer>
+<answer sn="" text="186">186</answer>
+<answer sn="" text="187">187</answer>
+<answer sn="" text="188">188</answer>
+<answer sn="" text="189">189</answer>
+<answer sn="" text="190">190</answer>
+<answer sn="" text="191">191</answer>
+<answer sn="" text="192">192</answer>
+<answer sn="" text="193">193</answer>
+<answer sn="" text="194">194</answer>
+<answer sn="" text="195">195</answer>
+<answer sn="" text="196">196</answer>
+<answer sn="" text="197">197</answer>
+<answer sn="" text="198">198</answer>
+<answer sn="" text="199">199</answer>
+<answer sn="" text="200">200</answer>
+<answer sn="" text="201">201</answer>
+<answer sn="" text="202">202</answer>
+<answer sn="" text="203">203</answer>
+<answer sn="" text="204">204</answer>
+<answer sn="" text="205">205</answer>
+<answer sn="" text="206">206</answer>
+<answer sn="" text="207">207</answer>
+<answer sn="" text="208">208</answer>
+<answer sn="" text="209">209</answer>
+<answer sn="" text="210">210</answer>
+<answer sn="" text="211">211</answer>
+<answer sn="" text="212">212</answer>
+<answer sn="" text="213">213</answer>
+<answer sn="" text="214">214</answer>
+<answer sn="" text="215">215</answer>
+<answer sn="" text="216">216</answer>
+<answer sn="" text="217">217</answer>
+<answer sn="" text="218">218</answer>
+<answer sn="" text="219">219</answer>
+<answer sn="" text="220">220</answer>
+<answer sn="" text="221">221</answer>
+<answer sn="" text="222">222</answer>
+<answer sn="" text="223">223</answer>
+<answer sn="" text="224">224</answer>
+<answer sn="" text="225">225</answer>
+<answer sn="" text="226">226</answer>
+<answer sn="" text="227">227</answer>
+<answer sn="" text="228">228</answer>
+<answer sn="" text="229">229</answer>
+<answer sn="" text="230">230</answer>
+<answer sn="" text="231">231</answer>
+<answer sn="" text="232">232</answer>
+<answer sn="" text="233">233</answer>
+<answer sn="" text="234">234</answer>
+<answer sn="" text="235">235</answer>
+<answer sn="" text="236">236</answer>
+<answer sn="" text="237">237</answer>
+<answer sn="" text="238">238</answer>
+<answer sn="" text="239">239</answer>
+<answer sn="" text="240">240</answer>
+<answer sn="" text="241">241</answer>
+<answer sn="" text="242">242</answer>
+<answer sn="" text="243">243</answer>
+<answer sn="" text="244">244</answer>
+<answer sn="" text="245">245</answer>
+<answer sn="" text="246">246</answer>
+<answer sn="" text="247">247</answer>
+<answer sn="" text="248">248</answer>
+<answer sn="" text="249">249</answer>
+<answer sn="" text="250">250</answer>
+<answer sn="" text="251">251</answer>
+<answer sn="" text="252">252</answer>
+<answer sn="" text="253">253</answer>
+<answer sn="" text="254">254</answer>
+<answer sn="" text="255">255</answer>
+<answer sn="" text="256">256</answer>
+<answer sn="" text="257">257</answer>
+<answer sn="" text="258">258</answer>
+<answer sn="" text="259">259</answer>
+<answer sn="" text="260">260</answer>
+<answer sn="" text="261">261</answer>
+<answer sn="" text="262">262</answer>
+<answer sn="" text="263">263</answer>
+<answer sn="" text="264">264</answer>
+<answer sn="" text="265">265</answer>
+<answer sn="" text="266">266</answer>
+<answer sn="" text="267">267</answer>
+<answer sn="" text="268">268</answer>
+<answer sn="" text="269">269</answer>
+<answer sn="" text="270">270</answer>
+<answer sn="" text="271">271</answer>
+<answer sn="" text="272">272</answer>
+<answer sn="" text="273">273</answer>
+<answer sn="" text="274">274</answer>
+<answer sn="" text="275">275</answer>
+<answer sn="" text="276">276</answer>
+<answer sn="" text="277">277</answer>
+<answer sn="" text="278">278</answer>
+<answer sn="" text="279">279</answer>
+<answer sn="" text="280">280</answer>
+<answer sn="" text="281">281</answer>
+<answer sn="" text="282">282</answer>
+<answer sn="" text="283">283</answer>
+<answer sn="" text="284">284</answer>
+<answer sn="" text="285">285</answer>
+<answer sn="" text="286">286</answer>
+<answer sn="" text="287">287</answer>
+<answer sn="" text="288">288</answer>
+<answer sn="" text="289">289</answer>
+<answer sn="" text="290">290</answer>
+<answer sn="" text="291">291</answer>
+<answer sn="" text="292">292</answer>
+<answer sn="" text="293">293</answer>
+<answer sn="" text="294">294</answer>
+<answer sn="" text="295">295</answer>
+<answer sn="" text="296">296</answer>
+<answer sn="" text="297">297</answer>
+<answer sn="" text="298">298</answer>
+<answer sn="" text="299">299</answer>
+<answer sn="" text="300">300</answer>
+<answer sn="" text="301">301</answer>
+<answer sn="" text="302">302</answer>
+<answer sn="" text="303">303</answer>
+<answer sn="" text="304">304</answer>
+<answer sn="" text="305">305</answer>
+<answer sn="" text="306">306</answer>
+<answer sn="" text="307">307</answer>
+<answer sn="" text="308">308</answer>
+<answer sn="" text="309">309</answer>
+<answer sn="" text="310">310</answer>
+<answer sn="" text="311">311</answer>
+<answer sn="" text="312">312</answer>
+<answer sn="" text="313">313</answer>
+<answer sn="" text="314">314</answer>
+<answer sn="" text="315">315</answer>
+<answer sn="" text="316">316</answer>
+<answer sn="" text="317">317</answer>
+<answer sn="" text="318">318</answer>
+<answer sn="" text="319">319</answer>
+<answer sn="" text="320">320</answer>
+<answer sn="" text="321">321</answer>
+<answer sn="" text="322">322</answer>
+<answer sn="" text="323">323</answer>
+<answer sn="" text="324">324</answer>
+<answer sn="" text="325">325</answer>
+<answer sn="" text="326">326</answer>
+<answer sn="" text="327">327</answer>
+<answer sn="" text="328">328</answer>
+<answer sn="" text="329">329</answer>
+<answer sn="" text="330">330</answer>
+<answer sn="" text="331">331</answer>
+<answer sn="" text="332">332</answer>
+<answer sn="" text="333">333</answer>
+<answer sn="" text="334">334</answer>
+<answer sn="" text="335">335</answer>
+<answer sn="" text="336">336</answer>
+<answer sn="" text="337">337</answer>
+<answer sn="" text="338">338</answer>
+<answer sn="" text="339">339</answer>
+<answer sn="" text="340">340</answer>
+<answer sn="" text="341">341</answer>
+<answer sn="" text="342">342</answer>
+<answer sn="" text="343">343</answer>
+<answer sn="" text="344">344</answer>
+<answer sn="" text="345">345</answer>
+<answer sn="" text="346">346</answer>
+<answer sn="" text="347">347</answer>
+<answer sn="" text="348">348</answer>
+<answer sn="" text="349">349</answer>
+<answer sn="" text="350">350</answer>
+<answer sn="" text="351">351</answer>
+<answer sn="" text="352">352</answer>
+<answer sn="" text="353">353</answer>
+<answer sn="" text="354">354</answer>
+<answer sn="" text="355">355</answer>
+<answer sn="" text="356">356</answer>
+<answer sn="" text="357">357</answer>
+<answer sn="" text="358">358</answer>
+<answer sn="" text="359">359</answer>
+<answer sn="" text="360">360</answer>
+<answer sn="" text="361">361</answer>
+<answer sn="" text="362">362</answer>
+<answer sn="" text="363">363</answer>
+<answer sn="" text="364">364</answer>
+<answer sn="" text="365">365</answer>
+<answer sn="" text="366">366</answer>
+<answer sn="" text="367">367</answer>
+<answer sn="" text="368">368</answer>
+<answer sn="" text="369">369</answer>
+<answer sn="" text="370">370</answer>
+<answer sn="" text="371">371</answer>
+<answer sn="" text="372">372</answer>
+<answer sn="" text="373">373</answer>
+<answer sn="" text="374">374</answer>
+<answer sn="" text="375">375</answer>
+<answer sn="" text="376">376</answer>
+<answer sn="" text="377">377</answer>
+<answer sn="" text="378">378</answer>
+<answer sn="" text="379">379</answer>
+<answer sn="" text="380">380</answer>
+<answer sn="" text="381">381</answer>
+<answer sn="" text="382">382</answer>
+<answer sn="" text="383">383</answer>
+<answer sn="" text="384">384</answer>
+<answer sn="" text="385">385</answer>
+<answer sn="" text="386">386</answer>
+<answer sn="" text="387">387</answer>
+<answer sn="" text="388">388</answer>
+<answer sn="" text="389">389</answer>
+<answer sn="" text="390">390</answer>
+<answer sn="" text="391">391</answer>
+<answer sn="" text="392">392</answer>
+<answer sn="" text="393">393</answer>
+<answer sn="" text="394">394</answer>
+<answer sn="" text="395">395</answer>
+<answer sn="" text="396">396</answer>
+<answer sn="" text="397">397</answer>
+<answer sn="" text="398">398</answer>
+<answer sn="" text="399">399</answer>
+<answer sn="" text="400">400</answer>
+<answer sn="" text="401">401</answer>
+<answer sn="" text="402">402</answer>
+<answer sn="" text="403">403</answer>
+<answer sn="" text="404">404</answer>
+<answer sn="" text="405">405</answer>
+<answer sn="" text="406">406</answer>
+<answer sn="" text="407">407</answer>
+<answer sn="" text="408">408</answer>
+<answer sn="" text="409">409</answer>
+<answer sn="" text="410">410</answer>
+<answer sn="" text="411">411</answer>
+<answer sn="" text="412">412</answer>
+<answer sn="" text="413">413</answer>
+<answer sn="" text="414">414</answer>
+<answer sn="" text="415">415</answer>
+<answer sn="" text="416">416</answer>
+<answer sn="" text="417">417</answer>
+<answer sn="" text="418">418</answer>
+<answer sn="" text="419">419</answer>
+<answer sn="" text="420">420</answer>
+<answer sn="" text="421">421</answer>
+<answer sn="" text="422">422</answer>
+<answer sn="" text="423">423</answer>
+<answer sn="" text="424">424</answer>
+<answer sn="" text="425">425</answer>
+<answer sn="" text="426">426</answer>
+<answer sn="" text="427">427</answer>
+<answer sn="" text="428">428</answer>
+<answer sn="" text="429">429</answer>
+<answer sn="" text="430">430</answer>
+<answer sn="" text="431">431</answer>
+<answer sn="" text="432">432</answer>
+<answer sn="" text="433">433</answer>
+<answer sn="" text="434">434</answer>
+<answer sn="" text="435">435</answer>
+<answer sn="" text="436">436</answer>
+<answer sn="" text="437">437</answer>
+<answer sn="" text="438">438</answer>
+<answer sn="" text="439">439</answer>
+<answer sn="" text="440">440</answer>
+<answer sn="" text="441">441</answer>
+<answer sn="" text="442">442</answer>
+<answer sn="" text="443">443</answer>
+<answer sn="" text="444">444</answer>
+<answer sn="" text="445">445</answer>
+<answer sn="" text="446">446</answer>
+<answer sn="" text="447">447</answer>
+<answer sn="" text="448">448</answer>
+<answer sn="" text="449">449</answer>
+<answer sn="" text="450">450</answer>
+<answer sn="" text="451">451</answer>
+<answer sn="" text="452">452</answer>
+<answer sn="" text="453">453</answer>
+<answer sn="" text="454">454</answer>
+<answer sn="" text="455">455</answer>
+<answer sn="" text="456">456</answer>
+<answer sn="" text="457">457</answer>
+<answer sn="" text="458">458</answer>
+<answer sn="" text="459">459</answer>
+<answer sn="" text="460">460</answer>
+<answer sn="" text="461">461</answer>
+<answer sn="" text="462">462</answer>
+<answer sn="" text="463">463</answer>
+<answer sn="" text="464">464</answer>
+<answer sn="" text="465">465</answer>
+<answer sn="" text="466">466</answer>
+<answer sn="" text="467">467</answer>
+<answer sn="" text="468">468</answer>
+<answer sn="" text="469">469</answer>
+<answer sn="" text="470">470</answer>
+<answer sn="" text="471">471</answer>
+<answer sn="" text="472">472</answer>
+<answer sn="" text="473">473</answer>
+<answer sn="" text="474">474</answer>
+<answer sn="" text="475">475</answer>
+<answer sn="" text="476">476</answer>
+<answer sn="" text="477">477</answer>
+<answer sn="" text="478">478</answer>
+<answer sn="" text="479">479</answer>
+<answer sn="" text="480">480</answer>
+<answer sn="" text="481">481</answer>
+<answer sn="" text="482">482</answer>
+<answer sn="" text="483">483</answer>
+<answer sn="" text="484">484</answer>
+<answer sn="" text="485">485</answer>
+<answer sn="" text="486">486</answer>
+<answer sn="" text="487">487</answer>
+<answer sn="" text="488">488</answer>
+<answer sn="" text="489">489</answer>
+<answer sn="" text="490">490</answer>
+<answer sn="" text="491">491</answer>
+<answer sn="" text="492">492</answer>
+<answer sn="" text="493">493</answer>
+<answer sn="" text="494">494</answer>
+<answer sn="" text="495">495</answer>
+<answer sn="" text="496">496</answer>
+<answer sn="" text="497">497</answer>
+<answer sn="" text="498">498</answer>
+<answer sn="" text="499">499</answer>
+<answer sn="" text="500">500</answer>
+<answer sn="" text="501">501</answer>
+<answer sn="" text="502">502</answer>
+<answer sn="" text="503">503</answer>
+<answer sn="" text="504">504</answer>
+<answer sn="" text="505">505</answer>
+<answer sn="" text="506">506</answer>
+<answer sn="" text="507">507</answer>
+<answer sn="" text="508">508</answer>
+<answer sn="" text="509">509</answer>
+<answer sn="" text="510">510</answer>
+<answer sn="" text="511">511</answer>
+<answer sn="" text="512">512</answer>
+<answer sn="" text="513">513</answer>
+<answer sn="" text="514">514</answer>
+<answer sn="" text="515">515</answer>
+<answer sn="" text="516">516</answer>
+<answer sn="" text="517">517</answer>
+<answer sn="" text="518">518</answer>
+<answer sn="" text="519">519</answer>
+<answer sn="" text="520">520</answer>
+<answer sn="" text="521">521</answer>
+<answer sn="" text="522">522</answer>
+<answer sn="" text="523">523</answer>
+<answer sn="" text="524">524</answer>
+<answer sn="" text="525">525</answer>
+<answer sn="" text="526">526</answer>
+<answer sn="" text="527">527</answer>
+<answer sn="" text="528">528</answer>
+<answer sn="" text="529">529</answer>
+<answer sn="" text="530">530</answer>
+<answer sn="" text="531">531</answer>
+<answer sn="" text="532">532</answer>
+<answer sn="" text="533">533</answer>
+<answer sn="" text="534">534</answer>
+<answer sn="" text="535">535</answer>
+<answer sn="" text="536">536</answer>
+<answer sn="" text="537">537</answer>
+<answer sn="" text="538">538</answer>
+<answer sn="" text="539">539</answer>
+<answer sn="" text="540">540</answer>
+<answer sn="" text="541">541</answer>
+<answer sn="" text="542">542</answer>
+<answer sn="" text="543">543</answer>
+<answer sn="" text="544">544</answer>
+<answer sn="" text="545">545</answer>
+<answer sn="" text="546">546</answer>
+<answer sn="" text="547">547</answer>
+<answer sn="" text="548">548</answer>
+<answer sn="" text="549">549</answer>
+<answer sn="" text="550">550</answer>
+<answer sn="" text="551">551</answer>
+<answer sn="" text="552">552</answer>
+<answer sn="" text="553">553</answer>
+<answer sn="" text="554">554</answer>
+<answer sn="" text="555">555</answer>
+<answer sn="" text="556">556</answer>
+<answer sn="" text="557">557</answer>
+<answer sn="" text="558">558</answer>
+<answer sn="" text="559">559</answer>
+<answer sn="" text="560">560</answer>
+<answer sn="" text="561">561</answer>
+<answer sn="" text="562">562</answer>
+<answer sn="" text="563">563</answer>
+<answer sn="" text="564">564</answer>
+<answer sn="" text="565">565</answer>
+<answer sn="" text="566">566</answer>
+<answer sn="" text="567">567</answer>
+<answer sn="" text="568">568</answer>
+<answer sn="" text="569">569</answer>
+<answer sn="" text="570">570</answer>
+<answer sn="" text="571">571</answer>
+<answer sn="" text="572">572</answer>
+<answer sn="" text="573">573</answer>
+<answer sn="" text="574">574</answer>
+<answer sn="" text="575">575</answer>
+<answer sn="" text="576">576</answer>
+<answer sn="" text="577">577</answer>
+<answer sn="" text="578">578</answer>
+<answer sn="" text="579">579</answer>
+<answer sn="" text="580">580</answer>
+<answer sn="" text="581">581</answer>
+<answer sn="" text="582">582</answer>
+<answer sn="" text="583">583</answer>
+<answer sn="" text="584">584</answer>
+<answer sn="" text="585">585</answer>
+<answer sn="" text="586">586</answer>
+<answer sn="" text="587">587</answer>
+<answer sn="" text="588">588</answer>
+<answer sn="" text="589">589</answer>
+<answer sn="" text="590">590</answer>
+<answer sn="" text="591">591</answer>
+<answer sn="" text="592">592</answer>
+<answer sn="" text="593">593</answer>
+<answer sn="" text="594">594</answer>
+<answer sn="" text="595">595</answer>
+<answer sn="" text="596">596</answer>
+<answer sn="" text="597">597</answer>
+<answer sn="" text="598">598</answer>
+<answer sn="" text="599">599</answer>
+<answer sn="" text="600">600</answer>
+
+        </options>
+      </xform:instance>
+      <xform:instance id="Q-ANSWER_SET-a928e1df-c174-3c0a-b40a-83b6ae54fe0b">
+        <options xmlns="">
+          <answer sn="" text="Less than 1 year">1</answer>
+          <answer sn="" text="1-2 years">2</answer>
+
+          <answer sn="" text="3-4 years">3</answer>
+          <answer sn="" text="5-9 years">4</answer>
+          <answer sn="" text="10-14 years">5</answer>
+          <answer sn="" text="15 years or more">6</answer>
+          <answer sn="" text="I don't know/I can't remember">888</answer>
+          <answer sn="" text="I'd rather not say">999</answer>
+          <answer sn="" text="101">101</answer>
+<answer sn="" text="102">102</answer>
+<answer sn="" text="103">103</answer>
+<answer sn="" text="104">104</answer>
+<answer sn="" text="105">105</answer>
+<answer sn="" text="106">106</answer>
+<answer sn="" text="107">107</answer>
+<answer sn="" text="108">108</answer>
+<answer sn="" text="109">109</answer>
+<answer sn="" text="110">110</answer>
+<answer sn="" text="111">111</answer>
+<answer sn="" text="112">112</answer>
+<answer sn="" text="113">113</answer>
+<answer sn="" text="114">114</answer>
+<answer sn="" text="115">115</answer>
+<answer sn="" text="116">116</answer>
+<answer sn="" text="117">117</answer>
+<answer sn="" text="118">118</answer>
+<answer sn="" text="119">119</answer>
+<answer sn="" text="120">120</answer>
+<answer sn="" text="121">121</answer>
+<answer sn="" text="122">122</answer>
+<answer sn="" text="123">123</answer>
+<answer sn="" text="124">124</answer>
+<answer sn="" text="125">125</answer>
+<answer sn="" text="126">126</answer>
+<answer sn="" text="127">127</answer>
+<answer sn="" text="128">128</answer>
+<answer sn="" text="129">129</answer>
+<answer sn="" text="130">130</answer>
+<answer sn="" text="131">131</answer>
+<answer sn="" text="132">132</answer>
+<answer sn="" text="133">133</answer>
+<answer sn="" text="134">134</answer>
+<answer sn="" text="135">135</answer>
+<answer sn="" text="136">136</answer>
+<answer sn="" text="137">137</answer>
+<answer sn="" text="138">138</answer>
+<answer sn="" text="139">139</answer>
+<answer sn="" text="140">140</answer>
+<answer sn="" text="141">141</answer>
+<answer sn="" text="142">142</answer>
+<answer sn="" text="143">143</answer>
+<answer sn="" text="144">144</answer>
+<answer sn="" text="145">145</answer>
+<answer sn="" text="146">146</answer>
+<answer sn="" text="147">147</answer>
+<answer sn="" text="148">148</answer>
+<answer sn="" text="149">149</answer>
+<answer sn="" text="150">150</answer>
+<answer sn="" text="151">151</answer>
+<answer sn="" text="152">152</answer>
+<answer sn="" text="153">153</answer>
+<answer sn="" text="154">154</answer>
+<answer sn="" text="155">155</answer>
+<answer sn="" text="156">156</answer>
+<answer sn="" text="157">157</answer>
+<answer sn="" text="158">158</answer>
+<answer sn="" text="159">159</answer>
+<answer sn="" text="160">160</answer>
+<answer sn="" text="161">161</answer>
+<answer sn="" text="162">162</answer>
+<answer sn="" text="163">163</answer>
+<answer sn="" text="164">164</answer>
+<answer sn="" text="165">165</answer>
+<answer sn="" text="166">166</answer>
+<answer sn="" text="167">167</answer>
+<answer sn="" text="168">168</answer>
+<answer sn="" text="169">169</answer>
+<answer sn="" text="170">170</answer>
+<answer sn="" text="171">171</answer>
+<answer sn="" text="172">172</answer>
+<answer sn="" text="173">173</answer>
+<answer sn="" text="174">174</answer>
+<answer sn="" text="175">175</answer>
+<answer sn="" text="176">176</answer>
+<answer sn="" text="177">177</answer>
+<answer sn="" text="178">178</answer>
+<answer sn="" text="179">179</answer>
+<answer sn="" text="180">180</answer>
+<answer sn="" text="181">181</answer>
+<answer sn="" text="182">182</answer>
+<answer sn="" text="183">183</answer>
+<answer sn="" text="184">184</answer>
+<answer sn="" text="185">185</answer>
+<answer sn="" text="186">186</answer>
+<answer sn="" text="187">187</answer>
+<answer sn="" text="188">188</answer>
+<answer sn="" text="189">189</answer>
+<answer sn="" text="190">190</answer>
+<answer sn="" text="191">191</answer>
+<answer sn="" text="192">192</answer>
+<answer sn="" text="193">193</answer>
+<answer sn="" text="194">194</answer>
+<answer sn="" text="195">195</answer>
+<answer sn="" text="196">196</answer>
+<answer sn="" text="197">197</answer>
+<answer sn="" text="198">198</answer>
+<answer sn="" text="199">199</answer>
+<answer sn="" text="200">200</answer>
+<answer sn="" text="201">201</answer>
+<answer sn="" text="202">202</answer>
+<answer sn="" text="203">203</answer>
+<answer sn="" text="204">204</answer>
+<answer sn="" text="205">205</answer>
+<answer sn="" text="206">206</answer>
+<answer sn="" text="207">207</answer>
+<answer sn="" text="208">208</answer>
+<answer sn="" text="209">209</answer>
+<answer sn="" text="210">210</answer>
+<answer sn="" text="211">211</answer>
+<answer sn="" text="212">212</answer>
+<answer sn="" text="213">213</answer>
+<answer sn="" text="214">214</answer>
+<answer sn="" text="215">215</answer>
+<answer sn="" text="216">216</answer>
+<answer sn="" text="217">217</answer>
+<answer sn="" text="218">218</answer>
+<answer sn="" text="219">219</answer>
+<answer sn="" text="220">220</answer>
+<answer sn="" text="221">221</answer>
+<answer sn="" text="222">222</answer>
+<answer sn="" text="223">223</answer>
+<answer sn="" text="224">224</answer>
+<answer sn="" text="225">225</answer>
+<answer sn="" text="226">226</answer>
+<answer sn="" text="227">227</answer>
+<answer sn="" text="228">228</answer>
+<answer sn="" text="229">229</answer>
+<answer sn="" text="230">230</answer>
+<answer sn="" text="231">231</answer>
+<answer sn="" text="232">232</answer>
+<answer sn="" text="233">233</answer>
+<answer sn="" text="234">234</answer>
+<answer sn="" text="235">235</answer>
+<answer sn="" text="236">236</answer>
+<answer sn="" text="237">237</answer>
+<answer sn="" text="238">238</answer>
+<answer sn="" text="239">239</answer>
+<answer sn="" text="240">240</answer>
+<answer sn="" text="241">241</answer>
+<answer sn="" text="242">242</answer>
+<answer sn="" text="243">243</answer>
+<answer sn="" text="244">244</answer>
+<answer sn="" text="245">245</answer>
+<answer sn="" text="246">246</answer>
+<answer sn="" text="247">247</answer>
+<answer sn="" text="248">248</answer>
+<answer sn="" text="249">249</answer>
+<answer sn="" text="250">250</answer>
+<answer sn="" text="251">251</answer>
+<answer sn="" text="252">252</answer>
+<answer sn="" text="253">253</answer>
+<answer sn="" text="254">254</answer>
+<answer sn="" text="255">255</answer>
+<answer sn="" text="256">256</answer>
+<answer sn="" text="257">257</answer>
+<answer sn="" text="258">258</answer>
+<answer sn="" text="259">259</answer>
+<answer sn="" text="260">260</answer>
+<answer sn="" text="261">261</answer>
+<answer sn="" text="262">262</answer>
+<answer sn="" text="263">263</answer>
+<answer sn="" text="264">264</answer>
+<answer sn="" text="265">265</answer>
+<answer sn="" text="266">266</answer>
+<answer sn="" text="267">267</answer>
+<answer sn="" text="268">268</answer>
+<answer sn="" text="269">269</answer>
+<answer sn="" text="270">270</answer>
+<answer sn="" text="271">271</answer>
+<answer sn="" text="272">272</answer>
+<answer sn="" text="273">273</answer>
+<answer sn="" text="274">274</answer>
+<answer sn="" text="275">275</answer>
+<answer sn="" text="276">276</answer>
+<answer sn="" text="277">277</answer>
+<answer sn="" text="278">278</answer>
+<answer sn="" text="279">279</answer>
+<answer sn="" text="280">280</answer>
+<answer sn="" text="281">281</answer>
+<answer sn="" text="282">282</answer>
+<answer sn="" text="283">283</answer>
+<answer sn="" text="284">284</answer>
+<answer sn="" text="285">285</answer>
+<answer sn="" text="286">286</answer>
+<answer sn="" text="287">287</answer>
+<answer sn="" text="288">288</answer>
+<answer sn="" text="289">289</answer>
+<answer sn="" text="290">290</answer>
+<answer sn="" text="291">291</answer>
+<answer sn="" text="292">292</answer>
+<answer sn="" text="293">293</answer>
+<answer sn="" text="294">294</answer>
+<answer sn="" text="295">295</answer>
+<answer sn="" text="296">296</answer>
+<answer sn="" text="297">297</answer>
+<answer sn="" text="298">298</answer>
+<answer sn="" text="299">299</answer>
+<answer sn="" text="300">300</answer>
+<answer sn="" text="301">301</answer>
+<answer sn="" text="302">302</answer>
+<answer sn="" text="303">303</answer>
+<answer sn="" text="304">304</answer>
+<answer sn="" text="305">305</answer>
+<answer sn="" text="306">306</answer>
+<answer sn="" text="307">307</answer>
+<answer sn="" text="308">308</answer>
+<answer sn="" text="309">309</answer>
+<answer sn="" text="310">310</answer>
+<answer sn="" text="311">311</answer>
+<answer sn="" text="312">312</answer>
+<answer sn="" text="313">313</answer>
+<answer sn="" text="314">314</answer>
+<answer sn="" text="315">315</answer>
+<answer sn="" text="316">316</answer>
+<answer sn="" text="317">317</answer>
+<answer sn="" text="318">318</answer>
+<answer sn="" text="319">319</answer>
+<answer sn="" text="320">320</answer>
+<answer sn="" text="321">321</answer>
+<answer sn="" text="322">322</answer>
+<answer sn="" text="323">323</answer>
+<answer sn="" text="324">324</answer>
+<answer sn="" text="325">325</answer>
+<answer sn="" text="326">326</answer>
+<answer sn="" text="327">327</answer>
+<answer sn="" text="328">328</answer>
+<answer sn="" text="329">329</answer>
+<answer sn="" text="330">330</answer>
+<answer sn="" text="331">331</answer>
+<answer sn="" text="332">332</answer>
+<answer sn="" text="333">333</answer>
+<answer sn="" text="334">334</answer>
+<answer sn="" text="335">335</answer>
+<answer sn="" text="336">336</answer>
+<answer sn="" text="337">337</answer>
+<answer sn="" text="338">338</answer>
+<answer sn="" text="339">339</answer>
+<answer sn="" text="340">340</answer>
+<answer sn="" text="341">341</answer>
+<answer sn="" text="342">342</answer>
+<answer sn="" text="343">343</answer>
+<answer sn="" text="344">344</answer>
+<answer sn="" text="345">345</answer>
+<answer sn="" text="346">346</answer>
+<answer sn="" text="347">347</answer>
+<answer sn="" text="348">348</answer>
+<answer sn="" text="349">349</answer>
+<answer sn="" text="350">350</answer>
+<answer sn="" text="351">351</answer>
+<answer sn="" text="352">352</answer>
+<answer sn="" text="353">353</answer>
+<answer sn="" text="354">354</answer>
+<answer sn="" text="355">355</answer>
+<answer sn="" text="356">356</answer>
+<answer sn="" text="357">357</answer>
+<answer sn="" text="358">358</answer>
+<answer sn="" text="359">359</answer>
+<answer sn="" text="360">360</answer>
+<answer sn="" text="361">361</answer>
+<answer sn="" text="362">362</answer>
+<answer sn="" text="363">363</answer>
+<answer sn="" text="364">364</answer>
+<answer sn="" text="365">365</answer>
+<answer sn="" text="366">366</answer>
+<answer sn="" text="367">367</answer>
+<answer sn="" text="368">368</answer>
+<answer sn="" text="369">369</answer>
+<answer sn="" text="370">370</answer>
+<answer sn="" text="371">371</answer>
+<answer sn="" text="372">372</answer>
+<answer sn="" text="373">373</answer>
+<answer sn="" text="374">374</answer>
+<answer sn="" text="375">375</answer>
+<answer sn="" text="376">376</answer>
+<answer sn="" text="377">377</answer>
+<answer sn="" text="378">378</answer>
+<answer sn="" text="379">379</answer>
+<answer sn="" text="380">380</answer>
+<answer sn="" text="381">381</answer>
+<answer sn="" text="382">382</answer>
+<answer sn="" text="383">383</answer>
+<answer sn="" text="384">384</answer>
+<answer sn="" text="385">385</answer>
+<answer sn="" text="386">386</answer>
+<answer sn="" text="387">387</answer>
+<answer sn="" text="388">388</answer>
+<answer sn="" text="389">389</answer>
+<answer sn="" text="390">390</answer>
+<answer sn="" text="391">391</answer>
+<answer sn="" text="392">392</answer>
+<answer sn="" text="393">393</answer>
+<answer sn="" text="394">394</answer>
+<answer sn="" text="395">395</answer>
+<answer sn="" text="396">396</answer>
+<answer sn="" text="397">397</answer>
+<answer sn="" text="398">398</answer>
+<answer sn="" text="399">399</answer>
+<answer sn="" text="400">400</answer>
+<answer sn="" text="401">401</answer>
+<answer sn="" text="402">402</answer>
+<answer sn="" text="403">403</answer>
+<answer sn="" text="404">404</answer>
+<answer sn="" text="405">405</answer>
+<answer sn="" text="406">406</answer>
+<answer sn="" text="407">407</answer>
+<answer sn="" text="408">408</answer>
+<answer sn="" text="409">409</answer>
+<answer sn="" text="410">410</answer>
+<answer sn="" text="411">411</answer>
+<answer sn="" text="412">412</answer>
+<answer sn="" text="413">413</answer>
+<answer sn="" text="414">414</answer>
+<answer sn="" text="415">415</answer>
+<answer sn="" text="416">416</answer>
+<answer sn="" text="417">417</answer>
+<answer sn="" text="418">418</answer>
+<answer sn="" text="419">419</answer>
+<answer sn="" text="420">420</answer>
+<answer sn="" text="421">421</answer>
+<answer sn="" text="422">422</answer>
+<answer sn="" text="423">423</answer>
+<answer sn="" text="424">424</answer>
+<answer sn="" text="425">425</answer>
+<answer sn="" text="426">426</answer>
+<answer sn="" text="427">427</answer>
+<answer sn="" text="428">428</answer>
+<answer sn="" text="429">429</answer>
+<answer sn="" text="430">430</answer>
+<answer sn="" text="431">431</answer>
+<answer sn="" text="432">432</answer>
+<answer sn="" text="433">433</answer>
+<answer sn="" text="434">434</answer>
+<answer sn="" text="435">435</answer>
+<answer sn="" text="436">436</answer>
+<answer sn="" text="437">437</answer>
+<answer sn="" text="438">438</answer>
+<answer sn="" text="439">439</answer>
+<answer sn="" text="440">440</answer>
+<answer sn="" text="441">441</answer>
+<answer sn="" text="442">442</answer>
+<answer sn="" text="443">443</answer>
+<answer sn="" text="444">444</answer>
+<answer sn="" text="445">445</answer>
+<answer sn="" text="446">446</answer>
+<answer sn="" text="447">447</answer>
+<answer sn="" text="448">448</answer>
+<answer sn="" text="449">449</answer>
+<answer sn="" text="450">450</answer>
+<answer sn="" text="451">451</answer>
+<answer sn="" text="452">452</answer>
+<answer sn="" text="453">453</answer>
+<answer sn="" text="454">454</answer>
+<answer sn="" text="455">455</answer>
+<answer sn="" text="456">456</answer>
+<answer sn="" text="457">457</answer>
+<answer sn="" text="458">458</answer>
+<answer sn="" text="459">459</answer>
+<answer sn="" text="460">460</answer>
+<answer sn="" text="461">461</answer>
+<answer sn="" text="462">462</answer>
+<answer sn="" text="463">463</answer>
+<answer sn="" text="464">464</answer>
+<answer sn="" text="465">465</answer>
+<answer sn="" text="466">466</answer>
+<answer sn="" text="467">467</answer>
+<answer sn="" text="468">468</answer>
+<answer sn="" text="469">469</answer>
+<answer sn="" text="470">470</answer>
+<answer sn="" text="471">471</answer>
+<answer sn="" text="472">472</answer>
+<answer sn="" text="473">473</answer>
+<answer sn="" text="474">474</answer>
+<answer sn="" text="475">475</answer>
+<answer sn="" text="476">476</answer>
+<answer sn="" text="477">477</answer>
+<answer sn="" text="478">478</answer>
+<answer sn="" text="479">479</answer>
+<answer sn="" text="480">480</answer>
+<answer sn="" text="481">481</answer>
+<answer sn="" text="482">482</answer>
+<answer sn="" text="483">483</answer>
+<answer sn="" text="484">484</answer>
+<answer sn="" text="485">485</answer>
+<answer sn="" text="486">486</answer>
+<answer sn="" text="487">487</answer>
+<answer sn="" text="488">488</answer>
+<answer sn="" text="489">489</answer>
+<answer sn="" text="490">490</answer>
+<answer sn="" text="491">491</answer>
+<answer sn="" text="492">492</answer>
+<answer sn="" text="493">493</answer>
+<answer sn="" text="494">494</answer>
+<answer sn="" text="495">495</answer>
+<answer sn="" text="496">496</answer>
+<answer sn="" text="497">497</answer>
+<answer sn="" text="498">498</answer>
+<answer sn="" text="499">499</answer>
+<answer sn="" text="500">500</answer>
+<answer sn="" text="501">501</answer>
+<answer sn="" text="502">502</answer>
+<answer sn="" text="503">503</answer>
+<answer sn="" text="504">504</answer>
+<answer sn="" text="505">505</answer>
+<answer sn="" text="506">506</answer>
+<answer sn="" text="507">507</answer>
+<answer sn="" text="508">508</answer>
+<answer sn="" text="509">509</answer>
+<answer sn="" text="510">510</answer>
+<answer sn="" text="511">511</answer>
+<answer sn="" text="512">512</answer>
+<answer sn="" text="513">513</answer>
+<answer sn="" text="514">514</answer>
+<answer sn="" text="515">515</answer>
+<answer sn="" text="516">516</answer>
+<answer sn="" text="517">517</answer>
+<answer sn="" text="518">518</answer>
+<answer sn="" text="519">519</answer>
+<answer sn="" text="520">520</answer>
+<answer sn="" text="521">521</answer>
+<answer sn="" text="522">522</answer>
+<answer sn="" text="523">523</answer>
+<answer sn="" text="524">524</answer>
+<answer sn="" text="525">525</answer>
+<answer sn="" text="526">526</answer>
+<answer sn="" text="527">527</answer>
+<answer sn="" text="528">528</answer>
+<answer sn="" text="529">529</answer>
+<answer sn="" text="530">530</answer>
+<answer sn="" text="531">531</answer>
+<answer sn="" text="532">532</answer>
+<answer sn="" text="533">533</answer>
+<answer sn="" text="534">534</answer>
+<answer sn="" text="535">535</answer>
+<answer sn="" text="536">536</answer>
+<answer sn="" text="537">537</answer>
+<answer sn="" text="538">538</answer>
+<answer sn="" text="539">539</answer>
+<answer sn="" text="540">540</answer>
+<answer sn="" text="541">541</answer>
+<answer sn="" text="542">542</answer>
+<answer sn="" text="543">543</answer>
+<answer sn="" text="544">544</answer>
+<answer sn="" text="545">545</answer>
+<answer sn="" text="546">546</answer>
+<answer sn="" text="547">547</answer>
+<answer sn="" text="548">548</answer>
+<answer sn="" text="549">549</answer>
+<answer sn="" text="550">550</answer>
+<answer sn="" text="551">551</answer>
+<answer sn="" text="552">552</answer>
+<answer sn="" text="553">553</answer>
+<answer sn="" text="554">554</answer>
+<answer sn="" text="555">555</answer>
+<answer sn="" text="556">556</answer>
+<answer sn="" text="557">557</answer>
+<answer sn="" text="558">558</answer>
+<answer sn="" text="559">559</answer>
+<answer sn="" text="560">560</answer>
+<answer sn="" text="561">561</answer>
+<answer sn="" text="562">562</answer>
+<answer sn="" text="563">563</answer>
+<answer sn="" text="564">564</answer>
+<answer sn="" text="565">565</answer>
+<answer sn="" text="566">566</answer>
+<answer sn="" text="567">567</answer>
+<answer sn="" text="568">568</answer>
+<answer sn="" text="569">569</answer>
+<answer sn="" text="570">570</answer>
+<answer sn="" text="571">571</answer>
+<answer sn="" text="572">572</answer>
+<answer sn="" text="573">573</answer>
+<answer sn="" text="574">574</answer>
+<answer sn="" text="575">575</answer>
+<answer sn="" text="576">576</answer>
+<answer sn="" text="577">577</answer>
+<answer sn="" text="578">578</answer>
+<answer sn="" text="579">579</answer>
+<answer sn="" text="580">580</answer>
+<answer sn="" text="581">581</answer>
+<answer sn="" text="582">582</answer>
+<answer sn="" text="583">583</answer>
+<answer sn="" text="584">584</answer>
+<answer sn="" text="585">585</answer>
+<answer sn="" text="586">586</answer>
+<answer sn="" text="587">587</answer>
+<answer sn="" text="588">588</answer>
+<answer sn="" text="589">589</answer>
+<answer sn="" text="590">590</answer>
+<answer sn="" text="591">591</answer>
+<answer sn="" text="592">592</answer>
+<answer sn="" text="593">593</answer>
+<answer sn="" text="594">594</answer>
+<answer sn="" text="595">595</answer>
+<answer sn="" text="596">596</answer>
+<answer sn="" text="597">597</answer>
+<answer sn="" text="598">598</answer>
+<answer sn="" text="599">599</answer>
+<answer sn="" text="600">600</answer>
+
+        </options>
+      </xform:instance>
+      <xform:instance id="Q-ANSWER_SET-5a013066-5b10-3a25-acc9-6c8747612c38">
+        <options xmlns="">
+          <answer sn="" text="No">2</answer>
+          <answer sn="" text="Yes">1</answer>
+          <answer sn="" text="I don't know/I can't remember">888</answer>
+
+          <answer sn="" text="I'd rather not say">999</answer>
+<answer sn="" text="102">102</answer>
+<answer sn="" text="103">103</answer>
+<answer sn="" text="104">104</answer>
+<answer sn="" text="105">105</answer>
+<answer sn="" text="106">106</answer>
+<answer sn="" text="107">107</answer>
+<answer sn="" text="108">108</answer>
+<answer sn="" text="109">109</answer>
+<answer sn="" text="110">110</answer>
+<answer sn="" text="111">111</answer>
+<answer sn="" text="112">112</answer>
+<answer sn="" text="113">113</answer>
+<answer sn="" text="114">114</answer>
+<answer sn="" text="115">115</answer>
+<answer sn="" text="116">116</answer>
+<answer sn="" text="117">117</answer>
+<answer sn="" text="118">118</answer>
+<answer sn="" text="119">119</answer>
+<answer sn="" text="120">120</answer>
+<answer sn="" text="121">121</answer>
+<answer sn="" text="122">122</answer>
+<answer sn="" text="123">123</answer>
+<answer sn="" text="124">124</answer>
+<answer sn="" text="125">125</answer>
+<answer sn="" text="126">126</answer>
+<answer sn="" text="127">127</answer>
+<answer sn="" text="128">128</answer>
+<answer sn="" text="129">129</answer>
+<answer sn="" text="130">130</answer>
+<answer sn="" text="131">131</answer>
+<answer sn="" text="132">132</answer>
+<answer sn="" text="133">133</answer>
+<answer sn="" text="134">134</answer>
+<answer sn="" text="135">135</answer>
+<answer sn="" text="136">136</answer>
+<answer sn="" text="137">137</answer>
+<answer sn="" text="138">138</answer>
+<answer sn="" text="139">139</answer>
+<answer sn="" text="140">140</answer>
+<answer sn="" text="141">141</answer>
+<answer sn="" text="142">142</answer>
+<answer sn="" text="143">143</answer>
+<answer sn="" text="144">144</answer>
+<answer sn="" text="145">145</answer>
+<answer sn="" text="146">146</answer>
+<answer sn="" text="147">147</answer>
+<answer sn="" text="148">148</answer>
+<answer sn="" text="149">149</answer>
+<answer sn="" text="150">150</answer>
+<answer sn="" text="151">151</answer>
+<answer sn="" text="152">152</answer>
+<answer sn="" text="153">153</answer>
+<answer sn="" text="154">154</answer>
+<answer sn="" text="155">155</answer>
+<answer sn="" text="156">156</answer>
+<answer sn="" text="157">157</answer>
+<answer sn="" text="158">158</answer>
+<answer sn="" text="159">159</answer>
+<answer sn="" text="160">160</answer>
+<answer sn="" text="161">161</answer>
+<answer sn="" text="162">162</answer>
+<answer sn="" text="163">163</answer>
+<answer sn="" text="164">164</answer>
+<answer sn="" text="165">165</answer>
+<answer sn="" text="166">166</answer>
+<answer sn="" text="167">167</answer>
+<answer sn="" text="168">168</answer>
+<answer sn="" text="169">169</answer>
+<answer sn="" text="170">170</answer>
+<answer sn="" text="171">171</answer>
+<answer sn="" text="172">172</answer>
+<answer sn="" text="173">173</answer>
+<answer sn="" text="174">174</answer>
+<answer sn="" text="175">175</answer>
+<answer sn="" text="176">176</answer>
+<answer sn="" text="177">177</answer>
+<answer sn="" text="178">178</answer>
+<answer sn="" text="179">179</answer>
+<answer sn="" text="180">180</answer>
+<answer sn="" text="181">181</answer>
+<answer sn="" text="182">182</answer>
+<answer sn="" text="183">183</answer>
+<answer sn="" text="184">184</answer>
+<answer sn="" text="185">185</answer>
+<answer sn="" text="186">186</answer>
+<answer sn="" text="187">187</answer>
+<answer sn="" text="188">188</answer>
+<answer sn="" text="189">189</answer>
+<answer sn="" text="190">190</answer>
+<answer sn="" text="191">191</answer>
+<answer sn="" text="192">192</answer>
+<answer sn="" text="193">193</answer>
+<answer sn="" text="194">194</answer>
+<answer sn="" text="195">195</answer>
+<answer sn="" text="196">196</answer>
+<answer sn="" text="197">197</answer>
+<answer sn="" text="198">198</answer>
+<answer sn="" text="199">199</answer>
+<answer sn="" text="200">200</answer>
+<answer sn="" text="201">201</answer>
+<answer sn="" text="202">202</answer>
+<answer sn="" text="203">203</answer>
+<answer sn="" text="204">204</answer>
+<answer sn="" text="205">205</answer>
+<answer sn="" text="206">206</answer>
+<answer sn="" text="207">207</answer>
+<answer sn="" text="208">208</answer>
+<answer sn="" text="209">209</answer>
+<answer sn="" text="210">210</answer>
+<answer sn="" text="211">211</answer>
+<answer sn="" text="212">212</answer>
+<answer sn="" text="213">213</answer>
+<answer sn="" text="214">214</answer>
+<answer sn="" text="215">215</answer>
+<answer sn="" text="216">216</answer>
+<answer sn="" text="217">217</answer>
+<answer sn="" text="218">218</answer>
+<answer sn="" text="219">219</answer>
+<answer sn="" text="220">220</answer>
+<answer sn="" text="221">221</answer>
+<answer sn="" text="222">222</answer>
+<answer sn="" text="223">223</answer>
+<answer sn="" text="224">224</answer>
+<answer sn="" text="225">225</answer>
+<answer sn="" text="226">226</answer>
+<answer sn="" text="227">227</answer>
+<answer sn="" text="228">228</answer>
+<answer sn="" text="229">229</answer>
+<answer sn="" text="230">230</answer>
+<answer sn="" text="231">231</answer>
+<answer sn="" text="232">232</answer>
+<answer sn="" text="233">233</answer>
+<answer sn="" text="234">234</answer>
+<answer sn="" text="235">235</answer>
+<answer sn="" text="236">236</answer>
+<answer sn="" text="237">237</answer>
+<answer sn="" text="238">238</answer>
+<answer sn="" text="239">239</answer>
+<answer sn="" text="240">240</answer>
+<answer sn="" text="241">241</answer>
+<answer sn="" text="242">242</answer>
+<answer sn="" text="243">243</answer>
+<answer sn="" text="244">244</answer>
+<answer sn="" text="245">245</answer>
+<answer sn="" text="246">246</answer>
+<answer sn="" text="247">247</answer>
+<answer sn="" text="248">248</answer>
+<answer sn="" text="249">249</answer>
+<answer sn="" text="250">250</answer>
+<answer sn="" text="251">251</answer>
+<answer sn="" text="252">252</answer>
+<answer sn="" text="253">253</answer>
+<answer sn="" text="254">254</answer>
+<answer sn="" text="255">255</answer>
+<answer sn="" text="256">256</answer>
+<answer sn="" text="257">257</answer>
+<answer sn="" text="258">258</answer>
+<answer sn="" text="259">259</answer>
+<answer sn="" text="260">260</answer>
+<answer sn="" text="261">261</answer>
+<answer sn="" text="262">262</answer>
+<answer sn="" text="263">263</answer>
+<answer sn="" text="264">264</answer>
+<answer sn="" text="265">265</answer>
+<answer sn="" text="266">266</answer>
+<answer sn="" text="267">267</answer>
+<answer sn="" text="268">268</answer>
+<answer sn="" text="269">269</answer>
+<answer sn="" text="270">270</answer>
+<answer sn="" text="271">271</answer>
+<answer sn="" text="272">272</answer>
+<answer sn="" text="273">273</answer>
+<answer sn="" text="274">274</answer>
+<answer sn="" text="275">275</answer>
+<answer sn="" text="276">276</answer>
+<answer sn="" text="277">277</answer>
+<answer sn="" text="278">278</answer>
+<answer sn="" text="279">279</answer>
+<answer sn="" text="280">280</answer>
+<answer sn="" text="281">281</answer>
+<answer sn="" text="282">282</answer>
+<answer sn="" text="283">283</answer>
+<answer sn="" text="284">284</answer>
+<answer sn="" text="285">285</answer>
+<answer sn="" text="286">286</answer>
+<answer sn="" text="287">287</answer>
+<answer sn="" text="288">288</answer>
+<answer sn="" text="289">289</answer>
+<answer sn="" text="290">290</answer>
+<answer sn="" text="291">291</answer>
+<answer sn="" text="292">292</answer>
+<answer sn="" text="293">293</answer>
+<answer sn="" text="294">294</answer>
+<answer sn="" text="295">295</answer>
+<answer sn="" text="296">296</answer>
+<answer sn="" text="297">297</answer>
+<answer sn="" text="298">298</answer>
+<answer sn="" text="299">299</answer>
+<answer sn="" text="300">300</answer>
+<answer sn="" text="301">301</answer>
+<answer sn="" text="302">302</answer>
+<answer sn="" text="303">303</answer>
+<answer sn="" text="304">304</answer>
+<answer sn="" text="305">305</answer>
+<answer sn="" text="306">306</answer>
+<answer sn="" text="307">307</answer>
+<answer sn="" text="308">308</answer>
+<answer sn="" text="309">309</answer>
+<answer sn="" text="310">310</answer>
+<answer sn="" text="311">311</answer>
+<answer sn="" text="312">312</answer>
+<answer sn="" text="313">313</answer>
+<answer sn="" text="314">314</answer>
+<answer sn="" text="315">315</answer>
+<answer sn="" text="316">316</answer>
+<answer sn="" text="317">317</answer>
+<answer sn="" text="318">318</answer>
+<answer sn="" text="319">319</answer>
+<answer sn="" text="320">320</answer>
+<answer sn="" text="321">321</answer>
+<answer sn="" text="322">322</answer>
+<answer sn="" text="323">323</answer>
+<answer sn="" text="324">324</answer>
+<answer sn="" text="325">325</answer>
+<answer sn="" text="326">326</answer>
+<answer sn="" text="327">327</answer>
+<answer sn="" text="328">328</answer>
+<answer sn="" text="329">329</answer>
+<answer sn="" text="330">330</answer>
+<answer sn="" text="331">331</answer>
+<answer sn="" text="332">332</answer>
+<answer sn="" text="333">333</answer>
+<answer sn="" text="334">334</answer>
+<answer sn="" text="335">335</answer>
+<answer sn="" text="336">336</answer>
+<answer sn="" text="337">337</answer>
+<answer sn="" text="338">338</answer>
+<answer sn="" text="339">339</answer>
+<answer sn="" text="340">340</answer>
+<answer sn="" text="341">341</answer>
+<answer sn="" text="342">342</answer>
+<answer sn="" text="343">343</answer>
+<answer sn="" text="344">344</answer>
+<answer sn="" text="345">345</answer>
+<answer sn="" text="346">346</answer>
+<answer sn="" text="347">347</answer>
+<answer sn="" text="348">348</answer>
+<answer sn="" text="349">349</answer>
+<answer sn="" text="350">350</answer>
+<answer sn="" text="351">351</answer>
+<answer sn="" text="352">352</answer>
+<answer sn="" text="353">353</answer>
+<answer sn="" text="354">354</answer>
+<answer sn="" text="355">355</answer>
+<answer sn="" text="356">356</answer>
+<answer sn="" text="357">357</answer>
+<answer sn="" text="358">358</answer>
+<answer sn="" text="359">359</answer>
+<answer sn="" text="360">360</answer>
+<answer sn="" text="361">361</answer>
+<answer sn="" text="362">362</answer>
+<answer sn="" text="363">363</answer>
+<answer sn="" text="364">364</answer>
+<answer sn="" text="365">365</answer>
+<answer sn="" text="366">366</answer>
+<answer sn="" text="367">367</answer>
+<answer sn="" text="368">368</answer>
+<answer sn="" text="369">369</answer>
+<answer sn="" text="370">370</answer>
+<answer sn="" text="371">371</answer>
+<answer sn="" text="372">372</answer>
+<answer sn="" text="373">373</answer>
+<answer sn="" text="374">374</answer>
+<answer sn="" text="375">375</answer>
+<answer sn="" text="376">376</answer>
+<answer sn="" text="377">377</answer>
+<answer sn="" text="378">378</answer>
+<answer sn="" text="379">379</answer>
+<answer sn="" text="380">380</answer>
+<answer sn="" text="381">381</answer>
+<answer sn="" text="382">382</answer>
+<answer sn="" text="383">383</answer>
+<answer sn="" text="384">384</answer>
+<answer sn="" text="385">385</answer>
+<answer sn="" text="386">386</answer>
+<answer sn="" text="387">387</answer>
+<answer sn="" text="388">388</answer>
+<answer sn="" text="389">389</answer>
+<answer sn="" text="390">390</answer>
+<answer sn="" text="391">391</answer>
+<answer sn="" text="392">392</answer>
+<answer sn="" text="393">393</answer>
+<answer sn="" text="394">394</answer>
+<answer sn="" text="395">395</answer>
+<answer sn="" text="396">396</answer>
+<answer sn="" text="397">397</answer>
+<answer sn="" text="398">398</answer>
+<answer sn="" text="399">399</answer>
+<answer sn="" text="400">400</answer>
+<answer sn="" text="401">401</answer>
+<answer sn="" text="402">402</answer>
+<answer sn="" text="403">403</answer>
+<answer sn="" text="404">404</answer>
+<answer sn="" text="405">405</answer>
+<answer sn="" text="406">406</answer>
+<answer sn="" text="407">407</answer>
+<answer sn="" text="408">408</answer>
+<answer sn="" text="409">409</answer>
+<answer sn="" text="410">410</answer>
+<answer sn="" text="411">411</answer>
+<answer sn="" text="412">412</answer>
+<answer sn="" text="413">413</answer>
+<answer sn="" text="414">414</answer>
+<answer sn="" text="415">415</answer>
+<answer sn="" text="416">416</answer>
+<answer sn="" text="417">417</answer>
+<answer sn="" text="418">418</answer>
+<answer sn="" text="419">419</answer>
+<answer sn="" text="420">420</answer>
+<answer sn="" text="421">421</answer>
+<answer sn="" text="422">422</answer>
+<answer sn="" text="423">423</answer>
+<answer sn="" text="424">424</answer>
+<answer sn="" text="425">425</answer>
+<answer sn="" text="426">426</answer>
+<answer sn="" text="427">427</answer>
+<answer sn="" text="428">428</answer>
+<answer sn="" text="429">429</answer>
+<answer sn="" text="430">430</answer>
+<answer sn="" text="431">431</answer>
+<answer sn="" text="432">432</answer>
+<answer sn="" text="433">433</answer>
+<answer sn="" text="434">434</answer>
+<answer sn="" text="435">435</answer>
+<answer sn="" text="436">436</answer>
+<answer sn="" text="437">437</answer>
+<answer sn="" text="438">438</answer>
+<answer sn="" text="439">439</answer>
+<answer sn="" text="440">440</answer>
+<answer sn="" text="441">441</answer>
+<answer sn="" text="442">442</answer>
+<answer sn="" text="443">443</answer>
+<answer sn="" text="444">444</answer>
+<answer sn="" text="445">445</answer>
+<answer sn="" text="446">446</answer>
+<answer sn="" text="447">447</answer>
+<answer sn="" text="448">448</answer>
+<answer sn="" text="449">449</answer>
+<answer sn="" text="450">450</answer>
+<answer sn="" text="451">451</answer>
+<answer sn="" text="452">452</answer>
+<answer sn="" text="453">453</answer>
+<answer sn="" text="454">454</answer>
+<answer sn="" text="455">455</answer>
+<answer sn="" text="456">456</answer>
+<answer sn="" text="457">457</answer>
+<answer sn="" text="458">458</answer>
+<answer sn="" text="459">459</answer>
+<answer sn="" text="460">460</answer>
+<answer sn="" text="461">461</answer>
+<answer sn="" text="462">462</answer>
+<answer sn="" text="463">463</answer>
+<answer sn="" text="464">464</answer>
+<answer sn="" text="465">465</answer>
+<answer sn="" text="466">466</answer>
+<answer sn="" text="467">467</answer>
+<answer sn="" text="468">468</answer>
+<answer sn="" text="469">469</answer>
+<answer sn="" text="470">470</answer>
+<answer sn="" text="471">471</answer>
+<answer sn="" text="472">472</answer>
+<answer sn="" text="473">473</answer>
+<answer sn="" text="474">474</answer>
+<answer sn="" text="475">475</answer>
+<answer sn="" text="476">476</answer>
+<answer sn="" text="477">477</answer>
+<answer sn="" text="478">478</answer>
+<answer sn="" text="479">479</answer>
+<answer sn="" text="480">480</answer>
+<answer sn="" text="481">481</answer>
+<answer sn="" text="482">482</answer>
+<answer sn="" text="483">483</answer>
+<answer sn="" text="484">484</answer>
+<answer sn="" text="485">485</answer>
+<answer sn="" text="486">486</answer>
+<answer sn="" text="487">487</answer>
+<answer sn="" text="488">488</answer>
+<answer sn="" text="489">489</answer>
+<answer sn="" text="490">490</answer>
+<answer sn="" text="491">491</answer>
+<answer sn="" text="492">492</answer>
+<answer sn="" text="493">493</answer>
+<answer sn="" text="494">494</answer>
+<answer sn="" text="495">495</answer>
+<answer sn="" text="496">496</answer>
+<answer sn="" text="497">497</answer>
+<answer sn="" text="498">498</answer>
+<answer sn="" text="499">499</answer>
+<answer sn="" text="500">500</answer>
+<answer sn="" text="501">501</answer>
+<answer sn="" text="502">502</answer>
+<answer sn="" text="503">503</answer>
+<answer sn="" text="504">504</answer>
+<answer sn="" text="505">505</answer>
+<answer sn="" text="506">506</answer>
+<answer sn="" text="507">507</answer>
+<answer sn="" text="508">508</answer>
+<answer sn="" text="509">509</answer>
+<answer sn="" text="510">510</answer>
+<answer sn="" text="511">511</answer>
+<answer sn="" text="512">512</answer>
+<answer sn="" text="513">513</answer>
+<answer sn="" text="514">514</answer>
+<answer sn="" text="515">515</answer>
+<answer sn="" text="516">516</answer>
+<answer sn="" text="517">517</answer>
+<answer sn="" text="518">518</answer>
+<answer sn="" text="519">519</answer>
+<answer sn="" text="520">520</answer>
+<answer sn="" text="521">521</answer>
+<answer sn="" text="522">522</answer>
+<answer sn="" text="523">523</answer>
+<answer sn="" text="524">524</answer>
+<answer sn="" text="525">525</answer>
+<answer sn="" text="526">526</answer>
+<answer sn="" text="527">527</answer>
+<answer sn="" text="528">528</answer>
+<answer sn="" text="529">529</answer>
+<answer sn="" text="530">530</answer>
+<answer sn="" text="531">531</answer>
+<answer sn="" text="532">532</answer>
+<answer sn="" text="533">533</answer>
+<answer sn="" text="534">534</answer>
+<answer sn="" text="535">535</answer>
+<answer sn="" text="536">536</answer>
+<answer sn="" text="537">537</answer>
+<answer sn="" text="538">538</answer>
+<answer sn="" text="539">539</answer>
+<answer sn="" text="540">540</answer>
+<answer sn="" text="541">541</answer>
+<answer sn="" text="542">542</answer>
+<answer sn="" text="543">543</answer>
+<answer sn="" text="544">544</answer>
+<answer sn="" text="545">545</answer>
+<answer sn="" text="546">546</answer>
+<answer sn="" text="547">547</answer>
+<answer sn="" text="548">548</answer>
+<answer sn="" text="549">549</answer>
+<answer sn="" text="550">550</answer>
+<answer sn="" text="551">551</answer>
+<answer sn="" text="552">552</answer>
+<answer sn="" text="553">553</answer>
+<answer sn="" text="554">554</answer>
+<answer sn="" text="555">555</answer>
+<answer sn="" text="556">556</answer>
+<answer sn="" text="557">557</answer>
+<answer sn="" text="558">558</answer>
+<answer sn="" text="559">559</answer>
+<answer sn="" text="560">560</answer>
+<answer sn="" text="561">561</answer>
+<answer sn="" text="562">562</answer>
+<answer sn="" text="563">563</answer>
+<answer sn="" text="564">564</answer>
+<answer sn="" text="565">565</answer>
+<answer sn="" text="566">566</answer>
+<answer sn="" text="567">567</answer>
+<answer sn="" text="568">568</answer>
+<answer sn="" text="569">569</answer>
+<answer sn="" text="570">570</answer>
+<answer sn="" text="571">571</answer>
+<answer sn="" text="572">572</answer>
+<answer sn="" text="573">573</answer>
+<answer sn="" text="574">574</answer>
+<answer sn="" text="575">575</answer>
+<answer sn="" text="576">576</answer>
+<answer sn="" text="577">577</answer>
+<answer sn="" text="578">578</answer>
+<answer sn="" text="579">579</answer>
+<answer sn="" text="580">580</answer>
+<answer sn="" text="581">581</answer>
+<answer sn="" text="582">582</answer>
+<answer sn="" text="583">583</answer>
+<answer sn="" text="584">584</answer>
+<answer sn="" text="585">585</answer>
+<answer sn="" text="586">586</answer>
+<answer sn="" text="587">587</answer>
+<answer sn="" text="588">588</answer>
+<answer sn="" text="589">589</answer>
+<answer sn="" text="590">590</answer>
+<answer sn="" text="591">591</answer>
+<answer sn="" text="592">592</answer>
+<answer sn="" text="593">593</answer>
+<answer sn="" text="594">594</answer>
+<answer sn="" text="595">595</answer>
+<answer sn="" text="596">596</answer>
+<answer sn="" text="597">597</answer>
+<answer sn="" text="598">598</answer>
+<answer sn="" text="599">599</answer>
+<answer sn="" text="600">600</answer>
+        </options>
+      </xform:instance>
+      <xform:instance id="Q-ANSWER_SET-a4a7e0f1-6c06-3074-931c-f477acfd29fe">
+        <options xmlns="">
+          <answer sn="" text="Yes">2</answer>
+          <answer sn="" text="No">1</answer>
+
+          <answer sn="" text="I don't know/I can't remember">888</answer>
+          <answer sn="" text="I'd rather not say">999</answer>
+          <answer sn="" text="102">102</answer>
+<!-- <answer sn="" text="103">103</answer>
+<answer sn="" text="104">104</answer>
+<answer sn="" text="105">105</answer>
+<answer sn="" text="106">106</answer>
+<answer sn="" text="107">107</answer>
+<answer sn="" text="108">108</answer>
+<answer sn="" text="109">109</answer>
+<answer sn="" text="110">110</answer>
+<answer sn="" text="111">111</answer>
+<answer sn="" text="112">112</answer>
+<answer sn="" text="113">113</answer>
+<answer sn="" text="114">114</answer>
+<answer sn="" text="115">115</answer>
+<answer sn="" text="116">116</answer>
+<answer sn="" text="117">117</answer>
+<answer sn="" text="118">118</answer>
+<answer sn="" text="119">119</answer>
+<answer sn="" text="120">120</answer>
+<answer sn="" text="121">121</answer>
+<answer sn="" text="122">122</answer>
+<answer sn="" text="123">123</answer>
+<answer sn="" text="124">124</answer>
+<answer sn="" text="125">125</answer>
+<answer sn="" text="126">126</answer>
+<answer sn="" text="127">127</answer>
+<answer sn="" text="128">128</answer>
+<answer sn="" text="129">129</answer>
+<answer sn="" text="130">130</answer>
+<answer sn="" text="131">131</answer>
+<answer sn="" text="132">132</answer>
+<answer sn="" text="133">133</answer>
+<answer sn="" text="134">134</answer>
+<answer sn="" text="135">135</answer>
+<answer sn="" text="136">136</answer>
+<answer sn="" text="137">137</answer>
+<answer sn="" text="138">138</answer>
+<answer sn="" text="139">139</answer>
+<answer sn="" text="140">140</answer>
+<answer sn="" text="141">141</answer>
+<answer sn="" text="142">142</answer>
+<answer sn="" text="143">143</answer>
+<answer sn="" text="144">144</answer>
+<answer sn="" text="145">145</answer>
+<answer sn="" text="146">146</answer>
+<answer sn="" text="147">147</answer>
+<answer sn="" text="148">148</answer>
+<answer sn="" text="149">149</answer>
+<answer sn="" text="150">150</answer>
+<answer sn="" text="151">151</answer>
+<answer sn="" text="152">152</answer>
+<answer sn="" text="153">153</answer>
+<answer sn="" text="154">154</answer>
+<answer sn="" text="155">155</answer>
+<answer sn="" text="156">156</answer>
+<answer sn="" text="157">157</answer>
+<answer sn="" text="158">158</answer>
+<answer sn="" text="159">159</answer>
+<answer sn="" text="160">160</answer>
+<answer sn="" text="161">161</answer>
+<answer sn="" text="162">162</answer>
+<answer sn="" text="163">163</answer>
+<answer sn="" text="164">164</answer>
+<answer sn="" text="165">165</answer>
+<answer sn="" text="166">166</answer>
+<answer sn="" text="167">167</answer>
+<answer sn="" text="168">168</answer>
+<answer sn="" text="169">169</answer>
+<answer sn="" text="170">170</answer>
+<answer sn="" text="171">171</answer>
+<answer sn="" text="172">172</answer>
+<answer sn="" text="173">173</answer>
+<answer sn="" text="174">174</answer>
+<answer sn="" text="175">175</answer>
+<answer sn="" text="176">176</answer>
+<answer sn="" text="177">177</answer>
+<answer sn="" text="178">178</answer>
+<answer sn="" text="179">179</answer>
+<answer sn="" text="180">180</answer>
+<answer sn="" text="181">181</answer>
+<answer sn="" text="182">182</answer>
+<answer sn="" text="183">183</answer>
+<answer sn="" text="184">184</answer>
+<answer sn="" text="185">185</answer>
+<answer sn="" text="186">186</answer>
+<answer sn="" text="187">187</answer>
+<answer sn="" text="188">188</answer>
+<answer sn="" text="189">189</answer>
+<answer sn="" text="190">190</answer>
+<answer sn="" text="191">191</answer>
+<answer sn="" text="192">192</answer>
+<answer sn="" text="193">193</answer>
+<answer sn="" text="194">194</answer>
+<answer sn="" text="195">195</answer>
+<answer sn="" text="196">196</answer>
+<answer sn="" text="197">197</answer>
+<answer sn="" text="198">198</answer>
+<answer sn="" text="199">199</answer>
+<answer sn="" text="200">200</answer>
+<answer sn="" text="201">201</answer>
+<answer sn="" text="202">202</answer>
+<answer sn="" text="203">203</answer>
+<answer sn="" text="204">204</answer>
+<answer sn="" text="205">205</answer>
+<answer sn="" text="206">206</answer>
+<answer sn="" text="207">207</answer>
+<answer sn="" text="208">208</answer>
+<answer sn="" text="209">209</answer>
+<answer sn="" text="210">210</answer>
+<answer sn="" text="211">211</answer>
+<answer sn="" text="212">212</answer>
+<answer sn="" text="213">213</answer>
+<answer sn="" text="214">214</answer>
+<answer sn="" text="215">215</answer>
+<answer sn="" text="216">216</answer>
+<answer sn="" text="217">217</answer>
+<answer sn="" text="218">218</answer>
+<answer sn="" text="219">219</answer>
+<answer sn="" text="220">220</answer>
+<answer sn="" text="221">221</answer>
+<answer sn="" text="222">222</answer>
+<answer sn="" text="223">223</answer>
+<answer sn="" text="224">224</answer>
+<answer sn="" text="225">225</answer>
+<answer sn="" text="226">226</answer>
+<answer sn="" text="227">227</answer>
+<answer sn="" text="228">228</answer>
+<answer sn="" text="229">229</answer>
+<answer sn="" text="230">230</answer>
+<answer sn="" text="231">231</answer>
+<answer sn="" text="232">232</answer>
+<answer sn="" text="233">233</answer>
+<answer sn="" text="234">234</answer>
+<answer sn="" text="235">235</answer>
+<answer sn="" text="236">236</answer>
+<answer sn="" text="237">237</answer>
+<answer sn="" text="238">238</answer>
+<answer sn="" text="239">239</answer>
+<answer sn="" text="240">240</answer>
+<answer sn="" text="241">241</answer>
+<answer sn="" text="242">242</answer>
+<answer sn="" text="243">243</answer>
+<answer sn="" text="244">244</answer>
+<answer sn="" text="245">245</answer>
+<answer sn="" text="246">246</answer>
+<answer sn="" text="247">247</answer>
+<answer sn="" text="248">248</answer>
+<answer sn="" text="249">249</answer>
+<answer sn="" text="250">250</answer>
+<answer sn="" text="251">251</answer>
+<answer sn="" text="252">252</answer>
+<answer sn="" text="253">253</answer>
+<answer sn="" text="254">254</answer>
+<answer sn="" text="255">255</answer>
+<answer sn="" text="256">256</answer>
+<answer sn="" text="257">257</answer>
+<answer sn="" text="258">258</answer>
+<answer sn="" text="259">259</answer>
+<answer sn="" text="260">260</answer>
+<answer sn="" text="261">261</answer>
+<answer sn="" text="262">262</answer>
+<answer sn="" text="263">263</answer>
+<answer sn="" text="264">264</answer>
+<answer sn="" text="265">265</answer>
+<answer sn="" text="266">266</answer>
+<answer sn="" text="267">267</answer>
+<answer sn="" text="268">268</answer>
+<answer sn="" text="269">269</answer>
+<answer sn="" text="270">270</answer>
+<answer sn="" text="271">271</answer>
+<answer sn="" text="272">272</answer>
+<answer sn="" text="273">273</answer>
+<answer sn="" text="274">274</answer>
+<answer sn="" text="275">275</answer>
+<answer sn="" text="276">276</answer>
+<answer sn="" text="277">277</answer>
+<answer sn="" text="278">278</answer>
+<answer sn="" text="279">279</answer>
+<answer sn="" text="280">280</answer>
+<answer sn="" text="281">281</answer>
+<answer sn="" text="282">282</answer>
+<answer sn="" text="283">283</answer>
+<answer sn="" text="284">284</answer>
+<answer sn="" text="285">285</answer>
+<answer sn="" text="286">286</answer>
+<answer sn="" text="287">287</answer>
+<answer sn="" text="288">288</answer>
+<answer sn="" text="289">289</answer>
+<answer sn="" text="290">290</answer>
+<answer sn="" text="291">291</answer>
+<answer sn="" text="292">292</answer>
+<answer sn="" text="293">293</answer>
+<answer sn="" text="294">294</answer>
+<answer sn="" text="295">295</answer>
+<answer sn="" text="296">296</answer>
+<answer sn="" text="297">297</answer>
+<answer sn="" text="298">298</answer>
+<answer sn="" text="299">299</answer>
+<answer sn="" text="300">300</answer>
+<answer sn="" text="301">301</answer>
+<answer sn="" text="302">302</answer>
+<answer sn="" text="303">303</answer>
+<answer sn="" text="304">304</answer>
+<answer sn="" text="305">305</answer>
+<answer sn="" text="306">306</answer>
+<answer sn="" text="307">307</answer>
+<answer sn="" text="308">308</answer>
+<answer sn="" text="309">309</answer>
+<answer sn="" text="310">310</answer>
+<answer sn="" text="311">311</answer>
+<answer sn="" text="312">312</answer>
+<answer sn="" text="313">313</answer>
+<answer sn="" text="314">314</answer>
+<answer sn="" text="315">315</answer>
+<answer sn="" text="316">316</answer>
+<answer sn="" text="317">317</answer>
+<answer sn="" text="318">318</answer>
+<answer sn="" text="319">319</answer>
+<answer sn="" text="320">320</answer>
+<answer sn="" text="321">321</answer>
+<answer sn="" text="322">322</answer>
+<answer sn="" text="323">323</answer>
+<answer sn="" text="324">324</answer>
+<answer sn="" text="325">325</answer>
+<answer sn="" text="326">326</answer>
+<answer sn="" text="327">327</answer>
+<answer sn="" text="328">328</answer>
+<answer sn="" text="329">329</answer>
+<answer sn="" text="330">330</answer>
+<answer sn="" text="331">331</answer>
+<answer sn="" text="332">332</answer>
+<answer sn="" text="333">333</answer>
+<answer sn="" text="334">334</answer>
+<answer sn="" text="335">335</answer>
+<answer sn="" text="336">336</answer>
+<answer sn="" text="337">337</answer>
+<answer sn="" text="338">338</answer>
+<answer sn="" text="339">339</answer>
+<answer sn="" text="340">340</answer>
+<answer sn="" text="341">341</answer>
+<answer sn="" text="342">342</answer>
+<answer sn="" text="343">343</answer>
+<answer sn="" text="344">344</answer>
+<answer sn="" text="345">345</answer>
+<answer sn="" text="346">346</answer>
+<answer sn="" text="347">347</answer>
+<answer sn="" text="348">348</answer>
+<answer sn="" text="349">349</answer>
+<answer sn="" text="350">350</answer>
+<answer sn="" text="351">351</answer>
+<answer sn="" text="352">352</answer>
+<answer sn="" text="353">353</answer>
+<answer sn="" text="354">354</answer>
+<answer sn="" text="355">355</answer>
+<answer sn="" text="356">356</answer>
+<answer sn="" text="357">357</answer>
+<answer sn="" text="358">358</answer>
+<answer sn="" text="359">359</answer>
+<answer sn="" text="360">360</answer>
+<answer sn="" text="361">361</answer>
+<answer sn="" text="362">362</answer>
+<answer sn="" text="363">363</answer>
+<answer sn="" text="364">364</answer>
+<answer sn="" text="365">365</answer>
+<answer sn="" text="366">366</answer>
+<answer sn="" text="367">367</answer>
+<answer sn="" text="368">368</answer>
+<answer sn="" text="369">369</answer>
+<answer sn="" text="370">370</answer>
+<answer sn="" text="371">371</answer>
+<answer sn="" text="372">372</answer>
+<answer sn="" text="373">373</answer>
+<answer sn="" text="374">374</answer>
+<answer sn="" text="375">375</answer>
+<answer sn="" text="376">376</answer>
+<answer sn="" text="377">377</answer>
+<answer sn="" text="378">378</answer>
+<answer sn="" text="379">379</answer>
+<answer sn="" text="380">380</answer>
+<answer sn="" text="381">381</answer>
+<answer sn="" text="382">382</answer>
+<answer sn="" text="383">383</answer>
+<answer sn="" text="384">384</answer>
+<answer sn="" text="385">385</answer>
+<answer sn="" text="386">386</answer>
+<answer sn="" text="387">387</answer>
+<answer sn="" text="388">388</answer>
+<answer sn="" text="389">389</answer>
+<answer sn="" text="390">390</answer>
+<answer sn="" text="391">391</answer>
+<answer sn="" text="392">392</answer>
+<answer sn="" text="393">393</answer>
+<answer sn="" text="394">394</answer>
+<answer sn="" text="395">395</answer>
+<answer sn="" text="396">396</answer>
+<answer sn="" text="397">397</answer>
+<answer sn="" text="398">398</answer>
+<answer sn="" text="399">399</answer>
+<answer sn="" text="400">400</answer>
+<answer sn="" text="401">401</answer>
+<answer sn="" text="402">402</answer>
+<answer sn="" text="403">403</answer>
+<answer sn="" text="404">404</answer>
+<answer sn="" text="405">405</answer>
+<answer sn="" text="406">406</answer>
+<answer sn="" text="407">407</answer>
+<answer sn="" text="408">408</answer>
+<answer sn="" text="409">409</answer>
+<answer sn="" text="410">410</answer>
+<answer sn="" text="411">411</answer>
+<answer sn="" text="412">412</answer>
+<answer sn="" text="413">413</answer>
+<answer sn="" text="414">414</answer>
+<answer sn="" text="415">415</answer>
+<answer sn="" text="416">416</answer>
+<answer sn="" text="417">417</answer>
+<answer sn="" text="418">418</answer>
+<answer sn="" text="419">419</answer>
+<answer sn="" text="420">420</answer>
+<answer sn="" text="421">421</answer>
+<answer sn="" text="422">422</answer>
+<answer sn="" text="423">423</answer>
+<answer sn="" text="424">424</answer>
+<answer sn="" text="425">425</answer>
+<answer sn="" text="426">426</answer>
+<answer sn="" text="427">427</answer>
+<answer sn="" text="428">428</answer>
+<answer sn="" text="429">429</answer>
+<answer sn="" text="430">430</answer>
+<answer sn="" text="431">431</answer>
+<answer sn="" text="432">432</answer>
+<answer sn="" text="433">433</answer>
+<answer sn="" text="434">434</answer>
+<answer sn="" text="435">435</answer>
+<answer sn="" text="436">436</answer>
+<answer sn="" text="437">437</answer>
+<answer sn="" text="438">438</answer>
+<answer sn="" text="439">439</answer>
+<answer sn="" text="440">440</answer>
+<answer sn="" text="441">441</answer>
+<answer sn="" text="442">442</answer>
+<answer sn="" text="443">443</answer>
+<answer sn="" text="444">444</answer>
+<answer sn="" text="445">445</answer>
+<answer sn="" text="446">446</answer>
+<answer sn="" text="447">447</answer>
+<answer sn="" text="448">448</answer>
+<answer sn="" text="449">449</answer>
+<answer sn="" text="450">450</answer>
+<answer sn="" text="451">451</answer>
+<answer sn="" text="452">452</answer>
+<answer sn="" text="453">453</answer>
+<answer sn="" text="454">454</answer>
+<answer sn="" text="455">455</answer>
+<answer sn="" text="456">456</answer>
+<answer sn="" text="457">457</answer>
+<answer sn="" text="458">458</answer>
+<answer sn="" text="459">459</answer>
+<answer sn="" text="460">460</answer>
+<answer sn="" text="461">461</answer>
+<answer sn="" text="462">462</answer>
+<answer sn="" text="463">463</answer>
+<answer sn="" text="464">464</answer>
+<answer sn="" text="465">465</answer>
+<answer sn="" text="466">466</answer>
+<answer sn="" text="467">467</answer>
+<answer sn="" text="468">468</answer>
+<answer sn="" text="469">469</answer>
+<answer sn="" text="470">470</answer>
+<answer sn="" text="471">471</answer>
+<answer sn="" text="472">472</answer>
+<answer sn="" text="473">473</answer>
+<answer sn="" text="474">474</answer>
+<answer sn="" text="475">475</answer>
+<answer sn="" text="476">476</answer>
+<answer sn="" text="477">477</answer>
+<answer sn="" text="478">478</answer>
+<answer sn="" text="479">479</answer>
+<answer sn="" text="480">480</answer>
+<answer sn="" text="481">481</answer>
+<answer sn="" text="482">482</answer>
+<answer sn="" text="483">483</answer>
+<answer sn="" text="484">484</answer>
+<answer sn="" text="485">485</answer>
+<answer sn="" text="486">486</answer>
+<answer sn="" text="487">487</answer>
+<answer sn="" text="488">488</answer>
+<answer sn="" text="489">489</answer>
+<answer sn="" text="490">490</answer>
+<answer sn="" text="491">491</answer>
+<answer sn="" text="492">492</answer>
+<answer sn="" text="493">493</answer>
+<answer sn="" text="494">494</answer>
+<answer sn="" text="495">495</answer>
+<answer sn="" text="496">496</answer>
+<answer sn="" text="497">497</answer>
+<answer sn="" text="498">498</answer>
+<answer sn="" text="499">499</answer>
+<answer sn="" text="500">500</answer>
+<answer sn="" text="501">501</answer>
+<answer sn="" text="502">502</answer>
+<answer sn="" text="503">503</answer>
+<answer sn="" text="504">504</answer>
+<answer sn="" text="505">505</answer>
+<answer sn="" text="506">506</answer>
+<answer sn="" text="507">507</answer>
+<answer sn="" text="508">508</answer>
+<answer sn="" text="509">509</answer>
+<answer sn="" text="510">510</answer>
+<answer sn="" text="511">511</answer>
+<answer sn="" text="512">512</answer>
+<answer sn="" text="513">513</answer>
+<answer sn="" text="514">514</answer>
+<answer sn="" text="515">515</answer>
+<answer sn="" text="516">516</answer>
+<answer sn="" text="517">517</answer>
+<answer sn="" text="518">518</answer>
+<answer sn="" text="519">519</answer>
+<answer sn="" text="520">520</answer>
+<answer sn="" text="521">521</answer>
+<answer sn="" text="522">522</answer>
+<answer sn="" text="523">523</answer>
+<answer sn="" text="524">524</answer>
+<answer sn="" text="525">525</answer>
+<answer sn="" text="526">526</answer>
+<answer sn="" text="527">527</answer>
+<answer sn="" text="528">528</answer>
+<answer sn="" text="529">529</answer>
+<answer sn="" text="530">530</answer>
+<answer sn="" text="531">531</answer>
+<answer sn="" text="532">532</answer>
+<answer sn="" text="533">533</answer>
+<answer sn="" text="534">534</answer>
+<answer sn="" text="535">535</answer>
+<answer sn="" text="536">536</answer>
+<answer sn="" text="537">537</answer>
+<answer sn="" text="538">538</answer>
+<answer sn="" text="539">539</answer>
+<answer sn="" text="540">540</answer>
+<answer sn="" text="541">541</answer>
+<answer sn="" text="542">542</answer>
+<answer sn="" text="543">543</answer>
+<answer sn="" text="544">544</answer>
+<answer sn="" text="545">545</answer>
+<answer sn="" text="546">546</answer>
+<answer sn="" text="547">547</answer>
+<answer sn="" text="548">548</answer>
+<answer sn="" text="549">549</answer>
+<answer sn="" text="550">550</answer>
+<answer sn="" text="551">551</answer>
+<answer sn="" text="552">552</answer>
+<answer sn="" text="553">553</answer>
+<answer sn="" text="554">554</answer>
+<answer sn="" text="555">555</answer>
+<answer sn="" text="556">556</answer>
+<answer sn="" text="557">557</answer>
+<answer sn="" text="558">558</answer>
+<answer sn="" text="559">559</answer>
+<answer sn="" text="560">560</answer>
+<answer sn="" text="561">561</answer>
+<answer sn="" text="562">562</answer>
+<answer sn="" text="563">563</answer>
+<answer sn="" text="564">564</answer>
+<answer sn="" text="565">565</answer>
+<answer sn="" text="566">566</answer>
+<answer sn="" text="567">567</answer>
+<answer sn="" text="568">568</answer>
+<answer sn="" text="569">569</answer>
+<answer sn="" text="570">570</answer>
+<answer sn="" text="571">571</answer>
+<answer sn="" text="572">572</answer>
+<answer sn="" text="573">573</answer>
+<answer sn="" text="574">574</answer>
+<answer sn="" text="575">575</answer>
+<answer sn="" text="576">576</answer>
+<answer sn="" text="577">577</answer>
+<answer sn="" text="578">578</answer>
+<answer sn="" text="579">579</answer>
+<answer sn="" text="580">580</answer>
+<answer sn="" text="581">581</answer>
+<answer sn="" text="582">582</answer>
+<answer sn="" text="583">583</answer>
+<answer sn="" text="584">584</answer>
+<answer sn="" text="585">585</answer>
+<answer sn="" text="586">586</answer>
+<answer sn="" text="587">587</answer>
+<answer sn="" text="588">588</answer>
+<answer sn="" text="589">589</answer>
+<answer sn="" text="590">590</answer>
+<answer sn="" text="591">591</answer>
+<answer sn="" text="592">592</answer>
+<answer sn="" text="593">593</answer>
+<answer sn="" text="594">594</answer>
+<answer sn="" text="595">595</answer>
+<answer sn="" text="596">596</answer>
+<answer sn="" text="597">597</answer>
+<answer sn="" text="598">598</answer>
+<answer sn="" text="599">599</answer>
+<answer sn="" text="600">600</answer> -->
+        </options>
+      </xform:instance>
+      <xform:instance id="Q-ANSWER_SET-5a17b1b4-b6d3-349c-97a3-058f0b7c6e14">
+        <options xmlns="">
+          <answer sn="" text="Yes">2</answer>
+
+          <answer sn="" text="No">1</answer>
+          <answer sn="" text="I don't know/ I can't say">888</answer>
+          <answer sn="" text="I'd rather not say">999</answer>
+        </options>
+      </xform:instance>
+      <xform:instance id="Q-ANSWER_SET-9d384252-4bf0-3bed-a062-7b2a682f78ef">
+        <options xmlns="">
+
+          <answer sn="" text="Yes">2</answer>
+          <answer sn="" text="No">1</answer>
+          <answer sn="" text="I'd rather not say">888</answer>
+          <answer sn="" text="I don't know/ I can't say">999</answer>
+        </options>
+      </xform:instance>
+      <xform:instance id="Q-ANSWER_SET-9ab1cba1-3657-3a53-9742-581a155edb1f">
+
+        <options xmlns="">
+          <answer sn="" text="1">1</answer>
+          <answer sn="" text="2">2</answer>
+          <answer sn="" text="3">3</answer>
+          <answer sn="" text="4 or more">4</answer>
+          <answer sn="" text="I don't know/I can't remember.">888</answer>
+
+          <answer sn="" text="I'd rather not say.">999</answer>
+        </options>
+      </xform:instance>
+      <xform:instance id="Q-ANSWER_SET-48050181-ff72-3592-b545-c0d30ef23530">
+        <options xmlns="">
+          <answer sn="" text="Select One">selection</answer>
+          <answer sn="" text="&lt;10">1</answer>
+
+          <answer sn="" text="10">10</answer>
+          <answer sn="" text="11">11</answer>
+          <answer sn="" text="12">12</answer>
+          <answer sn="" text="13">13</answer>
+          <answer sn="" text="14">14</answer>
+          <answer sn="" text="15">15</answer>
+
+          <answer sn="" text="16">16</answer>
+          <answer sn="" text="17">17</answer>
+          <answer sn="" text="18">18</answer>
+          <answer sn="" text="19">19</answer>
+          <answer sn="" text="20">20</answer>
+          <answer sn="" text="21">21</answer>
+
+          <answer sn="" text="22">22</answer>
+          <answer sn="" text="23">23</answer>
+          <answer sn="" text="24">24</answer>
+          <answer sn="" text="25">25</answer>
+          <answer sn="" text="26">26</answer>
+          <answer sn="" text="27">27</answer>
+
+          <answer sn="" text="28">28</answer>
+          <answer sn="" text="29">29</answer>
+          <answer sn="" text="30">30</answer>
+          <answer sn="" text="31">31</answer>
+          <answer sn="" text="32">32</answer>
+          <answer sn="" text="33">33</answer>
+
+          <answer sn="" text="34">34</answer>
+          <answer sn="" text="35">35</answer>
+          <answer sn="" text="36">36</answer>
+          <answer sn="" text="37">37</answer>
+          <answer sn="" text="38">38</answer>
+          <answer sn="" text="39">39</answer>
+
+          <answer sn="" text="40">40</answer>
+          <answer sn="" text="41">41</answer>
+          <answer sn="" text="42">42</answer>
+          <answer sn="" text="43">43</answer>
+          <answer sn="" text="44">44</answer>
+          <answer sn="" text="45">45</answer>
+
+          <answer sn="" text="46">46</answer>
+          <answer sn="" text="47">47</answer>
+          <answer sn="" text="48">48</answer>
+          <answer sn="" text="49">49</answer>
+          <answer sn="" text="50">50</answer>
+          <answer sn="" text="51">51</answer>
+
+          <answer sn="" text="52">52</answer>
+          <answer sn="" text="53">53</answer>
+          <answer sn="" text="54">54</answer>
+          <answer sn="" text="55">55</answer>
+          <answer sn="" text="56">56</answer>
+          <answer sn="" text="57">57</answer>
+
+          <answer sn="" text="58">58</answer>
+          <answer sn="" text="59">59</answer>
+          <answer sn="" text="60">60</answer>
+          <answer sn="" text="Over 60">61</answer>
+        </options>
+      </xform:instance>
+      <xform:instance id="Q-ANSWER_SET-31c05993-a6d1-3b27-9583-27877781d5cc">
+
+        <options xmlns="">
+          <answer sn="" text="yes">2</answer>
+          <answer sn="" text="no">1</answer>
+          <answer sn="" text="I don't know">888</answer>
+          <answer sn="" text="I'd rather not say.">999</answer>
+        </options>
+      </xform:instance>
+
+      <xform:instance id="Q-ANSWER_SET-3303a992-81c7-34c2-8135-6ec49f1cfed4">
+        <options xmlns="">
+          <answer sn="" text="I have regular menstrual periods (I am premenopausal).">1</answer>
+          <answer sn="" text="My menstrual periods are irregular but have not stopped. ">3</answer>
+          <answer sn="" text="I no longer have regular menstrual periods (menopause).">4</answer>
+          <answer sn="" text="I don't know/I'm not sure">888</answer>
+          <answer sn="" text="I'd rather not say.">999</answer>
+
+        </options>
+      </xform:instance>
+      <xform:instance id="Q-ANSWER_SET-a77bfb83-7e24-399a-bddc-bdd32fe3997a">
+        <options xmlns="">
+          <answer sn="" text="Yes">yes</answer>
+          <answer sn="" text="I don't know/I'm not sure">not_HCITSPACE_sure</answer>
+          <answer sn="" text="I'd rather not say">not_HCITSPACE_say</answer>
+
+        </options>
+      </xform:instance>
+      <xform:instance id="Q-ANSWER_SET-8dd91587-7dd5-35e3-bed8-06620f008637">
+        <options xmlns="">
+          <answer sn="" text="My periods stopped naturally.">naturally</answer>
+          <answer sn="" text="My periods stopped because I had a surgery to remove my uterus (hysterectomy), but at least part of one ovary is intact. ">removed_HCITSPACE_uterus</answer>
+          <answer sn="" text="My periods stopped because I had a surgery to remove my uterus (hysterectomy), and both of my ovaries have been removed.">removed_HCITSPACE_ovaries_HCITSPACE_and_HCITSPACE_utreus</answer>
+
+          <answer sn="" text="My periods stopped because although I have a uterus, I had both of my ovaries removed.">removed_HCITSPACE_overies</answer>
+          <answer sn="" text="My periods stopped because of medication or chemotherapy.">medication</answer>
+          <answer sn="" text="I don't know why my periods stopped.">dony_HCITSPACE_know</answer>
+          <answer sn="" text="My periods stopped due to another reason">other</answer>
+        </options>
+      </xform:instance>
+      <xform:instance id="Q-ANSWER_SET-e6992fe1-e80a-33ba-bae0-316ab1d36814">
+
+        <options xmlns="">
+          <answer sn="" text="Yes, I have taken menopausal hormone therapy in the past, but no longer do">no_HCITSPACE_longer_HCITSPACE_</answer>
+          <answer sn="" text="Yes, I am currently taking menopausal hormone therapy.">currently</answer>
+          <answer sn="" text="No, I have never taken menopausal hormone therapy.">never</answer>
+          <answer sn="" text="I don't know whether I have taken menopausal hormone therapy.">dont_HCITSPACE_know</answer>
+        </options>
+      </xform:instance>
+
+      <xform:instance id="Q-ANSWER_SET-c309820a-b4bd-39c0-a319-7a98b2dfcad5">
+        <options xmlns="">
+          <answer sn="" text="I have taken an estrogen.">estrogen</answer>
+          <answer sn="" text="I have taken a combination pill with both estrogen and progestin">combination_HCITSPACE_of_HCITSPACE_E_HCITSPACE_&amp;_HCITSPACE_P</answer>
+          <answer sn="" text="I  have taken a combination pill with both estrogen and testosterone.">combination_HCITSPACE_of_HCITSPACE_E&amp;T</answer>
+          <answer sn="" text="I have taken estrogen and progestin as separate pills.">seperate_HCITSPACE_pills</answer>
+
+          <answer sn="" text="I have taken bioidenticals or hormones from a compounding pharmacy">hormones</answer>
+          <answer sn="" text="I don't know what formulation(s) of menopausal hormone therapy I used.">dont_HCITSPACE_know</answer>
+        </options>
+      </xform:instance>
+      <xform:instance id="Q-ANSWER_SET-8f95b074-6d64-385f-91fe-9782753a3014">
+        <options xmlns="">
+          <answer sn="" text="Yes, I had a surgery to remove part of my uterus.">partial</answer>
+
+          <answer sn="" text="Yes, I had a surgery to remove my entire uterus">whole</answer>
+          <answer sn="" text="No, I have never had a surgery to remove part or all of my uterus.">No</answer>
+          <answer sn="" text="I don't know/I'm not sure">not_HCITSPACE_sure</answer>
+          <answer sn="" text="I'd rather not say">n/a</answer>
+        </options>
+      </xform:instance>
+      <xform:instance id="Q-ANSWER_SET-1335ea9a-033f-35db-90b4-9aa47a4d0db4">
+
+        <options xmlns="">
+          <answer sn="" text="yes">yes</answer>
+          <answer sn="" text=" I don't know/I'm not sure ">not_HCITSPACE_sure</answer>
+          <answer sn="" text="I'd rather not say">n/a</answer>
+        </options>
+      </xform:instance>
+      <xform:instance id="Q-ANSWER_SET-e7a0c2c6-3d51-38d6-82e4-93faa783c132">
+
+        <options xmlns="">
+          <answer sn="" text="Yes, I have had surgery to remove part of an ovary.">part_HCITSPACE_of_HCITSPACE_overy</answer>
+          <answer sn="" text="Yes, I have had surgery to remove one ovary, but not both ovaries.">one_HCITSPACE_overy</answer>
+          <answer sn="" text="Yes, I have had surgery to remove both ovaries.">both_HCITSPACE_overies</answer>
+          <answer sn="" text="No, I have never had a surgery to remove any part of an ovary.">none</answer>
+          <answer sn="" text="I don't know/I can't remember.">dont_HCITSPACE_remember</answer>
+
+          <answer sn="" text="I'd rather not say">n/a</answer>
+        </options>
+      </xform:instance>
+      <xform:instance id="Q-ANSWER_SET-0d899144-8a5a-304d-8ed2-04d10167524e">
+        <options xmlns="">
+          <answer sn="" text="Yes">Yes</answer>
+          <answer sn="" text="I don't know/I'm not sure ">dont_HCITSPACE_know</answer>
+
+          <answer sn="" text="I'd rather not say">n/a</answer>
+        </options>
+      </xform:instance>
+      <xform:bind nodeset="instance('DataGroupInstance')//data-group[@id='Q.GRP-e211205b-1dce-3f4c-b563-73c1275ab072']" id="Q.GRP-e211205b-1dce-3f4c-b563-73c1275ab072" relevant="true()"/>
+      <xform:bind nodeset="instance('DataGroupInstance')//data-group[@id='Q.GRP-a82155f1-4f1a-338d-86ca-c430a678c52e']" id="Q.GRP-a82155f1-4f1a-338d-86ca-c430a678c52e" relevant="true()"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='a82155f1-4f1a-338d-86ca-c430a678c52e']/answer[@id='57412']" id="Q-a82155f1-4f1a-338d-86ca-c430a678c52e" type="xsd:string" required="false()"/>
+      <xform:bind nodeset="instance('DataGroupInstance')//data-group[@id='Q.GRP-82f5fedd-a89f-30d4-844c-57c60202917b']" id="Q.GRP-82f5fedd-a89f-30d4-844c-57c60202917b" relevant="true()"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='82f5fedd-a89f-30d4-844c-57c60202917b']/answer[@id='58776']" id="Q-82f5fedd-a89f-30d4-844c-57c60202917b" type="xsd:string" required="true()"/>
+
+      <xform:bind nodeset="instance('DataGroupInstance')//data-group[@id='Q.GRP-a928e1df-c174-3c0a-b40a-83b6ae54fe0b']" id="Q.GRP-a928e1df-c174-3c0a-b40a-83b6ae54fe0b" relevant="(contains(instance('FormDataInstance')//question[@id='82f5fedd-a89f-30d4-844c-57c60202917b']/answer, '2') or contains(instance('FormDataInstance')//question[@id='82f5fedd-a89f-30d4-844c-57c60202917b']/answer, '3'))"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='a928e1df-c174-3c0a-b40a-83b6ae54fe0b']/answer[@id='58777']" id="Q-a928e1df-c174-3c0a-b40a-83b6ae54fe0b" type="xsd:string" required="(contains(instance('FormDataInstance')//question[@id='82f5fedd-a89f-30d4-844c-57c60202917b']/answer, '2') or contains(instance('FormDataInstance')//question[@id='82f5fedd-a89f-30d4-844c-57c60202917b']/answer, '3'))"/>
+      <xform:bind nodeset="instance('DataGroupInstance')//data-group[@id='Q.GRP-5a013066-5b10-3a25-acc9-6c8747612c38']" id="Q.GRP-5a013066-5b10-3a25-acc9-6c8747612c38" relevant="true()"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='5a013066-5b10-3a25-acc9-6c8747612c38']/answer[@id='58778']" id="Q-5a013066-5b10-3a25-acc9-6c8747612c38" type="xsd:string" required="true()"/>
+      <xform:bind nodeset="instance('DataGroupInstance')//data-group[@id='Q.GRP-a4a7e0f1-6c06-3074-931c-f477acfd29fe']" id="Q.GRP-a4a7e0f1-6c06-3074-931c-f477acfd29fe" relevant="true()"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='a4a7e0f1-6c06-3074-931c-f477acfd29fe']/answer[@id='58779']" id="Q-a4a7e0f1-6c06-3074-931c-f477acfd29fe" type="xsd:string" required="true()"/>
+      <xform:bind nodeset="instance('DataGroupInstance')//data-group[@id='Q.GRP-5a17b1b4-b6d3-349c-97a3-058f0b7c6e14']" id="Q.GRP-5a17b1b4-b6d3-349c-97a3-058f0b7c6e14" relevant="contains(instance('FormDataInstance')//question[@id='a4a7e0f1-6c06-3074-931c-f477acfd29fe']/answer, '2') and contains(instance('FormDataInstance')//question[@id='5a013066-5b10-3a25-acc9-6c8747612c38']/answer, '1')"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='5a17b1b4-b6d3-349c-97a3-058f0b7c6e14']/answer[@id='58781']" id="Q-5a17b1b4-b6d3-349c-97a3-058f0b7c6e14" type="xsd:string" required="contains(instance('FormDataInstance')//question[@id='a4a7e0f1-6c06-3074-931c-f477acfd29fe']/answer, '2') and contains(instance('FormDataInstance')//question[@id='5a013066-5b10-3a25-acc9-6c8747612c38']/answer, '1')"/>
+      <xform:bind nodeset="instance('DataGroupInstance')//data-group[@id='Q.GRP-9d384252-4bf0-3bed-a062-7b2a682f78ef']" id="Q.GRP-9d384252-4bf0-3bed-a062-7b2a682f78ef" relevant="contains(instance('FormDataInstance')//question[@id='a4a7e0f1-6c06-3074-931c-f477acfd29fe']/answer, '2') and (contains(instance('FormDataInstance')//question[@id='5a013066-5b10-3a25-acc9-6c8747612c38']/answer, '2') or contains(instance('FormDataInstance')//question[@id='5a013066-5b10-3a25-acc9-6c8747612c38']/answer, '888') or contains(instance('FormDataInstance')//question[@id='5a013066-5b10-3a25-acc9-6c8747612c38']/answer, '999'))"/>
+
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='9d384252-4bf0-3bed-a062-7b2a682f78ef']/answer[@id='58780']" id="Q-9d384252-4bf0-3bed-a062-7b2a682f78ef" type="xsd:string" required="contains(instance('FormDataInstance')//question[@id='a4a7e0f1-6c06-3074-931c-f477acfd29fe']/answer, '2') and (contains(instance('FormDataInstance')//question[@id='5a013066-5b10-3a25-acc9-6c8747612c38']/answer, '2') or contains(instance('FormDataInstance')//question[@id='5a013066-5b10-3a25-acc9-6c8747612c38']/answer, '888') or contains(instance('FormDataInstance')//question[@id='5a013066-5b10-3a25-acc9-6c8747612c38']/answer, '999'))"/>
+      <xform:bind nodeset="instance('DataGroupInstance')//data-group[@id='Q.GRP-9ab1cba1-3657-3a53-9742-581a155edb1f']" id="Q.GRP-9ab1cba1-3657-3a53-9742-581a155edb1f" relevant="contains(instance('FormDataInstance')//question[@id='9d384252-4bf0-3bed-a062-7b2a682f78ef']/answer, '2')"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='9ab1cba1-3657-3a53-9742-581a155edb1f']/answer[@id='58782']" id="Q-9ab1cba1-3657-3a53-9742-581a155edb1f" type="xsd:string" required="contains(instance('FormDataInstance')//question[@id='9d384252-4bf0-3bed-a062-7b2a682f78ef']/answer, '2')"/>
+      <xform:bind nodeset="instance('DataGroupInstance')//data-group[@id='Q.GRP-48050181-ff72-3592-b545-c0d30ef23530']" id="Q.GRP-48050181-ff72-3592-b545-c0d30ef23530" relevant="contains(instance('FormDataInstance')//question[@id='9d384252-4bf0-3bed-a062-7b2a682f78ef']/answer, '2')"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='48050181-ff72-3592-b545-c0d30ef23530']/answer[@id='58783']" id="Q-48050181-ff72-3592-b545-c0d30ef23530" type="xsd:string" required="contains(instance('FormDataInstance')//question[@id='9d384252-4bf0-3bed-a062-7b2a682f78ef']/answer, '2')"/>
+      <xform:bind nodeset="instance('DataGroupInstance')//data-group[@id='Q.GRP-31c05993-a6d1-3b27-9583-27877781d5cc']" id="Q.GRP-31c05993-a6d1-3b27-9583-27877781d5cc" relevant="contains(instance('FormDataInstance')//question[@id='9d384252-4bf0-3bed-a062-7b2a682f78ef']/answer, '2')"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='31c05993-a6d1-3b27-9583-27877781d5cc']/answer[@id='58784']" id="Q-31c05993-a6d1-3b27-9583-27877781d5cc" type="xsd:string" required="contains(instance('FormDataInstance')//question[@id='9d384252-4bf0-3bed-a062-7b2a682f78ef']/answer, '2')"/>
+      <xform:bind nodeset="instance('DataGroupInstance')//data-group[@id='Q.GRP-3303a992-81c7-34c2-8135-6ec49f1cfed4']" id="Q.GRP-3303a992-81c7-34c2-8135-6ec49f1cfed4" relevant="true()"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='3303a992-81c7-34c2-8135-6ec49f1cfed4']/answer[@id='58785']" id="Q-3303a992-81c7-34c2-8135-6ec49f1cfed4" type="xsd:string" required="true()"/>
+
+      <xform:bind nodeset="instance('DataGroupInstance')//data-group[@id='Q.GRP-a77bfb83-7e24-399a-bddc-bdd32fe3997a']" id="Q.GRP-a77bfb83-7e24-399a-bddc-bdd32fe3997a" relevant="(contains(instance('FormDataInstance')//question[@id='3303a992-81c7-34c2-8135-6ec49f1cfed4']/answer, '4') or contains(instance('FormDataInstance')//question[@id='3303a992-81c7-34c2-8135-6ec49f1cfed4']/answer, '888') or contains(instance('FormDataInstance')//question[@id='3303a992-81c7-34c2-8135-6ec49f1cfed4']/answer, '999'))"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='a77bfb83-7e24-399a-bddc-bdd32fe3997a']/answer[@id='58787']" id="Q-a77bfb83-7e24-399a-bddc-bdd32fe3997a" type="xsd:string" required="(contains(instance('FormDataInstance')//question[@id='3303a992-81c7-34c2-8135-6ec49f1cfed4']/answer, '4') or contains(instance('FormDataInstance')//question[@id='3303a992-81c7-34c2-8135-6ec49f1cfed4']/answer, '888') or contains(instance('FormDataInstance')//question[@id='3303a992-81c7-34c2-8135-6ec49f1cfed4']/answer, '999'))"/>
+      <xform:bind nodeset="instance('DataGroupInstance')//data-group[@id='Q.GRP-846a77cd-0343-31ac-b341-c11fce3a036f']" id="Q.GRP-846a77cd-0343-31ac-b341-c11fce3a036f" relevant="true()"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='846a77cd-0343-31ac-b341-c11fce3a036f']/answer[@id='58786']" id="Q-846a77cd-0343-31ac-b341-c11fce3a036f" type="xsd:string" required="false()" constraint=""/>
+      <xform:bind nodeset="instance('DataGroupInstance')//data-group[@id='Q.GRP-8dd91587-7dd5-35e3-bed8-06620f008637']" id="Q.GRP-8dd91587-7dd5-35e3-bed8-06620f008637" relevant="true()"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='8dd91587-7dd5-35e3-bed8-06620f008637']/answer[@id='58788']" id="Q-8dd91587-7dd5-35e3-bed8-06620f008637" type="xsd:string" required="true()"/>
+      <xform:bind nodeset="instance('DataGroupInstance')//data-group[@id='Q.GRP-259226c0-7754-3c07-a3d2-69a4815a4b79']" id="Q.GRP-259226c0-7754-3c07-a3d2-69a4815a4b79" relevant="true()"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='259226c0-7754-3c07-a3d2-69a4815a4b79']/answer[@id='58789']" id="Q-259226c0-7754-3c07-a3d2-69a4815a4b79" type="xsd:string" required="true()" constraint=""/>
+      <xform:bind nodeset="instance('DataGroupInstance')//data-group[@id='Q.GRP-e6992fe1-e80a-33ba-bae0-316ab1d36814']" id="Q.GRP-e6992fe1-e80a-33ba-bae0-316ab1d36814" relevant="true()"/>
+
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='e6992fe1-e80a-33ba-bae0-316ab1d36814']/answer[@id='58790']" id="Q-e6992fe1-e80a-33ba-bae0-316ab1d36814" type="xsd:string" required="true()"/>
+      <xform:bind nodeset="instance('DataGroupInstance')//data-group[@id='Q.GRP-c309820a-b4bd-39c0-a319-7a98b2dfcad5']" id="Q.GRP-c309820a-b4bd-39c0-a319-7a98b2dfcad5" relevant="true()"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='c309820a-b4bd-39c0-a319-7a98b2dfcad5']/answer[@id='58795']" id="Q-c309820a-b4bd-39c0-a319-7a98b2dfcad5" type="xsd:string" required="true()"/>
+      <xform:bind nodeset="instance('DataGroupInstance')//data-group[@id='Q.GRP-8f95b074-6d64-385f-91fe-9782753a3014']" id="Q.GRP-8f95b074-6d64-385f-91fe-9782753a3014" relevant="true()"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='8f95b074-6d64-385f-91fe-9782753a3014']/answer[@id='58796']" id="Q-8f95b074-6d64-385f-91fe-9782753a3014" type="xsd:string" required="true()"/>
+      <xform:bind nodeset="instance('DataGroupInstance')//data-group[@id='Q.GRP-1335ea9a-033f-35db-90b4-9aa47a4d0db4']" id="Q.GRP-1335ea9a-033f-35db-90b4-9aa47a4d0db4" relevant="true()"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='1335ea9a-033f-35db-90b4-9aa47a4d0db4']/answer[@id='58797']" id="Q-1335ea9a-033f-35db-90b4-9aa47a4d0db4" type="xsd:string" required="false()"/>
+      <xform:bind nodeset="instance('DataGroupInstance')//data-group[@id='Q.GRP-206b4688-2bc3-389e-8cbc-b94821045a2b']" id="Q.GRP-206b4688-2bc3-389e-8cbc-b94821045a2b" relevant="true()"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='206b4688-2bc3-389e-8cbc-b94821045a2b']/answer[@id='58798']" id="Q-206b4688-2bc3-389e-8cbc-b94821045a2b" type="xsd:string" required="true()" constraint=""/>
+
+      <xform:bind nodeset="instance('DataGroupInstance')//data-group[@id='Q.GRP-e7a0c2c6-3d51-38d6-82e4-93faa783c132']" id="Q.GRP-e7a0c2c6-3d51-38d6-82e4-93faa783c132" relevant="true()"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='e7a0c2c6-3d51-38d6-82e4-93faa783c132']/answer[@id='58799']" id="Q-e7a0c2c6-3d51-38d6-82e4-93faa783c132" type="xsd:string" required="true()"/>
+      <xform:bind nodeset="instance('DataGroupInstance')//data-group[@id='Q.GRP-0d899144-8a5a-304d-8ed2-04d10167524e']" id="Q.GRP-0d899144-8a5a-304d-8ed2-04d10167524e" relevant="true()"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='0d899144-8a5a-304d-8ed2-04d10167524e']/answer[@id='59600']" id="Q-0d899144-8a5a-304d-8ed2-04d10167524e" type="xsd:string" required="true()"/>
+      <xform:bind nodeset="instance('DataGroupInstance')//data-group[@id='Q.GRP-0d9f3187-2d3f-3c5a-8f14-5e5c74737b9f']" id="Q.GRP-0d9f3187-2d3f-3c5a-8f14-5e5c74737b9f" relevant="true()"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='0d9f3187-2d3f-3c5a-8f14-5e5c74737b9f']/answer[@id='59601']" id="Q-0d9f3187-2d3f-3c5a-8f14-5e5c74737b9f" type="xsd:string" required="true()" constraint=""/>
+      <xform:submission id="SendDataElement" method="post" includenamespaceprefixes="">
+        <xform:resource value="instance('URLInstance')//full-url"/>
+        <xform:message ev:event="xforms-submit-error">Unable to submit</xform:message>
+
+      </xform:submission>
+      <xform:submission id="PartialSendDataElement" method="post" includenamespaceprefixes="" validate="false">
+        <xform:message event="xforms-submit-error">Unable to submit</xform:message>
+        <xform:resource value="instance('URLInstance')//full-url"/>
+      </xform:submission>
+    </xform:model></head>
+
+<body>
+<script type="text/javascript"    src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>  
+<style>   
+
+/*     CSS rules to use for styling the overlay:      
+.chromeFrameOverlayContent      
+.chromeFrameOverlayContent iframe     
+ .chromeFrameOverlayCloseBar      
+.chromeFrameOverlayUnderlay   
+*/  
+</style>   
+<script>
+   // You may want to place these lines inside an onload handler   
+CFInstall.check({     mode: "overlay",     destination: "http://xforms.healthcit.com:8088/FormBuilder"   });  
+</script>
+    <xform:output ref="instance('FormDataInstance')/@name" class="hcit-form-title"/>
+    <xform:group ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-e211205b-1dce-3f4c-b563-73c1275ab072']" class="hcitContent">
+      <xform:output ref="instance('PureContentInstance')/pure-content[@id='Q.CONTENT-e211205b-1dce-3f4c-b563-73c1275ab072']" class="hcitContentText">
+        <xform:label>Please note we will be asking more detailed questions related to this topic in future modules.</xform:label>
+      </xform:output>
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-a82155f1-4f1a-338d-86ca-c430a678c52e']" class="hcit-group-input-radio">
+      <xform:output ref="instance('FormDataInstance')//question[@id='a82155f1-4f1a-338d-86ca-c430a678c52e']/text" class="hcitQuestionText"/>
+
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='a82155f1-4f1a-338d-86ca-c430a678c52e']/answer" appearance="minimal" class="hcitAnswerRadio">
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-a82155f1-4f1a-338d-86ca-c430a678c52e')/answer">
+          <xform:label ref="@text" class="hcit-label-input-radio"/>
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="'Incorrect format.'"/>
+        </xform:alert>
+      </xform:select1>
+
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-82f5fedd-a89f-30d4-844c-57c60202917b']" class="hcit-group-input-radio">
+      <xform:output ref="instance('FormDataInstance')//question[@id='82f5fedd-a89f-30d4-844c-57c60202917b']/text" class="hcitQuestionText hcitRequiredQuestionText"/>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='82f5fedd-a89f-30d4-844c-57c60202917b']/answer" appearance="minimal" class="hcitAnswerRadio">
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-82f5fedd-a89f-30d4-844c-57c60202917b')/answer">
+          <xform:label ref="@text" class="hcit-label-input-radio"/>
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='82f5fedd-a89f-30d4-844c-57c60202917b']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+      </xform:select1>
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-a928e1df-c174-3c0a-b40a-83b6ae54fe0b']" class="hcit-group-input-radio">
+      <xform:output ref="instance('FormDataInstance')//question[@id='a928e1df-c174-3c0a-b40a-83b6ae54fe0b']/text" class="hcitQuestionText hcitRequiredQuestionText"/>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='a928e1df-c174-3c0a-b40a-83b6ae54fe0b']/answer" appearance="minimal" class="hcitAnswerRadio">
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-a928e1df-c174-3c0a-b40a-83b6ae54fe0b')/answer">
+          <xform:label ref="@text" class="hcit-label-input-radio"/>
+
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='a928e1df-c174-3c0a-b40a-83b6ae54fe0b']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+      </xform:select1>
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-5a013066-5b10-3a25-acc9-6c8747612c38']" class="hcit-group-input-radio">
+      <xform:output ref="instance('FormDataInstance')//question[@id='5a013066-5b10-3a25-acc9-6c8747612c38']/text" class="hcitQuestionText hcitRequiredQuestionText"/>
+
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='5a013066-5b10-3a25-acc9-6c8747612c38']/answer" appearance="minimal" class="hcitAnswerRadio">
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-5a013066-5b10-3a25-acc9-6c8747612c38')/answer">
+          <xform:label ref="@text" class="hcit-label-input-radio"/>
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='5a013066-5b10-3a25-acc9-6c8747612c38']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+      </xform:select1>
+
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-a4a7e0f1-6c06-3074-931c-f477acfd29fe']" class="hcit-group-input-radio">
+      <xform:output ref="instance('FormDataInstance')//question[@id='a4a7e0f1-6c06-3074-931c-f477acfd29fe']/text" class="hcitQuestionText hcitRequiredQuestionText"/>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='a4a7e0f1-6c06-3074-931c-f477acfd29fe']/answer" appearance="minimal" class="hcitAnswerRadio">
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-a4a7e0f1-6c06-3074-931c-f477acfd29fe')/answer">
+          <xform:label ref="@text" class="hcit-label-input-radio"/>
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='a4a7e0f1-6c06-3074-931c-f477acfd29fe']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+      </xform:select1>
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-5a17b1b4-b6d3-349c-97a3-058f0b7c6e14']" class="hcit-group-input-radio">
+      <xform:output ref="instance('FormDataInstance')//question[@id='5a17b1b4-b6d3-349c-97a3-058f0b7c6e14']/text" class="hcitQuestionText hcitRequiredQuestionText"/>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='5a17b1b4-b6d3-349c-97a3-058f0b7c6e14']/answer" appearance="full" class="hcitAnswerRadio">
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-5a17b1b4-b6d3-349c-97a3-058f0b7c6e14')/answer">
+          <xform:label ref="@text" class="hcit-label-input-radio"/>
+
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='5a17b1b4-b6d3-349c-97a3-058f0b7c6e14']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+      </xform:select1>
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-9d384252-4bf0-3bed-a062-7b2a682f78ef']" class="hcit-group-input-radio">
+      <xform:output ref="instance('FormDataInstance')//question[@id='9d384252-4bf0-3bed-a062-7b2a682f78ef']/text" class="hcitQuestionText hcitRequiredQuestionText hcitHasLearnMore"/>
+
+      <span class="learnmore">
+        <a href="javascript:showDialog('Help','&amp;lt;b&amp;gt;Question : Have you ever had a full-term pregnancy? &amp;lt;/b&amp;gt;&#13;&#10;&amp;lt;br/&amp;gt;&#13;&#10;&amp;lt;br/&amp;gt;&#13;&#10;&amp;lt;b&amp;gt;What does this mean :&amp;lt;/b&amp;gt; Full term pregnancy may have ended in a live birth or a still birth. &#13;&#10;&amp;lt;br/&amp;gt;&#13;&#10;&amp;lt;br/&amp;gt;&#13;&#10; &#13;&#10;','warning',false,'lmid-9d384252-4bf0-3bed-a062-7b2a682f78ef')" id="lmid-9d384252-4bf0-3bed-a062-7b2a682f78ef">Need help?</a>
+      </span>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='9d384252-4bf0-3bed-a062-7b2a682f78ef']/answer" appearance="full" class="hcitAnswerRadio">
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-9d384252-4bf0-3bed-a062-7b2a682f78ef')/answer">
+          <xform:label ref="@text" class="hcit-label-input-radio"/>
+          <xform:value ref="."/>
+        </xform:itemset>
+
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='9d384252-4bf0-3bed-a062-7b2a682f78ef']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+        <xform:action ev:event="xforms-value-changed">
+          <xform:setvalue ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-31c05993-a6d1-3b27-9583-27877781d5cc']/@visible" value="contains(instance('FormDataInstance')//question[@id='9d384252-4bf0-3bed-a062-7b2a682f78ef']/answer, '2')"/>
+          <xform:setvalue ref="instance('FormDataInstance')//question[@id='31c05993-a6d1-3b27-9583-27877781d5cc']/answer" value="if(contains(instance('FormDataInstance')//question[@id='9d384252-4bf0-3bed-a062-7b2a682f78ef']/answer, '2'),.,'')"/>
+        </xform:action>
+        <xform:action ev:event="xforms-value-changed">
+          <xform:setvalue ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-31c05993-a6d1-3b27-9583-27877781d5cc']/@visible" value="contains(instance('FormDataInstance')//question[@id='9d384252-4bf0-3bed-a062-7b2a682f78ef']/answer, '2')"/>
+
+          <xform:setvalue ref="instance('FormDataInstance')//question[@id='31c05993-a6d1-3b27-9583-27877781d5cc']/answer" value="if(contains(instance('FormDataInstance')//question[@id='9d384252-4bf0-3bed-a062-7b2a682f78ef']/answer, '2'),.,'')"/>
+          <xform:setvalue ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-9ab1cba1-3657-3a53-9742-581a155edb1f']/@visible" value="contains(instance('FormDataInstance')//question[@id='9d384252-4bf0-3bed-a062-7b2a682f78ef']/answer, '2')"/>
+          <xform:setvalue ref="instance('FormDataInstance')//question[@id='9ab1cba1-3657-3a53-9742-581a155edb1f']/answer" value="if(contains(instance('FormDataInstance')//question[@id='9d384252-4bf0-3bed-a062-7b2a682f78ef']/answer, '2'),.,'')"/>
+        </xform:action>
+        <xform:action ev:event="xforms-value-changed">
+          <xform:setvalue ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-31c05993-a6d1-3b27-9583-27877781d5cc']/@visible" value="contains(instance('FormDataInstance')//question[@id='9d384252-4bf0-3bed-a062-7b2a682f78ef']/answer, '2')"/>
+          <xform:setvalue ref="instance('FormDataInstance')//question[@id='31c05993-a6d1-3b27-9583-27877781d5cc']/answer" value="if(contains(instance('FormDataInstance')//question[@id='9d384252-4bf0-3bed-a062-7b2a682f78ef']/answer, '2'),.,'')"/>
+          <xform:setvalue ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-48050181-ff72-3592-b545-c0d30ef23530']/@visible" value="contains(instance('FormDataInstance')//question[@id='9d384252-4bf0-3bed-a062-7b2a682f78ef']/answer, '2')"/>
+          <xform:setvalue ref="instance('FormDataInstance')//question[@id='48050181-ff72-3592-b545-c0d30ef23530']/answer" value="if(contains(instance('FormDataInstance')//question[@id='9d384252-4bf0-3bed-a062-7b2a682f78ef']/answer, '2'),.,'')"/>
+
+        </xform:action>
+      </xform:select1>
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-9ab1cba1-3657-3a53-9742-581a155edb1f']" class="hcit-group-input-radio">
+      <xform:output ref="instance('FormDataInstance')//question[@id='9ab1cba1-3657-3a53-9742-581a155edb1f']/text" class="hcitQuestionText hcitRequiredQuestionText"/>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='9ab1cba1-3657-3a53-9742-581a155edb1f']/answer" appearance="full" class="hcitAnswerRadio">
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-9ab1cba1-3657-3a53-9742-581a155edb1f')/answer">
+          <xform:label ref="@text" class="hcit-label-input-radio"/>
+          <xform:value ref="."/>
+
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='9ab1cba1-3657-3a53-9742-581a155edb1f']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+      </xform:select1>
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-48050181-ff72-3592-b545-c0d30ef23530']" class="hcit-group-input-dropdown">
+      <xform:output ref="instance('FormDataInstance')//question[@id='48050181-ff72-3592-b545-c0d30ef23530']/text" class="hcitQuestionText hcitRequiredQuestionText"/>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='48050181-ff72-3592-b545-c0d30ef23530']/answer" appearance="minimal" class="hcitAnswerRadio">
+
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-48050181-ff72-3592-b545-c0d30ef23530')/answer">
+          <xform:label ref="@text" class="hcit-label-input-dropdown"/>
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='48050181-ff72-3592-b545-c0d30ef23530']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+      </xform:select1>
+    </xform:group>
+
+    <xform:group ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-31c05993-a6d1-3b27-9583-27877781d5cc']" class="hcit-group-input-radio">
+      <xform:output ref="instance('FormDataInstance')//question[@id='31c05993-a6d1-3b27-9583-27877781d5cc']/text" class="hcitQuestionText hcitRequiredQuestionText"/>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='31c05993-a6d1-3b27-9583-27877781d5cc']/answer" appearance="full" class="hcitAnswerRadio">
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-31c05993-a6d1-3b27-9583-27877781d5cc')/answer">
+          <xform:label ref="@text" class="hcit-label-input-radio"/>
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='31c05993-a6d1-3b27-9583-27877781d5cc']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+
+        </xform:alert>
+      </xform:select1>
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-3303a992-81c7-34c2-8135-6ec49f1cfed4']" class="hcit-group-input-radio">
+      <xform:output ref="instance('FormDataInstance')//question[@id='3303a992-81c7-34c2-8135-6ec49f1cfed4']/text" class="hcitQuestionText hcitRequiredQuestionText"/>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='3303a992-81c7-34c2-8135-6ec49f1cfed4']/answer" appearance="full" class="hcitAnswerRadio">
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-3303a992-81c7-34c2-8135-6ec49f1cfed4')/answer">
+          <xform:label ref="@text" class="hcit-label-input-radio"/>
+          <xform:value ref="."/>
+
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='3303a992-81c7-34c2-8135-6ec49f1cfed4']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+      </xform:select1>
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-a77bfb83-7e24-399a-bddc-bdd32fe3997a']" class="hcit-group-input-radio">
+      <xform:output ref="instance('FormDataInstance')//question[@id='a77bfb83-7e24-399a-bddc-bdd32fe3997a']/text" class="hcitQuestionText hcitRequiredQuestionText"/>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='a77bfb83-7e24-399a-bddc-bdd32fe3997a']/answer" appearance="full" class="hcitAnswerRadio">
+
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-a77bfb83-7e24-399a-bddc-bdd32fe3997a')/answer">
+          <xform:label ref="@text" class="hcit-label-input-radio"/>
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='a77bfb83-7e24-399a-bddc-bdd32fe3997a']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+      </xform:select1>
+    </xform:group>
+
+    <xform:group ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-846a77cd-0343-31ac-b341-c11fce3a036f']" class="hcit-group-input-text">
+      <xform:output ref="instance('FormDataInstance')//question[@id='846a77cd-0343-31ac-b341-c11fce3a036f']/text" class="hcitQuestionText"/>
+      <xform:input bind="Q-846a77cd-0343-31ac-b341-c11fce3a036f" class="hcitAnswerText">
+        <xform:label class="hcit-label-input-text">Please enter year(YYYY)</xform:label>
+        <xform:alert>
+          <xform:output value="'Incorrect format.'"/>
+        </xform:alert>
+      </xform:input>
+
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-8dd91587-7dd5-35e3-bed8-06620f008637']" class="hcit-group-input-radio">
+      <xform:output ref="instance('FormDataInstance')//question[@id='8dd91587-7dd5-35e3-bed8-06620f008637']/text" class="hcitQuestionText hcitRequiredQuestionText"/>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='8dd91587-7dd5-35e3-bed8-06620f008637']/answer" appearance="full" class="hcitAnswerRadio">
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-8dd91587-7dd5-35e3-bed8-06620f008637')/answer">
+          <xform:label ref="@text" class="hcit-label-input-radio"/>
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='8dd91587-7dd5-35e3-bed8-06620f008637']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+      </xform:select1>
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-259226c0-7754-3c07-a3d2-69a4815a4b79']" class="hcit-group-input-text">
+      <xform:output ref="instance('FormDataInstance')//question[@id='259226c0-7754-3c07-a3d2-69a4815a4b79']/text" class="hcitQuestionText hcitRequiredQuestionText"/>
+      <xform:input bind="Q-259226c0-7754-3c07-a3d2-69a4815a4b79" class="hcitAnswerText">
+        <xform:label class="hcit-label-input-text">Please specity reason</xform:label>
+
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='259226c0-7754-3c07-a3d2-69a4815a4b79']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+      </xform:input>
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-e6992fe1-e80a-33ba-bae0-316ab1d36814']" class="hcit-group-input-radio">
+      <xform:output ref="instance('FormDataInstance')//question[@id='e6992fe1-e80a-33ba-bae0-316ab1d36814']/text" class="hcitQuestionText hcitRequiredQuestionText hcitHasLearnMore"/>
+      <span class="learnmore">
+        <a href="javascript:showDialog('Help','&amp;lt;b&amp;gt;Question : Have you ever taken menopausal hormone therapy?&amp;lt;/b&amp;gt;&#10;&amp;lt;br/&amp;gt;&#10;&amp;lt;br/&amp;gt; &#10;&amp;lt;b&amp;gt;What does this mean : &amp;lt;/b&amp;gt;Menopausal hormone therapy is often referred to as hormonal replacement therapy &amp;lt;i&amp;gt;(HRT)&amp;lt;/i&amp;gt;. Bioidentical hormones are a form of menopausal hormone therapy. Hormone therapy is used to treat menopausal symptoms, like hot flashes. Menopausal hormone therapy can come in a pill or patch or gel/cream form. Some women take estrogen and a progestogen. Some take estrogen and testosterone, and some take only estrogen. &#10;&amp;lt;br/&amp;gt;&#10;&amp;lt;br/&amp;gt;&#10;Menopausal hormone therapy can come in a pill or patch or gel/cream form. Some women take estrogen and a progestogen. Some take estrogen and testosterone, and some take only estrogen. &#10;&amp;lt;br/&amp;gt;&#10;&amp;lt;br/&amp;gt;&#10;&#10; &#10; &#10; &#10;','warning',false,'lmid-e6992fe1-e80a-33ba-bae0-316ab1d36814')" id="lmid-e6992fe1-e80a-33ba-bae0-316ab1d36814">Need help?</a>
+
+      </span>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='e6992fe1-e80a-33ba-bae0-316ab1d36814']/answer" appearance="full" class="hcitAnswerRadio">
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-e6992fe1-e80a-33ba-bae0-316ab1d36814')/answer">
+          <xform:label ref="@text" class="hcit-label-input-radio"/>
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='e6992fe1-e80a-33ba-bae0-316ab1d36814']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+
+      </xform:select1>
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-c309820a-b4bd-39c0-a319-7a98b2dfcad5']" class="hcit-group-input-radio">
+      <xform:output ref="instance('FormDataInstance')//question[@id='c309820a-b4bd-39c0-a319-7a98b2dfcad5']/text" class="hcitQuestionText hcitRequiredQuestionText hcitHasLearnMore"/>
+      <span class="learnmore">
+        <a href="javascript:showDialog('Help','&amp;lt;b&amp;gt;Question : What formulation (types) of menopausal hormone therapy have you taken? &amp;lt;/b&amp;gt;&#10;&amp;lt;br/&amp;gt;&#10;&amp;lt;br/&amp;gt;&#10;&amp;lt;b&amp;gt;What does this mean : &amp;lt;/b&amp;gt;Menopausal hormone therapy can come in a pill or patch or gel/cream form. Some women take estrogen and a progesterone. Some take estrogen and testosterone, and some take only estrogen. &#10;&#10; &amp;lt;br/&amp;gt;&#10;&amp;lt;br/&amp;gt;&#10;','warning',false,'lmid-c309820a-b4bd-39c0-a319-7a98b2dfcad5')" id="lmid-c309820a-b4bd-39c0-a319-7a98b2dfcad5">Need help?</a>
+      </span>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='c309820a-b4bd-39c0-a319-7a98b2dfcad5']/answer" appearance="full" class="hcitAnswerRadio">
+
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-c309820a-b4bd-39c0-a319-7a98b2dfcad5')/answer">
+          <xform:label ref="@text" class="hcit-label-input-radio"/>
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='c309820a-b4bd-39c0-a319-7a98b2dfcad5']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+      </xform:select1>
+    </xform:group>
+
+    <xform:group ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-8f95b074-6d64-385f-91fe-9782753a3014']" class="hcit-group-input-radio">
+      <xform:output ref="instance('FormDataInstance')//question[@id='8f95b074-6d64-385f-91fe-9782753a3014']/text" class="hcitQuestionText hcitRequiredQuestionText"/>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='8f95b074-6d64-385f-91fe-9782753a3014']/answer" appearance="full" class="hcitAnswerRadio">
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-8f95b074-6d64-385f-91fe-9782753a3014')/answer">
+          <xform:label ref="@text" class="hcit-label-input-radio"/>
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='8f95b074-6d64-385f-91fe-9782753a3014']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+
+        </xform:alert>
+      </xform:select1>
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-1335ea9a-033f-35db-90b4-9aa47a4d0db4']" class="hcit-group-input-radio">
+      <xform:output ref="instance('FormDataInstance')//question[@id='1335ea9a-033f-35db-90b4-9aa47a4d0db4']/text" class="hcitQuestionText"/>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='1335ea9a-033f-35db-90b4-9aa47a4d0db4']/answer" appearance="full" class="hcitAnswerRadio">
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-1335ea9a-033f-35db-90b4-9aa47a4d0db4')/answer">
+          <xform:label ref="@text" class="hcit-label-input-radio"/>
+          <xform:value ref="."/>
+
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="'Incorrect format.'"/>
+        </xform:alert>
+      </xform:select1>
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-206b4688-2bc3-389e-8cbc-b94821045a2b']" class="hcit-group-input-text">
+      <xform:output ref="instance('FormDataInstance')//question[@id='206b4688-2bc3-389e-8cbc-b94821045a2b']/text" class="hcitQuestionText hcitRequiredQuestionText"/>
+      <xform:input bind="Q-206b4688-2bc3-389e-8cbc-b94821045a2b" class="hcitAnswerText">
+
+        <xform:label class="hcit-label-input-text">Please enter year (YYYY)</xform:label>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='206b4688-2bc3-389e-8cbc-b94821045a2b']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+      </xform:input>
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-e7a0c2c6-3d51-38d6-82e4-93faa783c132']" class="hcit-group-input-radio">
+      <xform:output ref="instance('FormDataInstance')//question[@id='e7a0c2c6-3d51-38d6-82e4-93faa783c132']/text" class="hcitQuestionText hcitRequiredQuestionText"/>
+
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='e7a0c2c6-3d51-38d6-82e4-93faa783c132']/answer" appearance="full" class="hcitAnswerRadio">
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-e7a0c2c6-3d51-38d6-82e4-93faa783c132')/answer">
+          <xform:label ref="@text" class="hcit-label-input-radio"/>
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='e7a0c2c6-3d51-38d6-82e4-93faa783c132']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+      </xform:select1>
+
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-0d899144-8a5a-304d-8ed2-04d10167524e']" class="hcit-group-input-radio">
+      <xform:output ref="instance('FormDataInstance')//question[@id='0d899144-8a5a-304d-8ed2-04d10167524e']/text" class="hcitQuestionText hcitRequiredQuestionText"/>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='0d899144-8a5a-304d-8ed2-04d10167524e']/answer" appearance="full" class="hcitAnswerRadio">
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-0d899144-8a5a-304d-8ed2-04d10167524e')/answer">
+          <xform:label ref="@text" class="hcit-label-input-radio"/>
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='0d899144-8a5a-304d-8ed2-04d10167524e']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+      </xform:select1>
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-0d9f3187-2d3f-3c5a-8f14-5e5c74737b9f']" class="hcit-group-input-text">
+      <xform:output ref="instance('FormDataInstance')//question[@id='0d9f3187-2d3f-3c5a-8f14-5e5c74737b9f']/text" class="hcitQuestionText hcitRequiredQuestionText"/>
+      <xform:input bind="Q-0d9f3187-2d3f-3c5a-8f14-5e5c74737b9f" class="hcitAnswerText">
+        <xform:label class="hcit-label-input-text">Please enter year (YYYY)</xform:label>
+
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='0d9f3187-2d3f-3c5a-8f14-5e5c74737b9f']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+      </xform:input>
+    </xform:group>
+
+<xform:submit submission="SendDataElement">
+	<xform:label>Save and Continue</xform:label>
+    </xform:submit>
+</body>
+</html>

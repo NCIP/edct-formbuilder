@@ -1,0 +1,1 @@
+alter table module add completiontime character varying;

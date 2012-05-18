@@ -1,0 +1,588 @@
+/*************************************************\
+	hcit_styles.css
+	Overriding some of the HOW styles in XForms
+The basic format of the stylesheet used by the XForms consists of several elements. Some of the main elements are:
+
+- xforms-group:
+    Basic CSS class used to style a question on the XForm.
+- xforms-value:
+    Basic CSS class used to style the answer section of a question on the XForm.
+    This section includes input fields such as radiobuttons, text fields, select fields, checkboxes etc.
+- xforms-item:
+    Basic CSS class used to style the answer section of a question on the XForm that was rendered using the XForms "itemset".
+- learnmore, hcitHasLearnMore:
+    CSS classes used to style the "Learn More" sections on the XForm.
+- hcitContent, hcitContentText:
+    CSS classes used to style the "Pure Content" sections on the XForm.
+- hcitTable, hcitTableCell, hcitOdd, hcitEven, hcitHeaderRow, hcitFirstTableCell:
+    CSS class used to style the answer section of a table question on the XForm.
+    hcitTable:             Used to style the question table.
+    hcitTableCell:         Used to style a single cell within the table.
+    hcitTableRow:          Used to style a single row within the table.
+    hcitOdd:               Used to style table cells that appear in odd-numbered rows of the table.
+    hcitEven:              Used to style table cells that appear in even-numbered rows of the table.
+    hcitHeaderRow:         Used to style table cells that appear in the first row of the table (the column headers).
+    hcitFirstTableCell:    Used to style the first table cell in the first row of the table.
+
+*/
+
+@import "how-styles.css";
+@import "dialog_box.css";
+
+#utilDiv {
+	background:url("../images/banner_empty.png") no-repeat scroll 0 0 transparent;
+}
+
+.aid-button {
+	background:url(../images/cal.gif) no-repeat;
+    cursor:pointer;
+    border: none;
+    width: 16px;
+    height: 16px;
+}
+
+#bannerLinks, #footer #powered  {
+	display : none;
+} 
+
+h1 {
+	color: #555252;
+	font: bold 22px Arial Narrow, Arial, Helvetica, sans-serif;
+	/* padding: 0 0 0 20px; */
+	padding: 0;
+	text-align: left;
+	vertical-align: middle;
+	/* text-indent: 15px; */
+	text-indent: 0;
+	background: none;
+	height: 35px;
+	margin: 0;
+	margin-top: 15px;
+}
+
+
+input,
+.xforms-item-label,
+.hcitQuestionText .xforms-value,
+.hcitHasLearnMore .xforms-value,
+.hcitAnswerText  {
+	margin-right: 5px;
+}
+
+input.number {
+	text-align: left;
+}
+
+body {
+	font: 12px Myriad,Helvetica,Tahoma,Arial,clean,sans-serif;
+}
+#console {
+	font-size			: 0.8em;
+	color				: #888888;
+	border-top			: thin solid #888888;
+	display: none;
+}
+
+
+
+
+div.ajx-dialog {
+	display				: none;
+	position			: absolute;
+	width				: 400px;
+	height				: 300px;
+	background-color	: white;
+	border-top			: 1px solid black;
+	border-left			: 1px solid black;
+	border-bottom		: 3px solid black;
+	border-right		: 3px solid black;
+	padding				: 10px;
+	z-index				: 10;
+	-moz-box-sizing		: border-box;
+	box-sizing			: border-box;
+}
+
+div.xforms-help-value, div.xforms-alert-value, div.xforms-hint-value {
+	display				: none;
+	background-color	: #ffffee;
+	position			: absolute;
+	border				: black 1px solid;
+	width				: 400px;
+
+	margin-top			: 16px;
+	margin-left			: -16px;
+	padding				: 5px;
+	-moz-box-sizing		: border-box;
+	box-sizing			: border-box;
+}
+
+div.xforms-hint-value {
+	padding             : 25px;
+}
+div.xforms-alert-value span.xforms-alert-icon {
+	display: none;
+}
+
+span.xforms-alert-icon {
+	background-image	: url(icon_error.gif);
+	background-repeat : no-repeat;
+	/*display: none;*/
+}
+
+div#statusPanel {
+	display				: none;
+	position			: absolute;
+
+	width				: 300px;
+	height				: 120px;
+	padding-top			: 40px;
+
+
+
+	text-align			: center;
+	background-color	: #eeeeee;
+	opacity				: 0.85;
+	filter				: alpha(opacity=85);
+	border				: 1px solid black;
+	font				: bold 20px Arial, Verdana;
+	z-index				: 11;
+	-moz-box-sizing		: border-box;
+	box-sizing			: border-box;
+}
+
+
+.xforms-trigger a, .xforms-trigger a:link, .xforms-trigger a:hover, .xforms-trigger a:visited {
+	text-decoration				: none;
+	color 													: #000000;
+}
+
+.xforms-item {
+	overflow: auto;
+}
+
+.hcit-vertical-align .xforms-itemset{
+	display: table;
+	border-spacing: 0 5px;
+}
+
+.hcit-vertical-align .xforms-item {
+	display: table-row;
+}
+
+.hcit-vertical-align .xforms-item input {
+	display: table-cell;
+}
+
+.hcit-vertical-align .xforms-item .xforms-item-label {
+	display: table-cell;
+}
+
+.hcit-horizontal-align .xforms-value{
+	display: table;
+	border-spacing: 0 5px;
+}
+
+.hcit-horizontal-align .xforms-itemset{
+	display: table-row;
+}
+
+.hcit-horizontal-align .xforms-item {
+	display: table-cell;
+	min-width: 60px;
+	vertical-align: top;
+}
+
+.hcit-horizontal-align .xforms-item input {
+	float: left;
+}
+
+.hcit-horizontal-align .xforms-item .xforms-item-label {
+	max-width: 85%;
+	display: block;
+	float: left;
+}
+
+/* Answer length types */
+/* Text */
+.hcit-field-width-short-text input, td.hcit-field-width-short-text, th.hcit-field-width-short-text {
+	width: 10em;
+}
+.hcit-field-width-medium-text input, td.hcit-field-width-medium-text, th.hcit-field-width-medium-text {
+	width: 20em;
+}
+.hcit-field-width-long-text input, .hcit-field-width-long-text, th.hcit-field-width-long-text {
+	width: 40em;
+}
+/* Number */
+.hcit-field-width-short-number input, td.hcit-field-width-short-number, th.hcit-field-width-short-number {
+	width: 1em;
+}
+.hcit-field-width-medium-number input, td.hcit-field-width-medium-number, th.hcit-field-width-medium-number {
+	width: 3em;
+}
+.hcit-field-width-long-number input, td.hcit-field-width-long-number, th.hcit-field-width-long-number {
+	width: 6em;
+}
+/* Year */
+.hcit-field-width-short-year input, td.hcit-field-width-short-year, th.hcit-field-width-short-year {
+	width: 2em;
+}
+.hcit-field-width-medium-year input, td.hcit-field-width-medium-year, th.hcit-field-width-medium-year {
+	width: 3em;
+}
+.hcit-field-width-long-year input, td.hcit-field-width-long-year, th.hcit-field-width-long-year {
+	width: 5em;
+}
+/* Month Year */
+.hcit-field-width-short-monthyear input, td.hcit-field-width-short-monthyear, th.hcit-field-width-short-monthyear {
+	width: 4em;
+}
+.hcit-field-width-medium-monthyear input, td.hcit-field-width-medium-monthyear, th.hcit-field-width-medium-monthyear {
+	width: 6em;
+}
+.hcit-field-width-long-monthyear input, td.hcit-field-width-long-monthyear, th.hcit-field-width-long-monthyear {
+	width: 11em;
+}
+/* Text Area */
+.hcit-field-width-short-textarea textarea, td.hcit-field-width-short-textarea, th.hcit-field-width-short-textarea {
+	width: 20em;
+}
+.hcit-field-width-medium-textarea textarea, td.hcit-field-width-medium-textarea, th.hcit-field-width-medium-textarea {
+	width: 40em;
+}
+.hcit-field-width-long-textarea textarea, td.hcit-field-width-long-textarea, th.hcit-field-width-long-textarea {
+	width: 60em;
+}
+
+.hcit-label-input-text, .hcit-label-input-number, .hcit-label-input-year, .hcit-label-input-monthyear, .hcit-label-input-textarea {
+	float: left;
+  	padding-right: 5px;
+}
+.hcit-label-input-dropdown {
+	
+}
+
+.hcit-group-input-text .xforms-group-content{
+	
+}
+.hcit-group-input-checkbox .xforms-group-content{
+	
+}
+.hcit-group-input-radio .xforms-group-content{
+	
+}
+.hcit-group-input-dropdown .xforms-group-content{
+	
+}
+
+.hcit-group-input-dropdown select{
+	
+}
+
+.hcit-form-title{
+	color:#555252;
+	display:block;
+	font-size:180%;
+	font-weight:bold;
+	margin-bottom:15px;
+	margin-left:35px;
+  	line-height: 30px;
+}
+
+.xforms-group {
+	/*padding: 10px;*/
+	margin-bottom: 10px;
+	margin-top: 10px;
+	overflow: auto;
+	overflow-y: hidden;
+	-ms-overflow-y: hidden;
+}
+
+.xforms-group, .xforms-submit, #title {
+	width: 800px;
+	clear: left;
+}
+
+div.hcitEmptyGroup.xforms-group, div.hcitEmptyGroup.xforms-group * {
+	padding-left: 0;
+	background: none;
+	border: none;
+}
+
+.xforms-submit {
+	display: block;
+	padding-top: 20px;
+}
+
+.hcitQuestionText .xforms-value {
+	font-weight: bold;
+	/*padding-top: 20px;*/
+	/* display: block; */
+}
+
+.hcitHasLearnMore .xforms-value {
+	width: 100%;
+}
+
+.hcitAnswerText {
+	display: block;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.hcitQuestionText {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.hcitContentText {
+	/*background: #FAF2F3;*/
+	/*border: 3px solid #E1E1E1;*/
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	padding-left: 5px;
+}
+
+/* Regular tables styles */
+.hcitSimpleTable {
+	margin: 0;
+	padding: 0;
+}
+
+.hcitSimpleTable .xforms-value {
+	display: table;
+}
+
+.hcitSimpleTable .xforms-itemset {
+	display: table-row;
+}
+
+.hcitSimpleTable .xforms-item {
+	display: table-cell;
+	text-align: center;
+	width: 80px;
+	margin: 0;
+	padding: 5px;
+}
+
+.hcitSimpleTable .hcitColumnHeadingsCell {
+	width: 80px;
+	padding: 5px;
+	background: #F0F0F0;
+	border-bottom: 1px solid gray;
+	border-top:  1px solid gray;
+}
+
+.hcitSimpleTable .hcitRowHeadingsCell, .hcitSimpleTable .hcitHeaderCrossCell {
+	min-width: 20px;
+	max-width: 200px;
+}
+
+.hcitSimpleTable .hcitHeaderCrossCell {
+	background: #F0F0F0;
+	border-bottom: 1px solid gray;
+	border-top:  1px solid gray;
+}
+
+.hcitSimpleTable tbody>tr:nth-child(odd), .hcitSimpleTable tbody>tr:nth-child(odd) *{
+	background: #F8F8F8;
+}
+
+.hcitSimpleTable tbody>tr:nth-child(even), .hcitSimpleTable tbody>tr:nth-child(even) *{
+	background: #F1F1F1;
+}
+
+.hcitComplexTable thead>tr>th {
+	background: #F0F0F0;
+	border-bottom: 1px solid gray;
+    border-top: 1px solid gray;
+}
+
+.hcitComplexTable tbody>tr:nth-child(odd) {
+	background: #F8F8F8;
+}
+
+.hcitComplexTable tbody>tr:nth-child(even) {
+	background: #F1F1F1;
+}
+
+
+
+#xfContentDiv {
+	background:url("../images/07.jpg") repeat-y scroll left top transparent;
+	width:870px;
+	padding-right: 15px;
+	padding-left: 35px;
+	margin-top: -60px;
+}
+
+#xfContentDiv #title h1 {
+	margin-top: 0;
+}
+
+#xfFooter #footer{
+background-image:url("../images/footer.png");
+background-position:center center;
+background-repeat:no-repeat;
+border:medium none;
+height:50px;
+width:884px;
+}
+
+#xfContentDiv p {
+	margin-bottom: 0;
+}
+
+div.hcitContent div.xforms-group-content{
+	background: #E1E1E1;
+	padding: 3px;
+	border: 1px solid #CFCACA;
+}
+
+.learnmore button {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent url("../xsltforms/icon_help.gif") no-repeat center top;
+  text-indent: -1000em;
+  cursor: pointer; /* hand-shaped cursor */
+  cursor: hand; /* for IE 5.x */
+  display: inline;
+}
+
+.learnmore-flyover button {
+  display: none;
+}
+
+.xforms-group.learnmoretext {
+	overflow: auto;
+	/*height: 30px;*/
+	padding-left : 5px;
+	background: #F7F7A8;
+	font-size: 11px;
+	border: 1px solid #F29A41;
+	font-family: Times;
+}
+
+.hcit-save-button button
+{
+	
+}
+
+.hcit-save-for-later-button button
+{
+
+	
+}
+
+.errorsClass {
+	color: #E31931;
+	background-color: #F7B4AB;
+	padding: 5px;
+	font-weight: bold;
+	display: block;
+}
+
+.hcitRequiredQuestionText {
+	background-image:url(required-field.png);
+	background-position:left 3px;
+	background-repeat:no-repeat;
+	margin-left: 3px;
+	padding-left:10px;
+}
+
+
+span.xforms-help-icon {
+	background-image	: url(icon_help.gif);
+	background-repeat : no-repeat;
+}
+
+span.xforms-hint-icon {
+	background-image	: url(icon_hint.gif);
+	background-repeat : no-repeat;
+}
+
+
+
+#xsltforms_console {
+	font-size			: 0.8em;
+	color				: #888888;
+	border-top			: thin solid #888888;
+	display: none;
+}
+
+.delete-table-row
+	{
+	background-image: url(delete-row.png);
+	background-repeat:no-repeat;
+	display: block;
+	height:15px;
+	width: 15px;
+	}
+	
+.insert-table-row
+	{
+	background-image: url(add-row.png);
+	background-repeat:no-repeat;
+	display: block;
+	height:15px;
+	width:15px;
+	}
+	
+.hcitComplexTable, .hcitSimpleTable {
+	border-spacing : 0;
+	margin-top: 20px;
+}
+
+.hcitComplexTable tbody > tr:nth-child(1) {
+	height: 50px;
+	vertical-align: bottom;
+}
+
+.hcitComplexTable td, .hcitComplexTable th {
+	padding: 5px 3px;
+  	border:  none;
+  	text-align: center;
+}
+
+.hcitComplexTable td.firsColumn {
+  	text-align: left;
+}
+
+.hcitComplexTable select {
+	min-width: 45px;
+	max-width: 175px;
+}
+
+/* .firsColumn span.xforms-value {
+	display: inline;
+	width: 200px;
+}  */
+
+.hcit-textarea textarea {
+	height:100px;
+	clear:left;
+}
+
+.hcit-label-textarea {
+	float:left;
+	margin-right: 5px;
+}
+
+.xforms-required-icon {
+  display: none;
+  margin-right: 5px;
+}
+
+#copyright {
+	text-align: center;
+	color: gray;
+	height: 25px;
+	font-size: 11px;
+}

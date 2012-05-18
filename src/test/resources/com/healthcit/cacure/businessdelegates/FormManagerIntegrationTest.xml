@@ -1,0 +1,74 @@
+<!DOCTYPE dataset SYSTEM "formbuilder-dataset.dtd">
+<dataset>
+    <module id="10" 
+   		description="module description"
+   		is_library="false"
+   		status="IN_PROGRESS"
+   		author_user_id="1"
+   		update_date="2011-06-01 10:43"
+        module_type="module"/>	
+            
+    <form id="11"
+    	author_user_id="2"
+    	module_id="10"
+    	name="questionnaire form 1"
+    	ord="1"
+    	status="IN_REVIEW"
+    	update_date="2011-07-01 11:00"
+    	uuid="uuid-form-11"
+    	form_type="questionnaireForm"
+    	locked_by_user_id="1"
+    	last_updated_by_user_id="1"
+    />
+    
+    <form id="111"
+    	author_user_id="1"
+    	module_id="10"
+    	name="questionnaire form 2"
+    	ord="2"
+    	status="IN_PROGRESS"
+    	update_date="2011-07-11 12:00"
+    	uuid="uuid-form-111"
+    	form_type="questionnaireForm"
+    	locked_by_user_id="2"
+    	last_updated_by_user_id="1"
+    />
+     
+    <module id="12" 
+   		description="question library module description"
+   		is_library="true"
+   		status="QUESTION_LIBRARY"
+   		author_user_id="2"
+   		update_date="2011-10-02 11:10"
+        module_type="questionLibrary"/>
+        
+    <form id="13"
+    	author_user_id="1"
+    	module_id="12"
+    	name="question library form 1"
+    	ord="1"
+    	status="QUESTION_LIBRARY"
+    	update_date="2011-08-02 12:00"
+    	uuid="uuid-form-13"
+    	form_type="questionLibraryForm"
+    />
+      
+    <module id="14" 
+   		description="form library module description"
+   		is_library="true"
+   		status="FORM_LIBRARY"
+   		author_user_id="1"
+   		update_date="2011-03-02 01:10"
+        module_type="formLibrary"/>
+        
+    <form id="15"
+    	author_user_id="1"
+    	module_id="14"
+    	name="form library form 1"
+    	ord="1"
+    	status="FORM_LIBRARY"
+    	update_date="2011-03-18 10:10"
+    	uuid="uuid-form-15"
+    	form_type="questionLibraryForm"
+    />  
+</dataset>

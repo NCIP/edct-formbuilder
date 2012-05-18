@@ -1,0 +1,1232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="/FormBuilder/xsltforms/xsltforms.xsl" type="text/xsl"?>
+    <!--  DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"  -->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:xform="http://www.w3.org/2002/xforms"
+      xmlns:ev="http://www.w3.org/2001/xml-events"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:ajx="http://www.ajaxforms.net/2006/ajx">
+
+<head>
+	<title>Main Page</title>
+	<xform:model>
+      <xsd:schema xmlns:hcitT="http://www.healthcit.com/2010/formbuilder" targetNamespace="http://www.healthcit.com/2010/formbuilder"/>
+      <xform:instance id="FormDataInstance">
+        <form xmlns="" name="Diabetes Risk Assessment" id="d66c594f-0cb8-4129-9096-9b8d371394eb">
+
+          <question id="87d547ff-d492-4fc5-a580-2bec31b72eae" sn="Gender">
+            <text>Please indicate your gender:</text>
+            <answer id="37076"/>
+          </question>
+          <question id="94431647-1ded-4622-88dc-591995179676" sn=" diabetes during a pregnancy">
+            <text>Have you had diabetes during a pregnancy?</text>
+            <answer id="37239"/>
+          </question>
+
+          <question id="ccb0abf6-3596-41a3-95c0-59758f56e3fa" sn="birthdate">
+            <text>Please enter your birthdate:</text>
+            <answer id="37075"/>
+          </question>
+          <question id="e1e18641-6ac1-4818-9ab5-aa1142a2f82f" sn="height">
+            <text>Please indicate your height:</text>
+            <answer id="37077"/>
+          </question>
+
+          <question id="743ae22a-54cf-444c-8927-995b7c2d8ded" sn="inch">
+            <text>Additional inches in height:</text>
+            <answer id="37078"/>
+          </question>
+          <question id="5bbcbd8e-4bcc-412c-9a66-5864ab6d06f1" sn="Weight">
+            <text>Please indicate your weight:</text>
+            <answer id="37079"/>
+          </question>
+
+          <question id="5f0f5982-5ca4-4924-bb11-d49dbd521742" sn="race">
+            <text>Please indicate your Race/Ethnic background (Check all that apply):</text>
+            <answer id="37116"/>
+          </question>
+          <question id="5a2de282-1e7e-4703-9642-147dc08ae773" sn="history">
+            <text>Please indicate your family history. Check any who have or have had diabetes.</text>
+            <answer id="37115"/>
+          </question>
+
+          <question id="c1d9c437-e933-4b8d-9f31-ae12aac773ac" sn="BP reading">
+            <text>Do you know your latest blood pressure reading?</text>
+            <answer id="41670"/>
+          </question>
+          <question id="515653b3-5b71-403a-9ffd-2c56752221fb" sn="bp">
+            <text>Please enter your latest blood pressure systolic reading?</text>
+            <answer id="37117"/>
+          </question>
+
+          <question id="9ebeb4a1-ff16-4256-9999-057baf9af3a1" sn="Diastolic">
+            <text>Please enter your diastolic reading?</text>
+            <answer id="37118"/>
+          </question>
+          <question id="6afc143e-7a30-400d-9493-8cadc289e2ec" sn="cholesterol level">
+            <text>Do you know your total cholesterol level?</text>
+            <answer id="41671"/>
+          </question>
+
+          <question id="46dcec73-f8e4-4c49-a474-e69ecb1e1009" sn="cholesterol">
+            <text>What is you total Cholesterol level?</text>
+            <answer id="37185"/>
+          </question>
+          <question id="f143e342-5841-47c4-9c11-55437f5c3b2b" sn="LDL level">
+            <text>Do you know your low-density lipoprotein (LDL) level?</text>
+            <answer id="41673"/>
+          </question>
+
+          <question id="c436c19c-5c39-4f6a-bdcf-aae1058fa608" sn="cholesterol">
+            <text>What is your low-density lipoprotein (LDL) level?</text>
+            <answer id="37150"/>
+          </question>
+          <question id="997b051f-e973-478a-9870-74f6b6b66c1f" sn="high-density lipoprotein ">
+            <text>Do you know your high-density lipoprotein (HDL) level?</text>
+            <answer id="41674"/>
+          </question>
+
+          <question id="6684dccf-2f37-40ed-bc92-0ab544d81366" sn="dnk">
+            <text>What is you high-density lipoprotein (HDL) level?</text>
+            <answer id="37152"/>
+          </question>
+          <question id="68a92e72-aaed-4426-8027-19531b628489" sn="triglycerides levels">
+            <text>Do you know your triglycerides (fasting) level??</text>
+            <answer id="41672"/>
+          </question>
+
+          <question id="344b8705-4a12-46c9-aa2f-4a1ac73d7601" sn="Triglycerides">
+            <text>What is your triglycerides (fasting) level?</text>
+            <answer id="37186"/>
+          </question>
+          <question id="2d73d762-9e40-4bc7-b2b8-f0a207f954f4" sn="glucose">
+            <text>Do you know the level of glucose (sugar) in your blood?</text>
+            <answer id="41790"/>
+          </question>
+
+          <question id="04c2125b-0137-4feb-b31c-f8179905f03b" sn="sugar">
+            <text>Please indicate the level of glucose (sugar) in your blood:</text>
+            <answer id="37189"/>
+          </question>
+          <question id="ff9f2127-b48d-4b3b-bec9-d9ae95ca5c5d" sn=" glucose tolerance test">
+            <text>Do you know the result of your last glucose tolerance test?</text>
+            <answer id="41791"/>
+          </question>
+
+          <question id="1dd208fe-875d-4843-b089-edad6e99500c" sn="sugar">
+            <text>What was the result of you last glucose tolerance test?</text>
+            <answer id="37220"/>
+          </question>
+          <question-table id="b6f6443b-daac-45c9-b70d-c76f87554604" sn="Symptoms">
+            <question id="TQ-37221" sn="1">
+              <text>Blurred vision</text>
+              <answer id="37221"/>
+
+            </question>
+            <question id="TQ-37222" sn="2">
+              <text>Urinary tract infection or yeast infection </text>
+              <answer id="37222"/>
+            </question>
+            <question id="TQ-37223" sn="3">
+              <text>Dry, itchy skin </text>
+              <answer id="37223"/>
+
+            </question>
+            <question id="TQ-37224" sn="4">
+              <text>Numbness or tingling in your arms or legs </text>
+              <answer id="37224"/>
+            </question>
+            <question id="TQ-37235" sn="5">
+              <text>Frequent need to urinate </text>
+              <answer id="37235"/>
+
+            </question>
+            <question id="TQ-37236" sn="6">
+              <text>Frequent thirst</text>
+              <answer id="37236"/>
+            </question>
+            <question id="TQ-37237" sn="7">
+              <text>Weight loss for no reason </text>
+              <answer id="37237"/>
+
+            </question>
+          </question-table>
+          <question id="e048af30-6adb-4977-842b-3ac386ab0667" sn="disease">
+            <text>Has your doctor ever told you that you have heart disease or artery disease?</text>
+            <answer id="37238"/>
+          </question>
+        </form>
+      </xform:instance>
+
+      <xform:instance id="PureContentInstance">
+        <data xmlns=""/>
+      </xform:instance>
+      <xform:instance id="DataGroupInstance">
+        <data xmlns="">
+          <data-group id="Q.GRP-87d547ff-d492-4fc5-a580-2bec31b72eae" visible="true()"/>
+          <data-group id="Q.GRP-94431647-1ded-4622-88dc-591995179676" visible="contains(instance('FormDataInstance')/question[@id='87d547ff-d492-4fc5-a580-2bec31b72eae']/answer, '2')"/>
+          <data-group id="Q.GRP-ccb0abf6-3596-41a3-95c0-59758f56e3fa" visible="true()"/>
+          <data-group id="Q.GRP-e1e18641-6ac1-4818-9ab5-aa1142a2f82f" visible="true()"/>
+
+          <data-group id="Q.GRP-743ae22a-54cf-444c-8927-995b7c2d8ded" visible="true()"/>
+          <data-group id="Q.GRP-5bbcbd8e-4bcc-412c-9a66-5864ab6d06f1" visible="true()"/>
+          <data-group id="Q.GRP-5f0f5982-5ca4-4924-bb11-d49dbd521742" visible="true()"/>
+          <data-group id="Q.GRP-5a2de282-1e7e-4703-9642-147dc08ae773" visible="true()"/>
+          <data-group id="Q.GRP-c1d9c437-e933-4b8d-9f31-ae12aac773ac" visible="true()"/>
+          <data-group id="Q.GRP-515653b3-5b71-403a-9ffd-2c56752221fb" visible="contains(instance('FormDataInstance')/question[@id='c1d9c437-e933-4b8d-9f31-ae12aac773ac']/answer, 'y')"/>
+          <data-group id="Q.GRP-9ebeb4a1-ff16-4256-9999-057baf9af3a1" visible="contains(instance('FormDataInstance')/question[@id='c1d9c437-e933-4b8d-9f31-ae12aac773ac']/answer, 'y')"/>
+          <data-group id="Q.GRP-6afc143e-7a30-400d-9493-8cadc289e2ec" visible="true()"/>
+          <data-group id="Q.GRP-46dcec73-f8e4-4c49-a474-e69ecb1e1009" visible="contains(instance('FormDataInstance')/question[@id='6afc143e-7a30-400d-9493-8cadc289e2ec']/answer, 'y')"/>
+
+          <data-group id="Q.GRP-f143e342-5841-47c4-9c11-55437f5c3b2b" visible="true()"/>
+          <data-group id="Q.GRP-c436c19c-5c39-4f6a-bdcf-aae1058fa608" visible="contains(instance('FormDataInstance')/question[@id='f143e342-5841-47c4-9c11-55437f5c3b2b']/answer, '1')"/>
+          <data-group id="Q.GRP-997b051f-e973-478a-9870-74f6b6b66c1f" visible="true()"/>
+          <data-group id="Q.GRP-6684dccf-2f37-40ed-bc92-0ab544d81366" visible="contains(instance('FormDataInstance')/question[@id='997b051f-e973-478a-9870-74f6b6b66c1f']/answer, 'y')"/>
+          <data-group id="Q.GRP-68a92e72-aaed-4426-8027-19531b628489" visible="true()"/>
+          <data-group id="Q.GRP-344b8705-4a12-46c9-aa2f-4a1ac73d7601" visible="contains(instance('FormDataInstance')/question[@id='68a92e72-aaed-4426-8027-19531b628489']/answer, 'y')"/>
+          <data-group id="Q.GRP-2d73d762-9e40-4bc7-b2b8-f0a207f954f4" visible="true()"/>
+          <data-group id="Q.GRP-04c2125b-0137-4feb-b31c-f8179905f03b" visible="contains(instance('FormDataInstance')/question[@id='2d73d762-9e40-4bc7-b2b8-f0a207f954f4']/answer, 'y')"/>
+          <data-group id="Q.GRP-ff9f2127-b48d-4b3b-bec9-d9ae95ca5c5d" visible="true()"/>
+
+          <data-group id="Q.GRP-1dd208fe-875d-4843-b089-edad6e99500c" visible="contains(instance('FormDataInstance')/question[@id='ff9f2127-b48d-4b3b-bec9-d9ae95ca5c5d']/answer, 'y')"/>
+          <data-group id="Q.GRP-b6f6443b-daac-45c9-b70d-c76f87554604" visible="true()"/>
+          <data-group id="Q.GRP-e048af30-6adb-4977-842b-3ac386ab0667" visible="true()"/>
+        </data>
+      </xform:instance>
+      <xform:instance id="CrossFormSkipInstance">
+        <data xmlns=""/>
+      </xform:instance>
+      <xform:instance id="URLInstance">
+
+        <data xmlns="">
+          <base-url>xform.view</base-url>
+          <full-url>xform.view</full-url>
+        </data>
+      </xform:instance>
+      <xform:instance id="ContextSpecificErrorsInstance">
+        <data xmlns="">
+          <error id="ERR-87d547ff-d492-4fc5-a580-2bec31b72eae">An answer is required for this question.</error>
+
+          <error id="ERR-ccb0abf6-3596-41a3-95c0-59758f56e3fa">An answer is required for this question.</error>
+          <error id="ERR-e1e18641-6ac1-4818-9ab5-aa1142a2f82f">An answer is required for this question.</error>
+          <error id="ERR-5bbcbd8e-4bcc-412c-9a66-5864ab6d06f1">An answer is required for this question.</error>
+          <error id="ERR-5f0f5982-5ca4-4924-bb11-d49dbd521742">An answer is required for this question.</error>
+          <error id="ERR-5a2de282-1e7e-4703-9642-147dc08ae773">An answer is required for this question.</error>
+          <error id="ERR-c1d9c437-e933-4b8d-9f31-ae12aac773ac">An answer is required for this question.</error>
+
+          <error id="ERR-6afc143e-7a30-400d-9493-8cadc289e2ec">An answer is required for this question.</error>
+          <error id="ERR-997b051f-e973-478a-9870-74f6b6b66c1f">An answer is required for this question.</error>
+          <error id="ERR-68a92e72-aaed-4426-8027-19531b628489">An answer is required for this question.</error>
+          <error id="ERR-b6f6443b-daac-45c9-b70d-c76f87554604">An answer is required for this question.</error>
+          <error id="ERR-e048af30-6adb-4977-842b-3ac386ab0667">An answer is required for this question.</error>
+        </data>
+
+      </xform:instance>
+      <xform:instance id="Q-ANSWER_SET-87d547ff-d492-4fc5-a580-2bec31b72eae">
+        <options xmlns="">
+          <answer sn="" text="Male">1</answer>
+          <answer sn="" text="Female">2</answer>
+        </options>
+      </xform:instance>
+      <xform:instance id="Q-ANSWER_SET-94431647-1ded-4622-88dc-591995179676">
+
+        <options xmlns="">
+          <answer sn="" text="Yes">1</answer>
+          <answer sn="" text="No">2</answer>
+        </options>
+      </xform:instance>
+      <xform:instance id="Q-ANSWER_SET-5f0f5982-5ca4-4924-bb11-d49dbd521742">
+        <options xmlns="">
+          <answer sn="" text="White">1</answer>
+
+          <answer sn="" text="Hispanic/Latino ">2</answer>
+          <answer sn="" text="Black/African American ">3</answer>
+          <answer sn="" text="Asian ">4</answer>
+          <answer sn="" text="Pacific Islander ">5</answer>
+          <answer sn="" text="American Indian or Alaska Native ">6</answer>
+          <answer sn="" text="Other">7</answer>
+
+        </options>
+      </xform:instance>
+      <xform:instance id="Q-ANSWER_SET-5a2de282-1e7e-4703-9642-147dc08ae773">
+        <options xmlns="">
+          <answer sn="" text="Biological Parent ">1</answer>
+          <answer sn="" text="Biological Brother ">2</answer>
+          <answer sn="" text="Biological Sister ">3</answer>
+
+          <answer sn="" text="Identical Twin ">4</answer>
+          <answer sn="" text="Other">5</answer>
+        </options>
+      </xform:instance>
+      <xform:instance id="Q-ANSWER_SET-c1d9c437-e933-4b8d-9f31-ae12aac773ac">
+        <options xmlns="">
+          <answer sn="" text="Yes">y</answer>
+
+          <answer sn="" text="I don't know">n</answer>
+        </options>
+      </xform:instance>
+      <xform:instance id="Q-ANSWER_SET-6afc143e-7a30-400d-9493-8cadc289e2ec">
+        <options xmlns="">
+          <answer sn="" text="Yes">y</answer>
+          <answer sn="" text="I don't know">n</answer>
+
+        </options>
+      </xform:instance>
+      <xform:instance id="Q-ANSWER_SET-f143e342-5841-47c4-9c11-55437f5c3b2b">
+        <options xmlns="">
+          <answer sn="" text="Yes">1</answer>
+          <answer sn="" text="I don't know">2</answer>
+        </options>
+      </xform:instance>
+
+      <xform:instance id="Q-ANSWER_SET-997b051f-e973-478a-9870-74f6b6b66c1f">
+        <options xmlns="">
+          <answer sn="" text="Yes">y</answer>
+          <answer sn="" text="I don't know">n</answer>
+        </options>
+      </xform:instance>
+      <xform:instance id="Q-ANSWER_SET-68a92e72-aaed-4426-8027-19531b628489">
+        <options xmlns="">
+
+          <answer sn="" text="Yes">y</answer>
+          <answer sn="" text="I don't know">n</answer>
+        </options>
+      </xform:instance>
+      <xform:instance id="Q-ANSWER_SET-2d73d762-9e40-4bc7-b2b8-f0a207f954f4">
+        <options xmlns="">
+          <answer sn="" text="Yes">y</answer>
+
+          <answer sn="" text="I don't know">n</answer>
+        </options>
+      </xform:instance>
+      <xform:instance id="Q-ANSWER_SET-ff9f2127-b48d-4b3b-bec9-d9ae95ca5c5d">
+        <options xmlns="">
+          <answer sn="" text="Yes">y</answer>
+          <answer sn="" text="I don't know">n</answer>
+
+        </options>
+      </xform:instance>
+      <xform:instance id="Q-ANSWER_SET-b6f6443b-daac-45c9-b70d-c76f87554604">
+        <options xmlns="">
+          <answer sn="" text="Yes">1</answer>
+          <answer sn="" text="No">2</answer>
+          <answer sn="" text="I don't know">3</answer>
+
+        </options>
+      </xform:instance>
+      <xform:instance id="Q-ANSWER_SET-e048af30-6adb-4977-842b-3ac386ab0667">
+        <options xmlns="">
+          <answer sn="" text="Yes">1</answer>
+          <answer sn="" text="No">2</answer>
+        </options>
+      </xform:instance>
+
+      <xform:bind nodeset="instance('DataGroupInstance')/data-group[@id='Q.GRP-87d547ff-d492-4fc5-a580-2bec31b72eae']" id="Q.GRP-87d547ff-d492-4fc5-a580-2bec31b72eae" relevant="true()"/>
+      <xform:bind nodeset="instance('ContextSpecificErrorsInstance')/error[@id='ERR-87d547ff-d492-4fc5-a580-2bec31b72eae']" id="Q.REQERR-87d547ff-d492-4fc5-a580-2bec31b72eae" relevant="(true()) and (normalize-space(instance('FormDataInstance')/question[@id='87d547ff-d492-4fc5-a580-2bec31b72eae']/answer[@id='37076'])='')"/>
+      <xform:bind nodeset="instance('FormDataInstance')/question[@id='87d547ff-d492-4fc5-a580-2bec31b72eae']/answer[@id='37076']" id="Q-87d547ff-d492-4fc5-a580-2bec31b72eae" type="xsd:string" required="true()"/>
+      <xform:bind nodeset="instance('DataGroupInstance')/data-group[@id='Q.GRP-94431647-1ded-4622-88dc-591995179676']" id="Q.GRP-94431647-1ded-4622-88dc-591995179676" relevant="contains(instance('FormDataInstance')/question[@id='87d547ff-d492-4fc5-a580-2bec31b72eae']/answer, '2')"/>
+      <xform:bind nodeset="instance('FormDataInstance')/question[@id='94431647-1ded-4622-88dc-591995179676']/answer[@id='37239']" id="Q-94431647-1ded-4622-88dc-591995179676" type="xsd:string" required="false()"/>
+      <xform:bind nodeset="instance('DataGroupInstance')/data-group[@id='Q.GRP-ccb0abf6-3596-41a3-95c0-59758f56e3fa']" id="Q.GRP-ccb0abf6-3596-41a3-95c0-59758f56e3fa" relevant="true()"/>
+      <xform:bind nodeset="instance('ContextSpecificErrorsInstance')/error[@id='ERR-ccb0abf6-3596-41a3-95c0-59758f56e3fa']" id="Q.REQERR-ccb0abf6-3596-41a3-95c0-59758f56e3fa" relevant="(true()) and (normalize-space(instance('FormDataInstance')/question[@id='ccb0abf6-3596-41a3-95c0-59758f56e3fa']/answer[@id='37075'])='')"/>
+      <xform:bind nodeset="instance('FormDataInstance')/question[@id='ccb0abf6-3596-41a3-95c0-59758f56e3fa']/answer[@id='37075']" id="Q-ccb0abf6-3596-41a3-95c0-59758f56e3fa" type="xsd:date" required="true()"/>
+      <xform:bind nodeset="instance('DataGroupInstance')/data-group[@id='Q.GRP-e1e18641-6ac1-4818-9ab5-aa1142a2f82f']" id="Q.GRP-e1e18641-6ac1-4818-9ab5-aa1142a2f82f" relevant="true()"/>
+
+      <xform:bind nodeset="instance('ContextSpecificErrorsInstance')/error[@id='ERR-e1e18641-6ac1-4818-9ab5-aa1142a2f82f']" id="Q.REQERR-e1e18641-6ac1-4818-9ab5-aa1142a2f82f" relevant="(true()) and (normalize-space(instance('FormDataInstance')/question[@id='e1e18641-6ac1-4818-9ab5-aa1142a2f82f']/answer[@id='37077'])='')"/>
+      <xform:bind nodeset="instance('FormDataInstance')/question[@id='e1e18641-6ac1-4818-9ab5-aa1142a2f82f']/answer[@id='37077']" id="Q-e1e18641-6ac1-4818-9ab5-aa1142a2f82f" type="xsd:decimal" required="true()" constraint=". &gt;= 1 and . &lt;= 10"/>
+      <xform:bind nodeset="instance('DataGroupInstance')/data-group[@id='Q.GRP-743ae22a-54cf-444c-8927-995b7c2d8ded']" id="Q.GRP-743ae22a-54cf-444c-8927-995b7c2d8ded" relevant="true()"/>
+      <xform:bind nodeset="instance('FormDataInstance')/question[@id='743ae22a-54cf-444c-8927-995b7c2d8ded']/answer[@id='37078']" id="Q-743ae22a-54cf-444c-8927-995b7c2d8ded" type="xsd:decimal" required="false()" constraint=". &gt;= 1 and . &lt;= 150"/>
+      <xform:bind nodeset="instance('DataGroupInstance')/data-group[@id='Q.GRP-5bbcbd8e-4bcc-412c-9a66-5864ab6d06f1']" id="Q.GRP-5bbcbd8e-4bcc-412c-9a66-5864ab6d06f1" relevant="true()"/>
+      <xform:bind nodeset="instance('ContextSpecificErrorsInstance')/error[@id='ERR-5bbcbd8e-4bcc-412c-9a66-5864ab6d06f1']" id="Q.REQERR-5bbcbd8e-4bcc-412c-9a66-5864ab6d06f1" relevant="(true()) and (normalize-space(instance('FormDataInstance')/question[@id='5bbcbd8e-4bcc-412c-9a66-5864ab6d06f1']/answer[@id='37079'])='')"/>
+      <xform:bind nodeset="instance('FormDataInstance')/question[@id='5bbcbd8e-4bcc-412c-9a66-5864ab6d06f1']/answer[@id='37079']" id="Q-5bbcbd8e-4bcc-412c-9a66-5864ab6d06f1" type="xsd:decimal" required="true()" constraint=". &gt;= 50 and . &lt;= 500"/>
+      <xform:bind nodeset="instance('DataGroupInstance')/data-group[@id='Q.GRP-5f0f5982-5ca4-4924-bb11-d49dbd521742']" id="Q.GRP-5f0f5982-5ca4-4924-bb11-d49dbd521742" relevant="true()"/>
+      <xform:bind nodeset="instance('ContextSpecificErrorsInstance')/error[@id='ERR-5f0f5982-5ca4-4924-bb11-d49dbd521742']" id="Q.REQERR-5f0f5982-5ca4-4924-bb11-d49dbd521742" relevant="(true()) and (normalize-space(instance('FormDataInstance')/question[@id='5f0f5982-5ca4-4924-bb11-d49dbd521742']/answer[@id='37116'])='')"/>
+
+      <xform:bind nodeset="instance('FormDataInstance')/question[@id='5f0f5982-5ca4-4924-bb11-d49dbd521742']" id="Q-5f0f5982-5ca4-4924-bb11-d49dbd521742" required="true()"/>
+      <xform:bind nodeset="instance('FormDataInstance')/question[@id='5f0f5982-5ca4-4924-bb11-d49dbd521742']/answer[@id='37116']" id="Q-5f0f5982-5ca4-4924-bb11-d49dbd521742" type="xsd:string" required="true()"/>
+      <xform:bind nodeset="instance('DataGroupInstance')/data-group[@id='Q.GRP-5a2de282-1e7e-4703-9642-147dc08ae773']" id="Q.GRP-5a2de282-1e7e-4703-9642-147dc08ae773" relevant="true()"/>
+      <xform:bind nodeset="instance('ContextSpecificErrorsInstance')/error[@id='ERR-5a2de282-1e7e-4703-9642-147dc08ae773']" id="Q.REQERR-5a2de282-1e7e-4703-9642-147dc08ae773" relevant="(true()) and (normalize-space(instance('FormDataInstance')/question[@id='5a2de282-1e7e-4703-9642-147dc08ae773']/answer[@id='37115'])='')"/>
+      <xform:bind nodeset="instance('FormDataInstance')/question[@id='5a2de282-1e7e-4703-9642-147dc08ae773']" id="Q-5a2de282-1e7e-4703-9642-147dc08ae773" required="true()"/>
+      <xform:bind nodeset="instance('FormDataInstance')/question[@id='5a2de282-1e7e-4703-9642-147dc08ae773']/answer[@id='37115']" id="Q-5a2de282-1e7e-4703-9642-147dc08ae773" type="xsd:string" required="true()"/>
+      <xform:bind nodeset="instance('DataGroupInstance')/data-group[@id='Q.GRP-c1d9c437-e933-4b8d-9f31-ae12aac773ac']" id="Q.GRP-c1d9c437-e933-4b8d-9f31-ae12aac773ac" relevant="true()"/>
+      <xform:bind nodeset="instance('ContextSpecificErrorsInstance')/error[@id='ERR-c1d9c437-e933-4b8d-9f31-ae12aac773ac']" id="Q.REQERR-c1d9c437-e933-4b8d-9f31-ae12aac773ac" relevant="(true()) and (normalize-space(instance('FormDataInstance')/question[@id='c1d9c437-e933-4b8d-9f31-ae12aac773ac']/answer[@id='41670'])='')"/>
+      <xform:bind nodeset="instance('FormDataInstance')/question[@id='c1d9c437-e933-4b8d-9f31-ae12aac773ac']/answer[@id='41670']" id="Q-c1d9c437-e933-4b8d-9f31-ae12aac773ac" type="xsd:string" required="true()"/>
+
+      <xform:bind nodeset="instance('DataGroupInstance')/data-group[@id='Q.GRP-515653b3-5b71-403a-9ffd-2c56752221fb']" id="Q.GRP-515653b3-5b71-403a-9ffd-2c56752221fb" relevant="contains(instance('FormDataInstance')/question[@id='c1d9c437-e933-4b8d-9f31-ae12aac773ac']/answer, 'y')"/>
+      <xform:bind nodeset="instance('FormDataInstance')/question[@id='515653b3-5b71-403a-9ffd-2c56752221fb']/answer[@id='37117']" id="Q-515653b3-5b71-403a-9ffd-2c56752221fb" type="xsd:decimal" required="false()" constraint=". &gt;= 1 and . &lt;= 250"/>
+      <xform:bind nodeset="instance('DataGroupInstance')/data-group[@id='Q.GRP-9ebeb4a1-ff16-4256-9999-057baf9af3a1']" id="Q.GRP-9ebeb4a1-ff16-4256-9999-057baf9af3a1" relevant="contains(instance('FormDataInstance')/question[@id='c1d9c437-e933-4b8d-9f31-ae12aac773ac']/answer, 'y')"/>
+      <xform:bind nodeset="instance('FormDataInstance')/question[@id='9ebeb4a1-ff16-4256-9999-057baf9af3a1']/answer[@id='37118']" id="Q-9ebeb4a1-ff16-4256-9999-057baf9af3a1" type="xsd:decimal" required="false()" constraint=". &gt;= 1 and . &lt;= 250"/>
+      <xform:bind nodeset="instance('DataGroupInstance')/data-group[@id='Q.GRP-6afc143e-7a30-400d-9493-8cadc289e2ec']" id="Q.GRP-6afc143e-7a30-400d-9493-8cadc289e2ec" relevant="true()"/>
+      <xform:bind nodeset="instance('ContextSpecificErrorsInstance')/error[@id='ERR-6afc143e-7a30-400d-9493-8cadc289e2ec']" id="Q.REQERR-6afc143e-7a30-400d-9493-8cadc289e2ec" relevant="(true()) and (normalize-space(instance('FormDataInstance')/question[@id='6afc143e-7a30-400d-9493-8cadc289e2ec']/answer[@id='41671'])='')"/>
+      <xform:bind nodeset="instance('FormDataInstance')/question[@id='6afc143e-7a30-400d-9493-8cadc289e2ec']/answer[@id='41671']" id="Q-6afc143e-7a30-400d-9493-8cadc289e2ec" type="xsd:string" required="true()"/>
+      <xform:bind nodeset="instance('DataGroupInstance')/data-group[@id='Q.GRP-46dcec73-f8e4-4c49-a474-e69ecb1e1009']" id="Q.GRP-46dcec73-f8e4-4c49-a474-e69ecb1e1009" relevant="contains(instance('FormDataInstance')/question[@id='6afc143e-7a30-400d-9493-8cadc289e2ec']/answer, 'y')"/>
+      <xform:bind nodeset="instance('FormDataInstance')/question[@id='46dcec73-f8e4-4c49-a474-e69ecb1e1009']/answer[@id='37185']" id="Q-46dcec73-f8e4-4c49-a474-e69ecb1e1009" type="xsd:decimal" required="false()" constraint=". &gt;= 1 and . &lt;= 500"/>
+
+      <xform:bind nodeset="instance('DataGroupInstance')/data-group[@id='Q.GRP-f143e342-5841-47c4-9c11-55437f5c3b2b']" id="Q.GRP-f143e342-5841-47c4-9c11-55437f5c3b2b" relevant="true()"/>
+      <xform:bind nodeset="instance('FormDataInstance')/question[@id='f143e342-5841-47c4-9c11-55437f5c3b2b']/answer[@id='41673']" id="Q-f143e342-5841-47c4-9c11-55437f5c3b2b" type="xsd:string" required="false()"/>
+      <xform:bind nodeset="instance('DataGroupInstance')/data-group[@id='Q.GRP-c436c19c-5c39-4f6a-bdcf-aae1058fa608']" id="Q.GRP-c436c19c-5c39-4f6a-bdcf-aae1058fa608" relevant="contains(instance('FormDataInstance')/question[@id='f143e342-5841-47c4-9c11-55437f5c3b2b']/answer, '1')"/>
+      <xform:bind nodeset="instance('FormDataInstance')/question[@id='c436c19c-5c39-4f6a-bdcf-aae1058fa608']/answer[@id='37150']" id="Q-c436c19c-5c39-4f6a-bdcf-aae1058fa608" type="xsd:decimal" required="false()" constraint=". &gt;= 1 and . &lt;= 500"/>
+      <xform:bind nodeset="instance('DataGroupInstance')/data-group[@id='Q.GRP-997b051f-e973-478a-9870-74f6b6b66c1f']" id="Q.GRP-997b051f-e973-478a-9870-74f6b6b66c1f" relevant="true()"/>
+      <xform:bind nodeset="instance('ContextSpecificErrorsInstance')/error[@id='ERR-997b051f-e973-478a-9870-74f6b6b66c1f']" id="Q.REQERR-997b051f-e973-478a-9870-74f6b6b66c1f" relevant="(true()) and (normalize-space(instance('FormDataInstance')/question[@id='997b051f-e973-478a-9870-74f6b6b66c1f']/answer[@id='41674'])='')"/>
+      <xform:bind nodeset="instance('FormDataInstance')/question[@id='997b051f-e973-478a-9870-74f6b6b66c1f']/answer[@id='41674']" id="Q-997b051f-e973-478a-9870-74f6b6b66c1f" type="xsd:string" required="true()"/>
+      <xform:bind nodeset="instance('DataGroupInstance')/data-group[@id='Q.GRP-6684dccf-2f37-40ed-bc92-0ab544d81366']" id="Q.GRP-6684dccf-2f37-40ed-bc92-0ab544d81366" relevant="contains(instance('FormDataInstance')/question[@id='997b051f-e973-478a-9870-74f6b6b66c1f']/answer, 'y')"/>
+      <xform:bind nodeset="instance('FormDataInstance')/question[@id='6684dccf-2f37-40ed-bc92-0ab544d81366']/answer[@id='37152']" id="Q-6684dccf-2f37-40ed-bc92-0ab544d81366" type="xsd:decimal" required="false()" constraint=". &gt;= 1 and . &lt;= 500"/>
+
+      <xform:bind nodeset="instance('DataGroupInstance')/data-group[@id='Q.GRP-68a92e72-aaed-4426-8027-19531b628489']" id="Q.GRP-68a92e72-aaed-4426-8027-19531b628489" relevant="true()"/>
+      <xform:bind nodeset="instance('ContextSpecificErrorsInstance')/error[@id='ERR-68a92e72-aaed-4426-8027-19531b628489']" id="Q.REQERR-68a92e72-aaed-4426-8027-19531b628489" relevant="(true()) and (normalize-space(instance('FormDataInstance')/question[@id='68a92e72-aaed-4426-8027-19531b628489']/answer[@id='41672'])='')"/>
+      <xform:bind nodeset="instance('FormDataInstance')/question[@id='68a92e72-aaed-4426-8027-19531b628489']/answer[@id='41672']" id="Q-68a92e72-aaed-4426-8027-19531b628489" type="xsd:string" required="true()"/>
+      <xform:bind nodeset="instance('DataGroupInstance')/data-group[@id='Q.GRP-344b8705-4a12-46c9-aa2f-4a1ac73d7601']" id="Q.GRP-344b8705-4a12-46c9-aa2f-4a1ac73d7601" relevant="contains(instance('FormDataInstance')/question[@id='68a92e72-aaed-4426-8027-19531b628489']/answer, 'y')"/>
+      <xform:bind nodeset="instance('FormDataInstance')/question[@id='344b8705-4a12-46c9-aa2f-4a1ac73d7601']/answer[@id='37186']" id="Q-344b8705-4a12-46c9-aa2f-4a1ac73d7601" type="xsd:decimal" required="false()" constraint=". &gt;= 1 and . &lt;= 500"/>
+      <xform:bind nodeset="instance('DataGroupInstance')/data-group[@id='Q.GRP-2d73d762-9e40-4bc7-b2b8-f0a207f954f4']" id="Q.GRP-2d73d762-9e40-4bc7-b2b8-f0a207f954f4" relevant="true()"/>
+      <xform:bind nodeset="instance('FormDataInstance')/question[@id='2d73d762-9e40-4bc7-b2b8-f0a207f954f4']/answer[@id='41790']" id="Q-2d73d762-9e40-4bc7-b2b8-f0a207f954f4" type="xsd:string" required="false()"/>
+      <xform:bind nodeset="instance('DataGroupInstance')/data-group[@id='Q.GRP-04c2125b-0137-4feb-b31c-f8179905f03b']" id="Q.GRP-04c2125b-0137-4feb-b31c-f8179905f03b" relevant="contains(instance('FormDataInstance')/question[@id='2d73d762-9e40-4bc7-b2b8-f0a207f954f4']/answer, 'y')"/>
+      <xform:bind nodeset="instance('FormDataInstance')/question[@id='04c2125b-0137-4feb-b31c-f8179905f03b']/answer[@id='37189']" id="Q-04c2125b-0137-4feb-b31c-f8179905f03b" type="xsd:decimal" required="false()" constraint=". &gt;= 1 and . &lt;= 500"/>
+
+      <xform:bind nodeset="instance('DataGroupInstance')/data-group[@id='Q.GRP-ff9f2127-b48d-4b3b-bec9-d9ae95ca5c5d']" id="Q.GRP-ff9f2127-b48d-4b3b-bec9-d9ae95ca5c5d" relevant="true()"/>
+      <xform:bind nodeset="instance('FormDataInstance')/question[@id='ff9f2127-b48d-4b3b-bec9-d9ae95ca5c5d']/answer[@id='41791']" id="Q-ff9f2127-b48d-4b3b-bec9-d9ae95ca5c5d" type="xsd:string" required="false()"/>
+      <xform:bind nodeset="instance('DataGroupInstance')/data-group[@id='Q.GRP-1dd208fe-875d-4843-b089-edad6e99500c']" id="Q.GRP-1dd208fe-875d-4843-b089-edad6e99500c" relevant="contains(instance('FormDataInstance')/question[@id='ff9f2127-b48d-4b3b-bec9-d9ae95ca5c5d']/answer, 'y')"/>
+      <xform:bind nodeset="instance('FormDataInstance')/question[@id='1dd208fe-875d-4843-b089-edad6e99500c']/answer[@id='37220']" id="Q-1dd208fe-875d-4843-b089-edad6e99500c" type="xsd:decimal" required="false()" constraint=". &gt;= 1 and . &lt;= 500"/>
+      <xform:bind nodeset="instance('DataGroupInstance')/data-group[@id='Q.GRP-b6f6443b-daac-45c9-b70d-c76f87554604']" id="Q.GRP-b6f6443b-daac-45c9-b70d-c76f87554604" relevant="true()"/>
+      <xform:bind nodeset="instance('ContextSpecificErrorsInstance')/error[@id='ERR-b6f6443b-daac-45c9-b70d-c76f87554604']" id="Q.REQERR-b6f6443b-daac-45c9-b70d-c76f87554604" relevant="(true()) and (normalize-space(instance('FormDataInstance')/question[@id='TQ-37221']/answer[@id='37221'])='' or normalize-space(instance('FormDataInstance')/question[@id='TQ-37222']/answer[@id='37222'])='' or normalize-space(instance('FormDataInstance')/question[@id='TQ-37223']/answer[@id='37223'])='' or normalize-space(instance('FormDataInstance')/question[@id='TQ-37224']/answer[@id='37224'])='' or normalize-space(instance('FormDataInstance')/question[@id='TQ-37235']/answer[@id='37235'])='' or normalize-space(instance('FormDataInstance')/question[@id='TQ-37236']/answer[@id='37236'])='' or normalize-space(instance('FormDataInstance')/question[@id='TQ-37237']/answer[@id='37237'])='')"/>
+      <xform:bind nodeset="instance('FormDataInstance')/question[@id='TQ-37221']/answer[@id='37221']" id="Q-37221" required="true()"/>
+      <xform:bind nodeset="instance('FormDataInstance')/question[@id='TQ-37222']/answer[@id='37222']" id="Q-37222" required="true()"/>
+      <xform:bind nodeset="instance('FormDataInstance')/question[@id='TQ-37223']/answer[@id='37223']" id="Q-37223" required="true()"/>
+
+      <xform:bind nodeset="instance('FormDataInstance')/question[@id='TQ-37224']/answer[@id='37224']" id="Q-37224" required="true()"/>
+      <xform:bind nodeset="instance('FormDataInstance')/question[@id='TQ-37235']/answer[@id='37235']" id="Q-37235" required="true()"/>
+      <xform:bind nodeset="instance('FormDataInstance')/question[@id='TQ-37236']/answer[@id='37236']" id="Q-37236" required="true()"/>
+      <xform:bind nodeset="instance('FormDataInstance')/question[@id='TQ-37237']/answer[@id='37237']" id="Q-37237" required="true()"/>
+      <xform:bind nodeset="instance('DataGroupInstance')/data-group[@id='Q.GRP-e048af30-6adb-4977-842b-3ac386ab0667']" id="Q.GRP-e048af30-6adb-4977-842b-3ac386ab0667" relevant="true()"/>
+      <xform:bind nodeset="instance('ContextSpecificErrorsInstance')/error[@id='ERR-e048af30-6adb-4977-842b-3ac386ab0667']" id="Q.REQERR-e048af30-6adb-4977-842b-3ac386ab0667" relevant="(true()) and (normalize-space(instance('FormDataInstance')/question[@id='e048af30-6adb-4977-842b-3ac386ab0667']/answer[@id='37238'])='')"/>
+      <xform:bind nodeset="instance('FormDataInstance')/question[@id='e048af30-6adb-4977-842b-3ac386ab0667']/answer[@id='37238']" id="Q-e048af30-6adb-4977-842b-3ac386ab0667" type="xsd:string" required="true()"/>
+      <xform:submission id="SendDataElement" method="post" includenamespaceprefixes="">
+        <xform:resource value="instance('URLInstance')/full-url"/>
+
+        <xform:message ev:event="xforms-submit-error">The form that you are working on either has incomplete questions or invalid data. This means that you have either not completed all mandatory questions or have entered invalid data into the form. Please recheck the form and make necessary changes before moving on.  Please keep in mind that many of the text fields have restrictions.  Read the question carefully to make sure you are aware of these restrictions.</xform:message>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-87d547ff-d492-4fc5-a580-2bec31b72eae"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-94431647-1ded-4622-88dc-591995179676"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-ccb0abf6-3596-41a3-95c0-59758f56e3fa"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-e1e18641-6ac1-4818-9ab5-aa1142a2f82f"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-743ae22a-54cf-444c-8927-995b7c2d8ded"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-5bbcbd8e-4bcc-412c-9a66-5864ab6d06f1"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-5f0f5982-5ca4-4924-bb11-d49dbd521742"/>
+
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-5a2de282-1e7e-4703-9642-147dc08ae773"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-c1d9c437-e933-4b8d-9f31-ae12aac773ac"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-515653b3-5b71-403a-9ffd-2c56752221fb"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-9ebeb4a1-ff16-4256-9999-057baf9af3a1"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-6afc143e-7a30-400d-9493-8cadc289e2ec"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-46dcec73-f8e4-4c49-a474-e69ecb1e1009"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-f143e342-5841-47c4-9c11-55437f5c3b2b"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-c436c19c-5c39-4f6a-bdcf-aae1058fa608"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-997b051f-e973-478a-9870-74f6b6b66c1f"/>
+
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-6684dccf-2f37-40ed-bc92-0ab544d81366"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-68a92e72-aaed-4426-8027-19531b628489"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-344b8705-4a12-46c9-aa2f-4a1ac73d7601"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-2d73d762-9e40-4bc7-b2b8-f0a207f954f4"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-04c2125b-0137-4feb-b31c-f8179905f03b"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-ff9f2127-b48d-4b3b-bec9-d9ae95ca5c5d"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-1dd208fe-875d-4843-b089-edad6e99500c"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-b6f6443b-daac-45c9-b70d-c76f87554604"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-e048af30-6adb-4977-842b-3ac386ab0667"/>
+
+      </xform:submission>
+      <xform:submission id="PartialSendDataElement" method="post" includenamespaceprefixes="" validate="false">
+        <xform:message event="xforms-submit-error">The form that you are working on either has incomplete questions or invalid data. This means that you have either not completed all mandatory questions or have entered invalid data into the form. Please recheck the form and make necessary changes before moving on.  Please keep in mind that many of the text fields have restrictions.  Read the question carefully to make sure you are aware of these restrictions.</xform:message>
+        <xform:resource value="instance('URLInstance')/full-url"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-87d547ff-d492-4fc5-a580-2bec31b72eae"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-94431647-1ded-4622-88dc-591995179676"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-ccb0abf6-3596-41a3-95c0-59758f56e3fa"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-e1e18641-6ac1-4818-9ab5-aa1142a2f82f"/>
+
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-743ae22a-54cf-444c-8927-995b7c2d8ded"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-5bbcbd8e-4bcc-412c-9a66-5864ab6d06f1"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-5f0f5982-5ca4-4924-bb11-d49dbd521742"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-5a2de282-1e7e-4703-9642-147dc08ae773"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-c1d9c437-e933-4b8d-9f31-ae12aac773ac"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-515653b3-5b71-403a-9ffd-2c56752221fb"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-9ebeb4a1-ff16-4256-9999-057baf9af3a1"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-6afc143e-7a30-400d-9493-8cadc289e2ec"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-46dcec73-f8e4-4c49-a474-e69ecb1e1009"/>
+
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-f143e342-5841-47c4-9c11-55437f5c3b2b"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-c436c19c-5c39-4f6a-bdcf-aae1058fa608"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-997b051f-e973-478a-9870-74f6b6b66c1f"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-6684dccf-2f37-40ed-bc92-0ab544d81366"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-68a92e72-aaed-4426-8027-19531b628489"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-344b8705-4a12-46c9-aa2f-4a1ac73d7601"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-2d73d762-9e40-4bc7-b2b8-f0a207f954f4"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-04c2125b-0137-4feb-b31c-f8179905f03b"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-ff9f2127-b48d-4b3b-bec9-d9ae95ca5c5d"/>
+
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-1dd208fe-875d-4843-b089-edad6e99500c"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-b6f6443b-daac-45c9-b70d-c76f87554604"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-e048af30-6adb-4977-842b-3ac386ab0667"/>
+      </xform:submission>
+    </xform:model></head>
+
+<body>
+    <xform:output ref="instance('FormDataInstance')/@name" class="hcit-form-title"/>
+    <xform:group ref="instance('DataGroupInstance')/data-group[@id='Q.GRP-87d547ff-d492-4fc5-a580-2bec31b72eae']" class="hcit-group-input-radio">
+      <xform:switch>
+        <xform:case id="noErrBlk-87d547ff-d492-4fc5-a580-2bec31b72eae"/>
+        <xform:case id="errBlk-87d547ff-d492-4fc5-a580-2bec31b72eae">
+          <xform:output class="errorsClass" bind="Q.REQERR-87d547ff-d492-4fc5-a580-2bec31b72eae"/>
+
+          <xform:switch>
+            <xform:case id="noErrInvBlk-87d547ff-d492-4fc5-a580-2bec31b72eae"/>
+            <xform:case id="errInvBlk-87d547ff-d492-4fc5-a580-2bec31b72eae">
+              <xform:output class="errorsClass" value="'You have made an invalid entry.'"/>
+            </xform:case>
+          </xform:switch>
+        </xform:case>
+      </xform:switch>
+      <xform:output ref="instance('FormDataInstance')/question[@id='87d547ff-d492-4fc5-a580-2bec31b72eae']/text" class="hcitQuestionText hcitRequiredQuestionText"/>
+
+      <xform:select1 ref="instance('FormDataInstance')/question[@id='87d547ff-d492-4fc5-a580-2bec31b72eae']/answer" appearance="full" class="hcitAnswerRadio hcit-horizontal-align">
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-87d547ff-d492-4fc5-a580-2bec31b72eae')/answer">
+          <xform:label ref="@text" class="hcit-label-input-radio"/>
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')/question[@id='87d547ff-d492-4fc5-a580-2bec31b72eae']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+        <xform:action ev:event="xforms-value-changed">
+
+          <xform:setvalue ref="instance('DataGroupInstance')/data-group[@id='Q.GRP-94431647-1ded-4622-88dc-591995179676']/@visible" value="contains(instance('FormDataInstance')/question[@id='87d547ff-d492-4fc5-a580-2bec31b72eae']/answer, '2')"/>
+          <xform:setvalue ref="instance('FormDataInstance')/question[@id='94431647-1ded-4622-88dc-591995179676']/answer" value="if(contains(instance('FormDataInstance')/question[@id='87d547ff-d492-4fc5-a580-2bec31b72eae']/answer, '2'),.,'')"/>
+        </xform:action>
+      </xform:select1>
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')/data-group[@id='Q.GRP-94431647-1ded-4622-88dc-591995179676']" class="hcit-group-input-radio">
+      <xform:switch>
+        <xform:case id="noErrBlk-94431647-1ded-4622-88dc-591995179676"/>
+        <xform:case id="errBlk-94431647-1ded-4622-88dc-591995179676">
+
+          <xform:switch>
+            <xform:case id="noErrInvBlk-94431647-1ded-4622-88dc-591995179676"/>
+            <xform:case id="errInvBlk-94431647-1ded-4622-88dc-591995179676">
+              <xform:output class="errorsClass" value="'You have made an invalid entry.'"/>
+            </xform:case>
+          </xform:switch>
+        </xform:case>
+      </xform:switch>
+      <xform:output ref="instance('FormDataInstance')/question[@id='94431647-1ded-4622-88dc-591995179676']/text" class="hcitQuestionText"/>
+
+      <xform:select1 ref="instance('FormDataInstance')/question[@id='94431647-1ded-4622-88dc-591995179676']/answer" appearance="full" class="hcitAnswerRadio hcit-horizontal-align">
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-94431647-1ded-4622-88dc-591995179676')/answer">
+          <xform:label ref="@text" class="hcit-label-input-radio"/>
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="'Incorrect format.'"/>
+        </xform:alert>
+      </xform:select1>
+
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')/data-group[@id='Q.GRP-ccb0abf6-3596-41a3-95c0-59758f56e3fa']" class="hcit-group-input-text">
+      <xform:switch>
+        <xform:case id="noErrBlk-ccb0abf6-3596-41a3-95c0-59758f56e3fa"/>
+        <xform:case id="errBlk-ccb0abf6-3596-41a3-95c0-59758f56e3fa">
+          <xform:output class="errorsClass" bind="Q.REQERR-ccb0abf6-3596-41a3-95c0-59758f56e3fa"/>
+          <xform:switch>
+            <xform:case id="noErrInvBlk-ccb0abf6-3596-41a3-95c0-59758f56e3fa"/>
+            <xform:case id="errInvBlk-ccb0abf6-3596-41a3-95c0-59758f56e3fa">
+
+              <xform:output class="errorsClass" value="'You have made an invalid entry.'"/>
+            </xform:case>
+          </xform:switch>
+        </xform:case>
+      </xform:switch>
+      <xform:output ref="instance('FormDataInstance')/question[@id='ccb0abf6-3596-41a3-95c0-59758f56e3fa']/text" class="hcitQuestionText hcitRequiredQuestionText"/>
+      <xform:input bind="Q-ccb0abf6-3596-41a3-95c0-59758f56e3fa" class="hcitAnswerText">
+        <xform:label class="hcit-label-input-text">Birthdate: </xform:label>
+
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')/question[@id='ccb0abf6-3596-41a3-95c0-59758f56e3fa']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+        <xform:toggle ev:event="xforms-invalid" case="errInvBlk-ccb0abf6-3596-41a3-95c0-59758f56e3fa"/>
+        <xform:toggle ev:event="xforms-valid" case="noErrInvBlk-ccb0abf6-3596-41a3-95c0-59758f56e3fa"/>
+      </xform:input>
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')/data-group[@id='Q.GRP-e1e18641-6ac1-4818-9ab5-aa1142a2f82f']" class="hcit-group-input-text">
+      <xform:switch>
+
+        <xform:case id="noErrBlk-e1e18641-6ac1-4818-9ab5-aa1142a2f82f"/>
+        <xform:case id="errBlk-e1e18641-6ac1-4818-9ab5-aa1142a2f82f">
+          <xform:output class="errorsClass" bind="Q.REQERR-e1e18641-6ac1-4818-9ab5-aa1142a2f82f"/>
+          <xform:switch>
+            <xform:case id="noErrInvBlk-e1e18641-6ac1-4818-9ab5-aa1142a2f82f"/>
+            <xform:case id="errInvBlk-e1e18641-6ac1-4818-9ab5-aa1142a2f82f">
+              <xform:output class="errorsClass" value="'You have made an invalid entry.'"/>
+            </xform:case>
+          </xform:switch>
+
+        </xform:case>
+      </xform:switch>
+      <xform:output ref="instance('FormDataInstance')/question[@id='e1e18641-6ac1-4818-9ab5-aa1142a2f82f']/text" class="hcitQuestionText hcitRequiredQuestionText"/>
+      <xform:input bind="Q-e1e18641-6ac1-4818-9ab5-aa1142a2f82f" class="hcitAnswerText">
+        <xform:label class="hcit-label-input-text">Feet: </xform:label>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')/question[@id='e1e18641-6ac1-4818-9ab5-aa1142a2f82f']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+
+        <xform:toggle ev:event="xforms-invalid" case="errInvBlk-e1e18641-6ac1-4818-9ab5-aa1142a2f82f"/>
+        <xform:toggle ev:event="xforms-valid" case="noErrInvBlk-e1e18641-6ac1-4818-9ab5-aa1142a2f82f"/>
+      </xform:input>
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')/data-group[@id='Q.GRP-743ae22a-54cf-444c-8927-995b7c2d8ded']" class="hcit-group-input-text">
+      <xform:switch>
+        <xform:case id="noErrBlk-743ae22a-54cf-444c-8927-995b7c2d8ded"/>
+        <xform:case id="errBlk-743ae22a-54cf-444c-8927-995b7c2d8ded">
+          <xform:switch>
+
+            <xform:case id="noErrInvBlk-743ae22a-54cf-444c-8927-995b7c2d8ded"/>
+            <xform:case id="errInvBlk-743ae22a-54cf-444c-8927-995b7c2d8ded">
+              <xform:output class="errorsClass" value="'You have made an invalid entry.'"/>
+            </xform:case>
+          </xform:switch>
+        </xform:case>
+      </xform:switch>
+      <xform:output ref="instance('FormDataInstance')/question[@id='743ae22a-54cf-444c-8927-995b7c2d8ded']/text" class="hcitQuestionText"/>
+      <xform:input bind="Q-743ae22a-54cf-444c-8927-995b7c2d8ded" class="hcitAnswerText">
+
+        <xform:label class="hcit-label-input-text">Inches: </xform:label>
+        <xform:alert>
+          <xform:output value="'Incorrect format.'"/>
+        </xform:alert>
+        <xform:toggle ev:event="xforms-invalid" case="errInvBlk-743ae22a-54cf-444c-8927-995b7c2d8ded"/>
+        <xform:toggle ev:event="xforms-valid" case="noErrInvBlk-743ae22a-54cf-444c-8927-995b7c2d8ded"/>
+      </xform:input>
+    </xform:group>
+
+    <xform:group ref="instance('DataGroupInstance')/data-group[@id='Q.GRP-5bbcbd8e-4bcc-412c-9a66-5864ab6d06f1']" class="hcit-group-input-text">
+      <xform:switch>
+        <xform:case id="noErrBlk-5bbcbd8e-4bcc-412c-9a66-5864ab6d06f1"/>
+        <xform:case id="errBlk-5bbcbd8e-4bcc-412c-9a66-5864ab6d06f1">
+          <xform:output class="errorsClass" bind="Q.REQERR-5bbcbd8e-4bcc-412c-9a66-5864ab6d06f1"/>
+          <xform:switch>
+            <xform:case id="noErrInvBlk-5bbcbd8e-4bcc-412c-9a66-5864ab6d06f1"/>
+            <xform:case id="errInvBlk-5bbcbd8e-4bcc-412c-9a66-5864ab6d06f1">
+              <xform:output class="errorsClass" value="'You have made an invalid entry.'"/>
+
+            </xform:case>
+          </xform:switch>
+        </xform:case>
+      </xform:switch>
+      <xform:output ref="instance('FormDataInstance')/question[@id='5bbcbd8e-4bcc-412c-9a66-5864ab6d06f1']/text" class="hcitQuestionText hcitRequiredQuestionText"/>
+      <xform:input bind="Q-5bbcbd8e-4bcc-412c-9a66-5864ab6d06f1" class="hcitAnswerText">
+        <xform:label class="hcit-label-input-text">Lbs: </xform:label>
+        <xform:alert>
+
+          <xform:output value="if(normalize-space(instance('FormDataInstance')/question[@id='5bbcbd8e-4bcc-412c-9a66-5864ab6d06f1']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+        <xform:toggle ev:event="xforms-invalid" case="errInvBlk-5bbcbd8e-4bcc-412c-9a66-5864ab6d06f1"/>
+        <xform:toggle ev:event="xforms-valid" case="noErrInvBlk-5bbcbd8e-4bcc-412c-9a66-5864ab6d06f1"/>
+      </xform:input>
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')/data-group[@id='Q.GRP-5f0f5982-5ca4-4924-bb11-d49dbd521742']" class="hcit-group-input-checkbox">
+      <xform:switch>
+        <xform:case id="noErrBlk-5f0f5982-5ca4-4924-bb11-d49dbd521742"/>
+
+        <xform:case id="errBlk-5f0f5982-5ca4-4924-bb11-d49dbd521742">
+          <xform:output class="errorsClass" bind="Q.REQERR-5f0f5982-5ca4-4924-bb11-d49dbd521742"/>
+          <xform:switch>
+            <xform:case id="noErrInvBlk-5f0f5982-5ca4-4924-bb11-d49dbd521742"/>
+            <xform:case id="errInvBlk-5f0f5982-5ca4-4924-bb11-d49dbd521742">
+              <xform:output class="errorsClass" value="'You have made an invalid entry.'"/>
+            </xform:case>
+          </xform:switch>
+        </xform:case>
+
+      </xform:switch>
+      <xform:output ref="instance('FormDataInstance')/question[@id='5f0f5982-5ca4-4924-bb11-d49dbd521742']/text" class="hcitQuestionText hcitRequiredQuestionText"/>
+      <xform:select ref="instance('FormDataInstance')/question[@id='5f0f5982-5ca4-4924-bb11-d49dbd521742']/answer" appearance="full" class="hcitAnswerCheckbox">
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-5f0f5982-5ca4-4924-bb11-d49dbd521742')/answer">
+          <xform:label ref="@text" class="hcit-label-input-checkbox"/>
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')/question[@id='5f0f5982-5ca4-4924-bb11-d49dbd521742']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+
+        </xform:alert>
+      </xform:select>
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')/data-group[@id='Q.GRP-5a2de282-1e7e-4703-9642-147dc08ae773']" class="hcit-group-input-checkbox">
+      <xform:switch>
+        <xform:case id="noErrBlk-5a2de282-1e7e-4703-9642-147dc08ae773"/>
+        <xform:case id="errBlk-5a2de282-1e7e-4703-9642-147dc08ae773">
+          <xform:output class="errorsClass" bind="Q.REQERR-5a2de282-1e7e-4703-9642-147dc08ae773"/>
+          <xform:switch>
+
+            <xform:case id="noErrInvBlk-5a2de282-1e7e-4703-9642-147dc08ae773"/>
+            <xform:case id="errInvBlk-5a2de282-1e7e-4703-9642-147dc08ae773">
+              <xform:output class="errorsClass" value="'You have made an invalid entry.'"/>
+            </xform:case>
+          </xform:switch>
+        </xform:case>
+      </xform:switch>
+      <xform:output ref="instance('FormDataInstance')/question[@id='5a2de282-1e7e-4703-9642-147dc08ae773']/text" class="hcitQuestionText hcitRequiredQuestionText"/>
+      <xform:select ref="instance('FormDataInstance')/question[@id='5a2de282-1e7e-4703-9642-147dc08ae773']/answer" appearance="full" class="hcitAnswerCheckbox">
+
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-5a2de282-1e7e-4703-9642-147dc08ae773')/answer">
+          <xform:label ref="@text" class="hcit-label-input-checkbox"/>
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')/question[@id='5a2de282-1e7e-4703-9642-147dc08ae773']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+      </xform:select>
+    </xform:group>
+
+    <xform:group ref="instance('DataGroupInstance')/data-group[@id='Q.GRP-c1d9c437-e933-4b8d-9f31-ae12aac773ac']" class="hcit-group-input-radio">
+      <xform:switch>
+        <xform:case id="noErrBlk-c1d9c437-e933-4b8d-9f31-ae12aac773ac"/>
+        <xform:case id="errBlk-c1d9c437-e933-4b8d-9f31-ae12aac773ac">
+          <xform:output class="errorsClass" bind="Q.REQERR-c1d9c437-e933-4b8d-9f31-ae12aac773ac"/>
+          <xform:switch>
+            <xform:case id="noErrInvBlk-c1d9c437-e933-4b8d-9f31-ae12aac773ac"/>
+            <xform:case id="errInvBlk-c1d9c437-e933-4b8d-9f31-ae12aac773ac">
+              <xform:output class="errorsClass" value="'You have made an invalid entry.'"/>
+
+            </xform:case>
+          </xform:switch>
+        </xform:case>
+      </xform:switch>
+      <xform:output ref="instance('FormDataInstance')/question[@id='c1d9c437-e933-4b8d-9f31-ae12aac773ac']/text" class="hcitQuestionText hcitRequiredQuestionText"/>
+      <xform:select1 ref="instance('FormDataInstance')/question[@id='c1d9c437-e933-4b8d-9f31-ae12aac773ac']/answer" appearance="full" class="hcitAnswerRadio hcit-horizontal-align">
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-c1d9c437-e933-4b8d-9f31-ae12aac773ac')/answer">
+          <xform:label ref="@text" class="hcit-label-input-radio"/>
+          <xform:value ref="."/>
+
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')/question[@id='c1d9c437-e933-4b8d-9f31-ae12aac773ac']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+        <xform:action ev:event="xforms-value-changed">
+          <xform:setvalue ref="instance('DataGroupInstance')/data-group[@id='Q.GRP-9ebeb4a1-ff16-4256-9999-057baf9af3a1']/@visible" value="contains(instance('FormDataInstance')/question[@id='c1d9c437-e933-4b8d-9f31-ae12aac773ac']/answer, 'y')"/>
+          <xform:setvalue ref="instance('FormDataInstance')/question[@id='9ebeb4a1-ff16-4256-9999-057baf9af3a1']/answer" value="if(contains(instance('FormDataInstance')/question[@id='c1d9c437-e933-4b8d-9f31-ae12aac773ac']/answer, 'y'),.,'')"/>
+          <xform:setvalue ref="instance('DataGroupInstance')/data-group[@id='Q.GRP-515653b3-5b71-403a-9ffd-2c56752221fb']/@visible" value="contains(instance('FormDataInstance')/question[@id='c1d9c437-e933-4b8d-9f31-ae12aac773ac']/answer, 'y')"/>
+          <xform:setvalue ref="instance('FormDataInstance')/question[@id='515653b3-5b71-403a-9ffd-2c56752221fb']/answer" value="if(contains(instance('FormDataInstance')/question[@id='c1d9c437-e933-4b8d-9f31-ae12aac773ac']/answer, 'y'),.,'')"/>
+
+        </xform:action>
+      </xform:select1>
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')/data-group[@id='Q.GRP-515653b3-5b71-403a-9ffd-2c56752221fb']" class="hcit-group-input-text">
+      <xform:switch>
+        <xform:case id="noErrBlk-515653b3-5b71-403a-9ffd-2c56752221fb"/>
+        <xform:case id="errBlk-515653b3-5b71-403a-9ffd-2c56752221fb">
+          <xform:switch>
+            <xform:case id="noErrInvBlk-515653b3-5b71-403a-9ffd-2c56752221fb"/>
+
+            <xform:case id="errInvBlk-515653b3-5b71-403a-9ffd-2c56752221fb">
+              <xform:output class="errorsClass" value="'You have made an invalid entry.'"/>
+            </xform:case>
+          </xform:switch>
+        </xform:case>
+      </xform:switch>
+      <xform:output ref="instance('FormDataInstance')/question[@id='515653b3-5b71-403a-9ffd-2c56752221fb']/text" class="hcitQuestionText"/>
+      <xform:input bind="Q-515653b3-5b71-403a-9ffd-2c56752221fb" class="hcitAnswerText">
+        <xform:label class="hcit-label-input-text">Systolic: </xform:label>
+
+        <xform:alert>
+          <xform:output value="'Incorrect format.'"/>
+        </xform:alert>
+        <xform:toggle ev:event="xforms-invalid" case="errInvBlk-515653b3-5b71-403a-9ffd-2c56752221fb"/>
+        <xform:toggle ev:event="xforms-valid" case="noErrInvBlk-515653b3-5b71-403a-9ffd-2c56752221fb"/>
+      </xform:input>
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')/data-group[@id='Q.GRP-9ebeb4a1-ff16-4256-9999-057baf9af3a1']" class="hcit-group-input-text">
+      <xform:switch>
+
+        <xform:case id="noErrBlk-9ebeb4a1-ff16-4256-9999-057baf9af3a1"/>
+        <xform:case id="errBlk-9ebeb4a1-ff16-4256-9999-057baf9af3a1">
+          <xform:switch>
+            <xform:case id="noErrInvBlk-9ebeb4a1-ff16-4256-9999-057baf9af3a1"/>
+            <xform:case id="errInvBlk-9ebeb4a1-ff16-4256-9999-057baf9af3a1">
+              <xform:output class="errorsClass" value="'You have made an invalid entry.'"/>
+            </xform:case>
+          </xform:switch>
+        </xform:case>
+
+      </xform:switch>
+      <xform:output ref="instance('FormDataInstance')/question[@id='9ebeb4a1-ff16-4256-9999-057baf9af3a1']/text" class="hcitQuestionText"/>
+      <xform:input bind="Q-9ebeb4a1-ff16-4256-9999-057baf9af3a1" class="hcitAnswerText">
+        <xform:label class="hcit-label-input-text">Diastolic: </xform:label>
+        <xform:alert>
+          <xform:output value="'Incorrect format.'"/>
+        </xform:alert>
+        <xform:toggle ev:event="xforms-invalid" case="errInvBlk-9ebeb4a1-ff16-4256-9999-057baf9af3a1"/>
+
+        <xform:toggle ev:event="xforms-valid" case="noErrInvBlk-9ebeb4a1-ff16-4256-9999-057baf9af3a1"/>
+      </xform:input>
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')/data-group[@id='Q.GRP-6afc143e-7a30-400d-9493-8cadc289e2ec']" class="hcit-group-input-radio">
+      <xform:switch>
+        <xform:case id="noErrBlk-6afc143e-7a30-400d-9493-8cadc289e2ec"/>
+        <xform:case id="errBlk-6afc143e-7a30-400d-9493-8cadc289e2ec">
+          <xform:output class="errorsClass" bind="Q.REQERR-6afc143e-7a30-400d-9493-8cadc289e2ec"/>
+          <xform:switch>
+
+            <xform:case id="noErrInvBlk-6afc143e-7a30-400d-9493-8cadc289e2ec"/>
+            <xform:case id="errInvBlk-6afc143e-7a30-400d-9493-8cadc289e2ec">
+              <xform:output class="errorsClass" value="'You have made an invalid entry.'"/>
+            </xform:case>
+          </xform:switch>
+        </xform:case>
+      </xform:switch>
+      <xform:output ref="instance('FormDataInstance')/question[@id='6afc143e-7a30-400d-9493-8cadc289e2ec']/text" class="hcitQuestionText hcitRequiredQuestionText"/>
+      <xform:select1 ref="instance('FormDataInstance')/question[@id='6afc143e-7a30-400d-9493-8cadc289e2ec']/answer" appearance="full" class="hcitAnswerRadio hcit-horizontal-align">
+
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-6afc143e-7a30-400d-9493-8cadc289e2ec')/answer">
+          <xform:label ref="@text" class="hcit-label-input-radio"/>
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')/question[@id='6afc143e-7a30-400d-9493-8cadc289e2ec']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+        <xform:action ev:event="xforms-value-changed">
+          <xform:setvalue ref="instance('DataGroupInstance')/data-group[@id='Q.GRP-46dcec73-f8e4-4c49-a474-e69ecb1e1009']/@visible" value="contains(instance('FormDataInstance')/question[@id='6afc143e-7a30-400d-9493-8cadc289e2ec']/answer, 'y')"/>
+
+          <xform:setvalue ref="instance('FormDataInstance')/question[@id='46dcec73-f8e4-4c49-a474-e69ecb1e1009']/answer" value="if(contains(instance('FormDataInstance')/question[@id='6afc143e-7a30-400d-9493-8cadc289e2ec']/answer, 'y'),.,'')"/>
+        </xform:action>
+      </xform:select1>
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')/data-group[@id='Q.GRP-46dcec73-f8e4-4c49-a474-e69ecb1e1009']" class="hcit-group-input-text">
+      <xform:switch>
+        <xform:case id="noErrBlk-46dcec73-f8e4-4c49-a474-e69ecb1e1009"/>
+        <xform:case id="errBlk-46dcec73-f8e4-4c49-a474-e69ecb1e1009">
+          <xform:switch>
+
+            <xform:case id="noErrInvBlk-46dcec73-f8e4-4c49-a474-e69ecb1e1009"/>
+            <xform:case id="errInvBlk-46dcec73-f8e4-4c49-a474-e69ecb1e1009">
+              <xform:output class="errorsClass" value="'You have made an invalid entry.'"/>
+            </xform:case>
+          </xform:switch>
+        </xform:case>
+      </xform:switch>
+      <xform:output ref="instance('FormDataInstance')/question[@id='46dcec73-f8e4-4c49-a474-e69ecb1e1009']/text" class="hcitQuestionText"/>
+      <xform:input bind="Q-46dcec73-f8e4-4c49-a474-e69ecb1e1009" class="hcitAnswerText">
+
+        <xform:label class="hcit-label-input-text">Total cholesterol: mg/dl </xform:label>
+        <xform:alert>
+          <xform:output value="'Incorrect format.'"/>
+        </xform:alert>
+        <xform:toggle ev:event="xforms-invalid" case="errInvBlk-46dcec73-f8e4-4c49-a474-e69ecb1e1009"/>
+        <xform:toggle ev:event="xforms-valid" case="noErrInvBlk-46dcec73-f8e4-4c49-a474-e69ecb1e1009"/>
+      </xform:input>
+    </xform:group>
+
+    <xform:group ref="instance('DataGroupInstance')/data-group[@id='Q.GRP-f143e342-5841-47c4-9c11-55437f5c3b2b']" class="hcit-group-input-radio">
+      <xform:switch>
+        <xform:case id="noErrBlk-f143e342-5841-47c4-9c11-55437f5c3b2b"/>
+        <xform:case id="errBlk-f143e342-5841-47c4-9c11-55437f5c3b2b">
+          <xform:switch>
+            <xform:case id="noErrInvBlk-f143e342-5841-47c4-9c11-55437f5c3b2b"/>
+            <xform:case id="errInvBlk-f143e342-5841-47c4-9c11-55437f5c3b2b">
+              <xform:output class="errorsClass" value="'You have made an invalid entry.'"/>
+            </xform:case>
+
+          </xform:switch>
+        </xform:case>
+      </xform:switch>
+      <xform:output ref="instance('FormDataInstance')/question[@id='f143e342-5841-47c4-9c11-55437f5c3b2b']/text" class="hcitQuestionText"/>
+      <xform:select1 ref="instance('FormDataInstance')/question[@id='f143e342-5841-47c4-9c11-55437f5c3b2b']/answer" appearance="full" class="hcitAnswerRadio hcit-horizontal-align">
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-f143e342-5841-47c4-9c11-55437f5c3b2b')/answer">
+          <xform:label ref="@text" class="hcit-label-input-radio"/>
+          <xform:value ref="."/>
+        </xform:itemset>
+
+        <xform:alert>
+          <xform:output value="'Incorrect format.'"/>
+        </xform:alert>
+        <xform:action ev:event="xforms-value-changed">
+          <xform:setvalue ref="instance('DataGroupInstance')/data-group[@id='Q.GRP-c436c19c-5c39-4f6a-bdcf-aae1058fa608']/@visible" value="contains(instance('FormDataInstance')/question[@id='f143e342-5841-47c4-9c11-55437f5c3b2b']/answer, '1')"/>
+          <xform:setvalue ref="instance('FormDataInstance')/question[@id='c436c19c-5c39-4f6a-bdcf-aae1058fa608']/answer" value="if(contains(instance('FormDataInstance')/question[@id='f143e342-5841-47c4-9c11-55437f5c3b2b']/answer, '1'),.,'')"/>
+        </xform:action>
+      </xform:select1>
+    </xform:group>
+
+    <xform:group ref="instance('DataGroupInstance')/data-group[@id='Q.GRP-c436c19c-5c39-4f6a-bdcf-aae1058fa608']" class="hcit-group-input-text">
+      <xform:switch>
+        <xform:case id="noErrBlk-c436c19c-5c39-4f6a-bdcf-aae1058fa608"/>
+        <xform:case id="errBlk-c436c19c-5c39-4f6a-bdcf-aae1058fa608">
+          <xform:switch>
+            <xform:case id="noErrInvBlk-c436c19c-5c39-4f6a-bdcf-aae1058fa608"/>
+            <xform:case id="errInvBlk-c436c19c-5c39-4f6a-bdcf-aae1058fa608">
+              <xform:output class="errorsClass" value="'You have made an invalid entry.'"/>
+            </xform:case>
+
+          </xform:switch>
+        </xform:case>
+      </xform:switch>
+      <xform:output ref="instance('FormDataInstance')/question[@id='c436c19c-5c39-4f6a-bdcf-aae1058fa608']/text" class="hcitQuestionText hcitHasLearnMore"/>
+      <span class="learnmore">
+        <a href="javascript:showDialog('Help','Your cholesterol levels are an important measure of heart health. For LDL cholesterol, also known as your &amp;apos;bad&amp;apos; cholesterol, the lower the better.','warning',false,'lmid-c436c19c-5c39-4f6a-bdcf-aae1058fa608')" id="lmid-c436c19c-5c39-4f6a-bdcf-aae1058fa608">Need help?</a>
+      </span>
+      <xform:input bind="Q-c436c19c-5c39-4f6a-bdcf-aae1058fa608" class="hcitAnswerText">
+
+        <xform:label class="hcit-label-input-text">Low-density lipoprotein (LDL): mg/dl </xform:label>
+        <xform:alert>
+          <xform:output value="'Incorrect format.'"/>
+        </xform:alert>
+        <xform:toggle ev:event="xforms-invalid" case="errInvBlk-c436c19c-5c39-4f6a-bdcf-aae1058fa608"/>
+        <xform:toggle ev:event="xforms-valid" case="noErrInvBlk-c436c19c-5c39-4f6a-bdcf-aae1058fa608"/>
+      </xform:input>
+    </xform:group>
+
+    <xform:group ref="instance('DataGroupInstance')/data-group[@id='Q.GRP-997b051f-e973-478a-9870-74f6b6b66c1f']" class="hcit-group-input-radio">
+      <xform:switch>
+        <xform:case id="noErrBlk-997b051f-e973-478a-9870-74f6b6b66c1f"/>
+        <xform:case id="errBlk-997b051f-e973-478a-9870-74f6b6b66c1f">
+          <xform:output class="errorsClass" bind="Q.REQERR-997b051f-e973-478a-9870-74f6b6b66c1f"/>
+          <xform:switch>
+            <xform:case id="noErrInvBlk-997b051f-e973-478a-9870-74f6b6b66c1f"/>
+            <xform:case id="errInvBlk-997b051f-e973-478a-9870-74f6b6b66c1f">
+              <xform:output class="errorsClass" value="'You have made an invalid entry.'"/>
+
+            </xform:case>
+          </xform:switch>
+        </xform:case>
+      </xform:switch>
+      <xform:output ref="instance('FormDataInstance')/question[@id='997b051f-e973-478a-9870-74f6b6b66c1f']/text" class="hcitQuestionText hcitRequiredQuestionText"/>
+      <xform:select1 ref="instance('FormDataInstance')/question[@id='997b051f-e973-478a-9870-74f6b6b66c1f']/answer" appearance="full" class="hcitAnswerRadio hcit-horizontal-align">
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-997b051f-e973-478a-9870-74f6b6b66c1f')/answer">
+          <xform:label ref="@text" class="hcit-label-input-radio"/>
+          <xform:value ref="."/>
+
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')/question[@id='997b051f-e973-478a-9870-74f6b6b66c1f']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+        <xform:action ev:event="xforms-value-changed">
+          <xform:setvalue ref="instance('DataGroupInstance')/data-group[@id='Q.GRP-6684dccf-2f37-40ed-bc92-0ab544d81366']/@visible" value="contains(instance('FormDataInstance')/question[@id='997b051f-e973-478a-9870-74f6b6b66c1f']/answer, 'y')"/>
+          <xform:setvalue ref="instance('FormDataInstance')/question[@id='6684dccf-2f37-40ed-bc92-0ab544d81366']/answer" value="if(contains(instance('FormDataInstance')/question[@id='997b051f-e973-478a-9870-74f6b6b66c1f']/answer, 'y'),.,'')"/>
+        </xform:action>
+      </xform:select1>
+
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')/data-group[@id='Q.GRP-6684dccf-2f37-40ed-bc92-0ab544d81366']" class="hcit-group-input-text">
+      <xform:switch>
+        <xform:case id="noErrBlk-6684dccf-2f37-40ed-bc92-0ab544d81366"/>
+        <xform:case id="errBlk-6684dccf-2f37-40ed-bc92-0ab544d81366">
+          <xform:switch>
+            <xform:case id="noErrInvBlk-6684dccf-2f37-40ed-bc92-0ab544d81366"/>
+            <xform:case id="errInvBlk-6684dccf-2f37-40ed-bc92-0ab544d81366">
+              <xform:output class="errorsClass" value="'You have made an invalid entry.'"/>
+
+            </xform:case>
+          </xform:switch>
+        </xform:case>
+      </xform:switch>
+      <xform:output ref="instance('FormDataInstance')/question[@id='6684dccf-2f37-40ed-bc92-0ab544d81366']/text" class="hcitQuestionText hcitHasLearnMore"/>
+      <span class="learnmore">
+        <a href="javascript:showDialog('Help','Your cholesterol levels are an important measure of heart health. For HDL cholesterol, also known as your &amp;apos;good&amp;apos; cholesterol, the higher the better.','warning',false,'lmid-6684dccf-2f37-40ed-bc92-0ab544d81366')" id="lmid-6684dccf-2f37-40ed-bc92-0ab544d81366">Need help?</a>
+      </span>
+
+      <xform:input bind="Q-6684dccf-2f37-40ed-bc92-0ab544d81366" class="hcitAnswerText">
+        <xform:label class="hcit-label-input-text">High-density lipoprotein (HDL): mg/dl </xform:label>
+        <xform:alert>
+          <xform:output value="'Incorrect format.'"/>
+        </xform:alert>
+        <xform:toggle ev:event="xforms-invalid" case="errInvBlk-6684dccf-2f37-40ed-bc92-0ab544d81366"/>
+        <xform:toggle ev:event="xforms-valid" case="noErrInvBlk-6684dccf-2f37-40ed-bc92-0ab544d81366"/>
+      </xform:input>
+
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')/data-group[@id='Q.GRP-68a92e72-aaed-4426-8027-19531b628489']" class="hcit-group-input-radio">
+      <xform:switch>
+        <xform:case id="noErrBlk-68a92e72-aaed-4426-8027-19531b628489"/>
+        <xform:case id="errBlk-68a92e72-aaed-4426-8027-19531b628489">
+          <xform:output class="errorsClass" bind="Q.REQERR-68a92e72-aaed-4426-8027-19531b628489"/>
+          <xform:switch>
+            <xform:case id="noErrInvBlk-68a92e72-aaed-4426-8027-19531b628489"/>
+            <xform:case id="errInvBlk-68a92e72-aaed-4426-8027-19531b628489">
+
+              <xform:output class="errorsClass" value="'You have made an invalid entry.'"/>
+            </xform:case>
+          </xform:switch>
+        </xform:case>
+      </xform:switch>
+      <xform:output ref="instance('FormDataInstance')/question[@id='68a92e72-aaed-4426-8027-19531b628489']/text" class="hcitQuestionText hcitRequiredQuestionText"/>
+      <xform:select1 ref="instance('FormDataInstance')/question[@id='68a92e72-aaed-4426-8027-19531b628489']/answer" appearance="full" class="hcitAnswerRadio hcit-horizontal-align">
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-68a92e72-aaed-4426-8027-19531b628489')/answer">
+          <xform:label ref="@text" class="hcit-label-input-radio"/>
+
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')/question[@id='68a92e72-aaed-4426-8027-19531b628489']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+        <xform:action ev:event="xforms-value-changed">
+          <xform:setvalue ref="instance('DataGroupInstance')/data-group[@id='Q.GRP-344b8705-4a12-46c9-aa2f-4a1ac73d7601']/@visible" value="contains(instance('FormDataInstance')/question[@id='68a92e72-aaed-4426-8027-19531b628489']/answer, 'y')"/>
+          <xform:setvalue ref="instance('FormDataInstance')/question[@id='344b8705-4a12-46c9-aa2f-4a1ac73d7601']/answer" value="if(contains(instance('FormDataInstance')/question[@id='68a92e72-aaed-4426-8027-19531b628489']/answer, 'y'),.,'')"/>
+        </xform:action>
+
+      </xform:select1>
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')/data-group[@id='Q.GRP-344b8705-4a12-46c9-aa2f-4a1ac73d7601']" class="hcit-group-input-text">
+      <xform:switch>
+        <xform:case id="noErrBlk-344b8705-4a12-46c9-aa2f-4a1ac73d7601"/>
+        <xform:case id="errBlk-344b8705-4a12-46c9-aa2f-4a1ac73d7601">
+          <xform:switch>
+            <xform:case id="noErrInvBlk-344b8705-4a12-46c9-aa2f-4a1ac73d7601"/>
+            <xform:case id="errInvBlk-344b8705-4a12-46c9-aa2f-4a1ac73d7601">
+
+              <xform:output class="errorsClass" value="'You have made an invalid entry.'"/>
+            </xform:case>
+          </xform:switch>
+        </xform:case>
+      </xform:switch>
+      <xform:output ref="instance('FormDataInstance')/question[@id='344b8705-4a12-46c9-aa2f-4a1ac73d7601']/text" class="hcitQuestionText"/>
+      <xform:input bind="Q-344b8705-4a12-46c9-aa2f-4a1ac73d7601" class="hcitAnswerText">
+        <xform:label class="hcit-label-input-text">Triglycerides (fasting): mg/dl  </xform:label>
+
+        <xform:alert>
+          <xform:output value="'Incorrect format.'"/>
+        </xform:alert>
+        <xform:toggle ev:event="xforms-invalid" case="errInvBlk-344b8705-4a12-46c9-aa2f-4a1ac73d7601"/>
+        <xform:toggle ev:event="xforms-valid" case="noErrInvBlk-344b8705-4a12-46c9-aa2f-4a1ac73d7601"/>
+      </xform:input>
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')/data-group[@id='Q.GRP-2d73d762-9e40-4bc7-b2b8-f0a207f954f4']" class="hcit-group-input-radio">
+      <xform:switch>
+
+        <xform:case id="noErrBlk-2d73d762-9e40-4bc7-b2b8-f0a207f954f4"/>
+        <xform:case id="errBlk-2d73d762-9e40-4bc7-b2b8-f0a207f954f4">
+          <xform:switch>
+            <xform:case id="noErrInvBlk-2d73d762-9e40-4bc7-b2b8-f0a207f954f4"/>
+            <xform:case id="errInvBlk-2d73d762-9e40-4bc7-b2b8-f0a207f954f4">
+              <xform:output class="errorsClass" value="'You have made an invalid entry.'"/>
+            </xform:case>
+          </xform:switch>
+        </xform:case>
+
+      </xform:switch>
+      <xform:output ref="instance('FormDataInstance')/question[@id='2d73d762-9e40-4bc7-b2b8-f0a207f954f4']/text" class="hcitQuestionText"/>
+      <xform:select1 ref="instance('FormDataInstance')/question[@id='2d73d762-9e40-4bc7-b2b8-f0a207f954f4']/answer" appearance="full" class="hcitAnswerRadio hcit-horizontal-align">
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-2d73d762-9e40-4bc7-b2b8-f0a207f954f4')/answer">
+          <xform:label ref="@text" class="hcit-label-input-radio"/>
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="'Incorrect format.'"/>
+
+        </xform:alert>
+        <xform:action ev:event="xforms-value-changed">
+          <xform:setvalue ref="instance('DataGroupInstance')/data-group[@id='Q.GRP-04c2125b-0137-4feb-b31c-f8179905f03b']/@visible" value="contains(instance('FormDataInstance')/question[@id='2d73d762-9e40-4bc7-b2b8-f0a207f954f4']/answer, 'y')"/>
+          <xform:setvalue ref="instance('FormDataInstance')/question[@id='04c2125b-0137-4feb-b31c-f8179905f03b']/answer" value="if(contains(instance('FormDataInstance')/question[@id='2d73d762-9e40-4bc7-b2b8-f0a207f954f4']/answer, 'y'),.,'')"/>
+        </xform:action>
+      </xform:select1>
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')/data-group[@id='Q.GRP-04c2125b-0137-4feb-b31c-f8179905f03b']" class="hcit-group-input-text">
+      <xform:switch>
+
+        <xform:case id="noErrBlk-04c2125b-0137-4feb-b31c-f8179905f03b"/>
+        <xform:case id="errBlk-04c2125b-0137-4feb-b31c-f8179905f03b">
+          <xform:switch>
+            <xform:case id="noErrInvBlk-04c2125b-0137-4feb-b31c-f8179905f03b"/>
+            <xform:case id="errInvBlk-04c2125b-0137-4feb-b31c-f8179905f03b">
+              <xform:output class="errorsClass" value="'You have made an invalid entry.'"/>
+            </xform:case>
+          </xform:switch>
+        </xform:case>
+
+      </xform:switch>
+      <xform:output ref="instance('FormDataInstance')/question[@id='04c2125b-0137-4feb-b31c-f8179905f03b']/text" class="hcitQuestionText"/>
+      <xform:input bind="Q-04c2125b-0137-4feb-b31c-f8179905f03b" class="hcitAnswerText">
+        <xform:label class="hcit-label-input-text">Fasting plasma glucose: </xform:label>
+        <xform:alert>
+          <xform:output value="'Incorrect format.'"/>
+        </xform:alert>
+        <xform:toggle ev:event="xforms-invalid" case="errInvBlk-04c2125b-0137-4feb-b31c-f8179905f03b"/>
+
+        <xform:toggle ev:event="xforms-valid" case="noErrInvBlk-04c2125b-0137-4feb-b31c-f8179905f03b"/>
+      </xform:input>
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')/data-group[@id='Q.GRP-ff9f2127-b48d-4b3b-bec9-d9ae95ca5c5d']" class="hcit-group-input-radio">
+      <xform:switch>
+        <xform:case id="noErrBlk-ff9f2127-b48d-4b3b-bec9-d9ae95ca5c5d"/>
+        <xform:case id="errBlk-ff9f2127-b48d-4b3b-bec9-d9ae95ca5c5d">
+          <xform:switch>
+            <xform:case id="noErrInvBlk-ff9f2127-b48d-4b3b-bec9-d9ae95ca5c5d"/>
+
+            <xform:case id="errInvBlk-ff9f2127-b48d-4b3b-bec9-d9ae95ca5c5d">
+              <xform:output class="errorsClass" value="'You have made an invalid entry.'"/>
+            </xform:case>
+          </xform:switch>
+        </xform:case>
+      </xform:switch>
+      <xform:output ref="instance('FormDataInstance')/question[@id='ff9f2127-b48d-4b3b-bec9-d9ae95ca5c5d']/text" class="hcitQuestionText"/>
+      <xform:select1 ref="instance('FormDataInstance')/question[@id='ff9f2127-b48d-4b3b-bec9-d9ae95ca5c5d']/answer" appearance="full" class="hcitAnswerRadio hcit-horizontal-align">
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-ff9f2127-b48d-4b3b-bec9-d9ae95ca5c5d')/answer">
+
+          <xform:label ref="@text" class="hcit-label-input-radio"/>
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="'Incorrect format.'"/>
+        </xform:alert>
+        <xform:action ev:event="xforms-value-changed">
+          <xform:setvalue ref="instance('DataGroupInstance')/data-group[@id='Q.GRP-1dd208fe-875d-4843-b089-edad6e99500c']/@visible" value="contains(instance('FormDataInstance')/question[@id='ff9f2127-b48d-4b3b-bec9-d9ae95ca5c5d']/answer, 'y')"/>
+          <xform:setvalue ref="instance('FormDataInstance')/question[@id='1dd208fe-875d-4843-b089-edad6e99500c']/answer" value="if(contains(instance('FormDataInstance')/question[@id='ff9f2127-b48d-4b3b-bec9-d9ae95ca5c5d']/answer, 'y'),.,'')"/>
+
+        </xform:action>
+      </xform:select1>
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')/data-group[@id='Q.GRP-1dd208fe-875d-4843-b089-edad6e99500c']" class="hcit-group-input-text">
+      <xform:switch>
+        <xform:case id="noErrBlk-1dd208fe-875d-4843-b089-edad6e99500c"/>
+        <xform:case id="errBlk-1dd208fe-875d-4843-b089-edad6e99500c">
+          <xform:switch>
+            <xform:case id="noErrInvBlk-1dd208fe-875d-4843-b089-edad6e99500c"/>
+
+            <xform:case id="errInvBlk-1dd208fe-875d-4843-b089-edad6e99500c">
+              <xform:output class="errorsClass" value="'You have made an invalid entry.'"/>
+            </xform:case>
+          </xform:switch>
+        </xform:case>
+      </xform:switch>
+      <xform:output ref="instance('FormDataInstance')/question[@id='1dd208fe-875d-4843-b089-edad6e99500c']/text" class="hcitQuestionText"/>
+      <xform:input bind="Q-1dd208fe-875d-4843-b089-edad6e99500c" class="hcitAnswerText">
+        <xform:label class="hcit-label-input-text">Glucose tolerance test: </xform:label>
+
+        <xform:alert>
+          <xform:output value="'Incorrect format.'"/>
+        </xform:alert>
+        <xform:toggle ev:event="xforms-invalid" case="errInvBlk-1dd208fe-875d-4843-b089-edad6e99500c"/>
+        <xform:toggle ev:event="xforms-valid" case="noErrInvBlk-1dd208fe-875d-4843-b089-edad6e99500c"/>
+      </xform:input>
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')/data-group[@id='Q.GRP-b6f6443b-daac-45c9-b70d-c76f87554604']" class="hcit-group-input-radio">
+      <xform:switch>
+
+        <xform:case id="noErrBlk-b6f6443b-daac-45c9-b70d-c76f87554604"/>
+        <xform:case id="errBlk-b6f6443b-daac-45c9-b70d-c76f87554604">
+          <xform:output class="errorsClass" bind="Q.REQERR-b6f6443b-daac-45c9-b70d-c76f87554604"/>
+          <xform:switch>
+            <xform:case id="noErrInvBlk-b6f6443b-daac-45c9-b70d-c76f87554604"/>
+            <xform:case id="errInvBlk-b6f6443b-daac-45c9-b70d-c76f87554604">
+              <xform:output class="errorsClass" value="'You have made an invalid entry.'"/>
+            </xform:case>
+          </xform:switch>
+
+        </xform:case>
+      </xform:switch>
+      <xform:label class="hcitQuestionText hcitRequiredQuestionText">
+        <span xmlns="" class="xforms-required-icon">*</span>
+        <span xmlns="">Please indicate if you have had any of the following symptoms:</span>
+      </xform:label>
+      <xform:select1 ref="instance('FormDataInstance')/question-table[@id='b6f6443b-daac-45c9-b70d-c76f87554604']/question[@id='TQ-37221']/answer" appearance="full" class="hcitAnswerRadio hcitFirstItemSet  hcitTable">
+        <xform:label class="hcitTableCell hcitFirstTableCell hcitHeaderRow hcitMediumCell">Values</xform:label>
+
+        <xform:label class="hcitTableCell hcitFirstColumn hcitHeaderRow hcitMediumCell">Yes</xform:label>
+        <xform:label class="hcitTableCell hcitHeaderRow hcitMediumCell">No</xform:label>
+        <xform:label class="hcitTableCell hcitHeaderRow hcitMediumCell">I don't know</xform:label>
+        <xform:label class="hcitTableCell hcitRowStart hcitOdd hcitSmallCell">Blurred vision</xform:label>
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-b6f6443b-daac-45c9-b70d-c76f87554604')/answer" class="hcitTableRow hcitOdd hcitSmallCell">
+          <xform:value ref="."/>
+        </xform:itemset>
+
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')/question-table[@id='b6f6443b-daac-45c9-b70d-c76f87554604']/question[@id='TQ-37221']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+      </xform:select1>
+      <xform:select1 ref="instance('FormDataInstance')/question-table[@id='b6f6443b-daac-45c9-b70d-c76f87554604']/question[@id='TQ-37222']/answer" appearance="full" class="hcitAnswerRadio hcitTable">
+        <xform:label class="hcitTableCell hcitRowStart hcitEven hcitMediumCell">Urinary tract infection or yeast infection </xform:label>
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-b6f6443b-daac-45c9-b70d-c76f87554604')/answer" class="hcitTableRow hcitEven hcitMediumCell">
+          <xform:value ref="."/>
+
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')/question-table[@id='b6f6443b-daac-45c9-b70d-c76f87554604']/question[@id='TQ-37221']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+      </xform:select1>
+      <xform:select1 ref="instance('FormDataInstance')/question-table[@id='b6f6443b-daac-45c9-b70d-c76f87554604']/question[@id='TQ-37223']/answer" appearance="full" class="hcitAnswerRadio hcitTable">
+        <xform:label class="hcitTableCell hcitRowStart hcitOdd hcitSmallCell">Dry, itchy skin </xform:label>
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-b6f6443b-daac-45c9-b70d-c76f87554604')/answer" class="hcitTableRow hcitOdd hcitSmallCell">
+
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')/question-table[@id='b6f6443b-daac-45c9-b70d-c76f87554604']/question[@id='TQ-37221']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+      </xform:select1>
+      <xform:select1 ref="instance('FormDataInstance')/question-table[@id='b6f6443b-daac-45c9-b70d-c76f87554604']/question[@id='TQ-37224']/answer" appearance="full" class="hcitAnswerRadio hcitTable">
+        <xform:label class="hcitTableCell hcitRowStart hcitEven hcitMediumCell">Numbness or tingling in your arms or legs </xform:label>
+
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-b6f6443b-daac-45c9-b70d-c76f87554604')/answer" class="hcitTableRow hcitEven hcitMediumCell">
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')/question-table[@id='b6f6443b-daac-45c9-b70d-c76f87554604']/question[@id='TQ-37221']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+      </xform:select1>
+      <xform:select1 ref="instance('FormDataInstance')/question-table[@id='b6f6443b-daac-45c9-b70d-c76f87554604']/question[@id='TQ-37235']/answer" appearance="full" class="hcitAnswerRadio hcitTable">
+        <xform:label class="hcitTableCell hcitRowStart hcitOdd hcitMediumCell">Frequent need to urinate </xform:label>
+
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-b6f6443b-daac-45c9-b70d-c76f87554604')/answer" class="hcitTableRow hcitOdd hcitMediumCell">
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')/question-table[@id='b6f6443b-daac-45c9-b70d-c76f87554604']/question[@id='TQ-37221']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+      </xform:select1>
+      <xform:select1 ref="instance('FormDataInstance')/question-table[@id='b6f6443b-daac-45c9-b70d-c76f87554604']/question[@id='TQ-37236']/answer" appearance="full" class="hcitAnswerRadio hcitTable">
+        <xform:label class="hcitTableCell hcitRowStart hcitEven hcitSmallCell">Frequent thirst</xform:label>
+
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-b6f6443b-daac-45c9-b70d-c76f87554604')/answer" class="hcitTableRow hcitEven hcitSmallCell">
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')/question-table[@id='b6f6443b-daac-45c9-b70d-c76f87554604']/question[@id='TQ-37221']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+      </xform:select1>
+      <xform:select1 ref="instance('FormDataInstance')/question-table[@id='b6f6443b-daac-45c9-b70d-c76f87554604']/question[@id='TQ-37237']/answer" appearance="full" class="hcitAnswerRadio hcitTable">
+        <xform:label class="hcitTableCell hcitRowStart hcitOdd hcitMediumCell">Weight loss for no reason </xform:label>
+
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-b6f6443b-daac-45c9-b70d-c76f87554604')/answer" class="hcitTableRow hcitOdd hcitMediumCell">
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')/question-table[@id='b6f6443b-daac-45c9-b70d-c76f87554604']/question[@id='TQ-37221']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+      </xform:select1>
+      <xform:group class="hcitEmptyGroup">
+        <xform:toggle ev:event="xforms-invalid" case="errInvBlk-b6f6443b-daac-45c9-b70d-c76f87554604"/>
+
+        <xform:toggle ev:event="xforms-valid" case="noErrInvBlk-b6f6443b-daac-45c9-b70d-c76f87554604"/>
+      </xform:group>
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')/data-group[@id='Q.GRP-e048af30-6adb-4977-842b-3ac386ab0667']" class="hcit-group-input-radio">
+      <xform:switch>
+        <xform:case id="noErrBlk-e048af30-6adb-4977-842b-3ac386ab0667"/>
+        <xform:case id="errBlk-e048af30-6adb-4977-842b-3ac386ab0667">
+          <xform:output class="errorsClass" bind="Q.REQERR-e048af30-6adb-4977-842b-3ac386ab0667"/>
+          <xform:switch>
+
+            <xform:case id="noErrInvBlk-e048af30-6adb-4977-842b-3ac386ab0667"/>
+            <xform:case id="errInvBlk-e048af30-6adb-4977-842b-3ac386ab0667">
+              <xform:output class="errorsClass" value="'You have made an invalid entry.'"/>
+            </xform:case>
+          </xform:switch>
+        </xform:case>
+      </xform:switch>
+      <xform:output ref="instance('FormDataInstance')/question[@id='e048af30-6adb-4977-842b-3ac386ab0667']/text" class="hcitQuestionText hcitRequiredQuestionText"/>
+      <xform:select1 ref="instance('FormDataInstance')/question[@id='e048af30-6adb-4977-842b-3ac386ab0667']/answer" appearance="full" class="hcitAnswerRadio hcit-horizontal-align">
+
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-e048af30-6adb-4977-842b-3ac386ab0667')/answer">
+          <xform:label ref="@text" class="hcit-label-input-radio"/>
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')/question[@id='e048af30-6adb-4977-842b-3ac386ab0667']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+      </xform:select1>
+    </xform:group>
+<xform:submit submission="SendDataElement">
+	<xform:label>Save and Continue</xform:label>
+    </xform:submit>
+</body>
+</html>

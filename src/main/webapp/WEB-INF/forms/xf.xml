@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xform="http://www.w3.org/2002/xforms">
+
+<head>
+		<xform:model>
+			<xform:instance>
+				<person xmlns="">
+				    <name>Javier</name>
+				    <birthdate>1979-08-31</birthdate>
+				    <gender>M</gender>
+				    <telephones>
+				        <telephone type="mobile">666005000</telephone>
+				        <telephone type="home">986888888</telephone>
+				    </telephones>
+				</person>
+			</xform:instance>
+			<xform:bind nodeset="name" required="true()" type="xsd:Name"/>
+			<xform:bind nodeset="birthdate" type="xsd:date"/>
+	  <xform:submission id="sendData"
+                         method="post"
+                         includenamespaceprefixes=""
+                         action="/Echo.do">
+          <xform:message ev:event="xforms-submit-error" level="modal">Unable to submit</xform:message>
+      </xform:submission>
+
+			<xform:submission id="s01" method="post" show="new" replace="all" action="xsltforms/txs.php?exec=beautify.txs">
+				<xform:message level="modeless" ev:event="xforms-submit-error">Submit error.</xform:message>
+			</xform:submission>
+			<xform:submission id="s02" method="xml-urlencoded-post" replace="none" action="xsltforms/txs.php?exec=returnasattachment.txs&amp;file=mycontact.xml">
+				<xform:message level="modeless" ev:event="xforms-submit-error">Submit error.</xform:message>
+			</xform:submission>
+		</xform:model>
+</head>
+<body>
+		<xform:group >
+			<xform:input ref="name">
+				<xform:label>Name</xform:label>
+			</xform:input>
+			<xform:select1 ref="gender">
+				<xform:label>Gender</xform:label>
+				<xform:item>
+					<xform:label>Male</xform:label>
+					<xform:value>M</xform:value>
+				</xform:item>
+				<xform:item>
+					<xform:label>Female</xform:label>
+					<xform:value>F</xform:value>
+				</xform:item>
+			</xform:select1>
+			<xform:input ref="birthdate">
+				<xform:label>Birth date</xform:label>
+			</xform:input>
+			<xform:group>
+				<xform:label>Telephones</xform:label>
+				<xform:repeat id="repeat" nodeset="telephones/telephone" appearance="compact">
+					<xform:select1 ref="@type" appearance="minimal">
+						<xform:label>Type</xform:label>
+						<xform:item>
+							<xform:label>Home</xform:label>
+							<xform:value>hombe</xform:value>
+						</xform:item>
+						<xform:item>
+							<xform:label>Mobile</xform:label>
+							<xform:value>mobile</xform:value>
+						</xform:item>
+						<xform:item>
+							<xform:label>Company</xform:label>
+							<xform:value>company</xform:value>
+						</xform:item>
+					</xform:select1>
+					<xform:input ref=".">
+						<xform:label>Number</xform:label>
+					</xform:input>
+					<xform:trigger>
+						<xform:label>X</xform:label>
+						<xform:delete nodeset="." at="1" if="count(//telephone) > 1"
+                                ev:event="DOMActivate" />
+						</xform:trigger>
+					</xform:repeat>
+				</xform:group>
+			</xform:group>
+
+			<xform:submit submission="sendData">
+				<xform:label>Save</xform:label>
+			</xform:submit>
+
+			<xform:trigger>
+				<xform:label>Reset</xform:label>
+				<xform:reset ev:event="DOMActivate"/>
+			</xform:trigger>
+</body>
+</html>

@@ -1,0 +1,703 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="/FormBuilder/xsltforms/xsltforms.xsl" type="text/xsl"?>
+    <!--  DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"  -->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:xform="http://www.w3.org/2002/xforms"
+      xmlns:ev="http://www.w3.org/2001/xml-events"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:ajx="http://www.ajaxforms.net/2006/ajx">
+
+<head>
+	<title>Main Page</title>
+	<xform:model>
+      <xsd:schema xmlns:hcitT="http://www.healthcit.com/2010/formbuilder" targetNamespace="http://www.healthcit.com/2010/formbuilder"/>
+      <xform:instance id="FormDataInstance">
+        <form xmlns="" name="Testing" id="c3174f7e-8253-4450-84e7-346df3ac8713">
+
+          <question id="ed9a238d-72fa-458d-979b-84e73ff5f1c4" sn="Enjoy ice cream">
+            <text> I enjoy eating ice cream so much that I eat it:</text>
+            <answer id="12098"/>
+          </question>
+          <question id="e48a7bbc-c448-4bab-91c3-3643ff79d6db" sn="Favorite Brand">
+            <text>My single most favorite brand is:</text>
+            <answer id="11652"/>
+
+          </question>
+          <question id="51d5acb1-3570-4df7-9153-5f15b65cc556" sn="aaaaa">
+            <text>this question is for test</text>
+            <answer id="11912"/>
+          </question>
+          <question id="69f2b3a1-b592-4651-b762-2c7ca351ced0" sn="Enjoy ice cream">
+            <text> I enjoy eating ice cream so much that I eat it:</text>
+
+            <answer id="12096"/>
+          </question>
+          <question-table id="1b33ffd1-f372-4990-9d88-21b6932feb89" sn="Ice Cream Flavor">
+            <question id="TQ-12099" sn="1">
+              <text> My favorite ice cream flavor is:</text>
+              <answer id="12099"/>
+            </question>
+            <question id="TQ-12125" sn="2">
+
+              <text> My favorite ice cream flavor is:</text>
+              <answer id="12125"/>
+            </question>
+            <question id="TQ-12126" sn="3">
+              <text> My favorite ice cream flavor is:</text>
+              <answer id="12126"/>
+            </question>
+
+            <question id="TQ-12127" sn="4">
+              <text> My favorite ice cream flavor is:</text>
+              <answer id="12127"/>
+            </question>
+            <question id="TQ-12128" sn="5">
+              <text> My favorite ice cream flavor is:</text>
+              <answer id="12128"/>
+
+            </question>
+            <question id="TQ-12129" sn="6">
+              <text> My favorite ice cream flavor is:</text>
+              <answer id="12129"/>
+            </question>
+            <question id="TQ-12135" sn="7">
+              <text> My favorite ice cream flavor is:</text>
+
+              <answer id="12135"/>
+            </question>
+            <question id="TQ-12136" sn="8">
+              <text> My favorite ice cream flavor is:</text>
+              <answer id="12136"/>
+            </question>
+            <question id="TQ-12137" sn="9">
+              <text> My favorite ice cream flavor is:</text>
+
+              <answer id="12137"/>
+            </question>
+            <question id="TQ-12138" sn="10">
+              <text> My favorite ice cream flavor is:</text>
+              <answer id="12138"/>
+            </question>
+            <question id="TQ-12139" sn="11">
+              <text> My favorite ice cream flavor is:</text>
+
+              <answer id="12139"/>
+            </question>
+            <question id="TQ-12145" sn="12">
+              <text> My favorite ice cream flavor is:</text>
+              <answer id="12145"/>
+            </question>
+            <question id="TQ-12146" sn="13">
+              <text> My favorite ice cream flavor is:</text>
+
+              <answer id="12146"/>
+            </question>
+            <question id="TQ-12147" sn="14">
+              <text> My favorite ice cream flavor is:</text>
+              <answer id="12147"/>
+            </question>
+            <question id="TQ-12148" sn="99">
+              <text> My favorite ice cream flavor is:</text>
+
+              <answer id="12148"/>
+            </question>
+          </question-table>
+          <question id="74A93321-F644-A17B-E040-BB89AD437426" sn="Person Dietary Supplements Use Frequency Number">
+            <text>A measure to quantify intake from commonly consumed dietary supplements (vitamins, minerals, herbs or other botanicals, or a concentrate, metabolite, constituent, extract, or combination of these ingredients).</text>
+            <answer id="14306"/>
+          </question>
+          <question id="635FC5CC-4792-7F36-E040-BB89AD43799A" sn="Diet Restart Date">
+
+            <text>Date regular diet started</text>
+            <answer id="14307"/>
+          </question>
+          <question id="4059790C-679D-4705-E044-0003BA3F9857" sn="Dental Therapy Patient Diet Dissatisfaction Oral Health Impact Profile Physical Examination Scale">
+            <text>Has your diet been unsatisfactory because of problems with your dental treatment</text>
+            <answer id="14308"/>
+          </question>
+          <question id="2D477905-EAEA-2F7A-E044-0003BA3F9857" sn="Weight Diet History Questionnaire Descriptive Text">
+
+            <text>Other diet</text>
+            <answer id="14309"/>
+          </question>
+          <question id="EF49C2E7-802E-4ACC-E034-0003BA3F9857" sn="RTOG Diet Intake Performance Scale">
+            <text>Normalcy of Diet Rating</text>
+            <answer id="14400"/>
+          </question>
+          <question id="99BA9DC8-3390-4E69-E034-080020C9C0E0" sn="Special Diet Stop Date">
+
+            <text>Special Diet Stop Date</text>
+            <answer id="14401"/>
+          </question>
+          <question id="99BA9DC8-338D-4E69-E034-080020C9C0E0" sn="Special Diet Start Date">
+            <text>If the foods you currently are eating are part of a special diet, please indicate the start and stop dates.</text>
+            <answer id="14402"/>
+          </question>
+        </form>
+
+      </xform:instance>
+      <xform:instance id="LearnMoreInstance">
+        <data xmlns="">
+          <learn-more id="Q.LM-74A93321-F644-A17B-E040-BB89AD437426" value="" visible="false"/>
+          <learn-more id="Q.LM-635FC5CC-4792-7F36-E040-BB89AD43799A" value="" visible="false"/>
+          <learn-more id="Q.LM-4059790C-679D-4705-E044-0003BA3F9857" value="" visible="false"/>
+          <learn-more id="Q.LM-2D477905-EAEA-2F7A-E044-0003BA3F9857" value="" visible="false"/>
+          <learn-more id="Q.LM-EF49C2E7-802E-4ACC-E034-0003BA3F9857" value="" visible="false"/>
+          <learn-more id="Q.LM-99BA9DC8-3390-4E69-E034-080020C9C0E0" value="" visible="false"/>
+
+          <learn-more id="Q.LM-99BA9DC8-338D-4E69-E034-080020C9C0E0" value="" visible="false"/>
+        </data>
+      </xform:instance>
+      <xform:instance id="PureContentInstance">
+        <data xmlns=""/>
+      </xform:instance>
+      <xform:instance id="DataGroupInstance">
+        <data xmlns="">
+          <data-group id="Q.GRP-ed9a238d-72fa-458d-979b-84e73ff5f1c4" visible="true()"/>
+
+          <data-group id="Q.GRP-e48a7bbc-c448-4bab-91c3-3643ff79d6db" visible="true()"/>
+          <data-group id="Q.GRP-51d5acb1-3570-4df7-9153-5f15b65cc556" visible="true()"/>
+          <data-group id="Q.GRP-69f2b3a1-b592-4651-b762-2c7ca351ced0" visible="true()"/>
+          <data-group id="Q.GRP-1b33ffd1-f372-4990-9d88-21b6932feb89" visible="true()"/>
+          <data-group id="Q.GRP-74A93321-F644-A17B-E040-BB89AD437426" visible="true()"/>
+          <data-group id="Q.GRP-635FC5CC-4792-7F36-E040-BB89AD43799A" visible="true()"/>
+          <data-group id="Q.GRP-4059790C-679D-4705-E044-0003BA3F9857" visible="true()"/>
+          <data-group id="Q.GRP-2D477905-EAEA-2F7A-E044-0003BA3F9857" visible="true()"/>
+          <data-group id="Q.GRP-EF49C2E7-802E-4ACC-E034-0003BA3F9857" visible="true()"/>
+
+          <data-group id="Q.GRP-99BA9DC8-3390-4E69-E034-080020C9C0E0" visible="true()"/>
+          <data-group id="Q.GRP-99BA9DC8-338D-4E69-E034-080020C9C0E0" visible="true()"/>
+        </data>
+      </xform:instance>
+      <xform:instance id="Q-ANSWER_SET-ed9a238d-72fa-458d-979b-84e73ff5f1c4">
+        <options xmlns="">
+          <answer sn="" text="Just About anytime"/>
+          <answer sn="" text="Only once in a while"/>
+          <answer sn="" text="Occasionally"/>
+
+          <answer sn="" text="When It's hot out"/>
+          <answer sn="" text="No I don't. I never eat ice cream."/>
+        </options>
+      </xform:instance>
+      <xform:instance id="Q-ANSWER_SET-e48a7bbc-c448-4bab-91c3-3643ff79d6db">
+        <options xmlns="">
+          <answer sn="" text="Any brand is OK">1</answer>
+          <answer sn="" text="Breyers">2</answer>
+
+          <answer sn="" text="Bart's Homemade">3</answer>
+          <answer sn="" text="Cadbury">4</answer>
+          <answer sn="" text="Deans">5</answer>
+          <answer sn="" text="Hershey's">6</answer>
+          <answer sn="" text="Blue Bunny">7</answer>
+          <answer sn="" text="Ben &amp; Jerry's">8</answer>
+
+          <answer sn="" text="Dreyer's Grand">9</answer>
+          <answer sn="" text="Haagen Dazs">10</answer>
+          <answer sn="" text="Walgreens">11</answer>
+          <answer sn="" text="Store brand">12</answer>
+          <answer sn="" text="Other brands">000</answer>
+        </options>
+
+      </xform:instance>
+      <xform:instance id="Q-ANSWER_SET-51d5acb1-3570-4df7-9153-5f15b65cc556">
+        <options xmlns="">
+          <answer sn="" text="qqq">1</answer>
+          <answer sn="" text="www">2</answer>
+          <answer sn="" text="sada">3</answer>
+        </options>
+
+      </xform:instance>
+      <xform:instance id="Q-ANSWER_SET-69f2b3a1-b592-4651-b762-2c7ca351ced0">
+        <options xmlns="">
+          <answer sn="" text="Just About anytime"/>
+          <answer sn="" text="Only once in a while"/>
+          <answer sn="" text="Occasionally"/>
+          <answer sn="" text="When It's hot out"/>
+          <answer sn="" text="No I don't. I never eat ice cream."/>
+        </options>
+
+      </xform:instance>
+      <xform:instance id="Q-ANSWER_SET-1b33ffd1-f372-4990-9d88-21b6932feb89">
+        <options xmlns="">
+          <answer sn="" text="Yes">2</answer>
+          <answer sn="" text="No">1</answer>
+        </options>
+      </xform:instance>
+      <xform:instance id="Q-ANSWER_SET-74A93321-F644-A17B-E040-BB89AD437426">
+
+        <options xmlns="">
+          <answer sn="Person Dietary Supplements Use Frequency Number" text="Person Dietary Supplements Use Frequency Number">Person_HCITSPACE_Dietary_HCITSPACE_Supplements_HCITSPACE_Use_HCITSPACE_Frequency_HCITSPACE_Number</answer>
+        </options>
+      </xform:instance>
+      <xform:instance id="Q-ANSWER_SET-4059790C-679D-4705-E044-0003BA3F9857">
+        <options xmlns="">
+          <answer sn="Not at all" text="Not at all">Not_HCITSPACE_at_HCITSPACE_all</answer>
+          <answer sn="Hardly ever" text="Hardly ever">Hardly_HCITSPACE_ever</answer>
+
+          <answer sn="Occasionally" text="Occasionally">Occasionally</answer>
+          <answer sn="Fairly often" text="Fairly often">Fairly_HCITSPACE_often</answer>
+          <answer sn="Very often" text="Very often">Very_HCITSPACE_often</answer>
+        </options>
+      </xform:instance>
+      <xform:instance id="Q-ANSWER_SET-EF49C2E7-802E-4ACC-E034-0003BA3F9857">
+        <options xmlns="">
+
+          <answer sn="100= Full diet (no restrictions)" text="100= Full diet (no restrictions)">100=_HCITSPACE_Full_HCITSPACE_diet_HCITSPACE_(no_HCITSPACE_restrictions)</answer>
+          <answer sn="90= Peanuts" text="90= Peanuts">90=_HCITSPACE_Peanuts</answer>
+          <answer sn="80= All meat" text="80= All meat">80=_HCITSPACE_All_HCITSPACE_meat</answer>
+          <answer sn="70= Carrots, celery" text="70= Carrots, celery">70=_HCITSPACE_Carrots,_HCITSPACE_celery</answer>
+          <answer sn="60= Dry bread and crackers" text="60= Dry bread and crackers">60=_HCITSPACE_Dry_HCITSPACE_bread_HCITSPACE_and_HCITSPACE_crackers</answer>
+          <answer sn="50= Soft, chewable foods (e.g., macaroni, canned/soft fruits, cooked vegetables, fish, hamburger, small pieces of meat)" text="50= Soft, chewable foods (e.g., macaroni, canned/soft fruits, cooked vegetables, fish, hamburger, small pieces of meat)">50=_HCITSPACE_Soft,_HCITSPACE_chewable_HCITSPACE_foods_HCITSPACE_(e.g.,_HCITSPACE_macaroni,_HCITSPACE_canned/soft_HCITSPACE_fruits,_HCITSPACE_cooked_HCITSPACE_vegetables,_HCITSPACE_fish,_HCITSPACE_hamburger,_HCITSPACE_small_HCITSPACE_pieces_HCITSPACE_of_HCITSPACE_meat)</answer>
+
+          <answer sn="40= Soft foods requiring no chewing (e.g., mashed potatoes, apple sauce, pudding)" text="40= Soft foods requiring no chewing (e.g., mashed potatoes, apple sauce, pudding)">40=_HCITSPACE_Soft_HCITSPACE_foods_HCITSPACE_requiring_HCITSPACE_no_HCITSPACE_chewing_HCITSPACE_(e.g.,_HCITSPACE_mashed_HCITSPACE_potatoes,_HCITSPACE_apple_HCITSPACE_sauce,_HCITSPACE_pudding)</answer>
+          <answer sn="30= Pureed foods (in blender)" text="30= Pureed foods (in blender)">30=_HCITSPACE_Pureed_HCITSPACE_foods_HCITSPACE_(in_HCITSPACE_blender)</answer>
+          <answer sn="20= Warm liquids" text="20= Warm liquids">20=_HCITSPACE_Warm_HCITSPACE_liquids</answer>
+          <answer sn="10= Cold liquids" text="10= Cold liquids">10=_HCITSPACE_Cold_HCITSPACE_liquids</answer>
+          <answer sn="0= Non-oral feeding (tube fed)" text="0= Non-oral feeding (tube fed)">0=_HCITSPACE_Non-oral_HCITSPACE_feeding_HCITSPACE_(tube_HCITSPACE_fed)</answer>
+        </options>
+
+      </xform:instance>
+      <xform:instance id="Q-ANSWER_SET-99BA9DC8-338D-4E69-E034-080020C9C0E0">
+        <options xmlns="">
+          <answer sn="Special Diet Start Date" text="Special Diet Start Date">Special_HCITSPACE_Diet_HCITSPACE_Start_HCITSPACE_Date</answer>
+        </options>
+      </xform:instance>
+      <xform:bind nodeset="instance('DataGroupInstance')//data-group[@id='Q.GRP-ed9a238d-72fa-458d-979b-84e73ff5f1c4']" id="Q.GRP-ed9a238d-72fa-458d-979b-84e73ff5f1c4" relevant="true()"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='ed9a238d-72fa-458d-979b-84e73ff5f1c4']/answer[@id='12098']" id="Q-ed9a238d-72fa-458d-979b-84e73ff5f1c4" type="xsd:string" required="false()"/>
+
+      <xform:bind nodeset="instance('DataGroupInstance')//data-group[@id='Q.GRP-e48a7bbc-c448-4bab-91c3-3643ff79d6db']" id="Q.GRP-e48a7bbc-c448-4bab-91c3-3643ff79d6db" relevant="true()"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='e48a7bbc-c448-4bab-91c3-3643ff79d6db']/answer[@id='11652']" id="Q-e48a7bbc-c448-4bab-91c3-3643ff79d6db" type="xsd:string" required="true()"/>
+      <xform:bind nodeset="instance('DataGroupInstance')//data-group[@id='Q.GRP-51d5acb1-3570-4df7-9153-5f15b65cc556']" id="Q.GRP-51d5acb1-3570-4df7-9153-5f15b65cc556" relevant="true()"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='51d5acb1-3570-4df7-9153-5f15b65cc556']/answer[@id='11912']" id="Q-51d5acb1-3570-4df7-9153-5f15b65cc556" type="xsd:string" required="false()"/>
+      <xform:bind nodeset="instance('DataGroupInstance')//data-group[@id='Q.GRP-69f2b3a1-b592-4651-b762-2c7ca351ced0']" id="Q.GRP-69f2b3a1-b592-4651-b762-2c7ca351ced0" relevant="true()"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='69f2b3a1-b592-4651-b762-2c7ca351ced0']/answer[@id='12096']" id="Q-69f2b3a1-b592-4651-b762-2c7ca351ced0" type="xsd:string" required="false()"/>
+      <xform:bind nodeset="instance('DataGroupInstance')//data-group[@id='Q.GRP-1b33ffd1-f372-4990-9d88-21b6932feb89']" id="Q.GRP-1b33ffd1-f372-4990-9d88-21b6932feb89" relevant="true()"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='TQ-12099']" id="Q-12099" required="true()"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='TQ-12125']" id="Q-12125" required="true()"/>
+
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='TQ-12126']" id="Q-12126" required="true()"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='TQ-12127']" id="Q-12127" required="true()"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='TQ-12128']" id="Q-12128" required="true()"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='TQ-12129']" id="Q-12129" required="true()"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='TQ-12135']" id="Q-12135" required="true()"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='TQ-12136']" id="Q-12136" required="true()"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='TQ-12137']" id="Q-12137" required="true()"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='TQ-12138']" id="Q-12138" required="true()"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='TQ-12139']" id="Q-12139" required="true()"/>
+
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='TQ-12145']" id="Q-12145" required="true()"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='TQ-12146']" id="Q-12146" required="true()"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='TQ-12147']" id="Q-12147" required="true()"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='TQ-12148']" id="Q-12148" required="true()"/>
+      <xform:bind nodeset="instance('DataGroupInstance')//data-group[@id='Q.GRP-74A93321-F644-A17B-E040-BB89AD437426']" id="Q.GRP-74A93321-F644-A17B-E040-BB89AD437426" relevant="true()"/>
+      <xform:bind nodeset="instance('LearnMoreInstance')//learn-more[@id='Q.LM-74A93321-F644-A17B-E040-BB89AD437426']" id="Q.LM-74A93321-F644-A17B-E040-BB89AD437426" relevant="boolean-from-string(@visible)"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='74A93321-F644-A17B-E040-BB89AD437426']/answer[@id='14306']" id="Q-74A93321-F644-A17B-E040-BB89AD437426" type="xsd:string" required="false()"/>
+      <xform:bind nodeset="instance('DataGroupInstance')//data-group[@id='Q.GRP-635FC5CC-4792-7F36-E040-BB89AD43799A']" id="Q.GRP-635FC5CC-4792-7F36-E040-BB89AD43799A" relevant="true()"/>
+      <xform:bind nodeset="instance('LearnMoreInstance')//learn-more[@id='Q.LM-635FC5CC-4792-7F36-E040-BB89AD43799A']" id="Q.LM-635FC5CC-4792-7F36-E040-BB89AD43799A" relevant="boolean-from-string(@visible)"/>
+
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='635FC5CC-4792-7F36-E040-BB89AD43799A']/answer[@id='14307']" id="Q-635FC5CC-4792-7F36-E040-BB89AD43799A" type="xsd:date" required="false()"/>
+      <xform:bind nodeset="instance('DataGroupInstance')//data-group[@id='Q.GRP-4059790C-679D-4705-E044-0003BA3F9857']" id="Q.GRP-4059790C-679D-4705-E044-0003BA3F9857" relevant="true()"/>
+      <xform:bind nodeset="instance('LearnMoreInstance')//learn-more[@id='Q.LM-4059790C-679D-4705-E044-0003BA3F9857']" id="Q.LM-4059790C-679D-4705-E044-0003BA3F9857" relevant="boolean-from-string(@visible)"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='4059790C-679D-4705-E044-0003BA3F9857']/answer[@id='14308']" id="Q-4059790C-679D-4705-E044-0003BA3F9857" type="xsd:string" required="false()"/>
+      <xform:bind nodeset="instance('DataGroupInstance')//data-group[@id='Q.GRP-2D477905-EAEA-2F7A-E044-0003BA3F9857']" id="Q.GRP-2D477905-EAEA-2F7A-E044-0003BA3F9857" relevant="true()"/>
+      <xform:bind nodeset="instance('LearnMoreInstance')//learn-more[@id='Q.LM-2D477905-EAEA-2F7A-E044-0003BA3F9857']" id="Q.LM-2D477905-EAEA-2F7A-E044-0003BA3F9857" relevant="boolean-from-string(@visible)"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='2D477905-EAEA-2F7A-E044-0003BA3F9857']/answer[@id='14309']" id="Q-2D477905-EAEA-2F7A-E044-0003BA3F9857" type="xsd:string" required="false()" constraint=""/>
+      <xform:bind nodeset="instance('DataGroupInstance')//data-group[@id='Q.GRP-EF49C2E7-802E-4ACC-E034-0003BA3F9857']" id="Q.GRP-EF49C2E7-802E-4ACC-E034-0003BA3F9857" relevant="true()"/>
+      <xform:bind nodeset="instance('LearnMoreInstance')//learn-more[@id='Q.LM-EF49C2E7-802E-4ACC-E034-0003BA3F9857']" id="Q.LM-EF49C2E7-802E-4ACC-E034-0003BA3F9857" relevant="boolean-from-string(@visible)"/>
+
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='EF49C2E7-802E-4ACC-E034-0003BA3F9857']/answer[@id='14400']" id="Q-EF49C2E7-802E-4ACC-E034-0003BA3F9857" type="xsd:string" required="false()"/>
+      <xform:bind nodeset="instance('DataGroupInstance')//data-group[@id='Q.GRP-99BA9DC8-3390-4E69-E034-080020C9C0E0']" id="Q.GRP-99BA9DC8-3390-4E69-E034-080020C9C0E0" relevant="true()"/>
+      <xform:bind nodeset="instance('LearnMoreInstance')//learn-more[@id='Q.LM-99BA9DC8-3390-4E69-E034-080020C9C0E0']" id="Q.LM-99BA9DC8-3390-4E69-E034-080020C9C0E0" relevant="boolean-from-string(@visible)"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='99BA9DC8-3390-4E69-E034-080020C9C0E0']/answer[@id='14401']" id="Q-99BA9DC8-3390-4E69-E034-080020C9C0E0" type="xsd:date" required="false()"/>
+      <xform:bind nodeset="instance('DataGroupInstance')//data-group[@id='Q.GRP-99BA9DC8-338D-4E69-E034-080020C9C0E0']" id="Q.GRP-99BA9DC8-338D-4E69-E034-080020C9C0E0" relevant="true()"/>
+      <xform:bind nodeset="instance('LearnMoreInstance')//learn-more[@id='Q.LM-99BA9DC8-338D-4E69-E034-080020C9C0E0']" id="Q.LM-99BA9DC8-338D-4E69-E034-080020C9C0E0" relevant="boolean-from-string(@visible)"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='99BA9DC8-338D-4E69-E034-080020C9C0E0']/answer[@id='14402']" id="Q-99BA9DC8-338D-4E69-E034-080020C9C0E0" type="xsd:string" required="false()"/>
+      <xform:submission id="SendDataElement" method="post" includenamespaceprefixes="" action="xform.view">
+        <xform:message ev:event="xforms-submit-error">Unable to submit</xform:message>
+
+      </xform:submission>
+    </xform:model></head>
+
+<body>
+    <xform:output ref="instance('FormDataInstance')/@name" class="hcit-form-title"/>
+    <script xmlns="" type="text/javascript" src="../xsltforms/xforms_html.js"/>
+    <xform:group ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-ed9a238d-72fa-458d-979b-84e73ff5f1c4']" class="hcit-group-input-radio">
+      <xform:output ref="instance('FormDataInstance')//question[@id='ed9a238d-72fa-458d-979b-84e73ff5f1c4']/text" class="hcitQuestionText"/>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='ed9a238d-72fa-458d-979b-84e73ff5f1c4']/answer" appearance="full" class="hcitAnswerRadio">
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-ed9a238d-72fa-458d-979b-84e73ff5f1c4')/answer">
+          <xform:label ref="@text" class="hcit-label-input-radio"/>
+          <xform:value ref="."/>
+        </xform:itemset>
+
+        <xform:alert>
+          <xform:output value="'Incorrect format.'"/>
+        </xform:alert>
+      </xform:select1>
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-e48a7bbc-c448-4bab-91c3-3643ff79d6db']" class="hcit-group-input-radio">
+      <xform:output ref="instance('FormDataInstance')//question[@id='e48a7bbc-c448-4bab-91c3-3643ff79d6db']/text" class="hcitQuestionText"/>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='e48a7bbc-c448-4bab-91c3-3643ff79d6db']/answer" appearance="full" class="hcitAnswerRadio">
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-e48a7bbc-c448-4bab-91c3-3643ff79d6db')/answer">
+
+          <xform:label ref="@text" class="hcit-label-input-radio"/>
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='e48a7bbc-c448-4bab-91c3-3643ff79d6db']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+      </xform:select1>
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-51d5acb1-3570-4df7-9153-5f15b65cc556']" class="hcit-group-input-radio">
+
+      <xform:output ref="instance('FormDataInstance')//question[@id='51d5acb1-3570-4df7-9153-5f15b65cc556']/text" class="hcitQuestionText"/>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='51d5acb1-3570-4df7-9153-5f15b65cc556']/answer" appearance="full" class="hcitAnswerRadio">
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-51d5acb1-3570-4df7-9153-5f15b65cc556')/answer">
+          <xform:label ref="@text" class="hcit-label-input-radio"/>
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="'Incorrect format.'"/>
+        </xform:alert>
+
+      </xform:select1>
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-69f2b3a1-b592-4651-b762-2c7ca351ced0']" class="hcit-group-input-radio">
+      <xform:output ref="instance('FormDataInstance')//question[@id='69f2b3a1-b592-4651-b762-2c7ca351ced0']/text" class="hcitQuestionText"/>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='69f2b3a1-b592-4651-b762-2c7ca351ced0']/answer" appearance="full" class="hcitAnswerRadio">
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-69f2b3a1-b592-4651-b762-2c7ca351ced0')/answer">
+          <xform:label ref="@text" class="hcit-label-input-radio"/>
+          <xform:value ref="."/>
+        </xform:itemset>
+
+        <xform:alert>
+          <xform:output value="'Incorrect format.'"/>
+        </xform:alert>
+      </xform:select1>
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-1b33ffd1-f372-4990-9d88-21b6932feb89']" class="hcit-group-input-radio">
+      <xform:output ref="instance('FormDataInstance')//question[@id='TQ-12099']/text" class="hcitQuestionText"/>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='TQ-12099']/answer" appearance="full" class="hcitAnswerRadio hcitTable">
+        <xform:label class="hcitTableCell hcitFirstTableCell hcitHeaderRow hcitMediumCell">Values</xform:label>
+
+        <xform:label class="hcitTableCell hcitFirstColumn hcitHeaderRow hcitMediumCell">Yes</xform:label>
+        <xform:label class="hcitTableCell hcitHeaderRow hcitMediumCell">No</xform:label>
+        <xform:label class="hcitTableCell hcitRowStart hcitOdd hcitSmallCell">Chocolate - dark</xform:label>
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-1b33ffd1-f372-4990-9d88-21b6932feb89')/answer" class="hcitTableRow hcitOdd hcitSmallCell">
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='TQ-12099']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+      </xform:select1>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='TQ-12125']/answer" appearance="full" class="hcitAnswerRadio hcitTable">
+        <xform:label class="hcitTableCell hcitRowStart hcitEven hcitSmallCell">Vanilla</xform:label>
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-1b33ffd1-f372-4990-9d88-21b6932feb89')/answer" class="hcitTableRow hcitEven hcitSmallCell">
+          <xform:value ref="."/>
+        </xform:itemset>
+
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='TQ-12099']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+      </xform:select1>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='TQ-12126']/answer" appearance="full" class="hcitAnswerRadio hcitTable">
+        <xform:label class="hcitTableCell hcitRowStart hcitOdd hcitSmallCell">Chocolate swirl</xform:label>
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-1b33ffd1-f372-4990-9d88-21b6932feb89')/answer" class="hcitTableRow hcitOdd hcitSmallCell">
+          <xform:value ref="."/>
+
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='TQ-12099']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+      </xform:select1>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='TQ-12127']/answer" appearance="full" class="hcitAnswerRadio hcitTable">
+        <xform:label class="hcitTableCell hcitRowStart hcitEven hcitSmallCell">Peppermint</xform:label>
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-1b33ffd1-f372-4990-9d88-21b6932feb89')/answer" class="hcitTableRow hcitEven hcitSmallCell">
+
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='TQ-12099']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+      </xform:select1>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='TQ-12128']/answer" appearance="full" class="hcitAnswerRadio hcitTable">
+        <xform:label class="hcitTableCell hcitRowStart hcitOdd hcitSmallCell">Rocky road</xform:label>
+
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-1b33ffd1-f372-4990-9d88-21b6932feb89')/answer" class="hcitTableRow hcitOdd hcitSmallCell">
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='TQ-12099']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+      </xform:select1>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='TQ-12129']/answer" appearance="full" class="hcitAnswerRadio hcitTable">
+        <xform:label class="hcitTableCell hcitRowStart hcitEven hcitSmallCell">Fruity flavors</xform:label>
+
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-1b33ffd1-f372-4990-9d88-21b6932feb89')/answer" class="hcitTableRow hcitEven hcitSmallCell">
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='TQ-12099']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+      </xform:select1>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='TQ-12135']/answer" appearance="full" class="hcitAnswerRadio hcitTable">
+        <xform:label class="hcitTableCell hcitRowStart hcitOdd hcitSmallCell">Peanut flavors</xform:label>
+
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-1b33ffd1-f372-4990-9d88-21b6932feb89')/answer" class="hcitTableRow hcitOdd hcitSmallCell">
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='TQ-12099']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+      </xform:select1>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='TQ-12136']/answer" appearance="full" class="hcitAnswerRadio hcitTable">
+        <xform:label class="hcitTableCell hcitRowStart hcitEven hcitSmallCell">Chocolate - light</xform:label>
+
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-1b33ffd1-f372-4990-9d88-21b6932feb89')/answer" class="hcitTableRow hcitEven hcitSmallCell">
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='TQ-12099']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+      </xform:select1>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='TQ-12137']/answer" appearance="full" class="hcitAnswerRadio hcitTable">
+        <xform:label class="hcitTableCell hcitRowStart hcitOdd hcitSmallCell">French vanilla</xform:label>
+
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-1b33ffd1-f372-4990-9d88-21b6932feb89')/answer" class="hcitTableRow hcitOdd hcitSmallCell">
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='TQ-12099']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+      </xform:select1>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='TQ-12138']/answer" appearance="full" class="hcitAnswerRadio hcitTable">
+        <xform:label class="hcitTableCell hcitRowStart hcitEven hcitSmallCell">Chocolate chip</xform:label>
+
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-1b33ffd1-f372-4990-9d88-21b6932feb89')/answer" class="hcitTableRow hcitEven hcitSmallCell">
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='TQ-12099']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+      </xform:select1>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='TQ-12139']/answer" appearance="full" class="hcitAnswerRadio hcitTable">
+        <xform:label class="hcitTableCell hcitRowStart hcitOdd hcitSmallCell">Strawberry</xform:label>
+
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-1b33ffd1-f372-4990-9d88-21b6932feb89')/answer" class="hcitTableRow hcitOdd hcitSmallCell">
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='TQ-12099']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+      </xform:select1>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='TQ-12145']/answer" appearance="full" class="hcitAnswerRadio hcitTable">
+        <xform:label class="hcitTableCell hcitRowStart hcitEven hcitSmallCell">Caramel</xform:label>
+
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-1b33ffd1-f372-4990-9d88-21b6932feb89')/answer" class="hcitTableRow hcitEven hcitSmallCell">
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='TQ-12099']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+      </xform:select1>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='TQ-12146']/answer" appearance="full" class="hcitAnswerRadio hcitTable">
+        <xform:label class="hcitTableCell hcitRowStart hcitOdd hcitSmallCell">Pistachio</xform:label>
+
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-1b33ffd1-f372-4990-9d88-21b6932feb89')/answer" class="hcitTableRow hcitOdd hcitSmallCell">
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='TQ-12099']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+      </xform:select1>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='TQ-12147']/answer" appearance="full" class="hcitAnswerRadio hcitTable">
+        <xform:label class="hcitTableCell hcitRowStart hcitEven hcitMediumCell">Most flavors with nuts</xform:label>
+
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-1b33ffd1-f372-4990-9d88-21b6932feb89')/answer" class="hcitTableRow hcitEven hcitMediumCell">
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='TQ-12099']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+      </xform:select1>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='TQ-12148']/answer" appearance="full" class="hcitAnswerRadio hcitTable">
+        <xform:label class="hcitTableCell hcitRowStart hcitOdd hcitSmallCell">Other Flavors</xform:label>
+
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-1b33ffd1-f372-4990-9d88-21b6932feb89')/answer" class="hcitTableRow hcitOdd hcitSmallCell">
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='TQ-12099']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+      </xform:select1>
+      <xform:group class="hcitEmptyGroup"/>
+    </xform:group>
+
+    <xform:group ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-74A93321-F644-A17B-E040-BB89AD437426']" class="hcit-group-input-radio">
+      <xform:output ref="instance('FormDataInstance')//question[@id='74A93321-F644-A17B-E040-BB89AD437426']/text" class="hcitQuestionText hcitHasLearnMore"/>
+      <xform:trigger appearance="xform:image" class="learnmore">
+        <xform:action ev:event="DOMActivate">
+          <xform:setvalue ref="instance('LearnMoreInstance')//learn-more[@id='Q.LM-74A93321-F644-A17B-E040-BB89AD437426']/@visible" value="if(. = 'true','false','true')"/>
+        </xform:action>
+      </xform:trigger>
+      <xform:group bind="Q.LM-74A93321-F644-A17B-E040-BB89AD437426" class="learnmoretext">
+        <xform:output ref="instance('LearnMoreInstance')//learn-more[@id='Q.LM-74A93321-F644-A17B-E040-BB89AD437426']/@value">
+
+          <xform:label>Person; a human being._Products in capsule, tablet or liquid form that provide essential nutrients, such as a vitamin, an essential mineral, a protein, an herb, or similar nutritional substance. Nutritional supplements do not require FDA approval to be marketed. (NCI)_Use; put into service; make work or employ (something) for a particular purpose or for its inherent or natural purpose._The number of occurrences of something within a given time period. (NCI)_Number</xform:label>
+        </xform:output>
+      </xform:group>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='74A93321-F644-A17B-E040-BB89AD437426']/answer" appearance="full" class="hcitAnswerRadio">
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-74A93321-F644-A17B-E040-BB89AD437426')/answer">
+          <xform:label ref="@text" class="hcit-label-input-radio"/>
+          <xform:value ref="."/>
+        </xform:itemset>
+
+        <xform:alert>
+          <xform:output value="'Incorrect format.'"/>
+        </xform:alert>
+      </xform:select1>
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-635FC5CC-4792-7F36-E040-BB89AD43799A']" class="hcit-group-input-text">
+      <xform:output ref="instance('FormDataInstance')//question[@id='635FC5CC-4792-7F36-E040-BB89AD43799A']/text" class="hcitQuestionText hcitHasLearnMore"/>
+      <xform:trigger appearance="xform:image" class="learnmore">
+        <xform:action ev:event="DOMActivate">
+
+          <xform:setvalue ref="instance('LearnMoreInstance')//learn-more[@id='Q.LM-635FC5CC-4792-7F36-E040-BB89AD43799A']/@visible" value="if(. = 'true','false','true')"/>
+        </xform:action>
+      </xform:trigger>
+      <xform:group bind="Q.LM-635FC5CC-4792-7F36-E040-BB89AD43799A" class="learnmoretext">
+        <xform:output ref="instance('LearnMoreInstance')//learn-more[@id='Q.LM-635FC5CC-4792-7F36-E040-BB89AD43799A']/@value">
+          <xform:label>the date related to the regular course of eating and drinking adopted by a person or animal to begin anew.</xform:label>
+        </xform:output>
+      </xform:group>
+
+      <xform:input bind="Q-635FC5CC-4792-7F36-E040-BB89AD43799A" class="hcitAnswerText">
+        <xform:label class="hcit-label-input-text">Diet Restart Date</xform:label>
+        <xform:alert>
+          <xform:output value="'Incorrect format.'"/>
+        </xform:alert>
+      </xform:input>
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-4059790C-679D-4705-E044-0003BA3F9857']" class="hcit-group-input-radio">
+
+      <xform:output ref="instance('FormDataInstance')//question[@id='4059790C-679D-4705-E044-0003BA3F9857']/text" class="hcitQuestionText hcitHasLearnMore"/>
+      <xform:trigger appearance="xform:image" class="learnmore">
+        <xform:action ev:event="DOMActivate">
+          <xform:setvalue ref="instance('LearnMoreInstance')//learn-more[@id='Q.LM-4059790C-679D-4705-E044-0003BA3F9857']/@visible" value="if(. = 'true','false','true')"/>
+        </xform:action>
+      </xform:trigger>
+      <xform:group bind="Q.LM-4059790C-679D-4705-E044-0003BA3F9857" class="learnmoretext">
+        <xform:output ref="instance('LearnMoreInstance')//learn-more[@id='Q.LM-4059790C-679D-4705-E044-0003BA3F9857']/@value">
+          <xform:label>a scaled index of the social impact of oral disorders which draws on a theoretical heirarchy of  oral health outcomes (Oral Health Impact Profile) for a measure of a person's perceptions of the social impact of oral disorders on their well-being, of a patient's lack of satisfaction in the things a person eats and drinks from dental treatment.</xform:label>
+
+        </xform:output>
+      </xform:group>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='4059790C-679D-4705-E044-0003BA3F9857']/answer" appearance="full" class="hcitAnswerRadio">
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-4059790C-679D-4705-E044-0003BA3F9857')/answer">
+          <xform:label ref="@text" class="hcit-label-input-radio"/>
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="'Incorrect format.'"/>
+
+        </xform:alert>
+      </xform:select1>
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-2D477905-EAEA-2F7A-E044-0003BA3F9857']" class="hcit-group-input-text">
+      <xform:output ref="instance('FormDataInstance')//question[@id='2D477905-EAEA-2F7A-E044-0003BA3F9857']/text" class="hcitQuestionText hcitHasLearnMore"/>
+      <xform:trigger appearance="xform:image" class="learnmore">
+        <xform:action ev:event="DOMActivate">
+          <xform:setvalue ref="instance('LearnMoreInstance')//learn-more[@id='Q.LM-2D477905-EAEA-2F7A-E044-0003BA3F9857']/@visible" value="if(. = 'true','false','true')"/>
+        </xform:action>
+
+      </xform:trigger>
+      <xform:group bind="Q.LM-2D477905-EAEA-2F7A-E044-0003BA3F9857" class="learnmoretext">
+        <xform:output ref="instance('LearnMoreInstance')//learn-more[@id='Q.LM-2D477905-EAEA-2F7A-E044-0003BA3F9857']/@value">
+          <xform:label>Text to describe a diet that is beyond the list of choices captured in a questionnaire.</xform:label>
+        </xform:output>
+      </xform:group>
+      <xform:input bind="Q-2D477905-EAEA-2F7A-E044-0003BA3F9857" class="hcitAnswerText">
+        <xform:label class="hcit-label-input-text">Weight Diet History Questionnaire Descriptive Text</xform:label>
+
+        <xform:alert>
+          <xform:output value="'Incorrect format.'"/>
+        </xform:alert>
+      </xform:input>
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-EF49C2E7-802E-4ACC-E034-0003BA3F9857']" class="hcit-group-input-radio">
+      <xform:output ref="instance('FormDataInstance')//question[@id='EF49C2E7-802E-4ACC-E034-0003BA3F9857']/text" class="hcitQuestionText hcitHasLearnMore"/>
+      <xform:trigger appearance="xform:image" class="learnmore">
+        <xform:action ev:event="DOMActivate">
+
+          <xform:setvalue ref="instance('LearnMoreInstance')//learn-more[@id='Q.LM-EF49C2E7-802E-4ACC-E034-0003BA3F9857']/@visible" value="if(. = 'true','false','true')"/>
+        </xform:action>
+      </xform:trigger>
+      <xform:group bind="Q.LM-EF49C2E7-802E-4ACC-E034-0003BA3F9857" class="learnmoretext">
+        <xform:output ref="instance('LearnMoreInstance')//learn-more[@id='Q.LM-EF49C2E7-802E-4ACC-E034-0003BA3F9857']/@value">
+          <xform:label>an RTOG assessment of the variety and content of the diet of a cancer patient using a scale. (this is an earlier version of the published validated scale by List, Ritter-Sterr and Lansky.)</xform:label>
+        </xform:output>
+      </xform:group>
+
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='EF49C2E7-802E-4ACC-E034-0003BA3F9857']/answer" appearance="full" class="hcitAnswerRadio">
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-EF49C2E7-802E-4ACC-E034-0003BA3F9857')/answer">
+          <xform:label ref="@text" class="hcit-label-input-radio"/>
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="'Incorrect format.'"/>
+        </xform:alert>
+      </xform:select1>
+
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-99BA9DC8-3390-4E69-E034-080020C9C0E0']" class="hcit-group-input-text">
+      <xform:output ref="instance('FormDataInstance')//question[@id='99BA9DC8-3390-4E69-E034-080020C9C0E0']/text" class="hcitQuestionText hcitHasLearnMore"/>
+      <xform:trigger appearance="xform:image" class="learnmore">
+        <xform:action ev:event="DOMActivate">
+          <xform:setvalue ref="instance('LearnMoreInstance')//learn-more[@id='Q.LM-99BA9DC8-3390-4E69-E034-080020C9C0E0']/@visible" value="if(. = 'true','false','true')"/>
+        </xform:action>
+      </xform:trigger>
+      <xform:group bind="Q.LM-99BA9DC8-3390-4E69-E034-080020C9C0E0" class="learnmoretext">
+
+        <xform:output ref="instance('LearnMoreInstance')//learn-more[@id='Q.LM-99BA9DC8-3390-4E69-E034-080020C9C0E0']/@value">
+          <xform:label>The year and month this diet stops. Use last day of month as default day.</xform:label>
+        </xform:output>
+      </xform:group>
+      <xform:input bind="Q-99BA9DC8-3390-4E69-E034-080020C9C0E0" class="hcitAnswerText">
+        <xform:label class="hcit-label-input-text">Special Diet Stop Date</xform:label>
+        <xform:alert>
+          <xform:output value="'Incorrect format.'"/>
+
+        </xform:alert>
+      </xform:input>
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-99BA9DC8-338D-4E69-E034-080020C9C0E0']" class="hcit-group-input-radio">
+      <xform:output ref="instance('FormDataInstance')//question[@id='99BA9DC8-338D-4E69-E034-080020C9C0E0']/text" class="hcitQuestionText hcitHasLearnMore"/>
+      <xform:trigger appearance="xform:image" class="learnmore">
+        <xform:action ev:event="DOMActivate">
+          <xform:setvalue ref="instance('LearnMoreInstance')//learn-more[@id='Q.LM-99BA9DC8-338D-4E69-E034-080020C9C0E0']/@visible" value="if(. = 'true','false','true')"/>
+        </xform:action>
+
+      </xform:trigger>
+      <xform:group bind="Q.LM-99BA9DC8-338D-4E69-E034-080020C9C0E0" class="learnmoretext">
+        <xform:output ref="instance('LearnMoreInstance')//learn-more[@id='Q.LM-99BA9DC8-338D-4E69-E034-080020C9C0E0']/@value">
+          <xform:label>The year and month this diet started. Use first day of month as default.</xform:label>
+        </xform:output>
+      </xform:group>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='99BA9DC8-338D-4E69-E034-080020C9C0E0']/answer" appearance="full" class="hcitAnswerRadio">
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-99BA9DC8-338D-4E69-E034-080020C9C0E0')/answer">
+
+          <xform:label ref="@text" class="hcit-label-input-radio"/>
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="'Incorrect format.'"/>
+        </xform:alert>
+      </xform:select1>
+    </xform:group>
+    <xform:submit submission="SendDataElement">
+
+      <xform:label>Save</xform:label>
+    </xform:submit>
+</body>
+</html>

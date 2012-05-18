@@ -1,0 +1,25 @@
+<!DOCTYPE dataset SYSTEM "formbuilder-dataset.dtd">
+<dataset>
+    <module id="10" 
+   		description="module description"
+   		is_library="false"
+   		status="IN_PROGRESS"
+   		author_user_id="1"
+   		update_date="2011-06-01 10:43"
+        module_type="module"/>	
+            
+    <form id="11"
+    	author_user_id="2"
+    	module_id="10"
+    	name="questionnaire form 1"
+    	ord="1"
+    	status="IN_REVIEW"
+    	update_date="2011-07-01 11:00"
+    	uuid="uuid-form-11"
+    	form_type="questionnaireForm"
+    	locked_by_user_id="1"
+    	last_updated_by_user_id="1"
+    />
+    
+   
+</dataset>

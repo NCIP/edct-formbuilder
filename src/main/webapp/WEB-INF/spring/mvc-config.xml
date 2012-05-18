@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:dwr="http://www.directwebremoting.org/schema/spring-dwr"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+ 		http://www.directwebremoting.org/schema/spring-dwr 
+ 		http://www.directwebremoting.org/schema/spring-dwr-3.0.xsd">
+
+	<context:component-scan base-package="com.healthcit.cacure.web"/>
+
+	<dwr:configuration  >
+		<dwr:convert class="com.healthcit.cacure.model.QuestionnaireForm" type="bean">
+    		<dwr:include method="uuid"/>
+    		<dwr:include method="name"/>
+    	</dwr:convert>
+    	<dwr:convert class="com.healthcit.cacure.model.QuestionLibraryForm" type="bean">
+    		<dwr:include method="uuid"/>
+    		<dwr:include method="name"/>
+    	</dwr:convert>
+    	<dwr:convert class="com.healthcit.cacure.model.FormLibraryForm" type="bean">
+    		<dwr:include method="uuid"/>
+    		<dwr:include method="name"/>
+    	</dwr:convert>
+	</dwr:configuration>
+	
+    <dwr:annotation-config/>
+    <dwr:url-mapping />
+    <dwr:controller id="dwrController" debug="true" />
+
+	<bean name="appVer" class="com.healthcit.cacure.utils.AppVersionResolver">
+		<property name="appVersion"><value>${caCURE.version}</value></property>
+	</bean>
+
+	<!--  this interceptor will keep JPA session open for the duration of request -->
+	<bean id="openEntityManagerInViewInterceptor"
+	    class="org.springframework.orm.jpa.support.OpenEntityManagerInViewInterceptor">
+	    <property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+    <bean id="messageBundleInterceptor"
+		  class="com.healthcit.cacure.web.interceptor.MessageBundleInterceptor"/>
+
+    <bean id="accessibilityInterceptor"
+		  class="com.healthcit.cacure.web.interceptor.ModelAccessibilityInterceptor"/>
+		  
+    <bean id="breadCrumbsSupportInterceptor"
+		  class="com.healthcit.cacure.web.interceptor.BreadCrumbsSupportInterceptor"/>
+		  
+    <bean id="formContextInterceptor"
+		  class="com.healthcit.cacure.web.interceptor.FormContextInterceptor"/>
+
+
+	<bean id="webContentInterceptor"
+		  class="org.springframework.web.servlet.mvc.WebContentInterceptor">
+		  <property name="cacheSeconds" value="0"/>
+	</bean>
+
+
+	<!--  forcing all annotated controllers to use JPA open session -->
+    <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
+    	<property name="interceptors">
+    		<list>
+    			<ref bean="openEntityManagerInViewInterceptor"/>
+    			<ref bean="webContentInterceptor"/>
+    			<ref bean="messageBundleInterceptor"/>
+    			<ref bean="formContextInterceptor"/>
+    			<ref bean="accessibilityInterceptor"/>
+    			<ref bean="breadCrumbsSupportInterceptor"/>
+    		</list>
+    	</property>
+    </bean>
+
+    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+    </bean>
+
+	<!-- The following view resolver is needed is we have a mix of tiles and non-tiles views
+		 the definition file is views.properties and located on a classpath in resources directory (src/main/resources)-->
+   <bean id="viewResolver" class="org.springframework.web.servlet.view.ResourceBundleViewResolver" >
+   	   <property name="basename" value="views"/>
+	   <property name="defaultParentView" value="tilesTemplateView"/>
+	   <property name="order" value="1"/>
+   </bean>
+
+	<!-- Resolves view names to protected .jsp resources within the /WEB-INF/tiles directory -->
+   <!-- bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass"   value="org.springframework.web.servlet.view.JstlView"/>
+		<property name="prefix" value="/WEB-INF/tiles/"/>
+		<property name="suffix" value=".jsp"/>
+	</bean -->
+
+   <!-- bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+        <property name="viewClass"   value="org.springframework.web.servlet.view.tiles.TilesJstlView"/>
+        <property name="order" value="1"/>
+		<property name="prefix" value="/WEB-INF/tiles/"/>
+		<property name="suffix" value=".jsp"/>
+	</bean -->
+
+	<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
+		<property name="definitions" value=" /WEB-INF/tiles-defs.xml"></property>
+	</bean>
+
+	<!-- This controller simply forward to a view based on the URL /main.html->main  -->
+	<bean name="staticViewController" class="org.springframework.web.servlet.mvc.UrlFilenameViewController"/>
+
+	<!--  map URLs to controllers -->
+	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+	    <property name="urlMap">
+	        <map>
+	        	<entry key="*.page" value="staticViewController"/>
+	        	<entry key="/dwr/**" value="dwrController"/>
+	        </map>
+	    </property>
+       	<property name="interceptors">
+    		<list>
+    			<ref bean="openEntityManagerInViewInterceptor"/>
+    			<ref bean="webContentInterceptor"/>
+    		</list>
+    	</property>
+
+	</bean>
+
+	<bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter" />
+
+</beans>

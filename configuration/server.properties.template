@@ -1,0 +1,11 @@
+#
+# http server url. excluding http(s)://
+# values as: www.businesselite.com, dev.businesselite.com
+#
+http.server.url=@url@
+
+#
+# Paypal 
+#
+paypal.url=@paypal.url@
+paypal.business.account=@paypal.business.account@

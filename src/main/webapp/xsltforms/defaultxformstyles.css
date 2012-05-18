@@ -1,0 +1,651 @@
+/*
+
+Copyright (C) 2008-2009 <agenceXML> - Alain COUTHURES
+Contact at : <info@agencexml.com>
+
+Copyright (C) 2006 AJAXForms S.L.
+Contact at: <info@ajaxforms.com>
+
+This library is free software; you can redistribute it and/or
+modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either
+version 2.1 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public
+License along with this library; if not, write to the Free Software
+Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+
+*/
+
+/** Overriding some of the HOW styles in XForms */
+
+#utilDiv {
+	background:url("../images/banner_empty.png") no-repeat scroll 0 0 transparent;
+}
+
+#bannerLinks, #footer #powered  {
+	display : none;
+}
+
+h1 {
+	color: #555252;
+	font: bold 22px Arial Narrow, Arial, Helvetica, sans-serif;
+	/* padding: 0 0 0 20px; */
+	padding: 0;
+	text-align: left;
+	vertical-align: middle;
+	/* text-indent: 15px; */
+	text-indent: 0;
+	background: none;
+	height: 35px;
+	margin: 0;
+	margin-top: 15px;
+}
+
+/** End Overriding HOW styles */
+
+input,
+.xforms-item-label,
+.hcitQuestionText .xforms-value,
+.hcitHasLearnMore .xforms-value,
+.hcitAnswerText  {
+	margin-right: 5px;
+}
+
+input.number {
+	text-align: left;
+}
+
+.aid-button {
+	padding				: 0;
+}
+
+body {
+	font: 12px Myriad,Helvetica,Tahoma,Arial,clean,sans-serif;
+}
+
+
+.calendar, .calendarList {
+	border-top			: 1px solid black;
+	border-right		: 2px solid black;
+	border-bottom		: 2px solid black;
+	border-left			: 1px solid black;
+	padding				: 1px 0px 0px 1px;
+	font-family			: tahoma, verdana, sans-serif;
+	font-size			: 12px;
+	color				: black;
+	background			: #f8f8f8;
+	display				: none;
+	position			: absolute;
+	z-index				: 9;
+}
+
+.calendar .button {
+	text-align			: center;
+	padding				: 1px;
+	border				: 1px solid;
+	border-color		: #fff #000 #000 #fff;
+}
+
+.calendar thead .hover {
+	border				: 2px solid;
+	border-color		: #fff #000 #000 #fff;
+	padding				: 0px;
+	background-color	: #d8e0e4;
+}
+
+.calendar .title, .calendar .title input, .calendar .title select, .calendar tfoot {
+	font-weight			: bold;
+	padding				: 1px;
+	border				: 1px solid #000;
+	color				: #000;
+	text-align			: center;
+	background-color	: #f8f8f8;
+	background-image	: url(titleBackground.png);
+}
+
+.calendar .title input {
+	width				: 4em;
+	-moz-box-sizing		: border-box;
+	box-sizing			: border-box;
+	background			: #f8f8f8;
+}
+
+.date tfoot {
+	display				: none;
+}
+
+.calendar tfoot input {
+	width				: 2em;
+	-moz-box-sizing		: border-box;
+	box-sizing			: border-box;
+	text-align			: center;
+	background			: #f0f0f0;
+}
+
+.calendar .names {
+	background-image	: url(thBackground.png);
+}
+
+.calendar .name {
+	border-bottom		: 1px solid #000;
+	padding				: 2px;
+	text-align			: center;
+}
+
+.calendar .day {
+	width				: 2em;
+	-moz-box-sizing		: border-box;
+	box-sizing			: border-box;
+	text-align			: right;
+	padding				: 2px 4px 2px 2px;
+}
+
+.calendar tbody .hover {
+	padding				: 1px 3px 1px 1px;
+	border				: 1px solid;
+	border-color		: #fff #000 #000 #fff;
+	background-color	: #dddddd;
+}
+
+.calendar .today {
+	font-weight			: bold;
+	color				: #00f;
+}
+
+.calendar .selected {
+	font-weight			: bold;
+	padding				: 2px 2px 0px 2px;
+	border				: 1px solid;
+	border-color		: #000 #fff #fff #000;
+	background			: #cccccc;
+}
+
+.calendar .weekend {
+	color				: #f00;
+}
+
+.calendarList {
+	padding				: 0;
+	margin				: 0;
+	width				: 55px;
+	-moz-box-sizing		: border-box;
+	box-sizing			: border-box;
+}
+
+.calendarList li {
+	list-style-type		: none;
+	text-align			: center;
+	padding				: 1px;
+}
+
+.calendarList li.hover {
+	border				: 1px solid;
+	border-color		: #fff #000 #000 #fff;
+	padding				: 0px;
+	background-color	: #dddddd;
+	width				: 100%;
+}
+
+
+#console {
+	font-size			: 0.8em;
+	color				: #888888;
+	border-top			: thin solid #888888;
+	display: none;
+}
+
+
+div.ajx-dialog {
+	display				: none;
+	position			: absolute;
+	width				: 400px;
+	height				: 300px;
+	background-color	: white;
+	border-top			: 1px solid black;
+	border-left			: 1px solid black;
+	border-bottom		: 3px solid black;
+	border-right		: 3px solid black;
+	padding				: 10px;
+	z-index				: 10;
+	-moz-box-sizing		: border-box;
+	box-sizing			: border-box;
+}
+
+
+.xforms-disabled, span.xforms-control.xforms-appearance-minimal.xforms-disabled {
+	display				: none !important;
+}
+
+
+span.xforms-required-icon, span.xforms-alert, span.xforms-help, span.xforms-hint {
+	vertical-align		: top;
+}
+
+
+
+.xforms-required .xforms-required-icon {
+    display				: inline;
+    margin-left			: 3px;
+}
+
+.xforms-required-icon {
+    display				: none;
+    color				: red;
+}
+
+div.xforms-help-value, div.xforms-alert-value, div.xforms-hint-value {
+	display				: none;
+	background-color	: #ffffee;
+	position			: absolute;
+	border				: black 1px solid;
+	width				: 400px;
+	margin-top			: 16px;
+	margin-left			: -16px;
+	padding				: 5px;
+	-moz-box-sizing		: border-box;
+	box-sizing			: border-box;
+}
+
+div.xforms-hint-value {
+	padding             : 25px;
+}
+
+span.xforms-alert {
+	display				: none;
+}
+
+.xforms-invalid span.xforms-alert {
+	display				: inline;
+}
+
+div.xforms-alert-value {
+	background-color	: #ffeeee;
+}
+
+div.xforms-alert-value span.xforms-alert-icon {
+	display: none;
+}
+
+span.xforms-alert-icon, span.xforms-help-icon, span.xforms-hint-icon {
+	cursor				: help;
+	padding-left		: 16px;
+	padding-bottom		: 1px;
+	width				: 16px;
+	-moz-box-sizing		: border-box;
+	box-sizing			: border-box;
+}
+
+span.xforms-alert-icon {
+	background-image	: url(icon_error.gif);
+	background-repeat : no-repeat;
+	/*display: none;*/
+}
+
+span.xforms-help-icon {
+	background-image	: url(icon_help.gif);
+	background-repeat : no-repeat;
+}
+
+span.xforms-hint-icon {
+	background-image	: url(icon_hint.gif);
+	background-repeat : no-repeat;
+}
+
+
+span.xforms-message {
+	display				: none;
+}
+
+
+.xforms-readonly input, .xforms-readonly textarea, .xforms-readonly select, .xforms-readonly option {
+	background-color	: #f8f8f8;
+	color				: #333333;
+}
+
+
+div#statusPanel {
+	display				: none;
+	position			: absolute;
+	width				: 300px;
+	height				: 120px;
+	padding-top			: 40px;
+	text-align			: center;
+	background-color	: #eeeeee;
+	opacity				: 0.85;
+	filter				: alpha(opacity=85);
+	border				: 1px solid black;
+	font				: bold 20px Arial, Verdana;
+	z-index				: 11;
+	-moz-box-sizing		: border-box;
+	box-sizing			: border-box;
+}
+
+
+.xforms-trigger a, .xforms-trigger a:link, .xforms-trigger a:hover, .xforms-trigger a:visited {
+	text-decoration				: none;
+	color 													: #000000;
+}
+
+.xforms-item {
+	overflow: auto;
+}
+
+.hcit-vertical-align .xforms-item{
+	display:block;
+}
+
+.hcit-horizontal-align .xforms-item{
+	display: inline;
+}
+
+/* Answer length types */
+/* Text */
+.hcit-field-width-short-text input, td.hcit-field-width-short-text, th.hcit-field-width-short-text {
+	width: 10em;
+}
+.hcit-field-width-medium-text input, td.hcit-field-width-medium-text, th.hcit-field-width-medium-text {
+	width: 20em;
+}
+.hcit-field-width-long-text input, .hcit-field-width-long-text, th.hcit-field-width-long-text {
+	width: 40em;
+}
+/* Number */
+.hcit-field-width-short-number input, td.hcit-field-width-short-number, th.hcit-field-width-short-number {
+	width: 1em;
+}
+.hcit-field-width-medium-number input, td.hcit-field-width-medium-number, th.hcit-field-width-medium-number {
+	width: 3em;
+}
+.hcit-field-width-long-number input, td.hcit-field-width-long-number, th.hcit-field-width-long-number {
+	width: 6em;
+}
+/* Year */
+.hcit-field-width-short-year input, td.hcit-field-width-short-year, th.hcit-field-width-short-year {
+	width: 2em;
+}
+.hcit-field-width-medium-year input, td.hcit-field-width-medium-year, th.hcit-field-width-medium-year {
+	width: 3em;
+}
+.hcit-field-width-long-year input, td.hcit-field-width-long-year, th.hcit-field-width-long-year {
+	width: 5em;
+}
+/* Month Year */
+.hcit-field-width-short-monthyear input, td.hcit-field-width-short-monthyear, th.hcit-field-width-short-monthyear {
+	width: 4em;
+}
+.hcit-field-width-medium-monthyear input, td.hcit-field-width-medium-monthyear, th.hcit-field-width-medium-monthyear {
+	width: 6em;
+}
+.hcit-field-width-long-monthyear input, td.hcit-field-width-long-monthyear, th.hcit-field-width-long-monthyear {
+	width: 11em;
+}
+/* Text Area */
+.hcit-field-width-short-textarea textarea, td.hcit-field-width-short-textarea, th.hcit-field-width-short-textarea {
+	width: 20em;
+}
+.hcit-field-width-medium-textarea textarea, td.hcit-field-width-medium-textarea, th.hcit-field-width-medium-textarea {
+	width: 40em;
+}
+.hcit-field-width-long-textarea textarea, td.hcit-field-width-long-textarea, th.hcit-field-width-long-textarea {
+	width: 60em;
+}
+
+.hcit-vertical-align .hcit-label-input-checkbox {
+	width: 97%; 
+	float:right;
+}
+.hcit-vertical-align .hcit-label-input-radio {
+	width: 97%;
+	float:right;
+}
+
+.hcit-group-input-text .xforms-group-content{
+	
+}
+.hcit-group-input-checkbox .xforms-group-content{
+	
+}
+.hcit-group-input-radio .xforms-group-content{
+	
+}
+.hcit-group-input-dropdown .xforms-group-content{
+	
+}
+
+.hcit-group-input-dropdown select{
+	
+}
+
+.hcit-form-title{
+	color:#555252;
+	display:block;
+	font-size:180%;
+	font-weight:bold;
+	margin-bottom:15px;
+	margin-left:35px;
+}
+
+.xforms-group {
+	/*padding: 10px;*/
+	margin-bottom: 10px;
+	overflow: auto;
+}
+
+.xforms-group, .xforms-submit, #title {
+	width: 800px;
+	clear: left;
+}
+
+div.hcitEmptyGroup.xforms-group, div.hcitEmptyGroup.xforms-group * {
+	padding-left: 0;
+	background: none;
+	border: none;
+}
+
+.xforms-submit {
+	display: block;
+	padding-top: 20px;
+}
+
+.hcitQuestionText .xforms-value {
+	font-weight: bold;
+	/*padding-top: 20px;*/
+	/* display: block; */
+}
+
+.hcitHasLearnMore .xforms-value {
+	width: 100%;
+}
+
+.hcitAnswerText {
+	display: block;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.hcitQuestionText {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.hcitContentText {
+	/*background: #FAF2F3;*/
+	/*border: 3px solid #E1E1E1;*/
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	padding-left: 5px;
+}
+
+.hcitTable .value, span.hcitTable {
+	display: block;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.hcitTableCell, .hcitTable .value .xforms-item  {
+	float: left;
+	width: 80px;
+	overflow: hidden;
+}
+
+.hcitTableRow{
+	display: block;
+}
+
+.hcitFirstTableCell {
+	width: 120px;
+	color: #F1F1F1;
+	height: 30px;
+}
+
+.hcitHeaderRow {
+	background: #F0F0F0;
+	font-style: italic;
+	border-bottom: 1px solid gray;
+	border-top:  1px solid gray;
+}
+
+.hcitRowStart, .hcitClearLeftFloat {
+	clear: left;
+}
+
+.hcitRowStart {
+	width: 120px;
+	height: 30px;
+	overflow: hidden;
+}
+
+.hcitRowStart.hcitSmallCell, .hcitSmallCell .xforms-item {
+	height: 30px;
+}
+
+.hcitRowStart.hcitMediumCell, .hcitMediumCell .xforms-item {
+	height: 90px;
+}
+
+.hcitRowStart.hcitLargeCell, .hcitLargeCell .xforms-item {
+	height: auto;
+}
+
+.hcitHeaderRow.hcitSmallCell {
+	height: 40px;
+}
+
+.hcitHeaderRow.hcitMediumCell {
+	height: 40px;
+}
+
+.hcitHeaderRow.hcitLargeCell {
+	height: 90px;
+}
+
+.hcitOdd, .hcitOdd *{
+	background: #F8F8F8;
+}
+
+.hcitEven, .hcitEven *{
+	background: #F1F1F1;
+}
+
+#xfContentDiv {
+	background:url("../images/07.jpg") repeat-y scroll left top transparent;
+	width:870px;
+	padding-right: 15px;
+	padding-left: 35px;
+	margin-top: -60px;
+}
+
+#xfContentDiv #title h1 {
+	margin-top: 0;
+}
+
+#xfFooter #footer{
+background-image:url("../images/footer.png");
+background-position:center center;
+background-repeat:no-repeat;
+border:medium none;
+height:50px;
+width:884px;
+}
+
+#xfContentDiv p {
+	margin-bottom: 0;
+}
+
+div.hcitContent div.xforms-group-content{
+	background: #E1E1E1;
+	padding: 3px;
+	border: 1px solid #CFCACA;
+}
+
+.learnmore button {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent url("../xsltforms/icon_help.gif") no-repeat center top;
+  text-indent: -1000em;
+  cursor: pointer; /* hand-shaped cursor */
+  cursor: hand; /* for IE 5.x */
+  display: inline;
+}
+
+.learnmore-flyover button {
+  display: none;
+}
+
+.xforms-required.hcitFirstItemSet .xforms-required-icon{
+	display: inline;
+}
+
+.hcitTable .xforms-required-icon {
+	display: none;
+}
+
+.xforms-group.learnmoretext {
+	overflow: auto;
+	/*height: 30px;*/
+	padding-left : 5px;
+	background: #F7F7A8;
+	font-size: 11px;
+	border: 1px solid #F29A41;
+	font-family: Times;
+}
+
+.hcit-save-button button
+{
+	
+}
+
+.hcit-save-for-later-button button
+{
+	
+}
+
+.errorsClass {
+	color: #E31931;
+	background-color: #F7B4AB;
+	padding: 5px;
+	font-weight: bold;
+	display: block;
+}
+
+.hcitRequiredQuestionText {
+	background-image:url(../images/required-field.png);
+	background-position:right 3px;
+	background-repeat:no-repeat;
+	margin-right: 3px;
+	padding-right:10px;
+}
+

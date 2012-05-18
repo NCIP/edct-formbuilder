@@ -1,0 +1,1 @@
+alter table question add column is_identifying boolean;

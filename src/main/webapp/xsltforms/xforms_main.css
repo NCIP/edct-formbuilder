@@ -1,0 +1,10 @@
+/*************************************************\
+	xforms_main.css
+	Imports other sylesheets.
+	Make custom style changes in custom_stlyes.css
+\*************************************************/
+
+
+@import "xsltforms.css";
+@import "hcit_styles.css";
+@import "custom_styles.css";

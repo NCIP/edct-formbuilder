@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.healthcit.com/FormDataModel" elementFormDefault="qualified"
+	xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://www.healthcit.com/FormDataModel">
+
+    <complexType name="QuestionElement" abstract="true">
+    	<sequence>
+    		<element name="text" type="tns:Text" minOccurs="1" maxOccurs="1"></element>
+    	</sequence>
+    	<attribute name="sn" type="Name"></attribute>
+    	<attribute name="type" type="tns:QuestionType"></attribute>
+    	<attribute name="id" type="ID"></attribute>
+    </complexType>
+
+    <simpleType name="QuestionType">
+		<restriction base="string">
+      		<enumeration value="singleValue"/>
+      		<enumeration value="multiValue"/>
+    	</restriction>
+    </simpleType>
+
+    <complexType name="Answer">
+    	<simpleContent>
+    		<extension base="anySimpleType">
+    			<attribute name="sn" type="Name"></attribute>
+    			<attribute name="type" type="QName"></attribute>
+    			<attribute name="text" type="string"></attribute>
+    			<attribute name="id" type="ID" use="optional">
+    				<annotation>
+    					<documentation>id attribute is used for reference inside XForms only</documentation>
+    				</annotation></attribute>
+    		</extension>
+    	</simpleContent>
+
+    </complexType>
+
+
+
+    <element name="form" type="tns:Form"></element>
+
+    <complexType name="Question">
+    	<complexContent>
+    		<extension base="tns:QuestionElement">
+    			<sequence>
+    				<element name="answer" type="tns:Answer"
+    					minOccurs="1" maxOccurs="unbounded">
+    				</element>
+
+
+    			</sequence>
+    		</extension>
+    	</complexContent>
+    </complexType>
+
+    <complexType name="QuestionTable">
+    	<complexContent>
+    		<extension base="tns:QuestionElement">
+    			<sequence>
+    				<element name="question" type="tns:Question" minOccurs="1" maxOccurs="unbounded"></element>
+    			</sequence>
+    		</extension>
+    	</complexContent>
+    </complexType>
+
+    <complexType name="Form">
+    	<annotation>
+    		<documentation>root element</documentation>
+    	</annotation>
+   		<sequence minOccurs="1" maxOccurs="1">
+	    	<choice minOccurs="1" maxOccurs="unbounded">
+	    		<element name="question" type="tns:Question"></element>
+	    		<element name="question-table" type="tns:QuestionTable"></element>
+	    	</choice>
+    		<element name="text" type="tns:Text" minOccurs="0" maxOccurs="1"></element>
+
+   		</sequence>
+
+    	<attribute name="id" type="ID"></attribute>
+    	<attribute name="name" type="Name"></attribute>
+    </complexType>
+
+    <simpleType name="Text">
+    	<restriction base="string"></restriction>
+    </simpleType>
+</schema>

@@ -1,0 +1,7 @@
+
+Since we dont have a registration form use one of those passwords:
+
+koala = a564de63c2d0da68cf47586ee05984d7
+emu = 65d15fe9156f9c4bbffd98085992a44e
+wombat = 2b58af6dddbd072ed27ffc86725d7d3a
+opal = 22b5c9accc6e1ba628cedc63a72d57f8

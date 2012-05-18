@@ -1,0 +1,194 @@
+<!ELEMENT dataset (
+   (answer|
+    answer_skip_rule|
+    answer_value|
+    category|
+    form|
+    form_element|
+    module|
+    question|
+    question_categries|
+    question_orig|
+    question_skip_rule|
+    roles|
+    rpt_users|
+    skip_rule|
+    user_roles)*)>
+
+<!ELEMENT answer EMPTY>
+<!ATTLIST answer
+    id CDATA #REQUIRED
+    type CDATA #REQUIRED
+    description CDATA #IMPLIED
+    group_name CDATA #IMPLIED
+    question_id CDATA #REQUIRED
+    ord CDATA #IMPLIED
+    answer_column_heading CDATA #IMPLIED
+    display_style CDATA #IMPLIED
+    value_constraint CDATA #IMPLIED
+    uuid CDATA #IMPLIED
+>
+
+<!ELEMENT answer_skip_rule EMPTY>
+<!ATTLIST answer_skip_rule
+    id CDATA #REQUIRED
+    parent_id CDATA #REQUIRED
+    answer_value_id CDATA #REQUIRED
+    dtype CDATA #IMPLIED
+    form_uuid CDATA #IMPLIED
+    question_uuid CDATA #IMPLIED
+    form_id CDATA #IMPLIED
+>
+
+<!ELEMENT answer_value EMPTY>
+<!ATTLIST answer_value
+    id CDATA #REQUIRED
+    short_name CDATA #REQUIRED
+    value CDATA #REQUIRED
+    answer_id CDATA #REQUIRED
+    description CDATA #IMPLIED
+    ord CDATA #REQUIRED
+    permanent_id CDATA #REQUIRED
+    cadsr_public_id CDATA #IMPLIED
+    external_id CDATA #IMPLIED
+>
+
+<!ELEMENT category EMPTY>
+<!ATTLIST category
+    id CDATA #REQUIRED
+    name CDATA #REQUIRED
+    description CDATA #IMPLIED
+>
+
+<!ELEMENT form EMPTY>
+<!ATTLIST form
+    id CDATA #REQUIRED
+    sequence CDATA #IMPLIED
+    location CDATA #IMPLIED
+    system_id CDATA #IMPLIED
+    version CDATA #IMPLIED
+    type CDATA #IMPLIED
+    name CDATA #REQUIRED
+    module_id CDATA #REQUIRED
+    ord CDATA #REQUIRED
+    status CDATA #REQUIRED
+    update_date CDATA #REQUIRED
+    author_user_id CDATA #REQUIRED
+    uuid CDATA #REQUIRED
+    locked_by_user_id CDATA #IMPLIED
+    last_updated_by_user_id CDATA #IMPLIED
+    form_type CDATA #IMPLIED
+>
+
+<!ELEMENT form_element EMPTY>
+<!ATTLIST form_element
+    id CDATA #REQUIRED
+    description CDATA #IMPLIED
+    form_id CDATA #IMPLIED
+    ord CDATA #IMPLIED
+    learn_more CDATA #IMPLIED
+    is_required CDATA #IMPLIED
+    uuid CDATA #IMPLIED
+    link_id CDATA #IMPLIED
+    link_source CDATA #IMPLIED
+    is_visible CDATA #IMPLIED
+    element_type CDATA #IMPLIED
+    has_been_modified CDATA #IMPLIED
+    answer_type CDATA #IMPLIED
+    external_id CDATA #IMPLIED
+    external_uuid CDATA #IMPLIED
+    table_type CDATA #IMPLIED
+>
+
+<!ELEMENT module EMPTY>
+<!ATTLIST module
+    id CDATA #REQUIRED
+    description CDATA #IMPLIED
+    release_date CDATA #IMPLIED
+    comments CDATA #IMPLIED
+    update_date CDATA #REQUIRED
+    author_user_id CDATA #REQUIRED
+    status CDATA #REQUIRED
+    is_library CDATA #IMPLIED
+    module_type CDATA #IMPLIED
+    completiontime CDATA #IMPLIED
+>
+
+<!ELEMENT question EMPTY>
+<!ATTLIST question
+    id CDATA #REQUIRED
+    uuid CDATA #REQUIRED
+    short_name CDATA #IMPLIED
+    parent_id CDATA #REQUIRED
+    ord CDATA #IMPLIED
+    description CDATA #IMPLIED
+    question_type CDATA #IMPLIED
+    type CDATA #IMPLIED
+    is_identifying CDATA #IMPLIED
+>
+
+<!ELEMENT question_categries EMPTY>
+<!ATTLIST question_categries
+    category_id CDATA #REQUIRED
+    question_id CDATA #REQUIRED
+>
+
+<!ELEMENT question_orig EMPTY>
+<!ATTLIST question_orig
+    id CDATA #REQUIRED
+    type CDATA #REQUIRED
+    description CDATA #REQUIRED
+    form_id CDATA #REQUIRED
+    short_name CDATA #IMPLIED
+    ord CDATA #REQUIRED
+    learn_more CDATA #IMPLIED
+    is_required CDATA #IMPLIED
+    uuid CDATA #REQUIRED
+    link_id CDATA #IMPLIED
+    link_source CDATA #IMPLIED
+    cadsr_public_id CDATA #IMPLIED
+    is_visible CDATA #REQUIRED
+    table_id CDATA #IMPLIED
+    question_type CDATA #IMPLIED
+    parent_id CDATA #IMPLIED
+    parent_type CDATA #IMPLIED
+>
+
+<!ELEMENT question_skip_rule EMPTY>
+<!ATTLIST question_skip_rule
+    id CDATA #REQUIRED
+    parent_id CDATA #REQUIRED
+    rule_value CDATA #REQUIRED
+    logical_op CDATA #IMPLIED
+    identifying_answer_value_id CDATA #IMPLIED
+>
+
+<!ELEMENT roles EMPTY>
+<!ATTLIST roles
+    id CDATA #REQUIRED
+    name CDATA #IMPLIED
+>
+
+<!ELEMENT rpt_users EMPTY>
+<!ATTLIST rpt_users
+    id CDATA #REQUIRED
+    username CDATA #IMPLIED
+    password CDATA #IMPLIED
+    created_date CDATA #IMPLIED
+    email_addr CDATA #IMPLIED
+>
+
+<!ELEMENT skip_rule EMPTY>
+<!ATTLIST skip_rule
+    id CDATA #REQUIRED
+    parent_id CDATA #REQUIRED
+    logical_op CDATA #IMPLIED
+    parent_type CDATA #IMPLIED
+>
+
+<!ELEMENT user_roles EMPTY>
+<!ATTLIST user_roles
+    user_id CDATA #REQUIRED
+    role_id CDATA #REQUIRED
+>
+

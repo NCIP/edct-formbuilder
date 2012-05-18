@@ -1,0 +1,1307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="/FormBuilder/xsltforms/xsltforms.xsl" type="text/xsl"?>
+    <!--  DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"  -->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:xform="http://www.w3.org/2002/xforms"
+      xmlns:ev="http://www.w3.org/2001/xml-events"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:ajx="http://www.ajaxforms.net/2006/ajx">
+
+<head>
+	<title>Main Page</title>
+	<xform:model>
+      <xform:instance id="FormDataInstance">
+        <form xmlns="" name="About Me" id="0a8f0127-c0d3-3270-ace9-c4ec1927d70b">
+
+          <question id="9f683d2d-8a48-356b-b865-b208b3528799" sn="age">
+            <text>Please specify your date of birth:</text>
+            <answer id="61924"/>
+          </question>
+          <question id="91169633-fdb4-4219-b172-b3a6375c5733" sn="sex">
+            <text>Please specify your sex:</text>
+            <answer id="10577"/>
+          </question>
+
+          <question id="74a4a6cd-384b-424a-aaf7-70b9debbee90" sn="Height Feet">
+            <text>Select your height in feet:</text>
+            <answer id="18246"/>
+          </question>
+          <question id="6871f557-6645-4630-b7e1-3f80e36c1cbf" sn="Height Inches">
+            <text>Select your height in inches:</text>
+            <answer id="18247"/>
+          </question>
+
+          <question id="19f6b6b2-b5f2-451c-bb4d-1096315b6f77" sn="know weight">
+            <text>Do you know your current weight (in pounds)?</text>
+            <answer id="23245"/>
+          </question>
+          <question id="e75aded7-c190-4818-8409-37d4ae07e11f" sn="weight ">
+            <text>Please specify a weight between 80 and 500 pounds. Please enter whole numbers only and round up to the next highest number if necessary.</text>
+            <answer id="18248"/>
+          </question>
+
+          <question id="12a53b6d-f04d-3eb6-873b-1a0a3585250b" sn="Highest Level of Education">
+            <text>Check the box that best describes your highest level of completed schooling: </text>
+            <answer id="76453"/>
+          </question>
+          <question id="99055104-41d8-36b0-942a-ed9a7e752661" sn="Occupation">
+            <text>Please select from the list below the field that best represents what you currently do for a living.</text>
+            <answer id="76451"/>
+          </question>
+
+          <question id="93d4b8a0-2610-37ba-813c-3c4095236f74" sn="Occupation Other Specify">
+            <text/>
+            <answer id="76454"/>
+          </question>
+          <question id="70207852-c15a-3c4b-a67a-c6729eebb75f" sn="Occupation 5 years ago">
+            <text>Please select from the list below the field that best represents what you did for a living 5 years ago. </text>
+            <answer id="75300"/>
+          </question>
+
+          <question id="6bc33dd5-7eca-3dc1-ab6d-55b4f48798be" sn="Occupation 5 years Other Specify">
+            <text/>
+            <answer id="75111"/>
+          </question>
+          <question id="8b1d3918-4904-3978-8d76-3d4bd7fa25b7" sn="Occupation 10 years ago">
+            <text>Please select from the list below the field that best represents what you did for a living 10  years ago. </text>
+            <answer id="75301"/>
+          </question>
+
+          <question id="dcfb701b-9358-3c40-969f-9c1239524c85" sn="Occupation 10 years Other Specify">
+            <text/>
+            <answer id="75112"/>
+          </question>
+          <question-table id="8bf7b14a-2d2d-3f3a-a3c1-b2cc1c2dd49d" sn="ethnicity">
+            <question id="TQ-72467" sn="White European American">
+              <text>White/Caucasian</text>
+              <answer id="72467"/>
+
+            </question>
+            <question id="TQ-72468" sn="Black African American">
+              <text>Black/African American</text>
+              <answer id="72468"/>
+            </question>
+            <question id="TQ-72470" sn="American Indian Alaska Native">
+              <text>American Indian or Alaska Native</text>
+              <answer id="72470"/>
+
+            </question>
+            <question id="TQ-72475" sn="Asian East Indian">
+              <text>Asian/East Indian</text>
+              <answer id="72475"/>
+            </question>
+            <question id="TQ-72476" sn="Chinese">
+              <text>Chinese</text>
+              <answer id="72476"/>
+
+            </question>
+            <question id="TQ-72477" sn="Filipina Filipino">
+              <text>Filipino</text>
+              <answer id="72477"/>
+            </question>
+            <question id="TQ-72478" sn="Japanese">
+              <text>Japanese</text>
+              <answer id="72478"/>
+
+            </question>
+            <question id="TQ-72479" sn="Korean">
+              <text>Korean</text>
+              <answer id="72479"/>
+            </question>
+            <question id="TQ-72480" sn="Vietnamese">
+              <text>Vietnamese</text>
+              <answer id="72480"/>
+
+            </question>
+            <question id="TQ-72481" sn="Other Asian">
+              <text>Other Asian</text>
+              <answer id="72481"/>
+            </question>
+            <question id="TQ-72482" sn="Native Hawaiin Other Pacific Islander">
+              <text>Native Hawaiian</text>
+              <answer id="72482"/>
+
+            </question>
+            <question id="TQ-72483" sn="Guamanian or Chamorro">
+              <text>Guamanian or Chamorro</text>
+              <answer id="72483"/>
+            </question>
+            <question id="TQ-72484" sn="Samoan">
+              <text>Samoan</text>
+              <answer id="72484"/>
+
+            </question>
+            <question id="TQ-72485" sn="Other Pacific Islander">
+              <text>Other Pacific Islander</text>
+              <answer id="72485"/>
+            </question>
+            <question id="TQ-72486" sn="Other Race">
+              <text>Other Race</text>
+              <answer id="72486"/>
+
+            </question>
+            <question id="TQ-72487" sn="Id rather not say">
+              <text>I'd rather not say</text>
+              <answer id="72487"/>
+            </question>
+          </question-table>
+          <question id="73010d7e-e6d6-31aa-8879-7f85870b0574" sn="Other Asian Specify">
+            <text/>
+
+            <answer id="57863"/>
+          </question>
+          <question id="66f6e29b-a979-3265-a6e2-509742d0a0d6" sn="Other Pacific Islander specify">
+            <text/>
+            <answer id="69281"/>
+          </question>
+          <question id="c6ddc742-94e3-32bb-9ffa-ff633c20de60" sn="Other Race Specify">
+            <text/>
+            <answer id="69282"/>
+
+          </question>
+          <question id="a03e756d-1a15-3b35-b672-e2a71e7edf5a" sn="Spanish Hispanic or Latino">
+            <text>Are you Spanish/Hispanic/Latino?</text>
+            <answer id="69283"/>
+          </question>
+          <question id="86374ce9-61cb-4b9d-89da-88298ced1f3f" sn="r5t3">
+            <text>Are you Italian?</text>
+            <answer id="24200"/>
+
+          </question>
+        </form>
+      </xform:instance>
+      <xform:instance id="PureContentInstance">
+        <data xmlns="">
+          <pure-content id="Q.CONTENT-00be76c7-efb5-4359-a8b5-8a831c7055d3"/>
+        </data>
+      </xform:instance>
+      <xform:instance id="DataGroupInstance">
+
+        <data xmlns="">
+          <data-group id="Q.GRP-9f683d2d-8a48-356b-b865-b208b3528799" visible="true()"/>
+          <data-group id="Q.GRP-91169633-fdb4-4219-b172-b3a6375c5733" visible="true()"/>
+          <data-group id="Q.GRP-00be76c7-efb5-4359-a8b5-8a831c7055d3" visible="true()"/>
+          <data-group id="Q.GRP-74a4a6cd-384b-424a-aaf7-70b9debbee90" visible="true()"/>
+          <data-group id="Q.GRP-6871f557-6645-4630-b7e1-3f80e36c1cbf" visible="true()"/>
+          <data-group id="Q.GRP-19f6b6b2-b5f2-451c-bb4d-1096315b6f77" visible="true()"/>
+          <data-group id="Q.GRP-e75aded7-c190-4818-8409-37d4ae07e11f" visible="contains(instance('FormDataInstance')//question[@id='19f6b6b2-b5f2-451c-bb4d-1096315b6f77']/answer, '2')"/>
+          <data-group id="Q.GRP-12a53b6d-f04d-3eb6-873b-1a0a3585250b" visible="true()"/>
+
+          <data-group id="Q.GRP-99055104-41d8-36b0-942a-ed9a7e752661" visible="true()"/>
+          <data-group id="Q.GRP-93d4b8a0-2610-37ba-813c-3c4095236f74" visible="contains(instance('FormDataInstance')//question[@id='99055104-41d8-36b0-942a-ed9a7e752661']/answer, '27')"/>
+          <data-group id="Q.GRP-70207852-c15a-3c4b-a67a-c6729eebb75f" visible="true()"/>
+          <data-group id="Q.GRP-6bc33dd5-7eca-3dc1-ab6d-55b4f48798be" visible="contains(instance('FormDataInstance')//question[@id='70207852-c15a-3c4b-a67a-c6729eebb75f']/answer, '27')"/>
+          <data-group id="Q.GRP-8b1d3918-4904-3978-8d76-3d4bd7fa25b7" visible="true()"/>
+          <data-group id="Q.GRP-dcfb701b-9358-3c40-969f-9c1239524c85" visible="contains(instance('FormDataInstance')//question[@id='8b1d3918-4904-3978-8d76-3d4bd7fa25b7']/answer, '27')"/>
+          <data-group id="Q.GRP-8bf7b14a-2d2d-3f3a-a3c1-b2cc1c2dd49d" visible="true()"/>
+          <data-group id="Q.GRP-73010d7e-e6d6-31aa-8879-7f85870b0574" visible="contains(instance('FormDataInstance')//question[@id='TQ-72481']/answer, '2')"/>
+          <data-group id="Q.GRP-66f6e29b-a979-3265-a6e2-509742d0a0d6" visible="contains(instance('FormDataInstance')//question[@id='TQ-72485']/answer, '2')"/>
+
+          <data-group id="Q.GRP-c6ddc742-94e3-32bb-9ffa-ff633c20de60" visible="contains(instance('FormDataInstance')//question[@id='TQ-72486']/answer, '2')"/>
+          <data-group id="Q.GRP-a03e756d-1a15-3b35-b672-e2a71e7edf5a" visible="true()"/>
+          <data-group id="Q.GRP-86374ce9-61cb-4b9d-89da-88298ced1f3f" visible="(contains(instance('FormDataInstance')//question[@id='a03e756d-1a15-3b35-b672-e2a71e7edf5a']/answer, '3') or contains(instance('FormDataInstance')//question[@id='a03e756d-1a15-3b35-b672-e2a71e7edf5a']/answer, '4') or contains(instance('FormDataInstance')//question[@id='a03e756d-1a15-3b35-b672-e2a71e7edf5a']/answer, '5'))"/>
+        </data>
+      </xform:instance>
+      <xform:instance id="CrossFormSkipInstance">
+        <data xmlns=""/>
+      </xform:instance>
+      <xform:instance id="URLInstance">
+
+        <data xmlns="">
+          <base-url>xform.view</base-url>
+          <full-url>xform.view</full-url>
+        </data>
+      </xform:instance>
+      <xform:instance id="ContextSpecificErrorsInstance">
+        <data xmlns="">
+          <error id="ERR-9f683d2d-8a48-356b-b865-b208b3528799">An answer is required for this question.</error>
+
+          <error id="ERR-91169633-fdb4-4219-b172-b3a6375c5733">An answer is required for this question.</error>
+          <error id="ERR-74a4a6cd-384b-424a-aaf7-70b9debbee90">An answer is required for this question.</error>
+          <error id="ERR-6871f557-6645-4630-b7e1-3f80e36c1cbf">An answer is required for this question.</error>
+          <error id="ERR-19f6b6b2-b5f2-451c-bb4d-1096315b6f77">An answer is required for this question.</error>
+          <error id="ERR-e75aded7-c190-4818-8409-37d4ae07e11f">An answer is required for this question.</error>
+          <error id="ERR-12a53b6d-f04d-3eb6-873b-1a0a3585250b">An answer is required for this question.</error>
+
+          <error id="ERR-99055104-41d8-36b0-942a-ed9a7e752661">An answer is required for this question.</error>
+          <error id="ERR-93d4b8a0-2610-37ba-813c-3c4095236f74">An answer is required for this question.</error>
+          <error id="ERR-70207852-c15a-3c4b-a67a-c6729eebb75f">An answer is required for this question.</error>
+          <error id="ERR-6bc33dd5-7eca-3dc1-ab6d-55b4f48798be">An answer is required for this question.</error>
+          <error id="ERR-8b1d3918-4904-3978-8d76-3d4bd7fa25b7">An answer is required for this question.</error>
+          <error id="ERR-dcfb701b-9358-3c40-969f-9c1239524c85">An answer is required for this question.</error>
+
+          <error id="ERR-8bf7b14a-2d2d-3f3a-a3c1-b2cc1c2dd49d">An answer is required for this question.</error>
+          <error id="ERR-73010d7e-e6d6-31aa-8879-7f85870b0574">An answer is required for this question.</error>
+          <error id="ERR-66f6e29b-a979-3265-a6e2-509742d0a0d6">An answer is required for this question.</error>
+          <error id="ERR-c6ddc742-94e3-32bb-9ffa-ff633c20de60">An answer is required for this question.</error>
+          <error id="ERR-a03e756d-1a15-3b35-b672-e2a71e7edf5a">An answer is required for this question.</error>
+          <error id="ERR-86374ce9-61cb-4b9d-89da-88298ced1f3f">An answer is required for this question.</error>
+
+        </data>
+      </xform:instance>
+      <xform:instance id="Q-ANSWER_SET-91169633-fdb4-4219-b172-b3a6375c5733">
+        <options xmlns="">
+          <answer sn="" text="Female">2</answer>
+          <answer sn="" text="Male">1</answer>
+        </options>
+      </xform:instance>
+
+      <xform:instance id="Q-ANSWER_SET-74a4a6cd-384b-424a-aaf7-70b9debbee90">
+        <options xmlns="">
+          <answer sn="" text="Select">feet</answer>
+          <answer sn="" text="3">3</answer>
+          <answer sn="" text="4">4</answer>
+          <answer sn="" text="5">5</answer>
+          <answer sn="" text="6">6</answer>
+
+          <answer sn="" text="7">7</answer>
+          <answer sn="" text="I'd rather not say">999</answer>
+        </options>
+      </xform:instance>
+      <xform:instance id="Q-ANSWER_SET-6871f557-6645-4630-b7e1-3f80e36c1cbf">
+        <options xmlns="">
+          <answer sn="" text="Select">inch</answer>
+
+          <answer sn="" text="1">1</answer>
+          <answer sn="" text="2">2</answer>
+          <answer sn="" text="3">3</answer>
+          <answer sn="" text="4">4</answer>
+          <answer sn="" text="5">5</answer>
+          <answer sn="" text="6">6</answer>
+
+          <answer sn="" text="7">7</answer>
+          <answer sn="" text="8">8</answer>
+          <answer sn="" text="9">9</answer>
+          <answer sn="" text="10">10</answer>
+          <answer sn="" text="11">11</answer>
+          <answer sn="" text="I'd rather not say">999</answer>
+
+        </options>
+      </xform:instance>
+      <xform:instance id="Q-ANSWER_SET-19f6b6b2-b5f2-451c-bb4d-1096315b6f77">
+        <options xmlns="">
+          <answer sn="" text="Yes">2</answer>
+          <answer sn="" text="I don't know/I can't remember">888</answer>
+          <answer sn="" text="I'd rather not say">999</answer>
+
+        </options>
+      </xform:instance>
+      <xform:instance id="Q-ANSWER_SET-12a53b6d-f04d-3eb6-873b-1a0a3585250b">
+        <options xmlns="">
+          <answer sn="" text="Less than high school">1</answer>
+          <answer sn="" text="Vocational school">2</answer>
+          <answer sn="" text="High school    ">3</answer>
+
+          <answer sn="" text="Some college">4</answer>
+          <answer sn="" text=" 4-year college">5</answer>
+          <answer sn="" text="Graduate/professional school">6</answer>
+          <answer sn="" text="I'd rather not say">999</answer>
+        </options>
+      </xform:instance>
+      <xform:instance id="Q-ANSWER_SET-99055104-41d8-36b0-942a-ed9a7e752661">
+
+        <options xmlns="">
+          <answer sn="" text="Select One">Select</answer>
+          <answer sn="" text="Architecture and Engineering">1</answer>
+          <answer sn="" text="Arts, Design, Entertainment, Sports, and Media">2</answer>
+          <answer sn="" text="Building and Grounds Cleaning and Maintenance">3</answer>
+          <answer sn="" text="Business and Financial Operations">4</answer>
+
+          <answer sn="" text="Community and Social Services">5</answer>
+          <answer sn="" text="Computer and Mathematical">6</answer>
+          <answer sn="" text="Construction and Extraction">7</answer>
+          <answer sn="" text="Education, Training, and Library">8</answer>
+          <answer sn="" text="Farming, Fishing, and Forestry">9</answer>
+          <answer sn="" text="Food Preparation and Serving Related">10</answer>
+
+          <answer sn="" text="Healthcare Support">11</answer>
+          <answer sn="" text="Homemaker">12</answer>
+          <answer sn="" text="Installation, Maintenance, and Repair">13</answer>
+          <answer sn="" text="Legal">14</answer>
+          <answer sn="" text="Life, Physical, and Social Science">15</answer>
+          <answer sn="" text="Management">16</answer>
+
+          <answer sn="" text="Military Specific">17</answer>
+          <answer sn="" text="Office and Administrative Support">18</answer>
+          <answer sn="" text="Personal Care and Service">19</answer>
+          <answer sn="" text="Production">20</answer>
+          <answer sn="" text="Protective Service">21</answer>
+          <answer sn="" text="Sales and Related">22</answer>
+
+          <answer sn="" text="Student">23</answer>
+          <answer sn="" text="Transportation and Material Moving">24</answer>
+          <answer sn="" text="Retired">25</answer>
+          <answer sn="" text="Don't  Work">26</answer>
+          <answer sn="" text="Other">27</answer>
+          <answer sn="" text="I'd rather not say">999</answer>
+
+        </options>
+      </xform:instance>
+      <xform:instance id="Q-ANSWER_SET-70207852-c15a-3c4b-a67a-c6729eebb75f">
+        <options xmlns="">
+          <answer sn="" text="Select One">Select</answer>
+          <answer sn="" text="Architecture and Engineering">1</answer>
+          <answer sn="" text="Arts, Design, Entertainment, Sports, and Media">2</answer>
+
+          <answer sn="" text="Building and Grounds Cleaning and Maintenance">3</answer>
+          <answer sn="" text="Business and Financial Operations">4</answer>
+          <answer sn="" text="Community and Social Services">5</answer>
+          <answer sn="" text="Computer and Mathematical">6</answer>
+          <answer sn="" text="Construction and Extraction">7</answer>
+          <answer sn="" text="Education, Training, and Library">8</answer>
+
+          <answer sn="" text="Farming, Fishing, and Forestry">9</answer>
+          <answer sn="" text="Food Preparation and Serving Related">10</answer>
+          <answer sn="" text="Healthcare Support">11</answer>
+          <answer sn="" text="Homemaker">12</answer>
+          <answer sn="" text="Installation, Maintenance, and Repair">13</answer>
+          <answer sn="" text="Legal">14</answer>
+
+          <answer sn="" text="Life, Physical, and Social Science">15</answer>
+          <answer sn="" text="Management">16</answer>
+          <answer sn="" text="Military Specific">17</answer>
+          <answer sn="" text="Office and Administrative Support">18</answer>
+          <answer sn="" text="Personal Care and Service">19</answer>
+          <answer sn="" text="Production">20</answer>
+
+          <answer sn="" text="Protective Service">21</answer>
+          <answer sn="" text="Sales and Related">22</answer>
+          <answer sn="" text="Student">23</answer>
+          <answer sn="" text="Transportation and Material Moving">24</answer>
+          <answer sn="" text="Retired">25</answer>
+          <answer sn="" text="Don't Work">26</answer>
+
+          <answer sn="" text="Other">27</answer>
+          <answer sn="" text="I'd  rather not say">999</answer>
+        </options>
+      </xform:instance>
+      <xform:instance id="Q-ANSWER_SET-8b1d3918-4904-3978-8d76-3d4bd7fa25b7">
+        <options xmlns="">
+          <answer sn="" text="Select One">Select</answer>
+
+          <answer sn="" text="Architecture and Engineering">1</answer>
+          <answer sn="" text="Arts, Design, Entertainment, Sports, and Media">2</answer>
+          <answer sn="" text="Building and Grounds Cleaning and Maintenance">3</answer>
+          <answer sn="" text="Business and Financial Operations">4</answer>
+          <answer sn="" text="Community and Social Services">5</answer>
+          <answer sn="" text="Computer and Mathematical">6</answer>
+
+          <answer sn="" text="Construction and Extraction">7</answer>
+          <answer sn="" text="Education, Training, and Library">8</answer>
+          <answer sn="" text="Farming, Fishing, and Forestry">9</answer>
+          <answer sn="" text="Food Preparation and Serving Related">10</answer>
+          <answer sn="" text="Healthcare Support">11</answer>
+          <answer sn="" text="Homemaker">12</answer>
+
+          <answer sn="" text="Installation, Maintenance, and Repair">13</answer>
+          <answer sn="" text="Legal">14</answer>
+          <answer sn="" text="Life, Physical, and Social Science">15</answer>
+          <answer sn="" text="Management">16</answer>
+          <answer sn="" text="Military Specific">17</answer>
+          <answer sn="" text="Office and Administrative Support">18</answer>
+
+          <answer sn="" text="Personal Care and Service">19</answer>
+          <answer sn="" text="Production">20</answer>
+          <answer sn="" text="Protective Service">21</answer>
+          <answer sn="" text="Sales and Related">22</answer>
+          <answer sn="" text="Student">23</answer>
+          <answer sn="" text="Transportation and Material Moving">24</answer>
+
+          <answer sn="" text="Retired">25</answer>
+          <answer sn="" text="Don't  Work">26</answer>
+          <answer sn="" text="Other">27</answer>
+          <answer sn="" text="I'd rather not say">999</answer>
+        </options>
+      </xform:instance>
+      <xform:instance id="Q-ANSWER_SET-8bf7b14a-2d2d-3f3a-a3c1-b2cc1c2dd49d">
+
+        <options xmlns="">
+          <answer sn="" text="No">1</answer>
+          <answer sn="" text="Yes">2</answer>
+        </options>
+      </xform:instance>
+      <xform:instance id="Q-ANSWER_SET-a03e756d-1a15-3b35-b672-e2a71e7edf5a">
+        <options xmlns="">
+          <answer sn="" text="No, not Spanish, Hispanic, Latino">1</answer>
+
+          <answer sn="" text="Yes, Mexican, Mexican American, Chicano">2</answer>
+          <answer sn="" text="Yes, Puerto Rican">3</answer>
+          <answer sn="" text="Yes, Cuban">4</answer>
+          <answer sn="" text="Yes, other Spanish, Hispanic, Latino">5</answer>
+          <answer sn="" text="I'd rather not say">999</answer>
+        </options>
+
+      </xform:instance>
+      <xform:instance id="Q-ANSWER_SET-86374ce9-61cb-4b9d-89da-88298ced1f3f">
+        <options xmlns="">
+          <answer sn="" text="Heritage">HH</answer>
+        </options>
+      </xform:instance>
+      <xform:bind nodeset="instance('DataGroupInstance')//data-group[@id='Q.GRP-9f683d2d-8a48-356b-b865-b208b3528799']" id="Q.GRP-9f683d2d-8a48-356b-b865-b208b3528799" relevant="true()"/>
+      <xform:bind nodeset="instance('ContextSpecificErrorsInstance')//error[@id='ERR-9f683d2d-8a48-356b-b865-b208b3528799']" id="Q.REQERR-9f683d2d-8a48-356b-b865-b208b3528799" relevant="(true()) and (normalize-space(instance('FormDataInstance')//question[@id='9f683d2d-8a48-356b-b865-b208b3528799']/answer[@id='61924'])='')"/>
+
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='9f683d2d-8a48-356b-b865-b208b3528799']/answer[@id='61924']" id="Q-9f683d2d-8a48-356b-b865-b208b3528799" type="xsd:date" required="true()"/>
+      <xform:bind nodeset="instance('DataGroupInstance')//data-group[@id='Q.GRP-91169633-fdb4-4219-b172-b3a6375c5733']" id="Q.GRP-91169633-fdb4-4219-b172-b3a6375c5733" relevant="true()"/>
+      <xform:bind nodeset="instance('ContextSpecificErrorsInstance')//error[@id='ERR-91169633-fdb4-4219-b172-b3a6375c5733']" id="Q.REQERR-91169633-fdb4-4219-b172-b3a6375c5733" relevant="(true()) and (normalize-space(instance('FormDataInstance')//question[@id='91169633-fdb4-4219-b172-b3a6375c5733']/answer[@id='10577'])='')"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='91169633-fdb4-4219-b172-b3a6375c5733']/answer[@id='10577']" id="Q-91169633-fdb4-4219-b172-b3a6375c5733" type="xsd:string" required="true()"/>
+      <xform:bind nodeset="instance('DataGroupInstance')//data-group[@id='Q.GRP-00be76c7-efb5-4359-a8b5-8a831c7055d3']" id="Q.GRP-00be76c7-efb5-4359-a8b5-8a831c7055d3" relevant="true()"/>
+      <xform:bind nodeset="instance('DataGroupInstance')//data-group[@id='Q.GRP-74a4a6cd-384b-424a-aaf7-70b9debbee90']" id="Q.GRP-74a4a6cd-384b-424a-aaf7-70b9debbee90" relevant="true()"/>
+      <xform:bind nodeset="instance('ContextSpecificErrorsInstance')//error[@id='ERR-74a4a6cd-384b-424a-aaf7-70b9debbee90']" id="Q.REQERR-74a4a6cd-384b-424a-aaf7-70b9debbee90" relevant="(true()) and (normalize-space(instance('FormDataInstance')//question[@id='74a4a6cd-384b-424a-aaf7-70b9debbee90']/answer[@id='18246'])='')"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='74a4a6cd-384b-424a-aaf7-70b9debbee90']/answer[@id='18246']" id="Q-74a4a6cd-384b-424a-aaf7-70b9debbee90" type="xsd:string" required="true()"/>
+      <xform:bind nodeset="instance('DataGroupInstance')//data-group[@id='Q.GRP-6871f557-6645-4630-b7e1-3f80e36c1cbf']" id="Q.GRP-6871f557-6645-4630-b7e1-3f80e36c1cbf" relevant="true()"/>
+
+      <xform:bind nodeset="instance('ContextSpecificErrorsInstance')//error[@id='ERR-6871f557-6645-4630-b7e1-3f80e36c1cbf']" id="Q.REQERR-6871f557-6645-4630-b7e1-3f80e36c1cbf" relevant="(true()) and (normalize-space(instance('FormDataInstance')//question[@id='6871f557-6645-4630-b7e1-3f80e36c1cbf']/answer[@id='18247'])='')"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='6871f557-6645-4630-b7e1-3f80e36c1cbf']/answer[@id='18247']" id="Q-6871f557-6645-4630-b7e1-3f80e36c1cbf" type="xsd:string" required="true()"/>
+      <xform:bind nodeset="instance('DataGroupInstance')//data-group[@id='Q.GRP-19f6b6b2-b5f2-451c-bb4d-1096315b6f77']" id="Q.GRP-19f6b6b2-b5f2-451c-bb4d-1096315b6f77" relevant="true()"/>
+      <xform:bind nodeset="instance('ContextSpecificErrorsInstance')//error[@id='ERR-19f6b6b2-b5f2-451c-bb4d-1096315b6f77']" id="Q.REQERR-19f6b6b2-b5f2-451c-bb4d-1096315b6f77" relevant="(true()) and (normalize-space(instance('FormDataInstance')//question[@id='19f6b6b2-b5f2-451c-bb4d-1096315b6f77']/answer[@id='23245'])='')"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='19f6b6b2-b5f2-451c-bb4d-1096315b6f77']/answer[@id='23245']" id="Q-19f6b6b2-b5f2-451c-bb4d-1096315b6f77" type="xsd:string" required="true()"/>
+      <xform:bind nodeset="instance('DataGroupInstance')//data-group[@id='Q.GRP-e75aded7-c190-4818-8409-37d4ae07e11f']" id="Q.GRP-e75aded7-c190-4818-8409-37d4ae07e11f" relevant="contains(instance('FormDataInstance')//question[@id='19f6b6b2-b5f2-451c-bb4d-1096315b6f77']/answer, '2')"/>
+      <xform:bind nodeset="instance('ContextSpecificErrorsInstance')//error[@id='ERR-e75aded7-c190-4818-8409-37d4ae07e11f']" id="Q.REQERR-e75aded7-c190-4818-8409-37d4ae07e11f" relevant="(contains(instance('FormDataInstance')//question[@id='19f6b6b2-b5f2-451c-bb4d-1096315b6f77']/answer, '2')) and (normalize-space(instance('FormDataInstance')//question[@id='e75aded7-c190-4818-8409-37d4ae07e11f']/answer[@id='18248'])='')"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='e75aded7-c190-4818-8409-37d4ae07e11f']/answer[@id='18248']" id="Q-e75aded7-c190-4818-8409-37d4ae07e11f" type="xsd:decimal" required="contains(instance('FormDataInstance')//question[@id='19f6b6b2-b5f2-451c-bb4d-1096315b6f77']/answer, '2')" constraint=". &gt;= 80 and . &lt;= 500"/>
+      <xform:bind nodeset="instance('DataGroupInstance')//data-group[@id='Q.GRP-12a53b6d-f04d-3eb6-873b-1a0a3585250b']" id="Q.GRP-12a53b6d-f04d-3eb6-873b-1a0a3585250b" relevant="true()"/>
+
+      <xform:bind nodeset="instance('ContextSpecificErrorsInstance')//error[@id='ERR-12a53b6d-f04d-3eb6-873b-1a0a3585250b']" id="Q.REQERR-12a53b6d-f04d-3eb6-873b-1a0a3585250b" relevant="(true()) and (normalize-space(instance('FormDataInstance')//question[@id='12a53b6d-f04d-3eb6-873b-1a0a3585250b']/answer[@id='76453'])='')"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='12a53b6d-f04d-3eb6-873b-1a0a3585250b']/answer[@id='76453']" id="Q-12a53b6d-f04d-3eb6-873b-1a0a3585250b" type="xsd:string" required="true()"/>
+      <xform:bind nodeset="instance('DataGroupInstance')//data-group[@id='Q.GRP-99055104-41d8-36b0-942a-ed9a7e752661']" id="Q.GRP-99055104-41d8-36b0-942a-ed9a7e752661" relevant="true()"/>
+      <xform:bind nodeset="instance('ContextSpecificErrorsInstance')//error[@id='ERR-99055104-41d8-36b0-942a-ed9a7e752661']" id="Q.REQERR-99055104-41d8-36b0-942a-ed9a7e752661" relevant="(true()) and (normalize-space(instance('FormDataInstance')//question[@id='99055104-41d8-36b0-942a-ed9a7e752661']/answer[@id='76451'])='')"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='99055104-41d8-36b0-942a-ed9a7e752661']/answer[@id='76451']" id="Q-99055104-41d8-36b0-942a-ed9a7e752661" type="xsd:string" required="true()"/>
+      <xform:bind nodeset="instance('DataGroupInstance')//data-group[@id='Q.GRP-93d4b8a0-2610-37ba-813c-3c4095236f74']" id="Q.GRP-93d4b8a0-2610-37ba-813c-3c4095236f74" relevant="contains(instance('FormDataInstance')//question[@id='99055104-41d8-36b0-942a-ed9a7e752661']/answer, '27')"/>
+      <xform:bind nodeset="instance('ContextSpecificErrorsInstance')//error[@id='ERR-93d4b8a0-2610-37ba-813c-3c4095236f74']" id="Q.REQERR-93d4b8a0-2610-37ba-813c-3c4095236f74" relevant="(contains(instance('FormDataInstance')//question[@id='99055104-41d8-36b0-942a-ed9a7e752661']/answer, '27')) and (normalize-space(instance('FormDataInstance')//question[@id='93d4b8a0-2610-37ba-813c-3c4095236f74']/answer[@id='76454'])='')"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='93d4b8a0-2610-37ba-813c-3c4095236f74']/answer[@id='76454']" id="Q-93d4b8a0-2610-37ba-813c-3c4095236f74" type="xsd:string" required="contains(instance('FormDataInstance')//question[@id='99055104-41d8-36b0-942a-ed9a7e752661']/answer, '27')" constraint=""/>
+      <xform:bind nodeset="instance('DataGroupInstance')//data-group[@id='Q.GRP-70207852-c15a-3c4b-a67a-c6729eebb75f']" id="Q.GRP-70207852-c15a-3c4b-a67a-c6729eebb75f" relevant="true()"/>
+
+      <xform:bind nodeset="instance('ContextSpecificErrorsInstance')//error[@id='ERR-70207852-c15a-3c4b-a67a-c6729eebb75f']" id="Q.REQERR-70207852-c15a-3c4b-a67a-c6729eebb75f" relevant="(true()) and (normalize-space(instance('FormDataInstance')//question[@id='70207852-c15a-3c4b-a67a-c6729eebb75f']/answer[@id='75300'])='')"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='70207852-c15a-3c4b-a67a-c6729eebb75f']/answer[@id='75300']" id="Q-70207852-c15a-3c4b-a67a-c6729eebb75f" type="xsd:string" required="true()"/>
+      <xform:bind nodeset="instance('DataGroupInstance')//data-group[@id='Q.GRP-6bc33dd5-7eca-3dc1-ab6d-55b4f48798be']" id="Q.GRP-6bc33dd5-7eca-3dc1-ab6d-55b4f48798be" relevant="contains(instance('FormDataInstance')//question[@id='70207852-c15a-3c4b-a67a-c6729eebb75f']/answer, '27')"/>
+      <xform:bind nodeset="instance('ContextSpecificErrorsInstance')//error[@id='ERR-6bc33dd5-7eca-3dc1-ab6d-55b4f48798be']" id="Q.REQERR-6bc33dd5-7eca-3dc1-ab6d-55b4f48798be" relevant="(contains(instance('FormDataInstance')//question[@id='70207852-c15a-3c4b-a67a-c6729eebb75f']/answer, '27')) and (normalize-space(instance('FormDataInstance')//question[@id='6bc33dd5-7eca-3dc1-ab6d-55b4f48798be']/answer[@id='75111'])='')"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='6bc33dd5-7eca-3dc1-ab6d-55b4f48798be']/answer[@id='75111']" id="Q-6bc33dd5-7eca-3dc1-ab6d-55b4f48798be" type="xsd:string" required="contains(instance('FormDataInstance')//question[@id='70207852-c15a-3c4b-a67a-c6729eebb75f']/answer, '27')" constraint=""/>
+      <xform:bind nodeset="instance('DataGroupInstance')//data-group[@id='Q.GRP-8b1d3918-4904-3978-8d76-3d4bd7fa25b7']" id="Q.GRP-8b1d3918-4904-3978-8d76-3d4bd7fa25b7" relevant="true()"/>
+      <xform:bind nodeset="instance('ContextSpecificErrorsInstance')//error[@id='ERR-8b1d3918-4904-3978-8d76-3d4bd7fa25b7']" id="Q.REQERR-8b1d3918-4904-3978-8d76-3d4bd7fa25b7" relevant="(true()) and (normalize-space(instance('FormDataInstance')//question[@id='8b1d3918-4904-3978-8d76-3d4bd7fa25b7']/answer[@id='75301'])='')"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='8b1d3918-4904-3978-8d76-3d4bd7fa25b7']/answer[@id='75301']" id="Q-8b1d3918-4904-3978-8d76-3d4bd7fa25b7" type="xsd:string" required="true()"/>
+      <xform:bind nodeset="instance('DataGroupInstance')//data-group[@id='Q.GRP-dcfb701b-9358-3c40-969f-9c1239524c85']" id="Q.GRP-dcfb701b-9358-3c40-969f-9c1239524c85" relevant="contains(instance('FormDataInstance')//question[@id='8b1d3918-4904-3978-8d76-3d4bd7fa25b7']/answer, '27')"/>
+
+      <xform:bind nodeset="instance('ContextSpecificErrorsInstance')//error[@id='ERR-dcfb701b-9358-3c40-969f-9c1239524c85']" id="Q.REQERR-dcfb701b-9358-3c40-969f-9c1239524c85" relevant="(contains(instance('FormDataInstance')//question[@id='8b1d3918-4904-3978-8d76-3d4bd7fa25b7']/answer, '27')) and (normalize-space(instance('FormDataInstance')//question[@id='dcfb701b-9358-3c40-969f-9c1239524c85']/answer[@id='75112'])='')"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='dcfb701b-9358-3c40-969f-9c1239524c85']/answer[@id='75112']" id="Q-dcfb701b-9358-3c40-969f-9c1239524c85" type="xsd:string" required="contains(instance('FormDataInstance')//question[@id='8b1d3918-4904-3978-8d76-3d4bd7fa25b7']/answer, '27')" constraint=""/>
+      <xform:bind nodeset="instance('DataGroupInstance')//data-group[@id='Q.GRP-8bf7b14a-2d2d-3f3a-a3c1-b2cc1c2dd49d']" id="Q.GRP-8bf7b14a-2d2d-3f3a-a3c1-b2cc1c2dd49d" relevant="true()"/>
+      <xform:bind nodeset="instance('ContextSpecificErrorsInstance')//error[@id='ERR-8bf7b14a-2d2d-3f3a-a3c1-b2cc1c2dd49d']" id="Q.REQERR-8bf7b14a-2d2d-3f3a-a3c1-b2cc1c2dd49d" relevant="(true()) and (normalize-space(instance('FormDataInstance')//question[@id='TQ-72467']/answer[@id='72467'])='' or normalize-space(instance('FormDataInstance')//question[@id='TQ-72468']/answer[@id='72468'])='' or normalize-space(instance('FormDataInstance')//question[@id='TQ-72470']/answer[@id='72470'])='' or normalize-space(instance('FormDataInstance')//question[@id='TQ-72475']/answer[@id='72475'])='' or normalize-space(instance('FormDataInstance')//question[@id='TQ-72476']/answer[@id='72476'])='' or normalize-space(instance('FormDataInstance')//question[@id='TQ-72477']/answer[@id='72477'])='' or normalize-space(instance('FormDataInstance')//question[@id='TQ-72478']/answer[@id='72478'])='' or normalize-space(instance('FormDataInstance')//question[@id='TQ-72479']/answer[@id='72479'])='' or normalize-space(instance('FormDataInstance')//question[@id='TQ-72480']/answer[@id='72480'])='' or normalize-space(instance('FormDataInstance')//question[@id='TQ-72481']/answer[@id='72481'])='' or normalize-space(instance('FormDataInstance')//question[@id='TQ-72482']/answer[@id='72482'])='' or normalize-space(instance('FormDataInstance')//question[@id='TQ-72483']/answer[@id='72483'])='' or normalize-space(instance('FormDataInstance')//question[@id='TQ-72484']/answer[@id='72484'])='' or normalize-space(instance('FormDataInstance')//question[@id='TQ-72485']/answer[@id='72485'])='' or normalize-space(instance('FormDataInstance')//question[@id='TQ-72486']/answer[@id='72486'])='' or normalize-space(instance('FormDataInstance')//question[@id='TQ-72487']/answer[@id='72487'])='')"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='TQ-72467']/answer[@id='72467']" id="Q-72467" required="true()"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='TQ-72468']/answer[@id='72468']" id="Q-72468" required="true()"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='TQ-72470']/answer[@id='72470']" id="Q-72470" required="true()"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='TQ-72475']/answer[@id='72475']" id="Q-72475" required="true()"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='TQ-72476']/answer[@id='72476']" id="Q-72476" required="true()"/>
+
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='TQ-72477']/answer[@id='72477']" id="Q-72477" required="true()"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='TQ-72478']/answer[@id='72478']" id="Q-72478" required="true()"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='TQ-72479']/answer[@id='72479']" id="Q-72479" required="true()"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='TQ-72480']/answer[@id='72480']" id="Q-72480" required="true()"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='TQ-72481']/answer[@id='72481']" id="Q-72481" required="true()"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='TQ-72482']/answer[@id='72482']" id="Q-72482" required="true()"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='TQ-72483']/answer[@id='72483']" id="Q-72483" required="true()"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='TQ-72484']/answer[@id='72484']" id="Q-72484" required="true()"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='TQ-72485']/answer[@id='72485']" id="Q-72485" required="true()"/>
+
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='TQ-72486']/answer[@id='72486']" id="Q-72486" required="true()"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='TQ-72487']/answer[@id='72487']" id="Q-72487" required="true()"/>
+      <xform:bind nodeset="instance('DataGroupInstance')//data-group[@id='Q.GRP-73010d7e-e6d6-31aa-8879-7f85870b0574']" id="Q.GRP-73010d7e-e6d6-31aa-8879-7f85870b0574" relevant="contains(instance('FormDataInstance')//question[@id='TQ-72481']/answer, '2')"/>
+      <xform:bind nodeset="instance('ContextSpecificErrorsInstance')//error[@id='ERR-73010d7e-e6d6-31aa-8879-7f85870b0574']" id="Q.REQERR-73010d7e-e6d6-31aa-8879-7f85870b0574" relevant="(contains(instance('FormDataInstance')//question[@id='TQ-72481']/answer, '2')) and (normalize-space(instance('FormDataInstance')//question[@id='73010d7e-e6d6-31aa-8879-7f85870b0574']/answer[@id='57863'])='')"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='73010d7e-e6d6-31aa-8879-7f85870b0574']/answer[@id='57863']" id="Q-73010d7e-e6d6-31aa-8879-7f85870b0574" type="xsd:string" required="contains(instance('FormDataInstance')//question[@id='TQ-72481']/answer, '2')" constraint=""/>
+      <xform:bind nodeset="instance('DataGroupInstance')//data-group[@id='Q.GRP-66f6e29b-a979-3265-a6e2-509742d0a0d6']" id="Q.GRP-66f6e29b-a979-3265-a6e2-509742d0a0d6" relevant="contains(instance('FormDataInstance')//question[@id='TQ-72485']/answer, '2')"/>
+      <xform:bind nodeset="instance('ContextSpecificErrorsInstance')//error[@id='ERR-66f6e29b-a979-3265-a6e2-509742d0a0d6']" id="Q.REQERR-66f6e29b-a979-3265-a6e2-509742d0a0d6" relevant="(contains(instance('FormDataInstance')//question[@id='TQ-72485']/answer, '2')) and (normalize-space(instance('FormDataInstance')//question[@id='66f6e29b-a979-3265-a6e2-509742d0a0d6']/answer[@id='69281'])='')"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='66f6e29b-a979-3265-a6e2-509742d0a0d6']/answer[@id='69281']" id="Q-66f6e29b-a979-3265-a6e2-509742d0a0d6" type="xsd:string" required="contains(instance('FormDataInstance')//question[@id='TQ-72485']/answer, '2')" constraint=""/>
+      <xform:bind nodeset="instance('DataGroupInstance')//data-group[@id='Q.GRP-c6ddc742-94e3-32bb-9ffa-ff633c20de60']" id="Q.GRP-c6ddc742-94e3-32bb-9ffa-ff633c20de60" relevant="contains(instance('FormDataInstance')//question[@id='TQ-72486']/answer, '2')"/>
+
+      <xform:bind nodeset="instance('ContextSpecificErrorsInstance')//error[@id='ERR-c6ddc742-94e3-32bb-9ffa-ff633c20de60']" id="Q.REQERR-c6ddc742-94e3-32bb-9ffa-ff633c20de60" relevant="(contains(instance('FormDataInstance')//question[@id='TQ-72486']/answer, '2')) and (normalize-space(instance('FormDataInstance')//question[@id='c6ddc742-94e3-32bb-9ffa-ff633c20de60']/answer[@id='69282'])='')"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='c6ddc742-94e3-32bb-9ffa-ff633c20de60']/answer[@id='69282']" id="Q-c6ddc742-94e3-32bb-9ffa-ff633c20de60" type="xsd:string" required="contains(instance('FormDataInstance')//question[@id='TQ-72486']/answer, '2')" constraint=""/>
+      <xform:bind nodeset="instance('DataGroupInstance')//data-group[@id='Q.GRP-a03e756d-1a15-3b35-b672-e2a71e7edf5a']" id="Q.GRP-a03e756d-1a15-3b35-b672-e2a71e7edf5a" relevant="true()"/>
+      <xform:bind nodeset="instance('ContextSpecificErrorsInstance')//error[@id='ERR-a03e756d-1a15-3b35-b672-e2a71e7edf5a']" id="Q.REQERR-a03e756d-1a15-3b35-b672-e2a71e7edf5a" relevant="(true()) and (normalize-space(instance('FormDataInstance')//question[@id='a03e756d-1a15-3b35-b672-e2a71e7edf5a']/answer[@id='69283'])='')"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='a03e756d-1a15-3b35-b672-e2a71e7edf5a']/answer[@id='69283']" id="Q-a03e756d-1a15-3b35-b672-e2a71e7edf5a" type="xsd:string" required="true()"/>
+      <xform:bind nodeset="instance('DataGroupInstance')//data-group[@id='Q.GRP-86374ce9-61cb-4b9d-89da-88298ced1f3f']" id="Q.GRP-86374ce9-61cb-4b9d-89da-88298ced1f3f" relevant="(contains(instance('FormDataInstance')//question[@id='a03e756d-1a15-3b35-b672-e2a71e7edf5a']/answer, '3') or contains(instance('FormDataInstance')//question[@id='a03e756d-1a15-3b35-b672-e2a71e7edf5a']/answer, '4') or contains(instance('FormDataInstance')//question[@id='a03e756d-1a15-3b35-b672-e2a71e7edf5a']/answer, '5'))"/>
+      <xform:bind nodeset="instance('ContextSpecificErrorsInstance')//error[@id='ERR-86374ce9-61cb-4b9d-89da-88298ced1f3f']" id="Q.REQERR-86374ce9-61cb-4b9d-89da-88298ced1f3f" relevant="((contains(instance('FormDataInstance')//question[@id='a03e756d-1a15-3b35-b672-e2a71e7edf5a']/answer, '3') or contains(instance('FormDataInstance')//question[@id='a03e756d-1a15-3b35-b672-e2a71e7edf5a']/answer, '4') or contains(instance('FormDataInstance')//question[@id='a03e756d-1a15-3b35-b672-e2a71e7edf5a']/answer, '5'))) and (normalize-space(instance('FormDataInstance')//question[@id='86374ce9-61cb-4b9d-89da-88298ced1f3f']/answer[@id='24200'])='')"/>
+      <xform:bind nodeset="instance('FormDataInstance')//question[@id='86374ce9-61cb-4b9d-89da-88298ced1f3f']/answer[@id='24200']" id="Q-86374ce9-61cb-4b9d-89da-88298ced1f3f" type="xsd:string" required="(contains(instance('FormDataInstance')//question[@id='a03e756d-1a15-3b35-b672-e2a71e7edf5a']/answer, '3') or contains(instance('FormDataInstance')//question[@id='a03e756d-1a15-3b35-b672-e2a71e7edf5a']/answer, '4') or contains(instance('FormDataInstance')//question[@id='a03e756d-1a15-3b35-b672-e2a71e7edf5a']/answer, '5'))"/>
+      <xform:submission id="SendDataElement" method="post" includenamespaceprefixes="">
+
+        <xform:resource value="instance('URLInstance')//full-url"/>
+        <xform:message ev:event="xforms-submit-error">The form that you are working on either has incomplete questions or invalid data. This means that you have either not completed all mandatory questions or have entered invalid data into the form. Please recheck the form and make necessary changes before moving on.  Please keep in mind that many of the text fields have restrictions.  Read the question carefully to make sure you are aware of these restrictions.</xform:message>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-9f683d2d-8a48-356b-b865-b208b3528799"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-91169633-fdb4-4219-b172-b3a6375c5733"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-00be76c7-efb5-4359-a8b5-8a831c7055d3"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-74a4a6cd-384b-424a-aaf7-70b9debbee90"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-6871f557-6645-4630-b7e1-3f80e36c1cbf"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-19f6b6b2-b5f2-451c-bb4d-1096315b6f77"/>
+
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-e75aded7-c190-4818-8409-37d4ae07e11f"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-12a53b6d-f04d-3eb6-873b-1a0a3585250b"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-99055104-41d8-36b0-942a-ed9a7e752661"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-93d4b8a0-2610-37ba-813c-3c4095236f74"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-70207852-c15a-3c4b-a67a-c6729eebb75f"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-6bc33dd5-7eca-3dc1-ab6d-55b4f48798be"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-8b1d3918-4904-3978-8d76-3d4bd7fa25b7"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-dcfb701b-9358-3c40-969f-9c1239524c85"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-8bf7b14a-2d2d-3f3a-a3c1-b2cc1c2dd49d"/>
+
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-73010d7e-e6d6-31aa-8879-7f85870b0574"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-66f6e29b-a979-3265-a6e2-509742d0a0d6"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-c6ddc742-94e3-32bb-9ffa-ff633c20de60"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-a03e756d-1a15-3b35-b672-e2a71e7edf5a"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-86374ce9-61cb-4b9d-89da-88298ced1f3f"/>
+      </xform:submission>
+      <xform:submission id="PartialSendDataElement" method="post" includenamespaceprefixes="" validate="false">
+        <xform:message event="xforms-submit-error">The form that you are working on either has incomplete questions or invalid data. This means that you have either not completed all mandatory questions or have entered invalid data into the form. Please recheck the form and make necessary changes before moving on.  Please keep in mind that many of the text fields have restrictions.  Read the question carefully to make sure you are aware of these restrictions.</xform:message>
+
+        <xform:resource value="instance('URLInstance')//full-url"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-9f683d2d-8a48-356b-b865-b208b3528799"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-91169633-fdb4-4219-b172-b3a6375c5733"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-00be76c7-efb5-4359-a8b5-8a831c7055d3"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-74a4a6cd-384b-424a-aaf7-70b9debbee90"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-6871f557-6645-4630-b7e1-3f80e36c1cbf"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-19f6b6b2-b5f2-451c-bb4d-1096315b6f77"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-e75aded7-c190-4818-8409-37d4ae07e11f"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-12a53b6d-f04d-3eb6-873b-1a0a3585250b"/>
+
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-99055104-41d8-36b0-942a-ed9a7e752661"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-93d4b8a0-2610-37ba-813c-3c4095236f74"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-70207852-c15a-3c4b-a67a-c6729eebb75f"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-6bc33dd5-7eca-3dc1-ab6d-55b4f48798be"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-8b1d3918-4904-3978-8d76-3d4bd7fa25b7"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-dcfb701b-9358-3c40-969f-9c1239524c85"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-8bf7b14a-2d2d-3f3a-a3c1-b2cc1c2dd49d"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-73010d7e-e6d6-31aa-8879-7f85870b0574"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-66f6e29b-a979-3265-a6e2-509742d0a0d6"/>
+
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-c6ddc742-94e3-32bb-9ffa-ff633c20de60"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-a03e756d-1a15-3b35-b672-e2a71e7edf5a"/>
+        <xform:toggle ev:event="xforms-submit-error" case="errBlk-86374ce9-61cb-4b9d-89da-88298ced1f3f"/>
+      </xform:submission>
+    </xform:model></head>
+
+<body>
+    <xform:output ref="instance('FormDataInstance')/@name" class="hcit-form-title"/>
+    <xform:group ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-9f683d2d-8a48-356b-b865-b208b3528799']" class="hcit-group-input-text">
+      <xform:switch>
+        <xform:case id="noErrBlk-9f683d2d-8a48-356b-b865-b208b3528799"/>
+        <xform:case id="errBlk-9f683d2d-8a48-356b-b865-b208b3528799">
+          <xform:output class="errorsClass" bind="Q.REQERR-9f683d2d-8a48-356b-b865-b208b3528799"/>
+
+          <xform:switch>
+            <xform:case id="noErrInvBlk-9f683d2d-8a48-356b-b865-b208b3528799"/>
+            <xform:case id="errInvBlk-9f683d2d-8a48-356b-b865-b208b3528799">
+              <xform:output class="errorsClass" value="'You have made an invalid entry.'"/>
+            </xform:case>
+          </xform:switch>
+        </xform:case>
+      </xform:switch>
+      <xform:output ref="instance('FormDataInstance')//question[@id='9f683d2d-8a48-356b-b865-b208b3528799']/text" class="hcitQuestionText hcitRequiredQuestionText"/>
+
+      <xform:input bind="Q-9f683d2d-8a48-356b-b865-b208b3528799" class="hcitAnswerText">
+        <xform:label class="hcit-label-input-text">Date of Birth (mm/dd/yyyy e.g. 07/22/1950):</xform:label>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='9f683d2d-8a48-356b-b865-b208b3528799']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+        <xform:toggle ev:event="xforms-invalid" case="errInvBlk-9f683d2d-8a48-356b-b865-b208b3528799"/>
+        <xform:toggle ev:event="xforms-valid" case="noErrInvBlk-9f683d2d-8a48-356b-b865-b208b3528799"/>
+      </xform:input>
+
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-91169633-fdb4-4219-b172-b3a6375c5733']" class="hcit-group-input-radio">
+      <xform:switch>
+        <xform:case id="noErrBlk-91169633-fdb4-4219-b172-b3a6375c5733"/>
+        <xform:case id="errBlk-91169633-fdb4-4219-b172-b3a6375c5733">
+          <xform:output class="errorsClass" bind="Q.REQERR-91169633-fdb4-4219-b172-b3a6375c5733"/>
+          <xform:switch>
+            <xform:case id="noErrInvBlk-91169633-fdb4-4219-b172-b3a6375c5733"/>
+            <xform:case id="errInvBlk-91169633-fdb4-4219-b172-b3a6375c5733">
+
+              <xform:output class="errorsClass" value="'You have made an invalid entry.'"/>
+            </xform:case>
+          </xform:switch>
+        </xform:case>
+      </xform:switch>
+      <xform:output ref="instance('FormDataInstance')//question[@id='91169633-fdb4-4219-b172-b3a6375c5733']/text" class="hcitQuestionText hcitRequiredQuestionText"/>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='91169633-fdb4-4219-b172-b3a6375c5733']/answer" appearance="full" class="hcitAnswerRadio">
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-91169633-fdb4-4219-b172-b3a6375c5733')/answer">
+          <xform:label ref="@text" class="hcit-label-input-radio"/>
+
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='91169633-fdb4-4219-b172-b3a6375c5733']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+      </xform:select1>
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-00be76c7-efb5-4359-a8b5-8a831c7055d3']" class="hcitContent">
+      <xform:switch>
+
+        <xform:case id="noErrBlk-00be76c7-efb5-4359-a8b5-8a831c7055d3"/>
+        <xform:case id="errBlk-00be76c7-efb5-4359-a8b5-8a831c7055d3">
+          <xform:switch>
+            <xform:case id="noErrInvBlk-00be76c7-efb5-4359-a8b5-8a831c7055d3"/>
+            <xform:case id="errInvBlk-00be76c7-efb5-4359-a8b5-8a831c7055d3">
+              <xform:output class="errorsClass" value="'You have made an invalid entry.'"/>
+            </xform:case>
+          </xform:switch>
+        </xform:case>
+
+      </xform:switch>
+      <xform:output ref="instance('PureContentInstance')/pure-content[@id='Q.CONTENT-00be76c7-efb5-4359-a8b5-8a831c7055d3']" class="hcitContentText">
+        <xform:label>
+          <b xmlns="">Please select your height in feet and inches from the drop down boxes below.</b>
+        </xform:label>
+      </xform:output>
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-74a4a6cd-384b-424a-aaf7-70b9debbee90']" class="hcit-group-input-dropdown">
+
+      <xform:switch>
+        <xform:case id="noErrBlk-74a4a6cd-384b-424a-aaf7-70b9debbee90"/>
+        <xform:case id="errBlk-74a4a6cd-384b-424a-aaf7-70b9debbee90">
+          <xform:output class="errorsClass" bind="Q.REQERR-74a4a6cd-384b-424a-aaf7-70b9debbee90"/>
+          <xform:switch>
+            <xform:case id="noErrInvBlk-74a4a6cd-384b-424a-aaf7-70b9debbee90"/>
+            <xform:case id="errInvBlk-74a4a6cd-384b-424a-aaf7-70b9debbee90">
+              <xform:output class="errorsClass" value="'You have made an invalid entry.'"/>
+            </xform:case>
+
+          </xform:switch>
+        </xform:case>
+      </xform:switch>
+      <xform:output ref="instance('FormDataInstance')//question[@id='74a4a6cd-384b-424a-aaf7-70b9debbee90']/text" class="hcitQuestionText hcitRequiredQuestionText"/>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='74a4a6cd-384b-424a-aaf7-70b9debbee90']/answer" appearance="minimal" class="hcitAnswerRadio">
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-74a4a6cd-384b-424a-aaf7-70b9debbee90')/answer">
+          <xform:label ref="@text" class="hcit-label-input-dropdown"/>
+          <xform:value ref="."/>
+        </xform:itemset>
+
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='74a4a6cd-384b-424a-aaf7-70b9debbee90']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+      </xform:select1>
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-6871f557-6645-4630-b7e1-3f80e36c1cbf']" class="hcit-group-input-dropdown">
+      <xform:switch>
+        <xform:case id="noErrBlk-6871f557-6645-4630-b7e1-3f80e36c1cbf"/>
+        <xform:case id="errBlk-6871f557-6645-4630-b7e1-3f80e36c1cbf">
+
+          <xform:output class="errorsClass" bind="Q.REQERR-6871f557-6645-4630-b7e1-3f80e36c1cbf"/>
+          <xform:switch>
+            <xform:case id="noErrInvBlk-6871f557-6645-4630-b7e1-3f80e36c1cbf"/>
+            <xform:case id="errInvBlk-6871f557-6645-4630-b7e1-3f80e36c1cbf">
+              <xform:output class="errorsClass" value="'You have made an invalid entry.'"/>
+            </xform:case>
+          </xform:switch>
+        </xform:case>
+      </xform:switch>
+
+      <xform:output ref="instance('FormDataInstance')//question[@id='6871f557-6645-4630-b7e1-3f80e36c1cbf']/text" class="hcitQuestionText hcitRequiredQuestionText"/>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='6871f557-6645-4630-b7e1-3f80e36c1cbf']/answer" appearance="minimal" class="hcitAnswerRadio">
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-6871f557-6645-4630-b7e1-3f80e36c1cbf')/answer">
+          <xform:label ref="@text" class="hcit-label-input-dropdown"/>
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='6871f557-6645-4630-b7e1-3f80e36c1cbf']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+
+      </xform:select1>
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-19f6b6b2-b5f2-451c-bb4d-1096315b6f77']" class="hcit-group-input-radio">
+      <xform:switch>
+        <xform:case id="noErrBlk-19f6b6b2-b5f2-451c-bb4d-1096315b6f77"/>
+        <xform:case id="errBlk-19f6b6b2-b5f2-451c-bb4d-1096315b6f77">
+          <xform:output class="errorsClass" bind="Q.REQERR-19f6b6b2-b5f2-451c-bb4d-1096315b6f77"/>
+          <xform:switch>
+            <xform:case id="noErrInvBlk-19f6b6b2-b5f2-451c-bb4d-1096315b6f77"/>
+
+            <xform:case id="errInvBlk-19f6b6b2-b5f2-451c-bb4d-1096315b6f77">
+              <xform:output class="errorsClass" value="'You have made an invalid entry.'"/>
+            </xform:case>
+          </xform:switch>
+        </xform:case>
+      </xform:switch>
+      <xform:output ref="instance('FormDataInstance')//question[@id='19f6b6b2-b5f2-451c-bb4d-1096315b6f77']/text" class="hcitQuestionText hcitRequiredQuestionText"/>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='19f6b6b2-b5f2-451c-bb4d-1096315b6f77']/answer" appearance="full" class="hcitAnswerRadio">
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-19f6b6b2-b5f2-451c-bb4d-1096315b6f77')/answer">
+
+          <xform:label ref="@text" class="hcit-label-input-radio"/>
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='19f6b6b2-b5f2-451c-bb4d-1096315b6f77']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+        <xform:action ev:event="xforms-value-changed">
+          <xform:setvalue ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-e75aded7-c190-4818-8409-37d4ae07e11f']/@visible" value="contains(instance('FormDataInstance')//question[@id='19f6b6b2-b5f2-451c-bb4d-1096315b6f77']/answer, '2')"/>
+          <xform:setvalue ref="instance('FormDataInstance')//question[@id='e75aded7-c190-4818-8409-37d4ae07e11f']/answer" value="if(contains(instance('FormDataInstance')//question[@id='19f6b6b2-b5f2-451c-bb4d-1096315b6f77']/answer, '2'),.,'')"/>
+
+        </xform:action>
+      </xform:select1>
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-e75aded7-c190-4818-8409-37d4ae07e11f']" class="hcit-group-input-text">
+      <xform:switch>
+        <xform:case id="noErrBlk-e75aded7-c190-4818-8409-37d4ae07e11f"/>
+        <xform:case id="errBlk-e75aded7-c190-4818-8409-37d4ae07e11f">
+          <xform:output class="errorsClass" bind="Q.REQERR-e75aded7-c190-4818-8409-37d4ae07e11f"/>
+          <xform:switch>
+
+            <xform:case id="noErrInvBlk-e75aded7-c190-4818-8409-37d4ae07e11f"/>
+            <xform:case id="errInvBlk-e75aded7-c190-4818-8409-37d4ae07e11f">
+              <xform:output class="errorsClass" value="'You have made an invalid entry.'"/>
+            </xform:case>
+          </xform:switch>
+        </xform:case>
+      </xform:switch>
+      <xform:output ref="instance('FormDataInstance')//question[@id='e75aded7-c190-4818-8409-37d4ae07e11f']/text" class="hcitQuestionText hcitRequiredQuestionText"/>
+      <xform:input bind="Q-e75aded7-c190-4818-8409-37d4ae07e11f" class="hcitAnswerText">
+
+        <xform:label class="hcit-label-input-text">Pounds (lbs): </xform:label>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='e75aded7-c190-4818-8409-37d4ae07e11f']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+        <xform:toggle ev:event="xforms-invalid" case="errInvBlk-e75aded7-c190-4818-8409-37d4ae07e11f"/>
+        <xform:toggle ev:event="xforms-valid" case="noErrInvBlk-e75aded7-c190-4818-8409-37d4ae07e11f"/>
+      </xform:input>
+    </xform:group>
+
+    <xform:group ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-12a53b6d-f04d-3eb6-873b-1a0a3585250b']" class="hcit-group-input-radio">
+      <xform:switch>
+        <xform:case id="noErrBlk-12a53b6d-f04d-3eb6-873b-1a0a3585250b"/>
+        <xform:case id="errBlk-12a53b6d-f04d-3eb6-873b-1a0a3585250b">
+          <xform:output class="errorsClass" bind="Q.REQERR-12a53b6d-f04d-3eb6-873b-1a0a3585250b"/>
+          <xform:switch>
+            <xform:case id="noErrInvBlk-12a53b6d-f04d-3eb6-873b-1a0a3585250b"/>
+            <xform:case id="errInvBlk-12a53b6d-f04d-3eb6-873b-1a0a3585250b">
+              <xform:output class="errorsClass" value="'You have made an invalid entry.'"/>
+
+            </xform:case>
+          </xform:switch>
+        </xform:case>
+      </xform:switch>
+      <xform:output ref="instance('FormDataInstance')//question[@id='12a53b6d-f04d-3eb6-873b-1a0a3585250b']/text" class="hcitQuestionText hcitRequiredQuestionText"/>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='12a53b6d-f04d-3eb6-873b-1a0a3585250b']/answer" appearance="full" class="hcitAnswerRadio">
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-12a53b6d-f04d-3eb6-873b-1a0a3585250b')/answer">
+          <xform:label ref="@text" class="hcit-label-input-radio"/>
+          <xform:value ref="."/>
+
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='12a53b6d-f04d-3eb6-873b-1a0a3585250b']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+      </xform:select1>
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-99055104-41d8-36b0-942a-ed9a7e752661']" class="hcit-group-input-dropdown">
+      <xform:switch>
+        <xform:case id="noErrBlk-99055104-41d8-36b0-942a-ed9a7e752661"/>
+
+        <xform:case id="errBlk-99055104-41d8-36b0-942a-ed9a7e752661">
+          <xform:output class="errorsClass" bind="Q.REQERR-99055104-41d8-36b0-942a-ed9a7e752661"/>
+          <xform:switch>
+            <xform:case id="noErrInvBlk-99055104-41d8-36b0-942a-ed9a7e752661"/>
+            <xform:case id="errInvBlk-99055104-41d8-36b0-942a-ed9a7e752661">
+              <xform:output class="errorsClass" value="'You have made an invalid entry.'"/>
+            </xform:case>
+          </xform:switch>
+        </xform:case>
+
+      </xform:switch>
+      <xform:output ref="instance('FormDataInstance')//question[@id='99055104-41d8-36b0-942a-ed9a7e752661']/text" class="hcitQuestionText hcitRequiredQuestionText"/>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='99055104-41d8-36b0-942a-ed9a7e752661']/answer" appearance="minimal" class="hcitAnswerRadio">
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-99055104-41d8-36b0-942a-ed9a7e752661')/answer">
+          <xform:label ref="@text" class="hcit-label-input-dropdown"/>
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='99055104-41d8-36b0-942a-ed9a7e752661']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+
+        </xform:alert>
+        <xform:action ev:event="xforms-value-changed">
+          <xform:setvalue ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-93d4b8a0-2610-37ba-813c-3c4095236f74']/@visible" value="contains(instance('FormDataInstance')//question[@id='99055104-41d8-36b0-942a-ed9a7e752661']/answer, '27')"/>
+          <xform:setvalue ref="instance('FormDataInstance')//question[@id='93d4b8a0-2610-37ba-813c-3c4095236f74']/answer" value="if(contains(instance('FormDataInstance')//question[@id='99055104-41d8-36b0-942a-ed9a7e752661']/answer, '27'),.,'')"/>
+        </xform:action>
+      </xform:select1>
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-93d4b8a0-2610-37ba-813c-3c4095236f74']" class="hcit-group-input-text">
+      <xform:switch>
+
+        <xform:case id="noErrBlk-93d4b8a0-2610-37ba-813c-3c4095236f74"/>
+        <xform:case id="errBlk-93d4b8a0-2610-37ba-813c-3c4095236f74">
+          <xform:output class="errorsClass" bind="Q.REQERR-93d4b8a0-2610-37ba-813c-3c4095236f74"/>
+          <xform:switch>
+            <xform:case id="noErrInvBlk-93d4b8a0-2610-37ba-813c-3c4095236f74"/>
+            <xform:case id="errInvBlk-93d4b8a0-2610-37ba-813c-3c4095236f74">
+              <xform:output class="errorsClass" value="'You have made an invalid entry.'"/>
+            </xform:case>
+          </xform:switch>
+
+        </xform:case>
+      </xform:switch>
+      <xform:output ref="instance('FormDataInstance')//question[@id='93d4b8a0-2610-37ba-813c-3c4095236f74']/text" class="hcitQuestionText hcitRequiredQuestionText"/>
+      <xform:input bind="Q-93d4b8a0-2610-37ba-813c-3c4095236f74" class="hcitAnswerText hcit-text-field-width-short">
+        <xform:label class="hcit-label-input-text">Please specify "Other" occupation:</xform:label>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='93d4b8a0-2610-37ba-813c-3c4095236f74']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+
+        <xform:toggle ev:event="xforms-invalid" case="errInvBlk-93d4b8a0-2610-37ba-813c-3c4095236f74"/>
+        <xform:toggle ev:event="xforms-valid" case="noErrInvBlk-93d4b8a0-2610-37ba-813c-3c4095236f74"/>
+      </xform:input>
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-70207852-c15a-3c4b-a67a-c6729eebb75f']" class="hcit-group-input-dropdown">
+      <xform:switch>
+        <xform:case id="noErrBlk-70207852-c15a-3c4b-a67a-c6729eebb75f"/>
+        <xform:case id="errBlk-70207852-c15a-3c4b-a67a-c6729eebb75f">
+          <xform:output class="errorsClass" bind="Q.REQERR-70207852-c15a-3c4b-a67a-c6729eebb75f"/>
+
+          <xform:switch>
+            <xform:case id="noErrInvBlk-70207852-c15a-3c4b-a67a-c6729eebb75f"/>
+            <xform:case id="errInvBlk-70207852-c15a-3c4b-a67a-c6729eebb75f">
+              <xform:output class="errorsClass" value="'You have made an invalid entry.'"/>
+            </xform:case>
+          </xform:switch>
+        </xform:case>
+      </xform:switch>
+      <xform:output ref="instance('FormDataInstance')//question[@id='70207852-c15a-3c4b-a67a-c6729eebb75f']/text" class="hcitQuestionText hcitRequiredQuestionText"/>
+
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='70207852-c15a-3c4b-a67a-c6729eebb75f']/answer" appearance="minimal" class="hcitAnswerRadio">
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-70207852-c15a-3c4b-a67a-c6729eebb75f')/answer">
+          <xform:label ref="@text" class="hcit-label-input-dropdown"/>
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='70207852-c15a-3c4b-a67a-c6729eebb75f']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+        <xform:action ev:event="xforms-value-changed">
+
+          <xform:setvalue ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-6bc33dd5-7eca-3dc1-ab6d-55b4f48798be']/@visible" value="contains(instance('FormDataInstance')//question[@id='70207852-c15a-3c4b-a67a-c6729eebb75f']/answer, '27')"/>
+          <xform:setvalue ref="instance('FormDataInstance')//question[@id='6bc33dd5-7eca-3dc1-ab6d-55b4f48798be']/answer" value="if(contains(instance('FormDataInstance')//question[@id='70207852-c15a-3c4b-a67a-c6729eebb75f']/answer, '27'),.,'')"/>
+        </xform:action>
+      </xform:select1>
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-6bc33dd5-7eca-3dc1-ab6d-55b4f48798be']" class="hcit-group-input-text">
+      <xform:switch>
+        <xform:case id="noErrBlk-6bc33dd5-7eca-3dc1-ab6d-55b4f48798be"/>
+        <xform:case id="errBlk-6bc33dd5-7eca-3dc1-ab6d-55b4f48798be">
+
+          <xform:output class="errorsClass" bind="Q.REQERR-6bc33dd5-7eca-3dc1-ab6d-55b4f48798be"/>
+          <xform:switch>
+            <xform:case id="noErrInvBlk-6bc33dd5-7eca-3dc1-ab6d-55b4f48798be"/>
+            <xform:case id="errInvBlk-6bc33dd5-7eca-3dc1-ab6d-55b4f48798be">
+              <xform:output class="errorsClass" value="'You have made an invalid entry.'"/>
+            </xform:case>
+          </xform:switch>
+        </xform:case>
+      </xform:switch>
+
+      <xform:output ref="instance('FormDataInstance')//question[@id='6bc33dd5-7eca-3dc1-ab6d-55b4f48798be']/text" class="hcitQuestionText hcitRequiredQuestionText"/>
+      <xform:input bind="Q-6bc33dd5-7eca-3dc1-ab6d-55b4f48798be" class="hcitAnswerText hcit-text-field-width-short">
+        <xform:label class="hcit-label-input-text">Please specify "Other" occupation:</xform:label>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='6bc33dd5-7eca-3dc1-ab6d-55b4f48798be']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+        <xform:toggle ev:event="xforms-invalid" case="errInvBlk-6bc33dd5-7eca-3dc1-ab6d-55b4f48798be"/>
+        <xform:toggle ev:event="xforms-valid" case="noErrInvBlk-6bc33dd5-7eca-3dc1-ab6d-55b4f48798be"/>
+
+      </xform:input>
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-8b1d3918-4904-3978-8d76-3d4bd7fa25b7']" class="hcit-group-input-dropdown">
+      <xform:switch>
+        <xform:case id="noErrBlk-8b1d3918-4904-3978-8d76-3d4bd7fa25b7"/>
+        <xform:case id="errBlk-8b1d3918-4904-3978-8d76-3d4bd7fa25b7">
+          <xform:output class="errorsClass" bind="Q.REQERR-8b1d3918-4904-3978-8d76-3d4bd7fa25b7"/>
+          <xform:switch>
+            <xform:case id="noErrInvBlk-8b1d3918-4904-3978-8d76-3d4bd7fa25b7"/>
+
+            <xform:case id="errInvBlk-8b1d3918-4904-3978-8d76-3d4bd7fa25b7">
+              <xform:output class="errorsClass" value="'You have made an invalid entry.'"/>
+            </xform:case>
+          </xform:switch>
+        </xform:case>
+      </xform:switch>
+      <xform:output ref="instance('FormDataInstance')//question[@id='8b1d3918-4904-3978-8d76-3d4bd7fa25b7']/text" class="hcitQuestionText hcitRequiredQuestionText"/>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='8b1d3918-4904-3978-8d76-3d4bd7fa25b7']/answer" appearance="minimal" class="hcitAnswerRadio">
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-8b1d3918-4904-3978-8d76-3d4bd7fa25b7')/answer">
+
+          <xform:label ref="@text" class="hcit-label-input-dropdown"/>
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='8b1d3918-4904-3978-8d76-3d4bd7fa25b7']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+        <xform:action ev:event="xforms-value-changed">
+          <xform:setvalue ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-dcfb701b-9358-3c40-969f-9c1239524c85']/@visible" value="contains(instance('FormDataInstance')//question[@id='8b1d3918-4904-3978-8d76-3d4bd7fa25b7']/answer, '27')"/>
+          <xform:setvalue ref="instance('FormDataInstance')//question[@id='dcfb701b-9358-3c40-969f-9c1239524c85']/answer" value="if(contains(instance('FormDataInstance')//question[@id='8b1d3918-4904-3978-8d76-3d4bd7fa25b7']/answer, '27'),.,'')"/>
+
+        </xform:action>
+      </xform:select1>
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-dcfb701b-9358-3c40-969f-9c1239524c85']" class="hcit-group-input-text">
+      <xform:switch>
+        <xform:case id="noErrBlk-dcfb701b-9358-3c40-969f-9c1239524c85"/>
+        <xform:case id="errBlk-dcfb701b-9358-3c40-969f-9c1239524c85">
+          <xform:output class="errorsClass" bind="Q.REQERR-dcfb701b-9358-3c40-969f-9c1239524c85"/>
+          <xform:switch>
+
+            <xform:case id="noErrInvBlk-dcfb701b-9358-3c40-969f-9c1239524c85"/>
+            <xform:case id="errInvBlk-dcfb701b-9358-3c40-969f-9c1239524c85">
+              <xform:output class="errorsClass" value="'You have made an invalid entry.'"/>
+            </xform:case>
+          </xform:switch>
+        </xform:case>
+      </xform:switch>
+      <xform:output ref="instance('FormDataInstance')//question[@id='dcfb701b-9358-3c40-969f-9c1239524c85']/text" class="hcitQuestionText hcitRequiredQuestionText"/>
+      <xform:input bind="Q-dcfb701b-9358-3c40-969f-9c1239524c85" class="hcitAnswerText hcit-text-field-width-short">
+
+        <xform:label class="hcit-label-input-text">Please specify "Other" occupation:</xform:label>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='dcfb701b-9358-3c40-969f-9c1239524c85']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+        <xform:toggle ev:event="xforms-invalid" case="errInvBlk-dcfb701b-9358-3c40-969f-9c1239524c85"/>
+        <xform:toggle ev:event="xforms-valid" case="noErrInvBlk-dcfb701b-9358-3c40-969f-9c1239524c85"/>
+      </xform:input>
+    </xform:group>
+
+    <xform:group ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-8bf7b14a-2d2d-3f3a-a3c1-b2cc1c2dd49d']" class="hcit-group-input-radio">
+      <xform:switch>
+        <xform:case id="noErrBlk-8bf7b14a-2d2d-3f3a-a3c1-b2cc1c2dd49d"/>
+        <xform:case id="errBlk-8bf7b14a-2d2d-3f3a-a3c1-b2cc1c2dd49d">
+          <xform:output class="errorsClass" bind="Q.REQERR-8bf7b14a-2d2d-3f3a-a3c1-b2cc1c2dd49d"/>
+          <xform:switch>
+            <xform:case id="noErrInvBlk-8bf7b14a-2d2d-3f3a-a3c1-b2cc1c2dd49d"/>
+            <xform:case id="errInvBlk-8bf7b14a-2d2d-3f3a-a3c1-b2cc1c2dd49d">
+              <xform:output class="errorsClass" value="'You have made an invalid entry.'"/>
+
+            </xform:case>
+          </xform:switch>
+        </xform:case>
+      </xform:switch>
+      <xform:label class="hcitQuestionText hcitRequiredQuestionText hcitHasLearnMore">
+        <span xmlns="" class="xforms-required-icon">*</span>
+        <span xmlns="">What is your ethnic background? Please mark NO or YES for each category.</span>
+      </xform:label>
+
+      <span class="learnmore">
+        <a href="javascript:showDialog('Help','&amp;lt;b&amp;gt;Question : What is your ethnic background?&amp;lt;/b&amp;gt;&#10;&amp;lt;br/&amp;gt;&#10;&amp;lt;br/&amp;gt;&#10;&amp;lt;b&amp;gt;What does this mean :&amp;lt;/b&amp;gt; Please choose the race that best describes you. If you do not see an appropriate category, choose Other Race and enter your race in the text box. The next question asks about your ethnicity as it relates to being Spanish/Hispanic/Latino. The categories available in this list are those used by the U.S. Census. More details regarding race and ethnicity will be asked in future modules.&#10;&amp;lt;br/&amp;gt;&#10;&amp;lt;br/&amp;gt;','warning',false,'lmid-8bf7b14a-2d2d-3f3a-a3c1-b2cc1c2dd49d')" id="lmid-8bf7b14a-2d2d-3f3a-a3c1-b2cc1c2dd49d">Need help?</a>
+      </span>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='TQ-72467']/answer" appearance="full" class="hcitAnswerRadio hcitFirstItemSet  hcitTable">
+        <xform:label class="hcitTableCell hcitFirstTableCell hcitHeaderRow hcitMediumCell">Values</xform:label>
+        <xform:label class="hcitTableCell hcitFirstColumn hcitHeaderRow hcitMediumCell">No</xform:label>
+        <xform:label class="hcitTableCell hcitHeaderRow hcitMediumCell">Yes</xform:label>
+
+        <xform:label class="hcitTableCell hcitRowStart hcitOdd hcitSmallCell">White/Caucasian</xform:label>
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-8bf7b14a-2d2d-3f3a-a3c1-b2cc1c2dd49d')/answer" class="hcitTableRow hcitOdd hcitSmallCell">
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='TQ-72467']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+      </xform:select1>
+
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='TQ-72468']/answer" appearance="full" class="hcitAnswerRadio hcitTable">
+        <xform:label class="hcitTableCell hcitRowStart hcitEven hcitMediumCell">Black/African American</xform:label>
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-8bf7b14a-2d2d-3f3a-a3c1-b2cc1c2dd49d')/answer" class="hcitTableRow hcitEven hcitMediumCell">
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='TQ-72467']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+
+      </xform:select1>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='TQ-72470']/answer" appearance="full" class="hcitAnswerRadio hcitTable">
+        <xform:label class="hcitTableCell hcitRowStart hcitOdd hcitMediumCell">American Indian or Alaska Native</xform:label>
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-8bf7b14a-2d2d-3f3a-a3c1-b2cc1c2dd49d')/answer" class="hcitTableRow hcitOdd hcitMediumCell">
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='TQ-72467']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+
+        </xform:alert>
+      </xform:select1>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='TQ-72475']/answer" appearance="full" class="hcitAnswerRadio hcitTable">
+        <xform:label class="hcitTableCell hcitRowStart hcitEven hcitSmallCell">Asian/East Indian</xform:label>
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-8bf7b14a-2d2d-3f3a-a3c1-b2cc1c2dd49d')/answer" class="hcitTableRow hcitEven hcitSmallCell">
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='TQ-72467']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+      </xform:select1>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='TQ-72476']/answer" appearance="full" class="hcitAnswerRadio hcitTable">
+        <xform:label class="hcitTableCell hcitRowStart hcitOdd hcitSmallCell">Chinese</xform:label>
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-8bf7b14a-2d2d-3f3a-a3c1-b2cc1c2dd49d')/answer" class="hcitTableRow hcitOdd hcitSmallCell">
+          <xform:value ref="."/>
+        </xform:itemset>
+
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='TQ-72467']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+      </xform:select1>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='TQ-72477']/answer" appearance="full" class="hcitAnswerRadio hcitTable">
+        <xform:label class="hcitTableCell hcitRowStart hcitEven hcitSmallCell">Filipino</xform:label>
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-8bf7b14a-2d2d-3f3a-a3c1-b2cc1c2dd49d')/answer" class="hcitTableRow hcitEven hcitSmallCell">
+          <xform:value ref="."/>
+
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='TQ-72467']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+      </xform:select1>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='TQ-72478']/answer" appearance="full" class="hcitAnswerRadio hcitTable">
+        <xform:label class="hcitTableCell hcitRowStart hcitOdd hcitSmallCell">Japanese</xform:label>
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-8bf7b14a-2d2d-3f3a-a3c1-b2cc1c2dd49d')/answer" class="hcitTableRow hcitOdd hcitSmallCell">
+
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='TQ-72467']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+      </xform:select1>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='TQ-72479']/answer" appearance="full" class="hcitAnswerRadio hcitTable">
+        <xform:label class="hcitTableCell hcitRowStart hcitEven hcitSmallCell">Korean</xform:label>
+
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-8bf7b14a-2d2d-3f3a-a3c1-b2cc1c2dd49d')/answer" class="hcitTableRow hcitEven hcitSmallCell">
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='TQ-72467']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+      </xform:select1>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='TQ-72480']/answer" appearance="full" class="hcitAnswerRadio hcitTable">
+        <xform:label class="hcitTableCell hcitRowStart hcitOdd hcitSmallCell">Vietnamese</xform:label>
+
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-8bf7b14a-2d2d-3f3a-a3c1-b2cc1c2dd49d')/answer" class="hcitTableRow hcitOdd hcitSmallCell">
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='TQ-72467']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+      </xform:select1>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='TQ-72481']/answer" appearance="full" class="hcitAnswerRadio hcitTable">
+        <xform:label class="hcitTableCell hcitRowStart hcitEven hcitSmallCell">Other Asian</xform:label>
+
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-8bf7b14a-2d2d-3f3a-a3c1-b2cc1c2dd49d')/answer" class="hcitTableRow hcitEven hcitSmallCell">
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='TQ-72467']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+        <xform:action ev:event="xforms-value-changed">
+          <xform:setvalue ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-73010d7e-e6d6-31aa-8879-7f85870b0574']/@visible" value="contains(instance('FormDataInstance')//question[@id='TQ-72481']/answer, '2')"/>
+          <xform:setvalue ref="instance('FormDataInstance')//question[@id='73010d7e-e6d6-31aa-8879-7f85870b0574']/answer" value="if(contains(instance('FormDataInstance')//question[@id='TQ-72481']/answer, '2'),.,'')"/>
+
+        </xform:action>
+      </xform:select1>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='TQ-72482']/answer" appearance="full" class="hcitAnswerRadio hcitTable">
+        <xform:label class="hcitTableCell hcitRowStart hcitOdd hcitSmallCell">Native Hawaiian</xform:label>
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-8bf7b14a-2d2d-3f3a-a3c1-b2cc1c2dd49d')/answer" class="hcitTableRow hcitOdd hcitSmallCell">
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='TQ-72467']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+      </xform:select1>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='TQ-72483']/answer" appearance="full" class="hcitAnswerRadio hcitTable">
+        <xform:label class="hcitTableCell hcitRowStart hcitEven hcitMediumCell">Guamanian or Chamorro</xform:label>
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-8bf7b14a-2d2d-3f3a-a3c1-b2cc1c2dd49d')/answer" class="hcitTableRow hcitEven hcitMediumCell">
+          <xform:value ref="."/>
+        </xform:itemset>
+
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='TQ-72467']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+      </xform:select1>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='TQ-72484']/answer" appearance="full" class="hcitAnswerRadio hcitTable">
+        <xform:label class="hcitTableCell hcitRowStart hcitOdd hcitSmallCell">Samoan</xform:label>
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-8bf7b14a-2d2d-3f3a-a3c1-b2cc1c2dd49d')/answer" class="hcitTableRow hcitOdd hcitSmallCell">
+          <xform:value ref="."/>
+
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='TQ-72467']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+      </xform:select1>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='TQ-72485']/answer" appearance="full" class="hcitAnswerRadio hcitTable">
+        <xform:label class="hcitTableCell hcitRowStart hcitEven hcitMediumCell">Other Pacific Islander</xform:label>
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-8bf7b14a-2d2d-3f3a-a3c1-b2cc1c2dd49d')/answer" class="hcitTableRow hcitEven hcitMediumCell">
+
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='TQ-72467']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+        <xform:action ev:event="xforms-value-changed">
+          <xform:setvalue ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-66f6e29b-a979-3265-a6e2-509742d0a0d6']/@visible" value="contains(instance('FormDataInstance')//question[@id='TQ-72485']/answer, '2')"/>
+          <xform:setvalue ref="instance('FormDataInstance')//question[@id='66f6e29b-a979-3265-a6e2-509742d0a0d6']/answer" value="if(contains(instance('FormDataInstance')//question[@id='TQ-72485']/answer, '2'),.,'')"/>
+        </xform:action>
+
+      </xform:select1>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='TQ-72486']/answer" appearance="full" class="hcitAnswerRadio hcitTable">
+        <xform:label class="hcitTableCell hcitRowStart hcitOdd hcitSmallCell">Other Race</xform:label>
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-8bf7b14a-2d2d-3f3a-a3c1-b2cc1c2dd49d')/answer" class="hcitTableRow hcitOdd hcitSmallCell">
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='TQ-72467']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+
+        </xform:alert>
+        <xform:action ev:event="xforms-value-changed">
+          <xform:setvalue ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-c6ddc742-94e3-32bb-9ffa-ff633c20de60']/@visible" value="contains(instance('FormDataInstance')//question[@id='TQ-72486']/answer, '2')"/>
+          <xform:setvalue ref="instance('FormDataInstance')//question[@id='c6ddc742-94e3-32bb-9ffa-ff633c20de60']/answer" value="if(contains(instance('FormDataInstance')//question[@id='TQ-72486']/answer, '2'),.,'')"/>
+        </xform:action>
+      </xform:select1>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='TQ-72487']/answer" appearance="full" class="hcitAnswerRadio hcitTable">
+        <xform:label class="hcitTableCell hcitRowStart hcitEven hcitSmallCell">I'd rather not say</xform:label>
+
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-8bf7b14a-2d2d-3f3a-a3c1-b2cc1c2dd49d')/answer" class="hcitTableRow hcitEven hcitSmallCell">
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='TQ-72467']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+      </xform:select1>
+      <xform:group class="hcitEmptyGroup">
+        <xform:toggle ev:event="xforms-invalid" case="errInvBlk-8bf7b14a-2d2d-3f3a-a3c1-b2cc1c2dd49d"/>
+
+        <xform:toggle ev:event="xforms-valid" case="noErrInvBlk-8bf7b14a-2d2d-3f3a-a3c1-b2cc1c2dd49d"/>
+      </xform:group>
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-73010d7e-e6d6-31aa-8879-7f85870b0574']" class="hcit-group-input-text">
+      <xform:switch>
+        <xform:case id="noErrBlk-73010d7e-e6d6-31aa-8879-7f85870b0574"/>
+        <xform:case id="errBlk-73010d7e-e6d6-31aa-8879-7f85870b0574">
+          <xform:output class="errorsClass" bind="Q.REQERR-73010d7e-e6d6-31aa-8879-7f85870b0574"/>
+          <xform:switch>
+
+            <xform:case id="noErrInvBlk-73010d7e-e6d6-31aa-8879-7f85870b0574"/>
+            <xform:case id="errInvBlk-73010d7e-e6d6-31aa-8879-7f85870b0574">
+              <xform:output class="errorsClass" value="'You have made an invalid entry.'"/>
+            </xform:case>
+          </xform:switch>
+        </xform:case>
+      </xform:switch>
+      <xform:output ref="instance('FormDataInstance')//question[@id='73010d7e-e6d6-31aa-8879-7f85870b0574']/text" class="hcitQuestionText hcitRequiredQuestionText"/>
+      <xform:input bind="Q-73010d7e-e6d6-31aa-8879-7f85870b0574" class="hcitAnswerText hcit-text-field-width-short">
+
+        <xform:label class="hcit-label-input-text">If you selected "Other Asian", please specify:</xform:label>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='73010d7e-e6d6-31aa-8879-7f85870b0574']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+        <xform:toggle ev:event="xforms-invalid" case="errInvBlk-73010d7e-e6d6-31aa-8879-7f85870b0574"/>
+        <xform:toggle ev:event="xforms-valid" case="noErrInvBlk-73010d7e-e6d6-31aa-8879-7f85870b0574"/>
+      </xform:input>
+    </xform:group>
+
+    <xform:group ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-66f6e29b-a979-3265-a6e2-509742d0a0d6']" class="hcit-group-input-text">
+      <xform:switch>
+        <xform:case id="noErrBlk-66f6e29b-a979-3265-a6e2-509742d0a0d6"/>
+        <xform:case id="errBlk-66f6e29b-a979-3265-a6e2-509742d0a0d6">
+          <xform:output class="errorsClass" bind="Q.REQERR-66f6e29b-a979-3265-a6e2-509742d0a0d6"/>
+          <xform:switch>
+            <xform:case id="noErrInvBlk-66f6e29b-a979-3265-a6e2-509742d0a0d6"/>
+            <xform:case id="errInvBlk-66f6e29b-a979-3265-a6e2-509742d0a0d6">
+              <xform:output class="errorsClass" value="'You have made an invalid entry.'"/>
+
+            </xform:case>
+          </xform:switch>
+        </xform:case>
+      </xform:switch>
+      <xform:output ref="instance('FormDataInstance')//question[@id='66f6e29b-a979-3265-a6e2-509742d0a0d6']/text" class="hcitQuestionText hcitRequiredQuestionText"/>
+      <xform:input bind="Q-66f6e29b-a979-3265-a6e2-509742d0a0d6" class="hcitAnswerText hcit-text-field-width-short">
+        <xform:label class="hcit-label-input-text">If you selected "Other Pacific Islander", please specify:</xform:label>
+        <xform:alert>
+
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='66f6e29b-a979-3265-a6e2-509742d0a0d6']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+        <xform:toggle ev:event="xforms-invalid" case="errInvBlk-66f6e29b-a979-3265-a6e2-509742d0a0d6"/>
+        <xform:toggle ev:event="xforms-valid" case="noErrInvBlk-66f6e29b-a979-3265-a6e2-509742d0a0d6"/>
+      </xform:input>
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-c6ddc742-94e3-32bb-9ffa-ff633c20de60']" class="hcit-group-input-text">
+      <xform:switch>
+        <xform:case id="noErrBlk-c6ddc742-94e3-32bb-9ffa-ff633c20de60"/>
+
+        <xform:case id="errBlk-c6ddc742-94e3-32bb-9ffa-ff633c20de60">
+          <xform:output class="errorsClass" bind="Q.REQERR-c6ddc742-94e3-32bb-9ffa-ff633c20de60"/>
+          <xform:switch>
+            <xform:case id="noErrInvBlk-c6ddc742-94e3-32bb-9ffa-ff633c20de60"/>
+            <xform:case id="errInvBlk-c6ddc742-94e3-32bb-9ffa-ff633c20de60">
+              <xform:output class="errorsClass" value="'You have made an invalid entry.'"/>
+            </xform:case>
+          </xform:switch>
+        </xform:case>
+
+      </xform:switch>
+      <xform:output ref="instance('FormDataInstance')//question[@id='c6ddc742-94e3-32bb-9ffa-ff633c20de60']/text" class="hcitQuestionText hcitRequiredQuestionText"/>
+      <xform:input bind="Q-c6ddc742-94e3-32bb-9ffa-ff633c20de60" class="hcitAnswerText hcit-text-field-width-short">
+        <xform:label class="hcit-label-input-text">If you selected "Other Race", please specify:</xform:label>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='c6ddc742-94e3-32bb-9ffa-ff633c20de60']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+        <xform:toggle ev:event="xforms-invalid" case="errInvBlk-c6ddc742-94e3-32bb-9ffa-ff633c20de60"/>
+
+        <xform:toggle ev:event="xforms-valid" case="noErrInvBlk-c6ddc742-94e3-32bb-9ffa-ff633c20de60"/>
+      </xform:input>
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-a03e756d-1a15-3b35-b672-e2a71e7edf5a']" class="hcit-group-input-radio">
+      <xform:switch>
+        <xform:case id="noErrBlk-a03e756d-1a15-3b35-b672-e2a71e7edf5a"/>
+        <xform:case id="errBlk-a03e756d-1a15-3b35-b672-e2a71e7edf5a">
+          <xform:output class="errorsClass" bind="Q.REQERR-a03e756d-1a15-3b35-b672-e2a71e7edf5a"/>
+          <xform:switch>
+
+            <xform:case id="noErrInvBlk-a03e756d-1a15-3b35-b672-e2a71e7edf5a"/>
+            <xform:case id="errInvBlk-a03e756d-1a15-3b35-b672-e2a71e7edf5a">
+              <xform:output class="errorsClass" value="'You have made an invalid entry.'"/>
+            </xform:case>
+          </xform:switch>
+        </xform:case>
+      </xform:switch>
+      <xform:output ref="instance('FormDataInstance')//question[@id='a03e756d-1a15-3b35-b672-e2a71e7edf5a']/text" class="hcitQuestionText hcitRequiredQuestionText"/>
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='a03e756d-1a15-3b35-b672-e2a71e7edf5a']/answer" appearance="full" class="hcitAnswerRadio">
+
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-a03e756d-1a15-3b35-b672-e2a71e7edf5a')/answer">
+          <xform:label ref="@text" class="hcit-label-input-radio"/>
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='a03e756d-1a15-3b35-b672-e2a71e7edf5a']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+        <xform:action ev:event="xforms-value-changed">
+          <xform:setvalue ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-86374ce9-61cb-4b9d-89da-88298ced1f3f']/@visible" value="(contains(instance('FormDataInstance')//question[@id='a03e756d-1a15-3b35-b672-e2a71e7edf5a']/answer, '3') or contains(instance('FormDataInstance')//question[@id='a03e756d-1a15-3b35-b672-e2a71e7edf5a']/answer, '4') or contains(instance('FormDataInstance')//question[@id='a03e756d-1a15-3b35-b672-e2a71e7edf5a']/answer, '5'))"/>
+
+          <xform:setvalue ref="instance('FormDataInstance')//question[@id='86374ce9-61cb-4b9d-89da-88298ced1f3f']/answer" value="if((contains(instance('FormDataInstance')//question[@id='a03e756d-1a15-3b35-b672-e2a71e7edf5a']/answer, '3') or contains(instance('FormDataInstance')//question[@id='a03e756d-1a15-3b35-b672-e2a71e7edf5a']/answer, '4') or contains(instance('FormDataInstance')//question[@id='a03e756d-1a15-3b35-b672-e2a71e7edf5a']/answer, '5')),.,'')"/>
+        </xform:action>
+      </xform:select1>
+    </xform:group>
+    <xform:group ref="instance('DataGroupInstance')//data-group[@id='Q.GRP-86374ce9-61cb-4b9d-89da-88298ced1f3f']" class="hcit-group-input-radio">
+      <xform:switch>
+        <xform:case id="noErrBlk-86374ce9-61cb-4b9d-89da-88298ced1f3f"/>
+        <xform:case id="errBlk-86374ce9-61cb-4b9d-89da-88298ced1f3f">
+          <xform:output class="errorsClass" bind="Q.REQERR-86374ce9-61cb-4b9d-89da-88298ced1f3f"/>
+
+          <xform:switch>
+            <xform:case id="noErrInvBlk-86374ce9-61cb-4b9d-89da-88298ced1f3f"/>
+            <xform:case id="errInvBlk-86374ce9-61cb-4b9d-89da-88298ced1f3f">
+              <xform:output class="errorsClass" value="'You have made an invalid entry.'"/>
+            </xform:case>
+          </xform:switch>
+        </xform:case>
+      </xform:switch>
+      <xform:output ref="instance('FormDataInstance')//question[@id='86374ce9-61cb-4b9d-89da-88298ced1f3f']/text" class="hcitQuestionText hcitRequiredQuestionText"/>
+
+      <xform:select1 ref="instance('FormDataInstance')//question[@id='86374ce9-61cb-4b9d-89da-88298ced1f3f']/answer" appearance="full" class="hcitAnswerRadio">
+        <xform:itemset nodeset="instance('Q-ANSWER_SET-86374ce9-61cb-4b9d-89da-88298ced1f3f')/answer">
+          <xform:label ref="@text" class="hcit-label-input-radio"/>
+          <xform:value ref="."/>
+        </xform:itemset>
+        <xform:alert>
+          <xform:output value="if(normalize-space(instance('FormDataInstance')//question[@id='86374ce9-61cb-4b9d-89da-88298ced1f3f']/answer)='','You must provide an answer to this question.','Incorrect format.')"/>
+        </xform:alert>
+      </xform:select1>
+
+    </xform:group>
+  
+	
+<xform:submit submission="SendDataElement">
+	<xform:label>Save and Continue</xform:label>
+    </xform:submit>
+</body>
+</html>

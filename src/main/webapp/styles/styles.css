@@ -1,0 +1,1408 @@
+@charset "utf-8";
+
+/* layout styles */
+
+body  {
+	font: 12px Helvetica, Arial, san-serif;
+	color: #000000;
+	line-height: 1.5em;
+	background: #f1f1f1;
+	margin: 0; /* zero the margin and padding of the body element to account for differing browser defaults */
+	padding: 0;
+	text-align: center; /* centers the container in IE 5* browsers. */
+}
+.twoColFixLtHdr #container {
+	width: 872px;  /* using 20px less than a full 800px width allows for browser chrome and avoids a horizontal scroll bar */
+	background: none;
+	margin: 15px auto; /* the auto margins (in conjunction with a width) center the page */
+	border: 0;
+	text-align: left; /* this overrides the text-align: center on the body element. */
+}
+.twoColFixLtHdr #header {
+	background: none;
+	padding: 0;  /* this padding matches the left alignment of the elements in the divs that appear beneath it. If an image is used in the #header instead of text, you may want to remove the padding. */
+}
+.twoColFixLtHdr #header h1 {
+	margin: 0; /* zeroing the margin of the last element in the #header div will avoid margin collapse - an unexplainable space between divs. If the div has a border around it, this is not necessary as that also avoids the margin collapse */
+	padding: 10px 0; /* using padding instead of margin will allow you to keep the element away from the edges of the div */
+}
+
+.twoColFixLtHdr #content {
+	background: url(../images/07.jpg) repeat-y scroll left top;
+	text-align:left;
+	/* padding-left: 20px;
+	padding: 5px 45px 10px; */
+	padding: 5px 45px 0px;
+	width: 884px;
+}
+
+.border {
+border-bottom:2px solid #CCCCCC;
+border-left:2px solid #CCCCCC;
+border-right:2px solid #CCCCCC;
+padding:0;
+}
+
+.d0 td {
+margin:0;
+padding:5px 0 5px 10px;
+}
+
+.d1 td {
+margin:0;
+padding:5px 0 5px 10px;
+}
+
+h4 {
+color:#4F81BD;
+font-family:Verdana,Geneva,sans-serif;
+margin:0;
+padding:10px;
+}
+
+.twoColFixLtHdr #sidebar1 {
+	float: left; /* since this element is floated, a width must be given */
+	width: 170px; /* the actual width of this div, in standards-compliant browsers, or standards mode in Internet Explorer will include the padding and border in addition to the width */
+	background:#F5F5F5; /* the background color will be displayed for the length of the content in the column, but no further */
+	padding: 15px 10px 15px 20px;
+	margin-left:18px;
+}
+.twoColFixLtHdr #mainContent {
+	margin: 0 0 0 250px; /* the left margin on this div element creates the column down the left side of the page - no matter how much content the sidebar1 div contains, the column space will remain. You can remove this margin if you want the #mainContent div's text to fill the #sidebar1 space when the content in #sidebar1 ends. */
+	padding: 10px 40px 10px 10px; /* remember that padding is the space inside the div box and margin is the space outside the div box */
+
+}
+/*.twoColFixLtHdr #footer {
+	padding: 0; /* this padding matches the left alignment of the elements in the divs that appear above it. */
+	background: url(../images/07.jpg) repeat-y 0 0;
+	width: 890px;
+	margin-top: -1px;
+	margin-bottom: 30px;
+	height: 50px;
+	padding-top: 20px;
+} */
+/*.twoColFixLtHdr #footer p {
+	margin: 0; /* zeroing the margins of the first element in the footer will avoid the possibility of margin collapse - a space between divs */
+	padding: 10px 0; /* padding on this element will create space, just as the the margin would have, without the margin collapse issue */
+}*/
+.fltrt { /* this class can be used to float an element right in your page. The floated element must precede the element it should be next to on the page. */
+	float: right;
+	margin-left: 8px;
+}
+.fltlft { /* this class can be used to float an element left in your page */
+	float: left;
+	margin-right: 8px;
+}
+.clearfloat { /* this class should be placed on a div or break element and should be the final element before the close of a container that should fully contain a float */
+	clear:both;
+    height:0;
+    font-size: 1px;
+    line-height: 0px;
+}
+
+div#columns {
+	padding-top: 10px;
+}
+
+#columns *{
+	vertical-align: top;
+}
+
+.constraintsDiv {
+	margin: 5px;
+}
+
+.ansAvatar {
+	background-color: #EFEFEF;
+	border: 1px solid #999;
+	padding: 5px;
+	text-align: left;
+}
+
+/* DnD styles */
+.dndHandleBefore {
+	border-top: 7px solid gray !important;
+}
+
+.dndHandleAfter {
+	border-bottom: 7px solid gray !important;
+}
+
+.dndHandle {
+	background-color: #CCC;
+	height: 100%;
+	cursor: move;
+    width: 5px;
+}
+
+#qaExtensionContainer .dndHandle, #qaTableContainer .dndHandle {
+    width: 10px;
+    position: absolute;
+   	left: 0;
+    top: 0;
+}
+
+.ui-draggable {
+	border: 1px solid #CCCCCC;
+}
+
+#qaExtensionContainer .ui-draggable, #qaTableContainer .ui-draggable {
+    margin-bottom: 5px;
+    padding: 10px 10px 10px 20px;
+    position: relative;
+}
+
+.ui-draggable-dragging {
+	opacity:0.4;
+	filter:alpha(opacity=40)
+}
+
+/* header styles */
+
+#testcontent {
+position:fixed;
+top:200px;
+left:350px;
+}
+
+#primDivContainer {
+background: url(../images/01.jpg) no-repeat 0 100%;
+height: 15px;
+width: 890px;
+}
+
+#primDiv {
+height:1em;
+margin-left:18px;
+padding-bottom:0;
+padding-right:25px;
+padding-top:5px;
+position:relative;
+}
+
+/* tabs nav */
+
+ol#prim {
+font: normal 100% helvetica,Geneva,sans-serif;
+height:2em;
+list-style-image:none;
+list-style-position:outside;
+list-style-type:none;
+margin:0;
+padding:0;
+margin-top: -14px;
+}
+ol#prim li {
+float:right;
+margin:0 1px 0 0;
+}
+ol#prim a {
+background:#BBDDFF url(../images/alatabs.gif) repeat scroll 0 0;
+color:#000000;
+display:block;
+float:left;
+height:2em;
+padding-left:10px;
+text-decoration:none;
+}
+ol#prim a:hover {
+background-color:#33AAFF;
+background-position:0 -120px;
+color:#FFFFFF;
+}
+ol#prim a:hover span {
+background-position:100% -120px;
+}
+ol#prim li.current a {
+background-color:#4488FF;
+background-position:0 -60px;
+font-weight:bold;
+}
+ol#prim li.current span {
+background-position:100% -60px;
+}
+ol#prim span {
+background:transparent url(../images/alatabs.gif) repeat scroll 100% 0;
+display:block;
+line-height:2em;
+padding-right:10px;
+}
+
+
+/* secondary tabs nav */
+
+#tocDiv {
+background-color:#CCCCCC;
+height:25px;
+width:800px;
+}
+
+#tocDiv a:link, #tocDiv a:visited, #tocDiv span {
+color:#6666CC;
+font-family:Myriad,Helvetica,Tahoma,Arial,Georgia,Times,serif,"Times New Roman";
+font-size:0.8em;
+padding-left:3px;
+padding-right:3px;
+}
+
+#tocDiv span {
+	color: #4F81BD;
+	font-weight: bold;
+}
+
+#tocCaption {
+	height:16px;
+	padding-top: 2px;
+	padding-bottom: 3px;
+	font-family:Georgia,Times,serif;
+	font-size:10px;
+	font-weight:bold;
+}
+
+#tocCaption span {
+	height: 16px;
+	padding: 2px 20px 6px 11px;
+	background: #F2EBE6;
+	border: none;
+	margin-right: 6px;
+}
+
+#tocCaption span.last {
+}
+
+#tocCaption span:hover, #tocCaption span.last:hover,#tocCaption span.current:hover,
+#tocCaption span a:hover {
+	background: #6699CC;
+	color: white;
+}
+
+#tocCaption a.current {
+	color:#8F2740;
+}
+
+#tocCaption span.current {
+	background: #7D87FA;
+}
+
+#tocCaption a {
+	color: #66474F;
+	text-decoration: none;
+	/*border-bottom: 1px dotted #66474F;*/
+}
+
+#titlebar {
+background: url('../images/gradient1.png') repeat-x #CCCCCC;
+height:45px;
+width:800px;
+}
+
+#subtitlebar{
+	width: 790px;
+	/*height: 22px;*/
+	color: #000;
+	font-family:Myriad,Helvetica,Tahoma,Arial,Georgia,Times,serif,"Times New Roman";
+	font-size:1em;
+	font-weight: bold;
+	/*padding:5px 2px 2px 10px;*/
+	padding-left: 10px;
+	background: #CCCCCC;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+#pageTabHeader {
+color:#FFFFFF;
+float:left;
+font-family:Myriad,Helvetica,Tahoma,Arial,Georgia,Times,serif,"Times New Roman";
+font-size:1em;
+height:30px;
+margin:0;
+padding:10px 10px 0;
+width:260px;
+overflow: hidden;
+white-space: nowrap;
+}
+
+div#answersDiv {
+	width: 800px;
+}
+
+a.addAnswer:link, a.answer:visited {
+	text-decoration: none;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	font-weight: bold;
+	border-bottom: 1px dotted black;
+	background: #CCC;
+	color: black;
+}
+
+div#noAnswersBlock {
+	font-weight: bold;
+}
+
+span.upDownArrows{
+	float:left;
+	padding-right: 5px
+}
+
+a.addAnswer:hover {
+	color: #4F81BD;
+	border-bottom: 1px dotted #4F81BD;
+}
+#header_link ul {
+list-style-type:none;
+margin:0;
+padding:0;
+}
+
+#header_link li {
+float:right;
+line-height:3.1em;
+}
+
+a:link, a:visited {
+color:#006699;
+}
+
+#header_link li a:link, #header_link li a:visited {
+color:#000000;
+display:block;
+font-family:Myriad,Helvetica,Tahoma,Arial,Georgia,Times,serif,"Times New Roman";
+font-size:0.9em;
+margin:0;
+padding:0 10px;
+text-align:center;
+text-decoration:none;
+text-transform:uppercase;
+}
+
+#header_link li a:hover {
+	color: #FFF;
+	background-color: #69C;
+
+}
+
+ol#toc {
+font: normal 90% helvetica,Geneva,sans-serif;
+height:2em;
+list-style-image:none;
+list-style-position:outside;
+list-style-type:none;
+margin:0;
+padding:0;
+border-bottom: 1px solid #e5a5ca;
+}
+ol#toc li {
+float:right;
+margin:0 1px 0 0;
+}
+ol#toc a {
+background: url(../images/alatabs.gif) repeat scroll 0 0;
+color:#000000;
+display:block;
+float:left;
+height:2em;
+padding-left:10px;
+text-decoration:none;
+}
+ol#toc a:hover {
+background-color:#33AAFF;
+background-position:0 -120px;
+color:#FFFFFF;
+}
+ol#toc a:hover span {
+background-position:100% -120px;
+}
+ol#toc li.current a {
+background-color:#4488FF;
+background-position:0 -60px;
+font-weight:bold;
+}
+ol#toc li.current span {
+background-position:100% -60px;
+}
+ol#toc span {
+background:transparent url(../images/alatabs.gif) repeat scroll 100% 0;
+display:block;
+line-height:2em;
+padding-right:10px;
+}
+
+
+
+
+/* util nav */
+
+#utilDiv {
+font: 100% normal helvetica,Geneva,sans-serif;
+background: url(../images/banner.png) no-repeat 0 0;
+width:890px;
+height:80px;
+}
+
+#bannerLinks {
+color:#796A93;
+padding-right:27px;
+position:relative;
+text-align:right;
+top: 10px;
+}
+
+#bannerLinks a, #bannerLinks a:active, #bannerLinks a:visited, #bannerLinks a:hover {
+	font-size:80%;
+	color:#796A93;
+	text-decoration:underline;
+}
+
+#spaceDiv {padding-left: 18px; background: url(../images/07.jpg); width: 880px;}
+#spaceDiv p {
+background: #CCC;
+height:3px;
+width:853px;
+padding: 0;
+margin: 0;
+}
+
+
+
+/* main content column */
+
+h1 {
+	color: #555252;
+	font: bold 22px Arial Narrow, Arial, Helvetica, sans-serif;
+	padding: 0 0 0 20px;
+	text-align: left;
+	vertical-align: middle;
+	text-indent: 15px;
+	height: 35px;
+	margin: 0;
+	margin-top: 15px;
+}
+
+h2 { font-size: 16px; color:#666; }
+
+
+#mainContent p {
+	color: #555252}
+
+#mainContent p a{font-weight:bold;}
+
+#mainContent table td{
+	vertical-align: bottom;
+	}
+
+/* size changer */
+
+#utilities {
+color:#666666;
+font-family: Helvetica,Geneva,sans-serif;
+font-size:10px;
+line-height:1.33em;
+position:relative;
+padding-right:15px;
+top:0;
+float: right;
+width: 30%;}
+
+#utilities .font-label {
+float:left;
+margin:2px 5px 0 0;
+padding:2px 0 0;
+}
+
+#u-fonts a {
+float:left;
+height:17px;
+margin-left:2px;
+width:17px;
+text-decoration: none;
+}
+
+#u-fonts a.font-sm {background:transparent url(../images/font_sm.gif) no-repeat scroll 0 -18px;}
+#u-fonts a.font-med {background:transparent url(../images/font_m.gif) no-repeat scroll 0 0;}
+#u-fonts a.font-lg {background:transparent url(../images/font_lg.gif) no-repeat scroll 0 0;}
+
+#u-fonts a:hover {background-position:0 -18px;}
+#u-fonts a.font-sm:hover {background-position:0 0;}
+
+#u-icons {
+float: right;
+right:15px;
+font-size:10px;
+}
+
+a.print {
+background: transparent url(../images/print.jpg) no-repeat scroll 0 0;
+line-height: 20px;
+padding:4px 5px 6px 20px;
+}
+
+/* left sidebar styles */
+
+#sidebar1{
+font-size: 11px;}
+
+#sidebar1 h3{
+margin: 10px 0 5px 0;
+padding:  10px 0 5px 0;
+font: bold 13px Arial, Helvetica, sans-serif;}
+
+/* left menu styles */
+
+#sidebar1 .lh_menu{
+border: 0;
+padding: 15px 5px;
+font: normal 14px Arial, Helvetica, sans-serif;
+color:  #4686c6;}
+
+#sidebar1 .lh_menu .lh_menu_element{ padding: 5px 0; }
+#sidebar1 .lh_menu .lh_menu_element#current { font-weight: bold; }
+
+#sidebar1 .lh_menu .lh_menu_element a {text-decoration: none; color: #4686c6; }
+#sidebar1 .lh_menu .lh_menu_element a:hover {text-decoration: none; color: #e867b2; }
+
+/* login form styles */
+
+#sidebar1 input {
+margin: 0;
+padding: 0 2px;
+font-size:12px;
+width: 130px;
+}
+
+#sidebar1 #login {
+background:url(../images/btn_login.gif) no-repeat 0 0;
+border: 0;
+height: 30px;
+width: 85px;
+margin: 10px 0 5px 0;}
+
+
+#sidebar1 .form-field {
+text-align:left;
+padding: 5px 0;}
+
+
+/* footer styles */
+
+#footer #disclamer { text-align: center; padding-left: 50px; font-size: 10px;}
+/* #footer #powered { float: right; padding-right: 50px} */
+/*#footer #powered { float: right; padding-right: 50px; text-align: center; font-size: 10px; } */
+#footer #powered {
+float:right;
+padding-right:50px;
+padding-top:10px;
+}
+
+#footer #bot-bg {
+	/* background: url(../images/foot.jpg) no-repeat 0 0;
+	width: 890px;
+	margin-top: -1px; */
+	height: 35px;
+}
+
+#copyright {
+	text-align: center;
+	color: gray;
+	height: 25px;
+	font-size: 11px;
+}
+
+#footer {
+background-image:url("../images/footer.png");
+background-position:center center;
+background-repeat:no-repeat;
+height:70px;
+font-size: 10px;
+/*margin-top:-10px;*/
+width:884px;
+border: none;
+*background-position: top -3px; /*IE Hack*/
+}
+
+#footer #disclamer {
+color:#333333;
+float:left;
+font-size:10px;
+padding-left:50px;
+padding-top:15px;
+}
+
+.c0 td {
+padding-left:10px;
+}
+
+.currentSkipQuestion
+{
+   border: 1px solid pink;	
+}
+.skipQuestionListQuestionText
+{
+	font-weight:bold;
+}
+	
+.questionListQuestion{
+}
+
+.questionListQuestionText{
+float:left;
+font-weight:bold;
+}
+
+
+.questionListQuestionIcon{
+float:right;
+width: 22px;
+}
+
+.questionListHiddenValue{
+display: none;
+left: 10px;
+position: relative;
+font-size: x-small;
+}
+
+.questionListLearnMore{
+background-color: #CCFFFF;
+}
+
+.questionListSkipList{
+background-color: #CCCCFF;
+}
+
+.questionListSkipList ul {
+	padding-left: 10px;
+	list-style-position: inside;
+}
+
+.skipAnswerValuesLogicalOperation {
+	float: right;
+	width: 70px;
+	height: 25%;
+}
+
+.skipAnswerValuesBox {
+	float: left;
+	width: 85%;
+	height: 100%;
+	overflow: hidden;
+}
+
+#formList_table td, #questionList_table td {
+	padding: 3px;
+}
+#formList_table .skipRulesDescriptionTable, #questionList_table .skipRulesDescriptionTable {
+	border-width: 0px;
+	border-spacing: 0px;
+}
+#formList_table .skipRulesDescriptionTable td, #questionList_table .skipRulesDescriptionTable td {
+	padding: 1px;
+	vertical-align: top;
+}
+#formList_table a img, #questionList_table a img, #moduleList_table a img{
+	border: 0px;
+}
+
+input.number {
+	width: 50px;
+}
+
+/* .complexTableQuestionTable td.firsColumn {
+	max-height: 50px;
+} */
+
+.aswerText,.skipAnswerText {
+	margin-left: 20px;
+}
+
+.skipAnswerText input {
+	float: left;
+}
+
+.skipAnswerText a {
+	/*float: left;*/
+}
+
+.skipAnswerText span {
+	float: left;
+	width: 180px;
+}
+
+.googleSearchOn {
+	background: url(../images/google_search.gif) no-repeat scroll left center #FFFFFF;
+	border: 1px solid #7E9DB9;
+	padding: 2px;
+}
+
+.googleSearchOff {
+	background: none repeat scroll 0 0 #FFFFFF;
+	border: 1px solid #7E9DB9;
+	padding: 2px;
+}
+
+.loader span {
+	background:url("../images/loading.gif") no-repeat scroll left center transparent;
+	display:inline-block;
+	height:100px;
+	width:32px;
+}
+
+.selected {
+	background: #CCCCCC;
+}
+.notSelected {
+	background: white;
+}
+
+.comboMenu {
+	width:100%;
+	border:1px solid black;
+}
+
+.comboArrowDown {
+	background:url("../images/comboArrowDown.gif") no-repeat center;
+}
+
+.comboMenu_input {
+	border-right:1px solid black;
+}
+
+.comboMenu_dropdown {
+	cursor:pointer;
+	width:25px;
+}
+
+.comboDiv {
+	z-index:900;
+	position:absolute;
+	background-color: white;
+	border:1px solid black;
+	border-top:0px;
+}
+
+.comboDiv div:hover {
+	background: #488AC7;
+	cursor: pointer;
+}
+
+.error {
+	color: red;
+}
+
+.warning {
+	color: red;
+	font-size: 10px;
+	font-family: Myriad,Helvetica,Tahoma,Arial,Georgia,Times,serif,"Times New Roman";
+}
+
+#tableContent td.padding {
+	padding: 2px 0px;
+}
+
+#tableContent td.padding span {
+	margin-left: 5px;
+}
+
+#skipPatternsDiv {
+	width: 800px;
+	margin: 3px;
+}
+
+#validationsAlertBox {
+	height: 120px;
+	width: 300px;
+}
+
+table.editForm td { width: 10em; width: 2em\9; }
+
+span.exportModule { background: url(../images/export.jpg) no-repeat; cursor: pointer; margin-left: 10px; padding-right: 30px; padding-bottom: 5px; margin-top: -5px;}
+span.exportModule a { text-decoration: none; }
+td.exportModuleCol { padding-top: 0; }
+
+#questionSearchResults {margin-top: 20px; width: 100%;}
+
+#questionSearchResults th {background-color: #EFEFEF; text-align: center;}
+
+#questionSearchResults td, #questionSearchResults th {
+	vertical-align: top;
+	padding: 5px;
+	border: 1px solid gray;
+	text-align: left;
+}
+
+#questionSearchResults dt {
+	font-weight: bold;
+}
+
+#questionSearchResults dd.answers table td {border: none;}
+
+#questionSearchResults dd {
+	padding-left: 20px;
+	padding-bottom: 10px;
+}
+
+.skipForm {
+	margin-bottom: 15px;
+}
+.skipQuestions {
+    width: 100%;
+}
+.skipQuestions td {
+	padding: 5px;
+}
+
+.TitlePane {
+	cursor: pointer;
+	background-color: #EFEFEF;
+	display: block;
+	overflow: hidden;
+	margin-top:3px;
+	margin-bottom:3px;
+	margin-right:3px;
+	margin-left:10px;
+	padding-left: 18px;
+	padding-top: 2px;
+}
+
+.TitlePaneClosed {
+	background-image:url(../images/plus.png);
+	background-position:1px 1px;
+	background-repeat:no-repeat;
+}
+
+.TitlePaneOpened {
+	background-image:url(../images/minus.png);
+	background-position:1px 1px;
+	background-repeat:no-repeat;
+}
+
+.TitlePaneOdd {
+	background-color: #F1F1F1;
+}
+
+.TitlePaneEven {
+	background-color: #F8F8F8;
+}
+
+.TitlePaneContentArea {
+	border: 1px solid #EFEFEF;
+	display: block;
+	margin-top:0px;
+	margin-bottom:3px;
+	margin-right:3px;
+	margin-left:10px;
+}
+
+#questionSearchResults a.plus{
+	background: url('../images/add.gif') no-repeat;
+	text-decoration: none;
+	padding-left: 18px;
+	padding-top: 2px;
+}
+
+#questionSearchResults a.check{
+	background: url('../images/checkmark.png') no-repeat;
+	text-decoration: none;
+	padding-left: 18px;
+	padding-top: 2px;
+}
+
+.noticetext {
+	color: red;
+	font-size: 10px;
+}
+
+a.noticelink {
+	border-bottom: 1px dotted #F24033;
+	background: #FADBD2;
+	color: red;
+	text-decoration: none;
+	display: inline;
+	font-family: Times;
+}
+
+a.noticelink:hover {
+	background: #F7AF99;
+	font-weight: bold;
+}
+
+tr.strikethrough{
+	text-decoration: line-through;
+	background: red;
+}
+
+.noticelink.skipRemoveAns {
+	border-bottom: 1px dotted gray;
+	background: #EFEFEF;
+	color: black;
+}
+
+#sampleDataGen table td {
+	padding: 5px;
+}
+
+#sampleDataGen select {
+	width: 180px;
+}
+
+#sampleDataGen input[type=submit] {
+	float: right;
+}
+
+div#sampleDataGen #subtitlebar {
+	clear: right;
+}
+
+div#sampleDataGen #questionSearchResults,
+div#sampleDataGen div.submit {
+	width: 800px;
+}
+div#sampleDataGen .questionmark {
+	background: url("../images/question-mark.png") no-repeat;
+	cursor: help;
+	min-width: 20px;
+}
+
+#sampleDataGen input:hover, #sampleDataGen select:hover,
+#sampleDataGen input:focus, #sampleDataGen select:focus {
+	border: 2px solid #7D87FA;
+}
+
+#sampleDataGen select#moduleSelect {
+	color: #8F2740;
+	font-weight: normal;
+}
+
+#sampleDataGen select, #sampleDataGen input {
+	font-size: 11px;
+	font-weight: bold;
+}
+
+#sampleDataGen .summary {
+	color: black;
+}
+
+#sampleDataGen table {
+	width: 800px;
+}
+
+#sampleDataGen .requiredAsterisk {
+	color: red;
+	font-weight: bold;
+}
+
+#sampleDataGen .guidance {
+	color: red;
+	font-size: 9px;
+}
+
+#sampleDataGen .instructions{
+	width:784px;
+	padding:12px 7px;
+	border:1px solid gray;
+	background:lightgray;
+}
+
+#sampleDataGen .progressBar{
+	margin-top: -150px;
+	margin-left: 100px;
+	width: 500px;
+	height: 100px;
+	z-index: 1;
+	position: absolute;
+	background: wheat url(../images/animated_progress_bar.gif) no-repeat 150px 50px;
+	border: 1px solid black;
+}
+
+#sampleDataGen .progressBar h2 {
+	color: black;
+	margin-left: 150px;
+}
+
+#sampleDataGen .tableQuestionDivider {
+	background: #EFEFEF; 
+	font-size: 12px;
+}
+
+#sampleDataGen .tableQuestionDivider input.tableQuestionGrp{
+	margin-right: 3px;
+}
+
+#sampleDataGen .tableQnRow{
+	display: none;
+	background: #DBEBCB; 
+}
+
+#sampleDataGen tr.selectedRow {
+	background: #E8E8E8;
+}
+
+#sampleDataGen tr.deselectedRow {
+	background: #FFFFFF;
+}
+
+#sampleDataGen tr.tableQnRow.selectedRow {
+	background: #F0D988;
+}
+
+#sampleDataGen tr.tableQnRow.deselectedRow {
+	background: #DBEBCB;
+}
+
+#sampleDataGen tr.borderShow td {
+	border: 1px solid black;
+}
+
+#sampleDataGen span#moduleSelectSpinner {
+	background: url(../images/spinner.gif) no-repeat;
+	display: none; 
+}
+
+.skipPanel
+{
+	border: 1px solid blue;
+	float: left;
+	width: 460px;
+	height: 330px;
+	margin: 5px;
+}
+
+#rightSkipPanel-child
+{
+	height: 290px;
+	text-align: left;
+}
+
+#rightSkipPanel {
+	
+}
+#leftSkipPanel {
+	overflow: auto;
+	overflow-x: hidden;
+	-ms-overflow-x: hidden;
+}
+
+#rightSkipPanel-child {
+	overflow: auto;
+	overflow-x: hidden;
+	-ms-overflow-x: hidden;
+}
+
+.simpleTableQuestionTable, .complexTableQuestionTable {
+	border-spacing : 10px 0px;
+}
+.simpleTableQuestionTable td, .simpleTableQuestionTable th {
+	min-width: 16px;
+	max-width: 220px;
+}	
+.simpleTableQuestionTable input {
+	width: 100%;
+}
+.complexTableQuestionTable td, .complexTableQuestionTable th {
+	overflow: hidden;
+	min-width: 50px;
+	max-width: 180px;
+}	
+.complexTableQuestionTable input, .complexTableQuestionTable select {
+	min-width: 45px;
+	max-width: 175px;
+}
+
+.startRow textarea {
+	clear: left;
+    height: 100px;
+    width: 250px;
+    overflow: auto;  
+}
+
+.questionLibrarySearchBox {
+	display: block;
+	vertical-align: middle;
+	margin-left:auto;
+	width:40%;
+}
+
+.qlShowAll {
+	display: block;
+	background-color: #EFEFEF;
+	vertical-align: middle;
+	margin-left:auto;
+	width:39%;
+}
+
+.questionLibrarySearchBox select[name='categoryId']{
+	height:100px;
+	width:200px;
+}
+.questionLibrarySearchBox input[name='query']{
+	width:200px;
+}
+.questionLibrarySearchBox #qlSearchSubmit{
+	width: 60px;
+}
+.questionLibrarySearchBox #qlClear {
+	width: 60px;
+}
+
+.initialHeader {
+	cursor: pointer;
+	background-color: #EFEFEF;
+}
+
+.questionsAreFoundHeader {
+	cursor: pointer;
+	background-color: rgb(214,210,255);
+}
+
+.questionLibrarySearchBox .TitlePaneContentArea {
+	border: 1px solid #DDD;
+	background-color: rgb(244,243,255);
+}
+
+.innerContainer {
+	margin-bottom:0;
+	padding:.5em 20px 1em;
+	position:relative;
+	overflow:hidden
+}
+
+.calendarImage {
+	background:url(../images/cal.gif) no-repeat;
+    /* cursor:pointer; */
+    border: none;
+    width: 16px;
+    height: 16px;
+}
+
+.busy-controll {
+	opacity:0.4;
+	filter:alpha(opacity=40)
+}
+
+/*========== Form lock styles ==========*/
+
+.unlockedForm {
+	background: url(../images/padlock-unlocked.png) no-repeat;
+	display: block;
+	height: 18px;
+	width: 18px;
+	float: left;
+	margin-right: 2px;
+	margin-left: 2px;
+}
+
+.lockedByYouForm {
+	background: url(../images/padlock-locked-by-me.png) no-repeat;
+	display: block;
+	height: 18px;
+	width: 18px;
+	float: left;
+	margin-right: 2px;
+	margin-left: 2px;
+}
+
+.lockedBySomebodyElseForm {
+	background: url(../images/padlock-locked-by-else.png) no-repeat;
+	display: block;
+	height: 18px;
+	width: 18px;
+	float: left;
+	margin-right: 2px;
+	margin-left: 2px;
+}
+
+/* styles was gotten from dojo.css */
+
+
+body, div, dl, dt, dd, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td {
+	margin: 0;
+	padding: 0;
+}
+fieldset, img {
+	border: 0 none;
+}
+address, caption, cite, code, dfn, th, var {
+	font-style: normal; 
+	font-weight: normal;
+}
+caption, th {
+	text-align: left;
+}
+q:before, q:after {
+	content:"";
+}
+abbr, acronym {
+	border:0;
+}
+body { 
+	font: 12px Myriad,Helvetica,Tahoma,Arial,clean,sans-serif; 
+	*font-size: 75%;
+}
+h1 {
+	font-size: 1.5em; 
+	font-weight: normal;
+	line-height: 1em; 
+	margin-top: 1em;
+	margin-bottom:0;
+}
+h2 { 
+	font-size: 1.1667em; 
+	font-weight: bold; 
+	line-height: 1.286em; 
+	margin-top: 1.929em; 
+	margin-bottom:0.643em;
+}
+h3, h4, h5, h6 {
+	font-size: 1em; 
+	font-weight: bold; 
+	line-height: 1.5em; 
+	margin-top: 1.5em; 
+	margin-bottom: 0;
+}
+p { 
+	font-size: 1em; 
+	margin-top: 1.5em; 
+	margin-bottom: 1.5em; 
+	line-height: 1.5em;
+}
+blockquote { 
+	font-size: 0.916em; 
+	margin-top: 3.272em; 
+	margin-bottom: 3.272em; 
+	line-height: 1.636em; 
+	padding: 1.636em; 
+	border-top: 1px solid #ccc; 
+	border-bottom: 1px solid #ccc;
+}
+ol li, ul li { 
+	font-size: 1em; 
+	line-height: 1.5em; 
+	margin: 0;
+}
+pre, code { 
+	font-size:115%;
+	*font-size:100%;
+	font-family: Courier, "Courier New"; 
+	background-color: #efefef; 
+	border: 1px solid #ccc;
+}
+pre { 
+	border-width: 1px 0; 
+	padding: 1.5em;
+}
+table {  font-size:100%; }
+table.dojoTabular { 
+	border-collapse: collapse; 
+	border-spacing: 0; 
+	border: 1px solid #ccc; 
+	margin: 0 1.5em;
+}
+.dojoTabular th { 
+	text-align: center; 
+	font-weight: bold;
+}
+table.dojoTabular thead, table.dojoTabular tfoot { 
+	background-color: #efefef; 
+	border: 1px solid #ccc; 
+	border-width: 1px 0; 
+}
+table.dojoTabular thead tr th,
+table.dojoTabular thead tr td,
+table.dojoTabular tbody tr td,
+table.dojoTabular tfoot tr td { 
+	padding: 0.25em 0.5em;
+}
+.inputTable {
+	font-size: 1.1em;
+	width: 250px;
+	border-spacing: 0;
+	border-color: #f4f7fb;
+}
+.inputTable td, .inputTable th
+{
+    padding: 5px;
+}
+.inputTable * {
+	background-color: #f4f7fb;
+}
+
+.inputTable input {
+	background-color: white;
+	margin: 5px;
+}
+
+#userCredentials .inputTable {
+	margin-left: 280px;
+}
+
+.loginHeader, .loginBottom {
+	background-color: #e9eff6;
+	color: #5f82a9;
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+.requiredField {
+    background-image: url("../xsltforms/required-field.png");
+    background-position:left 3px;
+	background-repeat:no-repeat;
+	margin-left: 3px;
+	padding-left:10px;
+}
+
+.breadcrumb_next_level_arrow {
+	background: url(../images/widget_closed.gif) no-repeat 0 100%;
+	cursor: pointer;
+	width: 8px;
+}
+
+.navigate_popup a {
+	font-size: 0.8em;
+}
+
+.navigate_popup {
+	background-color: #CCCCCC;
+	display: none;
+	height: 200px;
+	left: 35%;
+	overflow: auto;
+	padding: 8px;
+	position: absolute;
+	top: 140px;
+	width: 300px;
+	z-index: 2;
+}
+
+.answerLengthDiv {
+	margin: 4px;
+}
+
+#controlBlock > div {
+	width:315px;
+	height:25px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 21px;
+	cursor: pointer;
+}
+#controlBlock {
+	width:350px;
+	height:70px;
+	border-color:yellow;
+	border-style:solid;
+	border-width:5px;
+	display:none;
+	background-color: white;
+	margin-left: 10px;
+	z-index:99999;
+	position:fixed;
+	top:0;
+}
+
+#controlBlock_selectedElements {
+	font-family: Tahoma;
+	font-size: 14pt;
+	font-weight: bold;
+	text-decoration:underline;
+}

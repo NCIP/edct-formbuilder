@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# init.d script for fsa tomcat
+# $Revision: 1.1 $ $Name:  $
+#
+
+ulimit -n 2048
+su -s /bin/sh howhttp /opt/how/@target.context@.how.tomcat.sh $1
+

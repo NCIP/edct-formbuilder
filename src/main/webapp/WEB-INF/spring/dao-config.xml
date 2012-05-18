@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" 
+"http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<!--  DAO beans -->
+	<bean name="answerDao" class="com.healthcit.cacure.dao.AnswerDao"/>
+	<bean name="formDao" class="com.healthcit.cacure.dao.FormDao"/>
+	<bean name="moduleDao" class="com.healthcit.cacure.dao.ModuleDao"/>
+	<bean name="questionDao" class="com.healthcit.cacure.dao.QuestionDao"/>
+	<bean name="questionElementDao" class="com.healthcit.cacure.dao.QuestionElementDao"/>
+	<bean name="linkElementDao" class="com.healthcit.cacure.dao.LinkElementDao"/>
+	<bean name="formElementDao" class="com.healthcit.cacure.dao.FormElementDao"/>
+	<bean name="tableElementDao" class="com.healthcit.cacure.dao.TableElementDao"/>
+	<bean name="contentElementDao" class="com.healthcit.cacure.dao.ContentElementDao"/>
+	<bean name="externalElementDao" class="com.healthcit.cacure.dao.ExternalQuestionElementDao"/>
+	<bean name="tableQuestionDao" class="com.healthcit.cacure.dao.QuestionTableDao"/>
+	<bean name="userDao" class="com.healthcit.cacure.dao.UserManagerDao"/>
+	<bean name="skipDao" class="com.healthcit.cacure.dao.SkipPatternDao"/>
+	<bean name="roleDao" class="com.healthcit.cacure.dao.RoleDao"/>
+	<bean name="categoryDao" class="com.healthcit.cacure.dao.CategoryDao"/>
+	<bean name="preferencesDao" class="com.healthcit.cacure.dao.PreferencesDao"/>
+	<bean name="couchDbDao" class="com.healthcit.cacure.dao.CouchDBDao">
+		<property name="host">
+		    <value>${couchDb.host}</value>
+		</property>
+		<property name="port">
+		   	<value>${couchDb.port}</value>
+		</property>
+		<property name="dbName">
+		  	<value>${couchDb.name}</value>
+		</property>
+		<property name="batchSize">
+		   	<value>${couchDb.batch.size}</value>
+		</property>
+		<property name="bulkBatchSize">
+		   	<value>${couchDb.bulk.batch.size}</value>
+		</property>
+		<property name="designDoc">
+		   	<value>${couchDb.design.doc}</value>
+		</property>
+	</bean>
+
+	<!--  business layer beans -->
+	<bean name="formMgr" class="com.healthcit.cacure.businessdelegates.FormManager"/>
+	<bean name="moduleMgr" class="com.healthcit.cacure.businessdelegates.ModuleManager"/>
+	<bean name="qaMgr" class="com.healthcit.cacure.businessdelegates.QuestionAnswerManager"/>
+	<bean name="userMgr" class="com.healthcit.cacure.businessdelegates.UserManager"/>
+	<bean name="categoryManager" class="com.healthcit.cacure.businessdelegates.CategoryManager"/>
+	<bean name="generatedModuleDataMgr" class="com.healthcit.cacure.businessdelegates.GeneratedModuleDataManager"/> 
+	<bean name="preferencesManager" class="com.healthcit.cacure.businessdelegates.PreferencesManager"/>
+	<bean name="cadsrManager" class="com.healthcit.cacure.cadsr.CADSRManager"/>
+	
+	<!-- Additional services -->
+	<bean name="mailSendingService" class="com.healthcit.cacure.utils.MailSendingService" />
+</beans>

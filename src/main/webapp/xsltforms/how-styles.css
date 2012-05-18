@@ -1,0 +1,564 @@
+@charset "utf-8";
+
+/* layout styles */
+
+* {
+margin:0;
+padding:0;
+}
+
+.focusCSS {
+	background: url("../images/gradient2.jpg") repeat-x #FFFFFF;
+	border: 2px solid #A6A2A2;
+}
+
+body  {
+	font: 12px Helvetica, Arial, san-serif;
+	color: #000000;
+	line-height: 1.5em;
+	font-family:Verdana,Arial,Helvetica,sans-serif;
+	font-size:75%;
+	/* line-height:0.875em; */
+	background: #f1f1f1;
+	margin: 0; /* zero the margin and padding of the body element to account for differing browser defaults */
+	padding: 0;
+	text-align: center; /* centers the container in IE 5* browsers. */
+}
+.twoColFixLtHdr #container { 
+	width: 872px;  /* using 20px less than a full 800px width allows for browser chrome and avoids a horizontal scroll bar */
+	background: none;
+	margin: 15px auto; /* the auto margins (in conjunction with a width) center the page */
+	border: 0;
+	text-align: left; /* this overrides the text-align: center on the body element. */
+} 
+.twoColFixLtHdr #header { 
+	background: none; 
+	padding: 0;  /* this padding matches the left alignment of the elements in the divs that appear beneath it. If an image is used in the #header instead of text, you may want to remove the padding. */
+} 
+.twoColFixLtHdr #header h1 {
+	margin: 0; /* zeroing the margin of the last element in the #header div will avoid margin collapse - an unexplainable space between divs. If the div has a border around it, this is not necessary as that also avoids the margin collapse */
+	padding: 10px 0; /* using padding instead of margin will allow you to keep the element away from the edges of the div */
+}
+
+.twoColFixLtHdr #content {
+	background: url(../images/07.jpg) repeat-y scroll left top;
+	width: 890px;
+	text-align:left;
+}
+
+.twoColFixLtHdr #sidebar1 {
+	float: left; /* since this element is floated, a width must be given */
+	width: 150px; /* the actual width of this div, in standards-compliant browsers, or standards mode in Internet Explorer will include the padding and border in addition to the width */
+	background:#F5F5F5; /* the background color will be displayed for the length of the content in the column, but no further */
+	padding: 15px 10px 15px 20px;
+	margin-left:18px;
+}
+.twoColFixLtHdr #mainContent { 
+	margin: 0 0 0 200px; /* the left margin on this div element creates the column down the left side of the page - no matter how much content the sidebar1 div contains, the column space will remain. You can remove this margin if you want the #mainContent div's text to fill the #sidebar1 space when the content in #sidebar1 ends. */
+	padding: 10px 40px 10px 10px; /* remember that padding is the space inside the div box and margin is the space outside the div box */
+	
+} 
+.twoColFixLtHdr #footer { 
+	padding: 0; /* this padding matches the left alignment of the elements in the divs that appear above it. */
+	background: url(../images/07.jpg) repeat-y 0 0;
+	width: 890px; 
+	margin-top: -1px;
+	margin-bottom: 30px;
+	height: 50px;
+	padding-top: 20px;
+} 
+.twoColFixLtHdr #footer p {
+	margin: 0; /* zeroing the margins of the first element in the footer will avoid the possibility of margin collapse - a space between divs */
+	padding: 10px 0; /* padding on this element will create space, just as the the margin would have, without the margin collapse issue */
+}
+td.fieldLabelAMR {
+	color:#000000;
+	font:15px Helvetica,san-serif;
+	text-align:right;
+}
+
+.result {
+	color:green;
+	font-family:Tahoma;
+	font-size:11px;
+}
+
+.welcome {
+	background:none repeat scroll 0 0 #FFFFFF;
+	color:#555252;
+	font:16px Helvetica,san-serif;
+	padding:0 0 0 20px;
+	text-align:left;
+	vertical-align:middle;
+}
+
+.pageText {
+	color:#000000;
+	font:12px Helvetica,san-serif;
+	padding-left:15px;
+}
+
+a.pageLinkSmall {
+	color:#4686C6;
+	font:bold 14px Helvetica,arial,san-serif;
+}
+
+.titleBold {
+	font:bold 13px Helvetica;
+	padding:5px 0;
+	color: #000000;
+}
+
+.fltrt { /* this class can be used to float an element right in your page. The floated element must precede the element it should be next to on the page. */
+	float: right;
+	margin-left: 8px;
+}
+.fltlft { /* this class can be used to float an element left in your page */
+	float: left;
+	margin-right: 8px;
+}
+.clearfloat { /* this class should be placed on a div or break element and should be the final element before the close of a container that should fully contain a float */
+	clear:both;
+    height:0;
+    font-size: 1px;
+    line-height: 0px;
+}
+
+
+/* header styles */
+
+#primDivContainer {
+background: url(../images/01.jpg) no-repeat 0 100%;
+height: 15px;
+width: 890px;
+}
+
+#primDiv {
+height:1em;
+margin-left:18px;
+padding-bottom:0;
+padding-right:25px;
+padding-top:5px;
+*padding-top:10px; /*IE Hack*/
+position:relative;
+}
+
+/* tabs nav */
+
+ol#prim {
+font: normal 100% helvetica,Geneva,sans-serif;
+height:2em;
+list-style-image:none;
+list-style-position:outside;
+list-style-type:none;
+margin:0;
+padding:0;
+margin-top: -14px;
+}
+ol#prim li {
+float:right;
+margin:0 1px 0 0;
+}
+ol#prim a {
+background:#BBDDFF url(../images/alatabs.gif) repeat scroll 0 0;
+color:#000000;
+display:block;
+float:left;
+height:2em;
+padding-left:10px;
+text-decoration:none;
+}
+ol#prim a:hover {
+background-color:#33AAFF;
+background-position:0 -120px;
+color:#FFFFFF;
+}
+ol#prim a:hover span {
+background-position:100% -120px;
+}
+ol#prim li.current a {
+background-color:#4488FF;
+background-position:0 -60px;
+font-weight:bold;
+}
+ol#prim li.current span {
+background-position:100% -60px;
+}
+ol#prim span {
+background:transparent url(../images/alatabs.gif) repeat scroll 100% 0;
+display:block;
+line-height:2em;
+padding-right:10px;
+}
+
+.required {
+color:#FF0000;
+font:12px Helvetica,san-serif;
+}
+
+.note {
+color:#C0C0C0;
+font:10px Helvetica,san-serif;
+}
+
+.user_nameBlk {
+background:none repeat scroll 0 0 #DEE8FF;
+}
+
+
+td.camatch_lnav_nolink_small {
+color:#000000;
+font:bold 12px Helvetica,arial,san-serif;
+text-decoration:none;
+}
+
+.user_PasswordBlk {
+background:none repeat scroll 0 0 #DEDEEF;
+}
+
+.inbox1 {
+border:0 solid gray;
+color:#000000;
+font-family:verdana,arial,san-serif;
+font-size:11px;
+font-weight:bold;
+line-height:15px;
+text-decoration:none;
+width:650px;
+}
+
+div.scroll {
+height: 200px;
+width: 300px;
+overflow: auto;
+border: 1px solid #666;
+background-color: #ccc;
+padding: 8px;
+}
+
+/* secondary tabs nav */
+#tocDiv{margin-bottom: 25px;}
+
+ol#toc {
+font: normal 90% helvetica,Geneva,sans-serif;
+height:2em;
+list-style-image:none;
+list-style-position:outside;
+list-style-type:none;
+margin:0;
+padding:0;
+border-bottom: 1px solid #e5a5ca;
+}
+ol#toc li {
+float:right;
+margin:0 1px 0 0;
+}
+ol#toc a {
+background: url(../images/alatabs.gif) repeat scroll 0 0;
+color:#000000;
+display:block;
+float:left;
+height:2em;
+padding-left:10px;
+text-decoration:none;
+}
+ol#toc a:hover {
+background-color:#33AAFF;
+background-position:0 -120px;
+color:#FFFFFF;
+}
+ol#toc a:hover span {
+background-position:100% -120px;
+}
+ol#toc li.current a {
+background-color:#4488FF;
+background-position:0 -60px;
+font-weight:bold;
+}
+ol#toc li.current span {
+background-position:100% -60px;
+}
+ol#toc span {
+background:transparent url(../images/alatabs.gif) repeat scroll 100% 0;
+display:block;
+line-height:2em;
+padding-right:10px;
+}
+
+
+
+
+/* util nav */
+
+#utilDiv {
+font: 100% normal helvetica,Geneva,sans-serif;
+background: url(../images/banner.png) no-repeat 0 0;
+width:890px;
+height:80px;
+}
+
+#bannerLinks {
+color:#EE008A;
+padding-right:27px;
+position:relative;
+text-align:right;
+top: 10px;
+}
+
+#bannerLinks a, #bannerLinks a:active, #bannerLinks a:visited, #bannerLinks a:hover {
+	font-size:80%;
+	color:#EE008A;
+	text-decoration:underline;
+}
+
+#spaceDiv {padding-left: 18px; background: url(../images/07.jpg); width: 880px;}
+#spaceDiv p {
+background: #CCC;
+height:3px;
+width:853px;
+padding: 0;
+margin: 0;
+}
+
+.pageTextSmall {
+color:#000000;
+font:10px Helvetica,san-serif;
+}
+
+/* main content column */
+
+h1 {
+	color: #555252;
+	font: bold 22px Arial Narrow, Arial, Helvetica, sans-serif;
+	padding: 0 0 0 20px;
+	text-align: left;
+	vertical-align: middle;
+	text-indent: 15px;	
+	height: 35px;
+	margin: 0;
+	margin-top: 15px;
+}
+
+h2 { font-size: 16px; color:#666; }
+
+p {
+	margin-bottom: 14px;
+}
+
+#mainContent p {
+	color: #555252
+}
+	
+#mainContent p a{font-weight:bold;}
+
+#mainContent table td{
+	vertical-align: bottom;
+	}
+
+/* size changer */
+
+#utilities {
+color:#666666;
+font-family: Helvetica,Geneva,sans-serif;
+font-size:10px;
+line-height:1.33em;
+position:relative;
+padding-right:15px;
+top:0;
+float: right;
+width: 30%;}
+
+#utilities .font-label {
+float:left;
+margin:2px 5px 0 0;
+padding:2px 0 0;
+}
+
+#u-fonts a {
+float:left;
+height:17px;
+margin-left:2px;
+width:17px;
+text-decoration: none;
+}
+
+#u-fonts a.font-sm {background:transparent url(../images/font_sm.gif) no-repeat scroll 0 -18px;}
+#u-fonts a.font-med {background:transparent url(../images/font_m.gif) no-repeat scroll 0 0;}
+#u-fonts a.font-lg {background:transparent url(../images/font_lg.gif) no-repeat scroll 0 0;}
+
+#u-fonts a:hover {background-position:0 -18px;}
+#u-fonts a.font-sm:hover {background-position:0 0;}
+
+#u-icons {
+float: right;
+right:15px;
+font-size:10px;
+}
+
+a.print {
+background: transparent url(../images/print.jpg) no-repeat scroll 0 0;
+line-height: 20px;
+padding:4px 5px 6px 20px;
+}
+
+/* left sidebar styles */
+
+#sidebar1{
+font-size: 11px;}
+
+#sidebar1 h3{
+margin: 10px 0 5px 0;
+padding:  10px 0 5px 0;
+font: bold 13px Arial, Helvetica, sans-serif;}
+
+/* left menu styles */
+
+#sidebar1 .lh_menu{
+	border: 0;
+	padding: 15px 5px;
+	font: bold 14px Arial, Helvetica, sans-serif;
+	color:  #4686c6;
+	background-color:#F5F5F5;
+	border-bottom:1px solid #7A9930;
+	border-top:1px solid #7A9930;
+}
+
+#sidebar1 .lh_menu .lh_menu_element{ padding: 5px 0; }
+#sidebar1 .lh_menu .lh_menu_element#current { font-weight: bold; }
+
+#sidebar1 .lh_menu .lh_menu_element a {text-decoration: none; color: #000000; }
+#sidebar1 .lh_menu .lh_menu_element a:hover {text-decoration: none; color: #e867b2; }
+
+/* login form styles */
+
+#sidebar1 input {
+margin: 0;
+padding: 0 2px;
+font-size:12px;
+width: 130px;
+}
+
+#sidebar1 #login {
+background:url(../images/btn_login.gif) no-repeat 0 0;
+border: 0;
+height: 30px;
+width: 85px;
+margin: 10px 0 5px 0;}
+
+
+#sidebar1 .form-field {
+text-align:left;
+padding: 5px 0;}
+
+/* FAQs */
+.FAQQuestion {
+color:#7A9930;
+font:bold 21px/1.11em arial Narrow,san-serif;
+text-align:left;
+}
+
+.FAQHeader {
+color:#555252;
+font:bold 22px arial Narrow;
+text-align:left;
+}
+
+.FAQText {
+color:#555252;
+font:16px/1.5em Helvetica,san-serif;
+text-align:left;
+}
+
+.HomeText {
+color:#555252;
+font:14px/1.35em Helvetica,san-serif;
+text-align:left;
+}
+
+/* Registration Page Styles */
+#step1 {
+	margin-top: 10px;
+}
+
+/* error styles */
+#container .error {
+	font-family: Arial;
+}
+
+#container .error legend {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.errorClass {
+	color: red;
+	font-weight: bold;
+	display: block;
+	font-size: 11px;
+	line-height: 13px;
+}
+
+.errorFieldClass {
+	border: 2px solid red;
+	background: url("../images/gradient3.jpg") repeat-x #FFFFFF;
+}
+
+.pageHeader {
+	color:#000000;
+	font:bold 14px arial Narrow,san-serif;
+	padding-left:15px;
+}
+
+/* Menus */
+a.camatch_lnav_link {
+color:#000000;
+font:bold 12px/14px Tahoma;
+text-decoration:none;
+}
+
+/* registration */
+.inbox {
+border:1px solid gray;
+width:200px;
+}
+
+.graybar {
+background:none repeat scroll 0 0 #DDDDDD;
+float:left;
+height:16px;
+width:200px;
+}
+
+.colorbar {
+background-image:url("../images/passwordstrength.jpg");
+float:left;
+height:16px;
+margin-top:-16px;
+width:1px;
+}
+
+.user_sequrityBlk {
+background:none repeat scroll 0 0 #FFE2DE;
+}
+
+#sidebar1 .lh_menu{
+	border: 0;
+	padding: 15px 5px;
+	font: bold 14px Arial, Helvetica, sans-serif;
+	color:  #4686c6;
+	background-color:#F5F5F5;
+	border-bottom:1px solid #7A9930;
+	border-top:1px solid #7A9930;
+}
+
+/* footer styles */
+
+#footer #disclamer { float: left; padding-left: 50px; font-size: 10px;}
+#footer #powered { float: right; padding-right: 50px}
+
+#footer #bot-bg{
+	background: url(../images/foot.jpg) no-repeat 0 0;
+	width: 890px; 
+	height: 70px;
+	margin-top: -1px;
+	}

@@ -1,0 +1,25 @@
+#MyEclipse Hibernate Properties
+#Fri Oct 01 18:34:47 EDT 2010
+sessionFactoryName=com.healthcit.cacure.model.HibernateSessionFactory
+genBasicCompId=false
+profile=
+daoSFId=
+version=3.2
+jndiPath=
+detectM2M=false
+reStrategyClass=
+detectO2O=false
+springDaoFile=
+useJavaTypes=true
+keyGenerator=
+libInstallFolder=<no jars/zips in selected libraries>
+addLibs2Project=true
+genVersionTag=false
+sessionFactoryId=sessionFactory
+basePersistenceClass=
+genAnnotations=false
+reSettingsFile=
+configFile=/caCureFormBuilder/src/main/webapp/WEB-INF/spring/app-config.xml
+createConfigFile=false
+addLibs2Classpath=true
+baseDaoClass=

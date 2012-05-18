@@ -1,0 +1,1 @@
+alter table answer add column value_constraint character varying(100);

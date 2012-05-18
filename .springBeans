@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beansProjectDescription>
+	<version>1</version>
+	<pluginVersion><![CDATA[2.2.0.me201003052220]]></pluginVersion>
+	<configSuffixes>
+		<configSuffix><![CDATA[xml]]></configSuffix>
+	</configSuffixes>
+	<enableImports><![CDATA[true]]></enableImports>
+	<configs>
+		<config>src/main/webapp/WEB-INF/spring/app-config.xml</config>
+		<config>src/main/webapp/WEB-INF/spring/dao-config.xml</config>
+		<config>src/main/webapp/WEB-INF/spring/mvc-config.xml</config>
+	</configs>
+	<configSets>
+	</configSets>
+	<springVersion>1.2</springVersion>
+</beansProjectDescription>
