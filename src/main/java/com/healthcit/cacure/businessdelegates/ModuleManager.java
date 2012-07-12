@@ -1,18 +1,26 @@
 package com.healthcit.cacure.businessdelegates;
 
+import java.util.ArrayList;
 import java.util.EnumSet;
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.log4j.Logger;
-import org.jboss.util.collection.CollectionsUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.healthcit.cacure.dao.ModuleDao;
+import com.healthcit.cacure.model.AnswerSkipRule;
+import com.healthcit.cacure.model.BaseForm;
 import com.healthcit.cacure.model.BaseModule;
 import com.healthcit.cacure.model.BaseModule.ModuleStatus;
+import com.healthcit.cacure.model.FormLibraryForm;
+import com.healthcit.cacure.model.FormLibraryModule;
+import com.healthcit.cacure.model.FormSkipRule;
 import com.healthcit.cacure.model.Module;
+import com.healthcit.cacure.model.QuestionSkipRule;
+import com.healthcit.cacure.model.QuestionnaireForm;
 import com.healthcit.cacure.model.Role.RoleCode;
 import com.healthcit.cacure.model.UserCredentials;
 import com.healthcit.cacure.security.UnauthorizedException;
@@ -208,5 +216,69 @@ public class ModuleManager {
 			return hasPermissions && isModuleInProperStateStatus;
 			//&&	isUserModuleAuthor;
 		}
+	}
+	
+	@Transactional
+	public Module copyModule(Module moduleToCopy) {
+		EnumSet<RoleCode> roleCodes = userManager.getCurrentUserRoleCodes();
+		if(roleCodes.contains(RoleCode.ROLE_ADMIN) || roleCodes.contains(RoleCode.ROLE_LIBRARIAN)) {
+			List<BaseForm> formsToCopy = new ArrayList<BaseForm>(moduleToCopy.getForms());
+			Module copiedModule = new Module();
+			Module.copyInformationFields(moduleToCopy, copiedModule);
+			addNewModule(copiedModule);
+			FormLibraryModule formLibraryModule = (FormLibraryModule) formManager.getLibraryModule(FormLibraryModule.class);
+			HashMap<Long, Long> oldFormIdsNewFormIdsMap = new HashMap<Long, Long>();
+			HashMap<String, String> oldAnswerValueIdsNewAnswerValueIdsMap = new HashMap<String, String>();
+			for (BaseForm formToCopy : formsToCopy) {
+				QuestionnaireForm questionnaireFormToCopy = (QuestionnaireForm) formToCopy;
+				FormLibraryForm importedFormLibraryForm = questionnaireFormToCopy.getFormLibraryForm(); 
+				if(importedFormLibraryForm == null) {
+					importedFormLibraryForm = (FormLibraryForm) formManager.importFormToModule(formLibraryModule, formToCopy, true, oldAnswerValueIdsNewAnswerValueIdsMap);
+				}
+				QuestionnaireForm copiedForm = (QuestionnaireForm) formManager.importFormToModule(copiedModule, importedFormLibraryForm, false, oldAnswerValueIdsNewAnswerValueIdsMap);
+				oldFormIdsNewFormIdsMap.put(copiedForm.getId(), importedFormLibraryForm.getId());
+				if(questionnaireFormToCopy.getFormSkipRule() != null) {
+					FormSkipRule clonedFormSkipRule = cloneFormSkipRule(questionnaireFormToCopy, copiedForm, oldFormIdsNewFormIdsMap, oldAnswerValueIdsNewAnswerValueIdsMap);
+					copiedForm.setFormSkipRule(clonedFormSkipRule);
+					formManager.updateFormLibraryForm(copiedForm, importedFormLibraryForm);
+				}
+			}
+			return copiedModule;
+		} else {
+			throw new UnauthorizedException("The user must have either ADMIN or LIBRARIAN role in order to copy modules.");
+		}
+	}
+	
+	private FormSkipRule cloneFormSkipRule(final QuestionnaireForm form, final QuestionnaireForm newForm, final HashMap<Long, Long> oldFormIdsNewFormIdsMap, HashMap<String, String> oldAnswerValueIdsNewAnswerValueIdsMap) {
+		FormSkipRule formSkipRuleToClone = form.getFormSkipRule();
+		
+		FormSkipRule clonedFormSkipRule = null;
+		if(formSkipRuleToClone != null) {
+			clonedFormSkipRule = new FormSkipRule();
+			clonedFormSkipRule.setLogicalOp(formSkipRuleToClone.getLogicalOp());
+			
+			List<QuestionSkipRule> questionSkipRulesToClone = formSkipRuleToClone.getQuestionSkipRules();
+			
+			for(QuestionSkipRule questionSkipRuleToClone: questionSkipRulesToClone) {
+				QuestionSkipRule clonedQuestionSkipRule = questionSkipRuleToClone.clone();
+				clonedQuestionSkipRule.setLogicalOp(questionSkipRuleToClone.getLogicalOp());
+				List<AnswerSkipRule> skipPartsToClone = questionSkipRuleToClone.getSkipParts();
+				for (AnswerSkipRule skipPartToClone : skipPartsToClone) {
+					AnswerSkipRule clonedSkipPart = new AnswerSkipRule();
+					String answerValueId = oldAnswerValueIdsNewAnswerValueIdsMap.containsKey(skipPartToClone.getAnswerValueId()) 
+							? oldAnswerValueIdsNewAnswerValueIdsMap.get(skipPartToClone.getAnswerValueId())
+							: skipPartToClone.getAnswerValueId();
+					clonedSkipPart.setAnswerValueId(answerValueId);
+					Long formId = oldFormIdsNewFormIdsMap.containsKey(skipPartToClone.getFormId())
+							? oldFormIdsNewFormIdsMap.get(skipPartToClone.getFormId())
+							: skipPartToClone.getFormId();
+					clonedSkipPart.setFormId(formId);
+					clonedSkipPart.setParentSkip(clonedQuestionSkipRule);
+					clonedQuestionSkipRule.getSkipParts().add(clonedSkipPart);
+				}
+				clonedFormSkipRule.addQuestionSkipRule(clonedQuestionSkipRule);
+			}
+		}
+		return clonedFormSkipRule;
 	}
 }

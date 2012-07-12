@@ -12,6 +12,7 @@ import java.util.concurrent.Executors;
 
 import net.sf.json.JSONObject;
 
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -22,10 +23,12 @@ import com.healthcit.cacure.dao.FormElementDao;
 import com.healthcit.cacure.dao.QuestionDao;
 import com.healthcit.cacure.dao.QuestionElementDao;
 import com.healthcit.cacure.dao.SkipPatternDao;
+import com.healthcit.cacure.model.AnswerSkipRule;
 import com.healthcit.cacure.model.BaseForm;
 import com.healthcit.cacure.model.BaseForm.FormStatus;
 import com.healthcit.cacure.model.BaseModule;
 import com.healthcit.cacure.model.BaseModule.ModuleStatus;
+import com.healthcit.cacure.model.BaseQuestion;
 import com.healthcit.cacure.model.ContentElement;
 import com.healthcit.cacure.model.ExternalQuestionElement;
 import com.healthcit.cacure.model.FormElement;
@@ -194,9 +197,21 @@ public class FormManager {
 		}
 //		formDao.deleteFormWithEmptyQuestions(formId);
 		form.prepareForDelete();
+		unlinkForms(form);
 		formDao.delete(form);
 		if(!formHasNoElements) {
 			skipDao.skipPatternCleanup();
+		}
+	}
+
+	private void unlinkForms(BaseForm form) {
+		if (form instanceof FormLibraryForm) {
+			FormLibraryForm formLibraryForm = (FormLibraryForm) form;
+			List<QuestionnaireForm> copies = new ArrayList<QuestionnaireForm>(formLibraryForm.getCopies());
+			for (QuestionnaireForm questionnaireForm : copies) {
+				questionnaireForm.setFormLibraryForm(null);
+			}
+			formLibraryForm.getCopies().clear();
 		}
 	}
 
@@ -471,7 +486,7 @@ public class FormManager {
 			Integer originalOrd = formElement.getOrd();
 			formElement.setOrd(this.questionElementDao
 					.calculateNextOrdNumber(libraryForm.getId()));
-			formElement.setForm(libraryForm);			
+			formElement.setForm(libraryForm);
 			this.formElementDao.update(formElement);
 
 			LinkElement link = new LinkElement();
@@ -479,10 +494,12 @@ public class FormManager {
 			link.setRequired(formElement.isRequired());
 			link.setReadonly(formElement.isReadonly());
 			link.setVisible(formElement.isVisible());
+			link.setDescription(formElement.getDescription());
 			link.setForm(questionForm);
 			link.setSource(formElement);
 			link.setUuid(originalUuid);
 			link.setOrd(originalOrd);
+			link.setDescription(formElement.getDescription());
 			
 			//Check skips
 			this.formElementDao.create(link);
@@ -514,86 +531,107 @@ public class FormManager {
 		}
 		FormLibraryModule formLibraryModule = (FormLibraryModule)this.getLibraryModule(FormLibraryModule.class);
 		BaseForm originalForm = this.formDao.getById(formId);
-		importFormToModule(formLibraryModule, originalForm, true);
+		importFormToModule(formLibraryModule, originalForm, true, null);
 	}
 	
 	@Transactional
 	public void importFormToModule(final BaseModule module, final BaseForm form) {
-		importFormToModule(module, form, false);
+		importFormToModule(module, form, false, null);
 	}
 	
 	@Transactional
-	public void importFormToModule(final BaseModule module, final BaseForm form, boolean importToQuestionLibrary) {
-		BaseForm newLibraryForm = module.newForm();			
-		newLibraryForm.setName(form.getName());
-		this.addNewForm(newLibraryForm);
+	public BaseForm importFormToModule(final BaseModule module, final BaseForm form, boolean importToQuestionLibrary, HashMap<String, String> oldAnswerValueIdsNewAnswerValueIdsMap) {
+		BaseForm newForm = module.newForm();			
+		newForm.setName(form.getName());
+		this.addNewForm(newForm);
 		
-//		form elements collection is changed in addQuestionToQuestionLibraryImpl. So make snapshot. It's also prevent concurrent exception.
 		List<FormElement> elements = new ArrayList<FormElement>(form.getElements());
+		Map<String, String> _oldAnswerValueIdsNewAnswerValueIdsMap = new HashMap<String, String>();
 		for (FormElement formElement : elements) {
-			//Have to retrieve it by Id otherwise the skip details do not load
-			Long elementId = formElement.getId();
-			FormElement fe = formElementDao.getById(elementId);
-			FormElementSkipRule skipRule = fe.getSkipRule();
+			FormElementSkipRule newSkipRule = cloneFormElementSkipRule(newForm, formElement);
 			
-			FormElementSkipRule newSkipRule = null;
-			if(skipRule != null) {
-				newSkipRule = new FormElementSkipRule();
-				newSkipRule.setLogicalOp(skipRule.getLogicalOp());
-				
-				//List<FormElementSkip> skips = fe.getQuestionSkip();
-				List<QuestionSkipRule> skips = skipRule.getQuestionSkipRules();
-				
-				//List<QuestionSkipRule> newSkips = new ArrayList<QuestionSkipRule>();
-				for(QuestionSkipRule skip: skips)
-				{
-					Long skipFormId = skip.getDetails().getSkipTriggerForm().getId();
-					if (form.getId().equals(skipFormId))
-					{
-						//parent Question belongs to this form.
-						QuestionSkipRule clonedSkip = skip.clone();
-						String answerValueIds = skip.getAnswerValueId();
-						clonedSkip.setAnswerValue(answerValueIds, newLibraryForm.getId());
-						newSkipRule.addQuestionSkipRule(clonedSkip);
-					}
-				}
-			}
-			
-			if((formElement instanceof ExternalQuestionElement) || (formElement instanceof ContentElement))
-			{
-				FormElement copy = formElement.clone();
-				copy.setForm(newLibraryForm);
-				if (newSkipRule != null && newSkipRule.getQuestionSkipRules().size()>0)
-				{
-					copy.setSkipRule(newSkipRule);
-				}
-				this.formElementDao.create(copy);
-	
-			}
-			else 
-			{
+			FormElement copy;
+			if(formElement instanceof ContentElement)	{
+				copy = formElement.clone();
+			} else if(formElement instanceof ExternalQuestionElement)	{
+				copy = formElement.clone();
+				BaseQuestion question = copy.getQuestions().get(0);
+				question.setShortName((question.getShortName() == null ? "" : question.getShortName()) + newForm.getId());
+				_oldAnswerValueIdsNewAnswerValueIdsMap.putAll(qaManager.regenerateAnswerValuesPermanentIds(copy));
+			} else {
 				LinkElement link = new LinkElement();
+				copy = link;
 				link.setOrd(formElement.getOrd());
-				link.setForm(newLibraryForm);
 				link.setLearnMore(formElement.getLearnMore());
+				link.setDescription(formElement.getDescription());
 				if (!(formElement instanceof LinkElement)) {
 					if(importToQuestionLibrary) {
 						this.addQuestionToQuestionLibraryImpl(formElement.getId());
 					}
 					link.setSource(formElement);
-				}
-				else
-				{
+				} else {
 					link.setSource(((LinkElement)formElement).getSourceElement());
+					link.setDescription(link.getSourceElement().getDescription());
 				}
-				
-				if (newSkipRule != null && newSkipRule.getQuestionSkipRules().size()>0)
-				{
-					link.setSkipRule(newSkipRule);
+			}
+			if (newSkipRule != null && newSkipRule.getQuestionSkipRules().size() > 0) {
+				List<QuestionSkipRule> questionSkipRules = newSkipRule.getQuestionSkipRules();
+				for (QuestionSkipRule questionSkipRule : questionSkipRules) {
+					List<AnswerSkipRule> answerSkipRules = questionSkipRule.getAnswerSkipRules();
+					for (AnswerSkipRule answerSkipRule : answerSkipRules) {
+						if(_oldAnswerValueIdsNewAnswerValueIdsMap.containsKey(answerSkipRule.getAnswerValueId())) {
+							answerSkipRule.setAnswerValueId(_oldAnswerValueIdsNewAnswerValueIdsMap.get(answerSkipRule.getAnswerValueId()));
+						}
+					}
 				}
-				this.formElementDao.create(link);
+				copy.setSkipRule(newSkipRule);
+			}
+			copy.setForm(newForm);
+			formElementDao.save(copy);
+			newForm.getElements().add(copy);
+		}
+		if(oldAnswerValueIdsNewAnswerValueIdsMap != null) {
+			oldAnswerValueIdsNewAnswerValueIdsMap.putAll(_oldAnswerValueIdsNewAnswerValueIdsMap);
+		}
+		
+		if(module instanceof Module && form instanceof FormLibraryForm) {
+			formDao.updateFormLibraryForm((QuestionnaireForm) newForm, (FormLibraryForm) form);
+		} else if(module instanceof FormLibraryModule  && form instanceof QuestionnaireForm) {
+			formDao.updateFormLibraryForm((QuestionnaireForm) form, (FormLibraryForm) newForm);
+		}
+		return newForm;
+	}
+	
+	
+	private FormElementSkipRule cloneFormElementSkipRule(final BaseForm newForm, final FormElement formElement) {
+		//Have to retrieve it by Id otherwise the skip details do not load
+		Long elementId = formElement.getId();
+		FormElement fe = formElementDao.getById(elementId);
+		FormElementSkipRule skipRule = fe.getSkipRule();
+		
+		FormElementSkipRule newSkipRule = null;
+		if(skipRule != null) {
+			newSkipRule = new FormElementSkipRule();
+			newSkipRule.setLogicalOp(skipRule.getLogicalOp());
+			
+			List<QuestionSkipRule> skips = skipRule.getQuestionSkipRules();
+			
+			for(QuestionSkipRule skip: skips) {
+				List<AnswerSkipRule> answerSkipRules = skip.getAnswerSkipRules();
+				if(CollectionUtils.isNotEmpty(answerSkipRules)) {
+					//Inner form skip
+					if (answerSkipRules.get(0).getFormId().equals(formElement.getForm().getId())) {
+						logger.debug("parent question belongs to this form.");
+						QuestionSkipRule clonedSkip = skip.clone();
+						String answerValueIds = skip.getAnswerValueId();
+						
+						clonedSkip.setAnswerValue(answerValueIds, newForm.getId());
+						newSkipRule.addQuestionSkipRule(clonedSkip);
+					}
+				}
 			}
 		}
+		return newSkipRule;
 	}
 	
 	@Transactional
@@ -620,6 +658,10 @@ public class FormManager {
 	public Boolean isFormWithTheSameNameExistInLibrary(final String formName) {
 		return this.formDao.isFormWithTheSameNameExistInLibrary(formName);
 	}
+	
+	public FormLibraryForm getFormLibraryFormByName(final String formName) {
+		return this.formDao.getFormLibraryFormByName(formName);
+	}
 
 	@Transactional
 	public void setToInProgress(Long formId) {
@@ -640,5 +682,9 @@ public class FormManager {
 			throw new RuntimeException("Only QuestionnaireForm can be setted to 'In Progress' status");
 		}
 	}
-	
+
+	public int updateFormLibraryForm(QuestionnaireForm qForm, FormLibraryForm flForm) {
+		return formDao.updateFormLibraryForm(qForm, flForm);
+	}
+
 }

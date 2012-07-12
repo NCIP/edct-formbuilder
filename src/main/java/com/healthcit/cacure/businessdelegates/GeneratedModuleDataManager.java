@@ -32,6 +32,7 @@ import com.healthcit.cacure.model.BaseForm;
 import com.healthcit.cacure.model.BaseModule;
 import com.healthcit.cacure.model.BaseQuestion;
 import com.healthcit.cacure.model.FormElement;
+import com.healthcit.cacure.model.LinkElement;
 import com.healthcit.cacure.model.Question;
 import com.healthcit.cacure.model.QuestionnaireForm;
 import com.healthcit.cacure.model.TableQuestion;
@@ -98,6 +99,7 @@ public class GeneratedModuleDataManager {
 	private static String DYNAMIC = "dynamic";
 	private static String SHORTNAME = "shortname";
 	private static String QUESTION_ID = "questionId";
+	private static String LINK_ID = "linkId";
 	private static String QUESTION_SN = "questionSn";
 	private static String QUESTION_TEXT = "questionText";
 	private static String TABLE_QUESTION_TEXT = "tableQuestionText";
@@ -336,6 +338,9 @@ public class GeneratedModuleDataManager {
 	
 				// set "questionId"
 				jsonQuestion.put( QUESTION_ID, questionUUID );
+				
+				// set "linkId"
+				jsonQuestion.put( LINK_ID, selectedQuestion.get(LINK_ID) );
 						
 				// set "questionSn"
 				jsonQuestion.put( QUESTION_SN, selectedQuestion.get( SHORTNAME ) );
@@ -444,7 +449,7 @@ public class GeneratedModuleDataManager {
 					if ( baseQuestion instanceof Question || baseQuestion instanceof TableQuestion ) // do not add ExternalQuestions
 					{
 						// Add a questionField to the array
-						Map questionField = getQuestionField( baseQuestion, form );
+						Map questionField = getQuestionField( formElement, baseQuestion, form );
 						
 						// Add to the array if it's not null
 						if ( questionField != null ) list.add( questionField );
@@ -468,7 +473,7 @@ public class GeneratedModuleDataManager {
 	 *                        dynamic : [{ansId:...,ansVal:...,ansText:...,ansSn:...}]}}}
 	 */
 	@SuppressWarnings("unchecked")
-	private Map getQuestionField( BaseQuestion q, QuestionnaireForm form )
+	private Map getQuestionField( FormElement formElement, BaseQuestion q, QuestionnaireForm form )
 	{
 		// If this is a Table Question then initialize an object casting it as a TableQuestion entity;
 		// else,  initialize an object casting it as a Question entity
@@ -491,8 +496,13 @@ public class GeneratedModuleDataManager {
 		// Get the answer element associated with the question
 		Answer a = q.getAnswer();
 		
-		// Get the question UUID
-		String uuid = q.getUuid();
+		// Get the question UUID (use the FormElement uuid)
+		String uuid = formElement.getUuid();
+		
+		// Get the link ID, if it exists
+		String linkId = ( formElement instanceof LinkElement ) ?
+				        ( (LinkElement)formElement ).getSourceId() :
+				        "";
 		
 		// Get the question text
 		String text =  ( tableQuestion != null ) ? 
@@ -546,6 +556,8 @@ public class GeneratedModuleDataManager {
 		Map questionMap = new HashMap();
 		
 		questionMap.put( UUID_VALUE, uuid );
+		
+		questionMap.put( LINK_ID, linkId );
 		
 		questionMap.put( TEXT, text );
 		
@@ -1024,6 +1036,20 @@ public class GeneratedModuleDataManager {
 				// (since this attribute was only added as a temporary store,
 				// remove it from the CouchDb-ready version of the question)
 				String moduleName = ( String )jsonQuestion.remove( MODULE_NAME );
+				
+				// The link ID associated with this question
+				// (since this attribute was only added as a temporary store,
+				// remove it from the CouchDb-ready version of the question)
+				String linkId = ( String )jsonQuestion.remove( LINK_ID );
+				
+				// If the linkId is not blank, then
+				// the questionId should be reset to be equal to the link
+				if ( StringUtils.isNotBlank( linkId ))
+				{
+					jsonQuestionId = linkId;
+					jsonQuestion.put( QUESTION_ID, jsonQuestionId );					
+				}
+				
 				
 				// Create the new CouchDB document.
 				// It will clone most of the properties of the original module document, 

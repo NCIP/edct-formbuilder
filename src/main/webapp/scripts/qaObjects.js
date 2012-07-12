@@ -38,6 +38,7 @@ function AnswerValue() {
   this.permanentId = "";
   this.ord = "";
   this.answerDisplayStyle = "";
+  this.defaultValue = false;
 }
 
 function Constraint() {

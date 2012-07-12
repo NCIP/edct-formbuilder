@@ -3,10 +3,12 @@ package com.healthcit.cacure.dao;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
 import javax.persistence.EntityManager;
+import javax.persistence.FlushModeType;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
@@ -20,6 +22,7 @@ import com.healthcit.cacure.enums.ItemOrderingAction;
 import com.healthcit.cacure.model.Answer;
 import com.healthcit.cacure.model.AnswerValue;
 import com.healthcit.cacure.model.BaseQuestion;
+import com.healthcit.cacure.model.Description;
 import com.healthcit.cacure.model.ExternalQuestionElement;
 import com.healthcit.cacure.model.FormElement;
 import com.healthcit.cacure.model.FormElementSkipRule;
@@ -91,6 +94,33 @@ public class FormElementDao
 		return elements;
 	}
 	
+	/**
+	 * If the description list of a source element was changed,
+	 * this ensures that the description(s) of its associated LinkElements is up-to-date.
+	 */
+	public void updateAllFormElementsWithDescriptionChanged(FormElement formElement) {
+		Iterator<Description> newDescriptionIterator = formElement.getDescriptionList().iterator();
+		
+		while ( newDescriptionIterator.hasNext() )
+		{
+			Description newDescription = newDescriptionIterator.next();
+			
+			if ( ! newDescription.isNew() )
+			{			
+				Query query = em.createNativeQuery("update form_element set description = :desc from description d where form_element.link_id=:uuid and form_element.description = d.source_description_text and d.id = :id");
+								
+				query.setParameter("desc", newDescription.getDescription() );
+				
+				query.setParameter("uuid", formElement.isLink() ? (( LinkElement )formElement).getSourceId() : formElement.getUuid() );
+				
+				query.setParameter("id", newDescription.getId() );
+				
+				query.setFlushMode(FlushModeType.COMMIT);
+				
+				query.executeUpdate();
+			}
+		}
+	}
 	
 	public List<FormElement> getAllFormElementsWithChildrenChanged(Long formId) {
 		List<FormElement> elements = new ArrayList<FormElement>();

@@ -70,6 +70,7 @@ public class Constants {
 	
 	public static final String MODULE_LISTING_URI = "/moduleList.view";
 	public static final String MODULE_EDIT_URI = "/module.edit";
+	public static final String MODULE_COPY_URI = "/module.copy";
 
 	public static final String QUESTIONNAIREFORM_LISTING_URI = "/formList.view";
 	public static final String QUESTIONNAIREFORM_EDIT_URI = "/form.edit";

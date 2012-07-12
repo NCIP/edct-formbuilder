@@ -1,8 +1,6 @@
 package com.healthcit.cacure.web.controller.question;
 
 import java.io.IOException;
-import java.sql.BatchUpdateException;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -27,9 +25,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.view.RedirectView;
-import org.springframework.web.servlet.view.tiles2.TilesView;
 
 import com.healthcit.cacure.dao.SkipPatternDao;
 import com.healthcit.cacure.model.Answer;
@@ -42,12 +38,12 @@ import com.healthcit.cacure.model.Question;
 import com.healthcit.cacure.model.QuestionElement;
 import com.healthcit.cacure.model.breadcrumb.BreadCrumb;
 import com.healthcit.cacure.model.breadcrumb.BreadCrumb.Action;
-import com.healthcit.cacure.model.breadcrumb.BreadCrumb.Link;
 import com.healthcit.cacure.model.breadcrumb.QuestionBreadCrumb;
 import com.healthcit.cacure.utils.Constants;
 import com.healthcit.cacure.web.controller.BreadCrumbsSupporter;
 import com.healthcit.cacure.web.editors.AnswerPropertyEditor;
 import com.healthcit.cacure.web.editors.CategoryPropertyEditor;
+import com.healthcit.cacure.web.editors.DescriptionPropertyEditor;
 import com.healthcit.cacure.web.editors.SkipPatternPropertyEditor;
 
 @Controller
@@ -66,6 +62,7 @@ public class QuestionElementEditController extends BaseFormElementController imp
     @InitBinder
     public void initBinder(WebDataBinder dataBinder) {
         dataBinder.registerCustomEditor(Category.class, new CategoryPropertyEditor());
+        dataBinder.registerCustomEditor(null,"descriptionList", new DescriptionPropertyEditor());
         dataBinder.registerCustomEditor(null, "question.answer", new AnswerPropertyEditor());
         dataBinder.registerCustomEditor(null, "skipRule", new SkipPatternPropertyEditor<FormElementSkipRule>(FormElementSkipRule.class, skipDao));
     }

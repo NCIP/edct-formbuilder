@@ -33,6 +33,9 @@ public class ExternalQuestionElement extends FormElement {
 	
 	@Column(name="external_uuid")
 	private String externalUuid;
+	
+	@Column(name="external_version")
+	private Float externalVersion;
 
 	@Column(name="link_id")
 	private String linkId;
@@ -105,8 +108,18 @@ public class ExternalQuestionElement extends FormElement {
    public void unlink()
    {
 	   linkId = null;
-   }
+   }   
 	
+	public Float getExternalVersion() {
+		return externalVersion;
+	}
+	
+	
+	public void setExternalVersion(Float externalVersion) {
+		this.externalVersion = externalVersion;
+	}
+
+
 	/**
 	 * uuid is generate and must not be reset by the application
 	 * @param uuid

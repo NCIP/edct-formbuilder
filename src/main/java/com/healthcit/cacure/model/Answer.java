@@ -64,6 +64,20 @@ public class Answer implements StateTracker, Cloneable {
 			   Arrays.asList( new AnswerDisplayStyle[]{ AnswerDisplayStyle.LENGTH } ),
 			   NumberValueConstraint.class,
 			   Arrays.asList( QuestionElementType.SIMPLE_QUESTION, QuestionElementType.STATIC_TABLE_QUESTION, QuestionElementType.DYNAMIC_TABLE_QUESTION )),
+			   
+	   INTEGER( "text",
+			   new QuestionType[]{QuestionType.SINGLE_ANSWER},
+			   AnswerValueType.SINGLE, 
+			   Arrays.asList( new AnswerDisplayStyle[]{ AnswerDisplayStyle.LENGTH } ),
+			   NumberValueConstraint.class,
+			   Arrays.asList( QuestionElementType.SIMPLE_QUESTION, QuestionElementType.STATIC_TABLE_QUESTION, QuestionElementType.DYNAMIC_TABLE_QUESTION )),
+			   
+	   POSITIVE_INTEGER( "text",
+			   new QuestionType[]{QuestionType.SINGLE_ANSWER},
+			   AnswerValueType.SINGLE, 
+			   Arrays.asList( new AnswerDisplayStyle[]{ AnswerDisplayStyle.LENGTH } ),
+			   NumberValueConstraint.class,
+			   Arrays.asList( QuestionElementType.SIMPLE_QUESTION, QuestionElementType.STATIC_TABLE_QUESTION, QuestionElementType.DYNAMIC_TABLE_QUESTION )),
 
 		RADIO( "radio",
 				new QuestionType[]{QuestionType.SINGLE_ANSWER},

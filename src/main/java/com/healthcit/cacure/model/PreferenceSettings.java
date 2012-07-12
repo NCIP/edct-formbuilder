@@ -19,6 +19,9 @@ public class PreferenceSettings {
 	
 	@Column(name = "show_please_select_option")
 	protected boolean showPleaseSelectOptionInDropDown = false;
+	
+	@Column(name = "insert_check_all_that_apply")
+	protected boolean insertCheckAllThatApplyForMultiSelectAnswers = false;
 
 	public boolean isShowPleaseSelectOptionInDropDown() {
 		return showPleaseSelectOptionInDropDown;
@@ -26,6 +29,15 @@ public class PreferenceSettings {
 
 	public void setShowPleaseSelectOptionInDropDown(boolean showPleaseSelectOptionInDropDown) {
 		this.showPleaseSelectOptionInDropDown = showPleaseSelectOptionInDropDown;
+	}
+
+	public boolean isInsertCheckAllThatApplyForMultiSelectAnswers() {
+		return insertCheckAllThatApplyForMultiSelectAnswers;
+	}
+
+	public void setInsertCheckAllThatApplyForMultiSelectAnswers(
+			boolean insertCheckAllThatApplyForMultiSelectAnswers) {
+		this.insertCheckAllThatApplyForMultiSelectAnswers = insertCheckAllThatApplyForMultiSelectAnswers;
 	}
 	
 }

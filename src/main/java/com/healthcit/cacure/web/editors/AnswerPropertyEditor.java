@@ -72,6 +72,7 @@ public class AnswerPropertyEditor extends PropertyEditorSupport {
 				av.setDescription(jsonAV.getString("answerValueDescription"));
 				av.setValue(jsonAV.getString("answerValue"));
 				av.setName(jsonAV.getString("shortname"));
+				av.setDefaultValue(jsonAV.getBoolean("defaultValue"));
 				av.setOrd(++answerValueCtr);
 
 				if( jsonAV.getString("permanentId").length() == 0 || jsonAV.getString("permanentId").equals("") || jsonAV.getString("permanentId").equalsIgnoreCase("undefined") ){
@@ -128,6 +129,7 @@ public class AnswerPropertyEditor extends PropertyEditorSupport {
 	    		jsonAV.put("shortname", av.getName());
 	    		jsonAV.put("permanentId", av.getPermanentId());
 	    		jsonAV.put("formId", formId);
+	    		jsonAV.put("defaultValue", av.isDefaultValue());
 
 	    		jsonAnswerValues.add(jsonAV);
     		}

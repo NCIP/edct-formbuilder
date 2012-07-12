@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="caCureFormBuilder-ImportQuestionsIntoTables"
+  id="myeclipse.1268252160506"
+  context-root="/FormBuilder"
+  j2ee-spec="5.0"
+  archive="caCureFormBuilder-ImportQuestionsIntoTables.war">
+  <attributes>
+    <attribute name="webrootdir" value="/src/main/webapp" />
+  </attributes>
+</project-module>
+

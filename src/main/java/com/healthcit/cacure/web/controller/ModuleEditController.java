@@ -48,6 +48,7 @@ public class ModuleEditController extends BaseModuleEditController implements Br
 		{
 			module = new Module();
 			module.setShowPleaseSelectOptionInDropDown(preferencesManager.getPreferenceSettings().isShowPleaseSelectOptionInDropDown());
+			module.setInsertCheckAllThatApplyForMultiSelectAnswers(preferencesManager.getPreferenceSettings().isInsertCheckAllThatApplyForMultiSelectAnswers());
 		}
 		else
 		{

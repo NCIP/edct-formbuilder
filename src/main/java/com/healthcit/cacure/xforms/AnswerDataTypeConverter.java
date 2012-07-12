@@ -18,6 +18,12 @@ public class AnswerDataTypeConverter
 			return xsdType("string");
 		else if (answerType == AnswerType.NUMBER)
 			return xsdType("decimal");
+		else if (answerType == AnswerType.INTEGER)
+			return xsdType("integer");
+		else if (answerType == AnswerType.POSITIVE_INTEGER)
+			return xsdType("positiveInteger");
+		/*else if (answerType == AnswerType.FLOAT)
+			return xsdType("float");*/
 		else if (answerType == AnswerType.DATE)
 			return xsdType("date");
 		else if (AnswerType.YEAR.equals(answerType))

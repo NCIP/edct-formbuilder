@@ -86,6 +86,8 @@ public class CADSRManager {
 		targetElement.setSourceId(String.valueOf(sourceQuestion.getPublicID()) );
 //		targetElement.setType          ( getQuestionType( sourceQuestion ) );	
 		targetElement.setLink          ( QuestionSource.CA_DSR, String.valueOf( sourceQuestion.getPublicID() ) );
+		targetElement.setExternalVersion( sourceQuestion.getVersion() );
+		
 		
 		AnswerType finalAnswerType = answerType == null ? getAnswerType(sourceQuestion) : answerType;
 		//create a question

@@ -42,7 +42,7 @@
 		}
 
 		//validate description
-		if(validateInputAlphaPlus(document.getElementById('description'), document.getElementById('description').value) == false) {
+		if(validateInputAlphaPlus(document.getElementById('description'), jQuery('#description').val()) == false) {
 			return false;
 		}
 
@@ -53,6 +53,9 @@
 
 	  	document.getElementById("answers").value = JSON.stringify( extension.results() );
 	    //alert(document.getElementById("answers").value);
+	  	
+	  	// set the value of "descriptionList"
+	  	document.getElementById("allDescriptions").value = JSON.stringify( createDescriptionJSON() );
 
 	  	// create a JSON object for the skip patterns
 	  	createSkipJson();

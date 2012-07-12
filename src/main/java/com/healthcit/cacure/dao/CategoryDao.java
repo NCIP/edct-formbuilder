@@ -37,4 +37,12 @@ public class CategoryDao extends BaseJpaDao<Category, Long> {
 		return elements;
 	}
 
+	public List<Category> getCategoriesByName( String name)
+	{
+		String jpql = "select c from Category c where c.name = :name";
+		Query query = em.createQuery(jpql);
+		query.setParameter("name", name);
+		List<Category> categories = (List<Category>)query.getResultList();
+		return categories;
+	}
 }

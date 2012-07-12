@@ -77,4 +77,13 @@ public class Module extends BaseModule{
 		
 	}
 
+	public static void copyInformationFields(Module source, Module target) {
+		target.setComments(source.getComments());
+		target.setCompletionTime(source.getCompletionTime());
+		target.setDescription(source.getDescription());
+		target.setInsertCheckAllThatApplyForMultiSelectAnswers(source.isInsertCheckAllThatApplyForMultiSelectAnswers());
+		target.setReleaseDate(source.getReleaseDate());
+		target.setShowPleaseSelectOptionInDropDown(source.isShowPleaseSelectOptionInDropDown());
+		target.setStatus(source.getStatus());
+	}
 }

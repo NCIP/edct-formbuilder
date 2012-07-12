@@ -47,6 +47,7 @@
 		<url-pattern>*.page</url-pattern>
 		<url-pattern>*.edit</url-pattern>
 		<url-pattern>*.view</url-pattern>
+		<url-pattern>*.copy</url-pattern>
 		<url-pattern>/addToQuestionsLibrary</url-pattern>
 		<url-pattern>/addToFormsLibrary</url-pattern>
 		<url-pattern>/login</url-pattern>

@@ -6,6 +6,7 @@
 
 	<!--  DAO beans -->
 	<bean name="answerDao" class="com.healthcit.cacure.dao.AnswerDao"/>
+	<bean name="answerValueDao" class="com.healthcit.cacure.dao.AnswerValueDao"/>
 	<bean name="formDao" class="com.healthcit.cacure.dao.FormDao"/>
 	<bean name="moduleDao" class="com.healthcit.cacure.dao.ModuleDao"/>
 	<bean name="questionDao" class="com.healthcit.cacure.dao.QuestionDao"/>
@@ -51,6 +52,8 @@
 	<bean name="generatedModuleDataMgr" class="com.healthcit.cacure.businessdelegates.GeneratedModuleDataManager"/> 
 	<bean name="preferencesManager" class="com.healthcit.cacure.businessdelegates.PreferencesManager"/>
 	<bean name="cadsrManager" class="com.healthcit.cacure.cadsr.CADSRManager"/>
+	<bean name="dataExport" class="com.healthcit.cacure.businessdelegates.export.DataExport"/>
+	<bean name="dataImporter" class="com.healthcit.cacure.businessdelegates.export.DataImporter"/>
 	
 	<!-- Additional services -->
 	<bean name="mailSendingService" class="com.healthcit.cacure.utils.MailSendingService" />

@@ -4,9 +4,13 @@
 <%@ page import="com.healthcit.cacure.utils.Constants"%>
 	<c:set var="formListUrl">${appPath}/<%= Constants.QUESTIONNAIREFORM_LISTING_URI %></c:set>
 	<c:set var="moduleExportUrl">${appPath}<%= Constants.MODULE_LISTING_URI %></c:set>
+	<c:set var="moduleCopyUrl">${appPath}<%= Constants.MODULE_COPY_URI %></c:set>
 	<c:set var="currentUser" value="${pageContext.request.userPrincipal.name}" />
 	<authz:authorize  ifAnyGranted="ROLE_ADMIN">
     	<c:set var="isAdmin" value="true"/>
+    </authz:authorize>
+	<authz:authorize  ifAnyGranted="ROLE_LIBRARIAN">
+    	<c:set var="isLibrarian" value="true"/>
     </authz:authorize>
     <authz:authorize  ifAnyGranted="ROLE_DEPLOYER">
     	<c:set var="isDeployer" value="true"/>
@@ -22,6 +26,7 @@
 			<td align="left" width="80" ><h4>Author</h4></td>
 			<td align="left" width="50"><h4>Status</h4></td>
 			<td align="left" width="100" ><h4>Last Update</h4></td>
+			<td align="left" width="80" ><h4>Copy</h4></td>
 			<td align="left" width="30" ><h4>Export</h4></td>
 		</tr>
 		<c:forEach items="${modules}" var="current" varStatus="cnt">
@@ -61,6 +66,14 @@
 	          </td>
 			  <td><fmt:formatDate value="${current.updateDate}" type="both"
               		timeStyle="short" dateStyle="short" />
+              </td>
+              <td class="copyModuleCol">
+	             <c:if test="${!current.library and (isAdmin or isLibrarian)}">
+	           		<form action="${moduleCopyUrl}" title="Copy '${current.description}'" method="post">
+	           			<input type="hidden" name="moduleId" id="moduleId" value="${current.id}"/>
+	           			<input type="submit" value="Copy module" onclick="$(this).attr('disabled', 'disabled');"/>
+	           		</form>
+	             </c:if>
               </td>
               <td class="exportModuleCol">
 	             <c:if test="${!current.library and (isAdmin or isDeployer and (current.status == 'APPROVED_FOR_PILOT' or current.status == 'APPROVED_FOR_PRODUCTION'))}">

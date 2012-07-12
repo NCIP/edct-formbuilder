@@ -11,13 +11,7 @@
 					<xs:complexType>
 						<xs:sequence>
 							<xs:element name="name" type="xs:string"/>
-							<xs:element name="questionElement" minOccurs="0" maxOccurs="unbounded">
-								<xs:complexType>
-									<xs:complexContent>
-										<xs:extension base="questionElementType"/>
-									</xs:complexContent>
-								</xs:complexType>
-							</xs:element>
+							<xs:element name="questionElement" type="questionElementType" minOccurs="0" maxOccurs="unbounded"/>
 							<xs:element name="tableElement" type="tableElementType" minOccurs="0" maxOccurs="unbounded"/>
 							<xs:element name="linkElement" minOccurs="0" maxOccurs="unbounded">
 								<xs:complexType>
@@ -31,7 +25,7 @@
 											</xs:complexType>
 										</xs:element>
 										<xs:element name="learnMore" type="xs:string" minOccurs="0"/>
-										<xs:element name="skips" type="skipsType" minOccurs="0"/>
+										<xs:element name="skipRule" type="skipRuleType" minOccurs="0"/>
 									</xs:sequence>
 									<xs:attribute name="uuid" type="xs:ID" use="required"/>
 									<xs:attribute name="order" type="xs:int" use="required"/>
@@ -44,6 +38,7 @@
 										<xs:extension base="questionElementType">
 											<xs:attribute name="externalLinkId" type="xs:string" use="required"/>
 											<xs:attribute name="externalSource" type="xs:string" use="required"/>
+											<xs:attribute name="externalUuid" type="xs:string" use="required"/>
 										</xs:extension>
 									</xs:complexContent>
 								</xs:complexType>
@@ -51,7 +46,8 @@
 							<xs:element name="content" minOccurs="0" maxOccurs="unbounded">
 								<xs:complexType>
 									<xs:sequence>
-										<xs:element name="skips" type="skipsType" minOccurs="0"/>
+										<xs:element name="skipRule" type="skipRuleType" minOccurs="0"/>
+										<xs:element name="description" type="xs:string"/>
 									</xs:sequence>
 									<xs:attribute name="displayStyle" use="optional" default="HEADING">
 										<!-- this is a comment -->
@@ -90,8 +86,8 @@
 	</xs:element>
 	<xs:complexType name="FormElementType">
 		<xs:sequence>
-			<xs:element name="skips" type="skipsType" minOccurs="0"/>
-			<xs:element name="learnMore" minOccurs="0"/>
+			<xs:element name="skipRule" type="skipRuleType" minOccurs="0"/>
+			<xs:element name="learnMore" type="xs:string" minOccurs="0"/>
 			<xs:element name="descriptions" type="Description">
 				<xs:annotation>
 					<xs:documentation>Question or table text</xs:documentation>
@@ -103,7 +99,14 @@
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="category" type="xs:string" maxOccurs="unbounded"/>
+						<xs:element name="category" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="name" type="xs:string"/>
+									<xs:element name="description" type="xs:string" minOccurs="0"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -159,9 +162,10 @@
 								<xs:sequence>
 									<xs:element name="description" type="xs:string"/>
 									<xs:element name="value" type="xs:string"/>
+									<xs:element name="name" type="xs:string"/>
 								</xs:sequence>
 								<xs:attribute name="uuid" type="xs:ID" use="required"/>
-								<xs:attribute name="order" type="xs:integer" use="required"/>
+								<xs:attribute name="order" type="xs:int" use="required"/>
 								<xs:attribute name="isDefault" type="xs:boolean"/>
 							</xs:complexType>
 						</xs:element>
@@ -202,7 +206,7 @@
 			</xs:element>
 		</xs:sequence>
 		<xs:attribute name="uuid" type="xs:ID" use="required"/>
-		<xs:attribute name="order" use="required"/>
+		<xs:attribute name="order" type="xs:int" use="required"/>
 		<xs:attribute name="questionType" use="required">
 			<xs:simpleType>
 				<xs:restriction base="xs:string">
@@ -233,6 +237,7 @@
 		<xs:complexContent>
 			<xs:extension base="FormElementType">
 				<xs:sequence>
+				    <xs:element name="tableShortName" maxOccurs="1" minOccurs="1" type="xs:string"/>
 					<xs:element name="question" maxOccurs="unbounded">
 						<xs:complexType>
 							<xs:complexContent>
@@ -254,8 +259,8 @@
 					<xs:simpleType>
 						<xs:restriction base="xs:string">
 							<xs:enumeration value="SIMPLE"/>
-							<xs:enumeration value="COMPLEX_DYNAMIC"/>
-							<xs:enumeration value="COMPLEX_STATIC"/>
+							<xs:enumeration value="DYNAMIC"/>
+							<xs:enumeration value="STATIC"/>
 						</xs:restriction>
 					</xs:simpleType>
 				</xs:attribute>
@@ -264,15 +269,13 @@
 	</xs:complexType>
 	<xs:complexType name="Description">
 		<xs:sequence>
-			<xs:element name="mainDescription"/>
+			<xs:element name="mainDescription" type="xs:string"/>
 			<xs:sequence minOccurs="0">
 				<xs:element name="alternateDescription" maxOccurs="unbounded"/>
 			</xs:sequence>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="skipsType">
-		<xs:sequence>
-			<xs:element name="skipRule" type="skipRuleType" maxOccurs="unbounded"/>
-		</xs:sequence>
+		<xs:sequence/>
 	</xs:complexType>
 </xs:schema>

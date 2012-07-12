@@ -1406,3 +1406,60 @@ table.dojoTabular tfoot tr td {
 	font-weight: bold;
 	text-decoration:underline;
 }
+
+span.defaultAnswerValue {
+	display: inline;
+}
+
+span.deleteDescElm {
+	background-image: url(../images/delete-row.png);
+	background-repeat:no-repeat;
+	display: block;
+	height:15px;
+	width: 15px;	
+	cursor: pointer;
+}
+
+span.addDescElm {
+	background-image: url(../images/add-row.png);
+	background-repeat:no-repeat;
+	display: block;
+	cursor: pointer;
+	color: green;
+	padding-left: 15px;
+}
+
+tr.mainDesc span.deleteDescElm {
+	display:none;
+}
+
+div.descriptionListContent{
+	width: 450px; 
+	overflow: auto; 
+}
+
+div.descriptionListContent input[type=text]{
+	margin-left: 5px;
+	width: 380px;
+	border: 1px solid gray
+}
+
+#descriptionButtons input.ok{
+	width: 40px;
+}
+
+#descriptionButtons input.cancel{
+	width: 50px;
+}
+
+div.descriptionListContent table td{
+	padding: 3px;
+}
+
+span.descCaption{
+	font-weight: bold;
+}
+
+#questionCmd select#description{
+	width: 470px;
+}

@@ -365,6 +365,26 @@ div#statusPanel {
 .hcit-field-width-long-number input, td.hcit-field-width-long-number, th.hcit-field-width-long-number {
 	width: 6em;
 }
+/* Integer */
+.hcit-field-width-short-integer input, td.hcit-field-width-short-integer, th.hcit-field-width-short-integer {
+	width: 1em;
+}
+.hcit-field-width-medium-integer input, td.hcit-field-width-medium-integer, th.hcit-field-width-medium-integer {
+	width: 3em;
+}
+.hcit-field-width-long-integer input, td.hcit-field-width-long-integer, th.hcit-field-width-long-integer {
+	width: 6em;
+}
+/* Positive integer */
+.hcit-field-width-short-positive_integer input, td.hcit-field-width-short-positive_integer, th.hcit-field-width-short-positive_integer {
+	width: 1em;
+}
+.hcit-field-width-medium-positive_integer input, td.hcit-field-width-medium-positive_integer, th.hcit-field-width-medium-positive_integer {
+	width: 3em;
+}
+.hcit-field-width-long-positive_integer input, td.hcit-field-width-long-positive_integer, th.hcit-field-width-long-positive_integer {
+	width: 6em;
+}
 /* Year */
 .hcit-field-width-short-year input, td.hcit-field-width-short-year, th.hcit-field-width-short-year {
 	width: 2em;

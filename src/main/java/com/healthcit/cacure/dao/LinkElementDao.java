@@ -61,6 +61,13 @@ public class LinkElementDao extends FormElementDao
   }
   
   @SuppressWarnings("unchecked")
+  public List<String> getLinkedFormElementDescriptions(String linkId) {
+	  return (List<String>) em.createQuery("select q.description from FormElement q where q.sourceUuid = :lid")
+              .setParameter("lid", linkId)
+              .getResultList();
+  }
+  
+  @SuppressWarnings("unchecked")
   public Set<String> getLinkedFormElementUuids(Set<String> linkUuids) {
 	  List<String> resultList = em.createQuery("select distinct q.sourceUuid from FormElement q where q.sourceUuid in (:luuids)")
 			  .setParameter("luuids", linkUuids)

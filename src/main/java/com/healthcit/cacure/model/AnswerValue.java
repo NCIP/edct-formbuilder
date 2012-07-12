@@ -69,6 +69,9 @@ public class AnswerValue implements StateTracker, Cloneable, Serializable {
 	
 	@Column(name="cadsr_public_id")
 	private Long cadsrPublicId;
+	
+	@Column(name="default_value")
+	private boolean defaultValue;
 
 	/**
 	 * Helper constructor to generate invalid objects
@@ -180,6 +183,7 @@ public class AnswerValue implements StateTracker, Cloneable, Serializable {
 		target.setValue(source.getValue());
 		target.setExternalId(source.getExternalId());
 		target.setPermanentId(null);
+		target.setDefaultValue(source.isDefaultValue());
 	}
 
 	public String getPermanentId() {
@@ -218,6 +222,14 @@ public class AnswerValue implements StateTracker, Cloneable, Serializable {
 	private void updateForm() {
 		BaseForm form = getAnswer().getQuestion().getParent().getForm();
 		form.setLastUpdatedBy(form.getLockedBy());
+	}
+
+	public boolean isDefaultValue() {
+		return defaultValue;
+	}
+
+	public void setDefaultValue(boolean defaultValue) {
+		this.defaultValue = defaultValue;
 	}
 
 

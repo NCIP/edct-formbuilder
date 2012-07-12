@@ -24,6 +24,7 @@
 <script src="${appPath}/scripts/QATable.js" type="text/javascript"></script>
 <script src="${appPath}/scripts/QAExtension.js" type="text/javascript"></script>
 <script src="${appPath}/scripts/QAComplexTable.js" type="text/javascript"></script>
+<script src="${appPath}/scripts/description.js" type="text/javascript"></script>
 
 <script type='text/javascript' src='${appPath}/dwr/engine.js'> </script>
 <script type='text/javascript' src='${appPath}/dwr/util.js'> </script>
@@ -57,9 +58,31 @@
 		  			Question Text:
 		  		</td>
 		  		<td>
-		  			<form:input path="description" id="description" size="75" maxlength="2000" disabled="${!isEditable}"/>
-		  			<form:checkbox path="visible" disabled="${!isEditable}" /> Question Visibility
+		  			<c:if test="${fn:length(questionCmd.descriptionList) == 0 }">
+			  			<form:input path="description" id="description" size="75" maxlength="2000" disabled="${!isEditable}" htmlEscape="true"/>				
+			  			<form:checkbox path="visible" disabled="${!isEditable}" /> Question Visibility
+		  			</c:if>
+		  			<c:if test="${fn:length(questionCmd.descriptionList) > 0 }">
+			  			<form:select path="description" 
+			  						 id="description" 
+			  						 disabled="${!isEditable}" 
+			  						 htmlEscape="true"
+			  						 items="${questionCmd.descriptionList}"
+									 itemValue="description" 
+									 itemLabel="description"/>					
+			  			<form:checkbox path="visible" disabled="${!isEditable}" /> Question Visibility
+		  			</c:if>
 		  		</td>
+		  	</tr>
+		  	<tr>
+		  		<td align="right">
+		  		</td>
+		  		<td>		  			
+					<c:if test="${isEditable and fn:length(questionCmd.descriptionList) > 0}">
+						<input type="button" id="addDescBut" value="New Question Text"  onClick="showDescriptionSection()" />
+					</c:if>
+		  		</td>
+			</tr>
 			</tr>
 			<tr>
           		<td align="right">
@@ -195,6 +218,9 @@
 				</table>
 			</div>
 		</div>
+		
+		<!-- Add New Description popup -->
+	    <%@include file="parts/descriptionListSection.html"%>
 
 		<div id="answersDiv" style="padding-top: 20px 0px">
 		<div id="subtitlebar">Answers</div>
@@ -229,6 +255,7 @@
 			</tr>
 		</table>
 		</div>
+		<form:hidden path="descriptionList" id="allDescriptions"/>
 	</form:form>
 
 </div>

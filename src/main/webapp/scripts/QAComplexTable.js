@@ -730,6 +730,24 @@ function QAComplexTable(params) {
 			}
 		});
 		
+		var $minValues = $('#ctColumns input[name=minValue]');
+		if($minValues.length > 0) {
+			$minValues.each(function(indx, inp) {
+				var $inp = $(inp);
+				var minVal = $inp.val();
+				if(minVal) {
+					var maxVal = $inp.parent().find("input[name=maxValue]").val();
+					if(maxVal) {
+						if(parseInt(minVal) > parseInt(maxVal)) {
+							errMsg += '- Minimum value should be less than maximum value.\n';
+							$inp.focus();
+							return false;
+						}
+					}
+				}
+			});
+		}
+		
 		return errMsg;
 	}
 	

@@ -40,7 +40,7 @@ import com.healthcit.cacure.model.Answer.AnswerType;
 //@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 //@BatchSize(size=200)
 @Proxy(lazy=false)
-public abstract class BaseQuestion  implements StateTracker, Cloneable 
+public abstract class BaseQuestion  extends DescriptionHolder implements StateTracker, Cloneable 
 {
 
 	@Transient

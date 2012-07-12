@@ -97,8 +97,16 @@ public class QuestionDwrController
 	  log.debug("In countLinkedQuestions method...");
 	  return qaManager.getLinkedFormElementIds(linkId).size();
 	}
-
+	
 	@RemoteMethod
+	public String descriptionIsLinked(String formElementId, String description) {
+		log.debug("In descriptionIsLinked method");
+		List<String> descriptions = qaManager.getLinkedFormElementDescriptions(formElementId);
+		if ( descriptions.contains( description )) return "yes";
+		else return "no";
+	}
+
+
     public Integer countLinkedReadOnlyFormElements(String linkSource, String linkId) throws IOException, InterruptedException {
 	  log.debug("In countLinkedReadOnlyQuestions method...");
 	  return qaManager.getLinkedReadOnlyFormElementIds(linkId).size();

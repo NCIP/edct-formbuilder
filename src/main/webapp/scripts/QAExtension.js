@@ -11,7 +11,7 @@ function QAExtension(params) {
 	var NUMBER_CONTENT_REGEX = /^[0-9]+$/;
 	var JAVA_MAX_INT = 2147483647;
 	var MAX_NUMBER = JAVA_MAX_INT;
-	var EMPTY_TEXT_ALLOWED_TYPES = ["TEXT", "NUMBER", "YEAR", "MONTHYEAR", "DATE", "TEXTAREA"];
+	var EMPTY_TEXT_ALLOWED_TYPES = ["TEXT", "NUMBER", "YEAR", "MONTHYEAR", "DATE", "TEXTAREA", "INTEGER", "POSITIVE_INTEGER"];
 	
 	var singleAnswerQuestionTypes = new Array();
 	var multipleAnswerQuestionTypes = new Array();
@@ -58,6 +58,7 @@ function QAExtension(params) {
 		var spanId3 = "colSectionThree_" + columnCtr;
 		var spanId4 = "colSectionFour_" + columnCtr;
 		var spanId5 = "constraintSpan1_" + columnCtr;
+		var spanId6 = "colSectionSix_" + columnCtr;
 		
 		//Create an input type dynamically.
 		var elementDesc = document.createElement("input");
@@ -123,9 +124,39 @@ function QAExtension(params) {
 		// It will only be displayed if this is a multi-answer value question
 		elementSpan3.setAttribute("style", "display:none;");
 		
+		var $defaultAnswerValue = $generateDefaultAnswerValueSelect(answerValue && answerValue.defaultValue);
+		$('<span class="defaultAnswerValue">&nbsp;<b>Default:</b></span>').append($defaultAnswerValue).hide().insertAfter($(elementSpan3));
+		
 		$('#columns').append(container);
 		// Show / hide the fields that were hidden above depending on the Question Type/Answer Value Type
 		updateAnswerTypeSection();
+	}
+	
+	function $generateDefaultAnswerValueSelect(checked, pMultiAnswer) {
+		var multiAnswer = pMultiAnswer ? pMultiAnswer : $('input[name="question.type"]:checked').val() == 'MULTI_ANSWER';
+		var $defaultAnswerValue = $('<input type="' + (multiAnswer ? 'checkbox' : 'radio') + '" name="defaultAnswerValue"/>');
+		$defaultAnswerValue.attr('checked', checked);
+		if(!multiAnswer) {
+			$defaultAnswerValue.mousedown(function(e){
+			  var $self = $(this);
+			  if( $self.is(':checked') ) {
+			    var uncheck = function(){
+			      setTimeout(function(){$self.removeAttr('checked');},0);
+			    };
+			    var unbind = function(){
+			      $self.unbind('mouseup',up);
+			    };
+			    var up = function(){
+			      uncheck();
+			      unbind();
+			    };
+			    $self.bind('mouseup',up);
+			    $self.one('mouseout', unbind);
+			  }
+			});
+
+		}
+		return $defaultAnswerValue;
 	}
 	
 	function populateConstraintsDiv(id, list)
@@ -596,13 +627,14 @@ function QAExtension(params) {
 		var showHide3 = 'colSectionTwo_'; // Value Label
 		var showHide4 = 'colSectionThree_'; // Delete Link
 		var showHide5 = 'constraintsDiv_'; // Constraints
-		
+			
 		var answerTypeValue = getAnswerType();
 		if ( answerTypeValue != undefined ) {
+			// If this is a SINGLE ANSWER VALUE question then hide the extra fields
+			var isSingleAnswerValueTypes = jQuery.inArray( answerTypeValue, singleAnswerValueTypes ) > -1;
 			var numAnswerValues = columnCtr;
 			for ( i = 1; i <= numAnswerValues; ++i ) {
-				// If this is a SINGLE ANSWER VALUE question then hide the extra fields
-				if ( jQuery.inArray( answerTypeValue, singleAnswerValueTypes ) > -1 ) {
+				if (isSingleAnswerValueTypes) {
 					if ( document.getElementById(showHide1+i) ) HideContent(showHide1 + i);
 					if ( document.getElementById(showHide2+i) ) HideContent(showHide2 + i);
 					if ( document.getElementById(showHide3+i) ) HideContent(showHide3 + i);
@@ -629,7 +661,6 @@ function QAExtension(params) {
 							HideContent(showHide5 + i);
 						}
 					}
-					
 				} else {
 					// Else show the extra fields ( Value Field, Arrows, Value Label )
 					if ( document.getElementById(showHide1+i) ) ShowContentInline(showHide1 + i);
@@ -641,6 +672,11 @@ function QAExtension(params) {
 						HideContent(showHide5 + i);
 					}
 				}
+			}
+			if(isSingleAnswerValueTypes) {
+				$('span.defaultAnswerValue').hide();
+			} else {
+				$('span.defaultAnswerValue').css('display', 'inline');
 			}
 		}
 		// Show or Hide the "Add new answer" link as appropriate
@@ -804,6 +840,7 @@ function QAExtension(params) {
 			var answerValue = new AnswerValue();
 			var specialAnsType = ( aType == "CHECKMARK" );
 			for (var j = 0; j < inputColArr.length; j++) {
+				var $inputColArrj = $(inputColArr[j]);
 				var inputId = inputColArr[j].id;
 				if (inputId.indexOf(answerValuesDescriptionPrefix) >-1)
 				{
@@ -824,7 +861,6 @@ function QAExtension(params) {
 					answerValue.formId = new String(inputColArr[j].getAttribute("formid"));
 					answerValue.shortname = "";
 					answerValuesArray.push(answerValue);
-					answerValue = undefined;
 				}
 				else if (inputId.indexOf(constraintElementPrefix) > -1)
 				{
@@ -833,6 +869,11 @@ function QAExtension(params) {
 					constraint.name = new String(inputColArr[j].name);
 					constraint.value = new String(inputColArr[j].value);
 					constraintsArray.push(constraint);
+				}
+				else if ($inputColArrj.attr('name') == 'defaultAnswerValue')
+				{
+					answerValue.defaultValue = $inputColArrj.is(':checked');
+					answerValue = undefined;
 				}
 			}
 			
@@ -901,6 +942,24 @@ function QAExtension(params) {
 		if($('#description').val().trim().length < 1) {
 			errMsg += '- Question text is required.\n';
 		}
+		
+		var $minValues = $('input[name=minValue]');
+		if($minValues.length > 0) {
+			$minValues.each(function(indx, inp) {
+				var $inp = $(inp);
+				var minVal = $inp.val();
+				if(minVal) {
+					var maxVal = $inp.parent().find("input[name=maxValue]").val();
+					if(maxVal) {
+						if(parseInt(minVal) > parseInt(maxVal)) {
+							errMsg += '- Minimum value should be less than maximum value.\n';
+							$inp.focus();
+							return false;
+						}
+					}
+				}
+			});
+		}
 		return errMsg;
 	}
 	
@@ -926,9 +985,11 @@ function QAExtension(params) {
 	
 	this.changeToMultiAnswer = function(){
 		changeQuestionTypeTo(multipleAnswerQuestionTypes);
+		$('span.defaultAnswerValue input[name=defaultAnswerValue]').replaceWith($generateDefaultAnswerValueSelect(false, true));
 	}
 	
 	this.changeToSingleAnswer = function(){
 		changeQuestionTypeTo(singleAnswerQuestionTypes);
+		$('span.defaultAnswerValue input[name=defaultAnswerValue]').replaceWith($generateDefaultAnswerValueSelect(false, false));
 	}
 }

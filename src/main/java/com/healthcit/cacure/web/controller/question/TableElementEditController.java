@@ -30,6 +30,7 @@ import com.healthcit.cacure.dao.SkipPatternDao;
 import com.healthcit.cacure.model.BaseForm;
 import com.healthcit.cacure.model.BaseQuestion;
 import com.healthcit.cacure.model.Category;
+import com.healthcit.cacure.model.Description;
 import com.healthcit.cacure.model.FormElement;
 import com.healthcit.cacure.model.FormElementSkipRule;
 import com.healthcit.cacure.model.TableElement;
@@ -41,6 +42,7 @@ import com.healthcit.cacure.model.breadcrumb.BreadCrumb.Link;
 import com.healthcit.cacure.model.breadcrumb.TableQuestionBreadCrumb;
 import com.healthcit.cacure.utils.Constants;
 import com.healthcit.cacure.web.controller.BreadCrumbsSupporter;
+import com.healthcit.cacure.web.editors.DescriptionPropertyEditor;
 import com.healthcit.cacure.web.editors.QuestionPropertyEditor;
 import com.healthcit.cacure.web.editors.SkipPatternPropertyEditor;
 
@@ -87,6 +89,7 @@ public class TableElementEditController extends BaseFormElementController implem
 //        dataBinder.registerCustomEditor(null, "answers", new AnswerPropertyEditor());
     	dataBinder.registerCustomEditor(null,"questions", new QuestionPropertyEditor());
         dataBinder.registerCustomEditor(null, "skipRule", new SkipPatternPropertyEditor<FormElementSkipRule>(FormElementSkipRule.class, skipDao));
+        dataBinder.registerCustomEditor(null,"descriptionList", new DescriptionPropertyEditor());
     }
 	/**
 	 * Initialization of parent form ID
@@ -166,6 +169,7 @@ public class TableElementEditController extends BaseFormElementController implem
 				if(isNew)
 				{
 					table.resetId();
+					table.getDescriptionList().clear();
 				}
 				if(message.indexOf("A table with the same short name already exists") >-1)
 				{

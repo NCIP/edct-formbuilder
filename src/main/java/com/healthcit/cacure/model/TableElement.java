@@ -145,6 +145,7 @@ public class TableElement extends FormElement{
 	{
 		if ( this.getUuid() == null )
 			this.setUuid(UUID.randomUUID().toString());
+		setDescription(com.healthcit.cacure.utils.StringUtils.normalizeString(getDescription()));
 		updateForm();
 	}
 

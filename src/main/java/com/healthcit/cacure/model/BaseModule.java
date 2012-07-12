@@ -71,6 +71,9 @@ public abstract class BaseModule implements StateTracker
 	@Column(name = "show_please_select_option")
 	protected boolean showPleaseSelectOptionInDropDown = false;
 	
+	@Column(name = "insert_check_all_that_apply")
+	protected boolean insertCheckAllThatApplyForMultiSelectAnswers = false;
+	
 	public ModuleStatus getStatus() {
 		return status;
 	}
@@ -197,5 +200,14 @@ public abstract class BaseModule implements StateTracker
 
 	public void setUuid(String uuid) {
 		this.uuid = uuid;
+	}
+
+	public boolean isInsertCheckAllThatApplyForMultiSelectAnswers() {
+		return insertCheckAllThatApplyForMultiSelectAnswers;
+	}
+
+	public void setInsertCheckAllThatApplyForMultiSelectAnswers(
+			boolean insertCheckAllThatApplyForMultiSelectAnswers) {
+		this.insertCheckAllThatApplyForMultiSelectAnswers = insertCheckAllThatApplyForMultiSelectAnswers;
 	}
 }

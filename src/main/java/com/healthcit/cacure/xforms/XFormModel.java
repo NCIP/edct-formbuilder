@@ -13,6 +13,7 @@ import javax.xml.bind.Marshaller;
 import javax.xml.namespace.QName;
 
 import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang.StringUtils;
 import org.jdom.Attribute;
 import org.jdom.Element;
 import org.jdom.transform.JDOMResult;
@@ -46,6 +47,8 @@ import com.healthcit.cacure.xforms.model.Row;
  */
 public class XFormModel implements XFormsConstants
 {
+	private static final String CHECK_ALL_THAT_APPLY = "Check all that apply.";
+
 	List<Element> bindings = new LinkedList<Element>();
 
 	Element docHead;
@@ -813,34 +816,64 @@ public class XFormModel implements XFormsConstants
 		com.healthcit.cacure.xforms.model.Question xmlQuestion = jaxbFactory.createQuestion();
 		xmlQuestion.setId(questionElement.getQuestion().getUuid());
 		xmlQuestion.setSn(questionElement.getQuestion().getShortName());
-		xmlQuestion.setText(questionElement.getDescription());
-
+		String questionText = questionElement.getDescription();
 		// All questions must have at least one answer
 		Answer firstDataAnswer = questionElement.getQuestion().getAnswer();
-
+		
 		AnswerType answerType = firstDataAnswer.getType();
+		if(answerType == AnswerType.CHECKBOX && 
+				questionElement.getForm().getModule().isInsertCheckAllThatApplyForMultiSelectAnswers()) {
+			questionText = StringUtils.isNotBlank(questionText) ? questionText + " " + CHECK_ALL_THAT_APPLY : CHECK_ALL_THAT_APPLY; 
+		}
+		xmlQuestion.setText(questionText);
+
 		List<com.healthcit.cacure.xforms.model.Answer> xmlAnswers = xmlQuestion.getAnswer();
 		com.healthcit.cacure.xforms.model.Answer xmlDataAnswer = dataAnswerToXML(firstDataAnswer);
 		xmlAnswers.add(xmlDataAnswer);
 		addAnswerBindingQuestion(questionElement, firstDataAnswer);
 		if(EnumSet.of(AnswerType.RADIO, AnswerType.DROPDOWN, AnswerType.CHECKBOX).contains(answerType)) {
 			addLookupInstance(questionElement.getQuestion());
-			if(answerType == AnswerType.DROPDOWN) {
-//				Make first value selected by default
-				if(questionElement.getForm().getModule().isShowPleaseSelectOptionInDropDown()) {
-					xmlDataAnswer.setValue("\u00A0\u00A0");
-				} else {
-					List<AnswerValue> answerValues = firstDataAnswer.getAnswerValues();
-					if(CollectionUtils.isNotEmpty(answerValues)) {
-						xmlDataAnswer.setValue(answerValues.get(0).getValue());
-					}
-				}
-			} else if (answerType == AnswerType.CHECKBOX) {
+			if (answerType == AnswerType.CHECKBOX) {
 				addQuestionBinding(questionElement);
+				setDefaultMultiAnswerValues(firstDataAnswer, xmlDataAnswer);
+			} else {
+				if(answerType == AnswerType.DROPDOWN && questionElement.getForm().getModule().isShowPleaseSelectOptionInDropDown()) {
+					xmlDataAnswer.setValue("\u00A0\u00A0");
+				}
+				setDefaultSingleAnswerValue(firstDataAnswer, xmlDataAnswer);
 			}
 		}
 		
 		return xmlQuestion;
+	}
+
+	private void setDefaultSingleAnswerValue(Answer firstDataAnswer, com.healthcit.cacure.xforms.model.Answer xmlDataAnswer) {
+		List<AnswerValue> answerValues = firstDataAnswer.getAnswerValues();
+		if(answerValues != null) {
+			for (AnswerValue answerValue : answerValues) {
+				if(answerValue.isDefaultValue()) {
+					xmlDataAnswer.setValue(answerValue.getValue());
+					break;
+				}
+			}
+		}
+	}
+
+	private void setDefaultMultiAnswerValues(Answer firstDataAnswer, com.healthcit.cacure.xforms.model.Answer xmlDataAnswer) {
+		List<AnswerValue> answerValues = firstDataAnswer.getAnswerValues();
+		StringBuffer sb = new StringBuffer();
+		if(answerValues != null) {
+			for (AnswerValue answerValue : answerValues) {
+				if(answerValue.isDefaultValue()) {
+					sb.append(answerValue.getValue());
+					sb.append(XFormsUtils.VALUE_SEPARATOR);
+				}
+			}
+		}
+		if(sb.length() > XFormsUtils.VALUE_SEPARATOR.length()) {
+			sb.setLength(sb.length() - XFormsUtils.VALUE_SEPARATOR.length());
+			xmlDataAnswer.setValue(sb.toString());
+		}
 	}
 
 	private QuestionElement addExternalQuestionToSection(ExternalQuestionElement questionElement)
@@ -862,16 +895,24 @@ public class XFormModel implements XFormsConstants
 		xmlQuestion.setId(questionElement.getQuestion().getUuid());
 //		xmlQuestion.setSn(questionElement.getShortName());
 		xmlQuestion.setSn(questionElement.getQuestion().getShortName());
-		xmlQuestion.setText(questionElement.getDescription());
-
 		// All questions must have at least one answer
 		Answer firstDataAnswer = questionElement.getQuestion().getAnswer();
+		
+		String questionText = questionElement.getDescription();
+		if(firstDataAnswer.getType() == AnswerType.CHECKBOX && 
+				questionElement.getForm().getModule().isInsertCheckAllThatApplyForMultiSelectAnswers()) {
+			questionText = StringUtils.isNotBlank(questionText) ? questionText + " " + CHECK_ALL_THAT_APPLY : CHECK_ALL_THAT_APPLY; 
+		}
+		xmlQuestion.setText(questionText);
+
 
 		// Type 2:
 		if (firstDataAnswer.getType() == AnswerType.RADIO || firstDataAnswer.getType() == AnswerType.DROPDOWN )
 		{
 			List<com.healthcit.cacure.xforms.model.Answer> xmlAnswers = xmlQuestion.getAnswer();
-			xmlAnswers.add(dataAnswerToXML(firstDataAnswer));
+			com.healthcit.cacure.xforms.model.Answer xmlDataAnswer = dataAnswerToXML(firstDataAnswer);
+			setDefaultSingleAnswerValue(firstDataAnswer, xmlDataAnswer);
+			xmlAnswers.add(xmlDataAnswer);
 			addAnswerBindingExternalQuestion(questionElement, firstDataAnswer);
 			addLookupInstance(questionElement.getQuestion());
 		}
@@ -880,7 +921,9 @@ public class XFormModel implements XFormsConstants
 		{
 			addExternalQuestionBinding(questionElement);
 			List<com.healthcit.cacure.xforms.model.Answer> xmlAnswers = xmlQuestion.getAnswer();
-			xmlAnswers.add(dataAnswerToXML(firstDataAnswer));
+			com.healthcit.cacure.xforms.model.Answer xmlDataAnswer = dataAnswerToXML(firstDataAnswer);
+			setDefaultMultiAnswerValues(firstDataAnswer, xmlDataAnswer);
+			xmlAnswers.add(xmlDataAnswer);
 			addAnswerBindingExternalQuestion(questionElement, firstDataAnswer);
 			addLookupInstance(questionElement.getQuestion());
 		}

@@ -44,6 +44,12 @@ function checkFields() {
 				<form:checkbox disabled="${!isEditable}" path="showPleaseSelectOptionInDropDown"/> 
 			</td>
 		</tr>
+		<tr>
+			<td class="padding" align="left" width="150"><b>Automatically insert 'Check all that apply' for multi-select answers: </b></td>
+			<td class="padding" colspan="3">
+				<form:checkbox disabled="${!isEditable}" path="insertCheckAllThatApplyForMultiSelectAnswers"/> 
+			</td>
+		</tr>
 		<c:if test="${isEditable}">
 			<tr>
 				<td>&nbsp;</td>

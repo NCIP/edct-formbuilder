@@ -1,0 +1,36 @@
+<div id="newDescriptionDiv" title="Add/Modify Descriptions" style="display: none;">
+	<div class="descriptionListContent">
+		<table>
+			<!-- Main Description -->
+			<tr id="mainDescriptionSect">
+				<td colspan="2">							
+					<span class="descCaption">Main Description:</span>
+				</td>
+			</tr>
+			
+			<!-- Alternate Description(s) -->
+			<tr id="altDescriptionSect">
+				<td colspan="2" style="padding-top:30px;">							
+					<span class="descCaption">Alternate Description(s):</span>
+				</td>
+			</tr>
+			
+			<!-- Add new description -->
+			<tr id="addNewDescSect">
+				<td colspan="2">
+					<span class="addDescElm" onclick="addNewDescriptionHTMLRowElement()">
+					Add a new description
+					</span>
+				</td>
+			</tr>
+			
+			<!-- Buttons -->
+			<tr id="descriptionButtons">
+				<td align="right" colspan="2" style="padding-top:10px">
+					<input type="button" onclick="updateNewDescriptions();" value="OK" class="ok" />
+					<input type="button" onclick="closeDescriptionDialog();" value="Cancel" class="cancel" />
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>

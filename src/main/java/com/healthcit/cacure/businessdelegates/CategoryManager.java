@@ -32,4 +32,8 @@ public class CategoryManager {
 		return categoryDao.save(entity);
 	}
 
+	public List<Category> getCategoriesByName(String name)
+	{
+		return categoryDao.getCategoriesByName(name);
+	}
 }

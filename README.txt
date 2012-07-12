@@ -5,7 +5,7 @@ Quick setup for developers
     SVN
     postgresql 8.4
     ant 1.7.x
-    jdk 1.5
+    jdk 1.6
     tomcat 6.0.xx (Might work for 5.5.20 version, did not get a chance to test on this, it is always better to use latest version.)
 
 2) Setting up database:
@@ -13,9 +13,11 @@ Quick setup for developers
 	b. use pgAdmin (GUI) to create fbdev user (role)
 	c. Create FormBuilder database
 	d. Set FormBuilder database owner to fbdev user
-	e. run db creation script from source code (src/main/db/FormBuilder-db-backup.sql) and from src\main\db\ddls
-	f. modify fbdev search path (this is needed for SQL not to have to use schema name)
+	e. modify fbdev search path (this is needed for SQL not to have to use schema name) and install plpgsql language;
+	    psql -U postgres
+	    \c FormBuilder
 		ALTER ROLE fbdev SET search_path TO 'FormBuilder','public';
+	    CREATE LANGUAGE plpgsql;	
 
 3) Configure your local build settings in ${workspace}/local-build.properties. The
    properties to pay attention to are:

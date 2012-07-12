@@ -94,6 +94,10 @@
 		}
 		
 	    document.getElementById("questions").value = JSON.stringify( qaTable.results() );
+	    
+	    // set the value of "descriptionList"
+	  	document.getElementById("allDescriptions").value = JSON.stringify( createDescriptionJSON() );
+	  	
 	    //for complex table
 	    if(qaTable.type) {
 	    	document.getElementById("tableTypeHidden").value = qaTable.type(); 

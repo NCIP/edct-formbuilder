@@ -1,6 +1,7 @@
 package com.healthcit.cacure.model;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -22,7 +23,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.OrderBy;
 import javax.persistence.PrePersist;
 import javax.persistence.PreRemove;
 import javax.persistence.PreUpdate;
@@ -44,10 +47,10 @@ import com.healthcit.cacure.utils.StringUtils;
 //@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 @BatchSize(size=250)
 @Proxy(lazy=false)
-public abstract class FormElement  implements StateTracker, Cloneable, Serializable
+public abstract class FormElement extends DescriptionHolder implements StateTracker, Cloneable, Serializable
 {
     @Transient
-	private long serialVersionUID = 1l;
+	private static final long serialVersionUID = 1l;
 	public enum ChildrenRemovalType {INVALID_CHILDREN, EMPTY_CHILDREN}
 	
 	@Id
@@ -55,10 +58,11 @@ public abstract class FormElement  implements StateTracker, Cloneable, Serializa
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="genericSequence")
 	protected Long id;
 	
-	protected String description;
-	
 	@Column(name="is_readonly", nullable=false)
 	protected boolean readonly = false;
+	
+	@Column(name="description")
+	protected String description;
 
 	@Column(name="uuid", nullable=false)
 	protected String uuid;
@@ -94,6 +98,13 @@ public abstract class FormElement  implements StateTracker, Cloneable, Serializa
 	@ManyToOne(cascade={CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}, fetch=FetchType.LAZY)
 	@JoinColumn(name="form_id")
 	private BaseForm form =  null;
+	
+	@OneToMany(cascade={CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}, fetch=FetchType.LAZY, orphanRemoval=true)
+	@OrderBy("description")
+	@JoinTable(name="form_element_description", 
+			   joinColumns={ @JoinColumn(name="form_element_id",referencedColumnName="id")},
+			   inverseJoinColumns={@JoinColumn(name="description_id",referencedColumnName="id",unique=true)})
+	private Set<Description> descriptionList = new LinkedHashSet<Description>();
 
 //	@OneToMany(orphanRemoval=true, mappedBy="element",cascade={CascadeType.ALL}, fetch=FetchType.LAZY )
 //	@OrderBy("id ASC")
@@ -142,20 +153,7 @@ public abstract class FormElement  implements StateTracker, Cloneable, Serializa
 	{
 		this.uuid = uuid;
 	}
-	
-	/**
-	 * @return the description
-	 */
-	public String getDescription() {
-		return description;
-	}
-	/**
-	 * @param description the description to set
-	 */
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
+			
 	public BaseForm getForm() {
 		return form;
 	}
@@ -269,7 +267,55 @@ public abstract class FormElement  implements StateTracker, Cloneable, Serializa
 		this.readonly = readonly;
 	}
 	
-//	public List<FormElementSkip> getQuestionSkip() {
+	/**
+	 * @return the description
+	 */
+	public String getDescription() 
+	{
+		return this.description; 
+	}
+	/**
+	 * @param description the description to set
+	 */
+	public void setDescription(String description) 
+	{
+		super.updateEmptyDescriptionList(this.description);	
+	
+		this.description = description;
+	}
+	
+	/**
+	 * Gets the list of descriptions for this element
+	 * @return
+	 */
+	public Set<Description> getDescriptionList() {
+		return this.descriptionList;
+	}
+	
+	/**
+	 * Sets the list of descriptions for this element
+	 * @param descriptions
+	 */
+	public void setDescriptionList(Set<Description> descriptions) {
+		if(descriptions != null) {
+			if ( this.descriptionList == null ) 
+			{
+				this.descriptionList = descriptions;
+			}
+			else 
+			{
+				this.descriptionList.clear();
+				for ( Description description : descriptions )
+				{
+					if(description != null) {
+						this.descriptionList.add( description );
+					}
+				}
+			}
+		}
+	}
+	
+	//	public List<FormElementSkip> getQuestionSkip() {
 //		return questionSkip;
 //	}
 	public FormElementSkipRule getSkipRule()
@@ -337,7 +383,6 @@ public abstract class FormElement  implements StateTracker, Cloneable, Serializa
 
 	}
 	
-	@SuppressWarnings("unused")
 	@Deprecated
 	protected void removeExtraneousCategories() {
 		if (categories == null || categories.isEmpty()) {
@@ -365,13 +410,17 @@ public abstract class FormElement  implements StateTracker, Cloneable, Serializa
 	@PreRemove
 	@SuppressWarnings("unused")
 	private void onUpdate() {
-		//updateForm();
+		updateForm();
 		this.onPrePersist();
 	}
 	
 	private void updateForm() {
 		BaseForm form = getForm();
+		form.setUpdateDate(new Date());
 		form.setLastUpdatedBy(form.getLockedBy());
+		if(form instanceof QuestionnaireForm) {
+			((QuestionnaireForm) form).setFormLibraryForm(null);
+		}
 	}
 	
 	/**
@@ -411,7 +460,7 @@ public abstract class FormElement  implements StateTracker, Cloneable, Serializa
 	{
 		StringBuilder builder = new StringBuilder(500);
 		builder.append("Id: " + id);
-		builder.append("Description: " + description);
+		builder.append("Description: " + getDescription());
 		builder.append("Uuid: " + uuid);
 		builder.append("Form's Id: " + form.getId());
 		builder.append("Form's uuid: " + form.getUuid());
@@ -430,11 +479,11 @@ public abstract class FormElement  implements StateTracker, Cloneable, Serializa
 		
 	public static void copy(FormElement source, FormElement target)
 	{
-		target.setDescription(source.getDescription());
 		target.setOrd(source.getOrd());
 		target.setLearnMore(source.getLearnMore());
 		target.setRequired(source.isRequired());
 		target.setVisible(source.isVisible());
+		target.setDescription(source.getDescription());
 		if(source.getCategories()!= null)
 		{
 		target.setCategories(new LinkedHashSet<Category>(source.getCategories()));
@@ -442,6 +491,18 @@ public abstract class FormElement  implements StateTracker, Cloneable, Serializa
 		if(source.getAnswerType()!= null)
 		{
 			target.setAnswerType(source.getAnswerType().name());
+		}
+		// Copy the list of descriptions from the source
+		if(source.getDescriptionList()!=null)
+		{
+			LinkedHashSet<Description> descriptions = new LinkedHashSet<Description>();
+			Set<Description> descriptionSet = source.getDescriptionList();
+			for (Description description : descriptionSet) {
+				if(description != null && org.apache.commons.lang.StringUtils.isNotBlank(description.getDescription())) {
+					descriptions.add(description);
+				}
+			}
+			target.setDescriptionList(descriptions);
 		}
 	}
 	public abstract List<? extends BaseQuestion> getQuestions();

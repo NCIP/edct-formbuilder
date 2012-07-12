@@ -145,6 +145,8 @@ public class AnswerPresenterTag extends TagSupport {
 				Answer.AnswerType[] array =
 					new Answer.AnswerType[]{ AnswerType.TEXT,
 											 AnswerType.NUMBER,
+											 AnswerType.INTEGER,
+											 AnswerType.POSITIVE_INTEGER,
 											 AnswerType.DATE,
 											 AnswerType.YEAR,
 											 AnswerType.MONTHYEAR,
@@ -153,21 +155,25 @@ public class AnswerPresenterTag extends TagSupport {
 											 AnswerType.DROPDOWN,
 											 AnswerType.TEXTAREA};
 				
-				if ( ArrayUtils.contains( array, fe.getAnswerType() ) ) {
-					/* At this point we will be in this method only if 
-					 * FormElement is either QuestionElement, ExternalQuestionElement
-					 * or LinkElement that is linked to one of the above 
+				if (ArrayUtils.contains(array, fe.getAnswerType())) {
+					/*
+					 * At this point we will be in this method only if
+					 * FormElement is either QuestionElement,
+					 * ExternalQuestionElement or LinkElement that is linked to
+					 * one of the above
 					 */
 					List<? extends BaseQuestion> questions = fe.getQuestions();
-					if(questions != null && questions.size() >0)
-					{
+					if (questions != null && questions.size() > 0) {
 						BaseQuestion question = questions.get(0);
-						controlHtml = processSimpleControls(fe, question.getAnswer());
+						controlHtml = processSimpleControls(fe,
+								question.getAnswer());
 					}
-					} else {
-					throw new JspException("Ansert type '" + fe.getAnswerType() + "' is not handled. Please see '" + this.getClass().getSimpleName() + "' to verify");
-					}
+				} else {
+					throw new JspException("Ansert type '" + fe.getAnswerType()
+							+ "' is not handled. Please see '"
+							+ this.getClass().getSimpleName() + "' to verify");
 				}
+			}
 
 			pageContext.getOut().print(controlHtml);
 		} catch (IOException ioe) {
@@ -183,7 +189,9 @@ public class AnswerPresenterTag extends TagSupport {
 		if (fe.getAnswerType() == AnswerType.TEXT || fe.getAnswerType() == AnswerType.YEAR || fe.getAnswerType() == AnswerType.MONTHYEAR)
 		{
 			input.append(buildTextControlRow( answer.getFirstAnswerValue()));
-		} else if ( fe.getAnswerType() == AnswerType.NUMBER ) {
+		} else if ( fe.getAnswerType() == AnswerType.NUMBER 
+				|| fe.getAnswerType() == AnswerType.INTEGER
+				|| fe.getAnswerType() == AnswerType.POSITIVE_INTEGER ) {
 			String inputControlId = "number." + answer.getFirstAnswerValue().hashCode();
 			input.append(buildInputControl(inputControlId, "text", "number"));
 		} else if ( fe.getAnswerType() == AnswerType.TEXTAREA ) {
@@ -352,7 +360,7 @@ public class AnswerPresenterTag extends TagSupport {
 				|| StringUtils.equalsIgnoreCase(typeStr, "YEAR")) {
 			String inputControlId = "text." + idSuffix;
 			rowContent = buildInputControl(inputControlId, "text");
-		} else if(StringUtils.equalsIgnoreCase(typeStr, "NUMBER")) {
+		} else if(StringUtils.equalsIgnoreCase(typeStr, "NUMBER") || StringUtils.equalsIgnoreCase(typeStr, "INTEGER") || StringUtils.equalsIgnoreCase(typeStr, "POSITIVE_INTEGER")) {
 			String inputControlId = "number." + idSuffix;
 			rowContent = buildInputControl(inputControlId, "text", "number");
 		} else if (StringUtils.equalsIgnoreCase(typeStr, "DATE")) {
@@ -393,7 +401,7 @@ public class AnswerPresenterTag extends TagSupport {
 			for(AnswerValue answerValue: answerValues)
 			{
 				input.append("<td align=\"left\">");
-				input.append(buildInputControl(htmlInputType + "." + String.valueOf(answerValue.hashCode()), htmlInputType));
+				input.append(buildInputControl(htmlInputType + "." + String.valueOf(answerValue.hashCode()), htmlInputType, null, answerValue.isDefaultValue()));
 				input.append("</td><td>");
 				input.append((htmlEscape ? HtmlUtils.htmlEscape(answerValue.getDescription()) : answerValue.getDescription()));
 				if(canEdit && answerValues.size() > 1 && answer.getQuestion() instanceof ExternalQuestion) {
@@ -407,7 +415,7 @@ public class AnswerPresenterTag extends TagSupport {
 			for(AnswerValue answerValue: answerValues)
 			{
 				input.append("<tr valign=\"top\"><td align=\"left\">");
-				input.append(buildInputControl(htmlInputType + "." + String.valueOf(answerValue.hashCode()), htmlInputType));
+				input.append(buildInputControl(htmlInputType + "." + String.valueOf(answerValue.hashCode()), htmlInputType, null, answerValue.isDefaultValue()));
 				input.append("</td><td>");
 				input.append((htmlEscape ? HtmlUtils.htmlEscape(answerValue.getDescription()) : answerValue.getDescription()));
 				if(canEdit && answerValues.size() > 1 && answer.getQuestion() instanceof ExternalQuestion) {
@@ -462,7 +470,11 @@ public class AnswerPresenterTag extends TagSupport {
 		return buildInputControl(controlId, inputType, null);
 	}
 	
-	private String buildInputControl(final String controlId, final String inputType, String className)
+	private String buildInputControl(final String controlId, final String inputType, String className) {
+		return buildInputControl(controlId, inputType, className, false);
+	}
+	
+	private String buildInputControl(final String controlId, final String inputType, String className, boolean checked)
 	{
 		StringBuilder input = new StringBuilder(120);
 
@@ -471,8 +483,11 @@ public class AnswerPresenterTag extends TagSupport {
 			.append(" readonly=").append(QUOTE).append("readonly").append(QUOTE)
 			.append(" id=").append(QUOTE).append(controlId).append(QUOTE)
 			.append(" name=").append(QUOTE).append(controlId).append(QUOTE)
-			.append(" value=").append(QUOTE).append("").append(QUOTE) // do not display value
 			.append(" class=").append(QUOTE).append(className != null ? (classAndStyle.trim().length() == 0 ? "" : " ") + className : classAndStyle).append(QUOTE);
+		
+		if(checked) {
+			input.append(" checked=").append(QUOTE).append("checked").append(QUOTE);
+		}
 
 		input.append(" />");
 
@@ -494,6 +509,10 @@ public class AnswerPresenterTag extends TagSupport {
 	}
 
 	private String buildDropdownControl(final Answer answer, final String idSuffix) {
+		return buildDropdownControl(answer, idSuffix, "");
+	}
+	
+	private String buildDropdownControl(final Answer answer, final String idSuffix, final String value) {
 		List<AnswerValue> answerValues = answer.getAnswerValues();
 		String controlId =  "select." + idSuffix;
 		StringBuilder input = new StringBuilder();
@@ -501,7 +520,6 @@ public class AnswerPresenterTag extends TagSupport {
 //		.append(" multiple=").append(QUOTE).append("false").append(QUOTE)
 		.append(" id=").append(QUOTE).append(controlId).append(QUOTE)
 		.append(" name=").append(QUOTE).append(controlId).append(QUOTE)
-//		.append(" size=").append(QUOTE).append("1").append(QUOTE)
 		.append(getClassAndStyle());
 
 		input.append(" >");
@@ -522,6 +540,9 @@ public class AnswerPresenterTag extends TagSupport {
 			if(org.apache.commons.lang.StringUtils.isNotBlank(ptitle)) {
 				input.append(" title=").append(QUOTE).append(ptitle).append(QUOTE);
 			}
+			if(value != null && value.equals(av.getValue())) {
+				input.append(" selected=").append(QUOTE).append("selected").append(QUOTE);
+			}
 			input.append(">")
 			.append(pdesc)
 			.append("</option>");
@@ -533,7 +554,16 @@ public class AnswerPresenterTag extends TagSupport {
 	
 	private String buildDropdownControlRow(Answer answer) {
 		StringBuilder input = new StringBuilder(START_ROW);
-		input.append(buildDropdownControl(answer, String.valueOf(answer.getUuid()))).append(END_ROW);
+		List<AnswerValue> answerValues = answer.getAnswerValues();
+		String defaultValue = "";
+		if(answerValues != null) {
+			for (AnswerValue answerValue : answerValues) {
+				if(answerValue.isDefaultValue()) {
+					defaultValue = answerValue.getValue();
+				}
+			}
+		}
+		input.append(buildDropdownControl(answer, String.valueOf(answer.getUuid()), defaultValue)).append(END_ROW);
 		return input.toString();
 	}
 

@@ -8581,8 +8581,9 @@ function stringValue(value) {
 		
 
 function booleanValue(value) {
-    return typeof value == "undefined"? false
-    	: (typeof value.length != "undefined"? value.length > 0 : !!value);
+    return value == null ? false :
+    	(typeof value == "undefined"? false
+    	: (typeof value.length != "undefined"? value.length > 0 : !!value));
 }
 
 

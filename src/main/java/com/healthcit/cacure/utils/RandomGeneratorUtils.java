@@ -63,9 +63,15 @@ public class RandomGeneratorUtils {
 		switch( algorithm )
 		{
 			case PSEUDORANDOM:
-				double seed = Double.parseDouble( new DecimalFormat( "#.#" ).format( Math.random() ) );
+				double range = upperBound.doubleValue() - lowerBound.doubleValue();
 				
-				random = lowerBound.doubleValue() + (( upperBound.doubleValue() - lowerBound.doubleValue() ) * seed );		
+				int rangePrecision = (int)Math.ceil( Math.log10( range ) );
+				
+				String decimalFormatPrecisionStr = org.apache.commons.lang.StringUtils.repeat( "#", rangePrecision );
+				
+				double seed = Double.parseDouble( new DecimalFormat( "#." + decimalFormatPrecisionStr ).format( Math.random() ) );
+												
+				random = lowerBound.doubleValue() + ( range * seed );		
 				
 				if ( wholeNumbers ) 
 				{

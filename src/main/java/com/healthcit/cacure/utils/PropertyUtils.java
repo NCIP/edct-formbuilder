@@ -15,5 +15,14 @@ public class PropertyUtils {
 		} catch (Exception ex){}
 		return value;
 	}
+	
+	/**
+	 * Sets the value of a property in a given bean.
+	 */
+	public static void setProperty(Object obj, String property, Object value){
+		try{
+			org.apache.commons.beanutils.PropertyUtils.setProperty(obj, property, value);
+		} catch (Exception ex){}
+	}
 
 }

@@ -6,12 +6,16 @@ import java.util.List;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 
 @Entity
 @DiscriminatorValue("formLibraryForm")
 public class FormLibraryForm extends BaseForm{
 
 	public enum AllowedElements {LinkElement, ExternalQuestionElement, ContentElement}
+	
+	@OneToMany(mappedBy = "formLibraryForm")
+	protected List<QuestionnaireForm> copies;
 	
 	public FormLibraryForm()
 	{
@@ -59,5 +63,13 @@ public class FormLibraryForm extends BaseForm{
 	public boolean isLibraryForm()
 	{
 		return true;
+	}
+
+	public List<QuestionnaireForm> getCopies() {
+		return copies;
+	}
+
+	public void setCopies(List<QuestionnaireForm> copies) {
+		this.copies = copies;
 	}
 }

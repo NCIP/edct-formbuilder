@@ -1,23 +1,29 @@
 /* function checks if question have linked questions and show confirms */
-function checkLinkedQuestionsAndSkips(questionId, unlink, updateCategories)
+function checkLinkedQuestionsAndSkips(questionId, unlink, updateCategories,updateDescriptionList)
 {
 	/* Check if question is attached as skip to another Question */
 	var confirmationMessage = checkIfSkip(questionId);
 	
 //How can it be null unless it's a new question?
-	if (unlink) {
-			confirmationMessage += confirmationMessage.length > 0 ? "\n" : "";
-			confirmationMessage += "This question linked to another question. During update link will be broken.";
-	}
-	if (updateCategories) {
-		confirmationMessage += confirmationMessage.length > 0 ? "\n" : "";
-		confirmationMessage += "Categories will be modified for related library question.";
-	}
-	
-	if (confirmationMessage.length > 0) {
-		confirmationMessage += '\nAre you sure you want to proceed?';
-		return confirm(confirmationMessage);
-	}
+		if (updateDescriptionList && !unlink){
+			var descriptionConfirmationMessage = "This question is linked to another question.\n\nYou have made updates to the list of descriptions.\nWould you like to break the link for this question?\n\n(Click OK to break the link, Cancel to keep the link.)"
+			return confirm(descriptionConfirmationMessage);
+		}
+		else{
+			if (unlink) {
+				confirmationMessage += confirmationMessage.length > 0 ? "\n" : "";
+				confirmationMessage += "This question linked to another question. During update link will be broken.";
+			}
+			if (updateCategories) {
+				confirmationMessage += confirmationMessage.length > 0 ? "\n" : "";
+				confirmationMessage += "Categories will be modified for related library question.";
+			}
+			
+			if (confirmationMessage.length > 0) {
+				confirmationMessage += '\nAre you sure you want to proceed?';
+				return confirm(confirmationMessage);
+			}
+		}
 	return true;
 }
 
@@ -155,12 +161,16 @@ function _checkLinkChanges(form) {
 	var visible = null;
 	var required = null;
 	var readonly = null;
+	var description = null;
+	var descriptionList = null;
+	var descriptionList2 = null;
+	var addedCategoryIds = null;
 	try {
 		var newFormSerializedObjects = form.serializeObject();
 //		var learnMoreWasChanged = equals(newFormSerializedObjects['learnMore'], formSerializedObjects['learnMore']);
 //		var skipRuleWasChanged = equals(newFormSerializedObjects['skipRule'], formSerializedObjects['skipRule']);
 		
-		//Remove newly created categories
+		//Remove newly created categories and description related dummy fields
 		delete newFormSerializedObjects['addedCategoryIds'];
 		var newCategoriesWasAdded = false;
 		for(fieldName in newFormSerializedObjects) {
@@ -168,7 +178,16 @@ function _checkLinkChanges(form) {
 				delete newFormSerializedObjects[fieldName];
 				newCategoriesWasAdded = true;
 			}
+			else if(fieldName.match('^descList')) {
+				delete newFormSerializedObjects[fieldName];
+			}
 		}
+		for(fieldName in formSerializedObjects) {
+			if(fieldName.match('^descList')) {
+				delete formSerializedObjects[fieldName];
+			}
+		}
+		
 		delete newFormSerializedObjects['learnMore'];
 		delete newFormSerializedObjects['skipRule'];
 		var categories2 = newFormSerializedObjects['selectedCategories'];
@@ -176,6 +195,9 @@ function _checkLinkChanges(form) {
 		delete newFormSerializedObjects['visible'];
 		delete newFormSerializedObjects['required'];
 		delete newFormSerializedObjects['readonly'];
+		descriptionList =  newFormSerializedObjects['descriptionList'];
+		delete newFormSerializedObjects['descriptionList'];
+		delete newFormSerializedObjects['description'];
 		
 		learnMore = formSerializedObjects['learnMore'];
 		delete formSerializedObjects['learnMore'];
@@ -195,27 +217,39 @@ function _checkLinkChanges(form) {
 		readonly = formSerializedObjects['readonly'];
 		delete formSerializedObjects['readonly'];
 		
+		description = formSerializedObjects['description'];
+		delete formSerializedObjects['description'];
+		
+		descriptionList2 = formSerializedObjects['descriptionList'];
+		delete formSerializedObjects['descriptionList'];
+		
+		addedCategoryIds = formSerializedObjects['addedCategoryIds'];
+		delete formSerializedObjects['addedCategoryIds'];
 		var restIsEquals = equals(newFormSerializedObjects, formSerializedObjects);
 		
 		var id = form.find('#id').val();
 		var categoryControlIsOpened = $("#categorySettingsRow").is(":visible");
 		var categoriesWasChanged = !equals(categories2, categories);
 		var updateCategories = categoryControlIsOpened && (categoriesWasChanged || newCategoriesWasAdded);
+		var updateDescriptionList = !equalsArray(JSON.parse(descriptionList)['descriptionList'],JSON.parse(descriptionList2)['descriptionList']);
 		var unlink = !restIsEquals;
-		var confirm = checkLinkedQuestionsAndSkips(id, unlink, updateCategories);
+		var confirm = checkLinkedQuestionsAndSkips(id, unlink, updateCategories, updateDescriptionList);
+		var unlinkForDescriptionList = (updateDescriptionList && confirm);
+		unlink = unlink || unlinkForDescriptionList;
+		var doSave = confirm || updateDescriptionList;
 		if(unlink) {
 			var shortNamesAreUnique = _checkLinkShortNames();
 			if(!shortNamesAreUnique) {
 				return false;
 			}
 		}
-		if(confirm) {
+		if(doSave) {
 			form.find("#unlink").remove();
 			form.append($("<input type='hidden' id='unlink' name='unlink'>").val(unlink));
 			form.find("#updateSourceCategories").remove();
 			form.append($("<input type='hidden' id='updateSourceCategories' name='updateSourceCategories'>").val(updateCategories));
 		}
-		return confirm;
+		return doSave;
 	} catch (e) {
 		alert(e);
 	} finally {
@@ -229,6 +263,12 @@ function _checkLinkChanges(form) {
 			formSerializedObjects['visible'] = visible;
 		if(required != null)
 			formSerializedObjects['required'] = required;
+		if (description != null)
+			formSerializedObjects['description'] = description;
+		if(descriptionList != null )
+			formSerializedObjects['descriptionList'] = descriptionList2;
+		if(addedCategoryIds != null ) 
+			addedCategoryIds = formSerializedObjects['addedCategoryIds'];
 	}
 	return false;
 }
@@ -278,6 +318,24 @@ $(function() {
 			}
     	});
 });
+
+function equalsArray(arr1,arr2){
+	if (arr1.length != arr2.length ) return false;
+	for ( var i = 0; i < arr1.length; ++i ){
+		obj1 = arr1[i];
+		for ( key in obj1 ) {
+			var found = false;
+			for ( var j = 0; j < arr2.length && !found; ++j){
+				var obj2 = arr2[j];
+				var obj1val = !isNaN(obj1[key]) ? obj1[key]+'' : obj1[key];
+				var obj2val = !isNaN(obj2[key]) ? obj2[key]+'' : obj2[key];
+				if ( obj2val && equals(obj1val,obj2val)) found = true;
+			}
+			if (!found) return false;
+		}
+	}
+	return true;
+}
 
 $(window).bind("load", function() {
 	var form = $('#questionCmd');

@@ -7,7 +7,10 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.PreUpdate;
 import javax.persistence.Transient;
 
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -23,7 +26,11 @@ public class QuestionnaireForm extends BaseForm{
 	
 	@Transient
 	private List<QuestionSkipRule> externalSkips;
-
+	
+	@ManyToOne
+	@JoinColumn(name = "form_library_form_id")
+	private FormLibraryForm formLibraryForm;
+	
 	/**
 	 * default constructor
 	 */
@@ -162,5 +169,20 @@ public class QuestionnaireForm extends BaseForm{
 						|| status == FormStatus.IN_PROGRESS 
 							&& (lockedBy != null && lockedBy.getUserName().equals(curUsername)) //or in progress and meet lock rules
 					);
+	}
+
+	public FormLibraryForm getFormLibraryForm() {
+		return formLibraryForm;
+	}
+
+
+	public void setFormLibraryForm(FormLibraryForm formLibraryForm) {
+		this.formLibraryForm = formLibraryForm;
+	}
+
+	@PreUpdate
+	@SuppressWarnings("unused")
+	private void preUpdate() {
+		setFormLibraryForm(null);
 	}
 }

@@ -44,6 +44,7 @@ import com.healthcit.cacure.utils.Constants;
 import com.healthcit.cacure.web.controller.BreadCrumbsSupporter;
 import com.healthcit.cacure.web.editors.AnswerPropertyEditor;
 import com.healthcit.cacure.web.editors.CategoryPropertyEditor;
+import com.healthcit.cacure.web.editors.DescriptionPropertyEditor;
 import com.healthcit.cacure.web.editors.QuestionPropertyEditor;
 import com.healthcit.cacure.web.editors.SkipPatternPropertyEditor;
 
@@ -69,6 +70,7 @@ public class LinkElementEditController extends BaseFormElementController impleme
 	@InitBinder
 	public void initBinder(WebDataBinder dataBinder) {
 	        dataBinder.registerCustomEditor(Category.class, new CategoryPropertyEditor());
+	        dataBinder.registerCustomEditor(null,"descriptionList", new DescriptionPropertyEditor());
 	        dataBinder.registerCustomEditor(null, "question.answer", new AnswerPropertyEditor());
 	        dataBinder.registerCustomEditor(null,"questions", new QuestionPropertyEditor());
 	        dataBinder.registerCustomEditor(null, "skipRule", new SkipPatternPropertyEditor<FormElementSkipRule>(FormElementSkipRule.class, skipDao));
@@ -172,6 +174,7 @@ public class LinkElementEditController extends BaseFormElementController impleme
 			try {
 				qaManager.unlink(formElement, id, formId);
 			} catch (PersistenceException e) {
+				//log.debug(ExceptionUtils.getFullStackTrace(e));
 				return new ModelAndView(new RedirectView(
 						Constants.LINK_EDIT_URI + "?id=" + id + "&formId="
 								+ formId, true));

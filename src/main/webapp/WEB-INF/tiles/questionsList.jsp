@@ -510,13 +510,13 @@
 							<div class="questionListQuestionText">
 								<span ${curElement.pureContent ? 'style="font-weight: normal;"' : ''}>
 									<spring:escapeBody htmlEscape="${!curElement.pureContent}">
-		        				${curElement.description}
+		        				${curElement.description} <c:if test="${curElement.form.module.insertCheckAllThatApplyForMultiSelectAnswers and not empty curElement.questions and curElement.questions[0].answer.type == 'CHECKBOX'}">Check all that apply.</c:if>
 		        			</spring:escapeBody> </span>
 								<c:if test="${curElement.externalQuestion}">
 									<span class="noticetext"> (caDSR Public ID: <a
 										href="<%=AppConfig.getString("cdebrowser.url")%>${curElement.uuid}"
 										class="noticelink" target="_blank">${ curElement.sourceId
-											}</a>)</span>
+											}${ empty curElement.externalVersion ? '' : ' version ' }${ curElement.externalVersion }</a>)</span>
 								</c:if>
 
 							</div>

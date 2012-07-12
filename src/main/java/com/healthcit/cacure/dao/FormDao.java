@@ -262,12 +262,32 @@ public class FormDao
 		long count = (Long) q.getSingleResult();
 		return count > 0;
 	}
+	
+	public FormLibraryForm getFormLibraryFormByName(final String formName) {
+		TypedQuery<FormLibraryForm> q = this.em.createQuery("SELECT form FROM FormLibraryForm form WHERE form.name = :name ORDER BY form.updateDate DESC", FormLibraryForm.class);
+		q.setMaxResults(1);
+		q.setParameter("name", formName);
+		List<FormLibraryForm> resultList = q.getResultList();
+		return resultList.size() > 0 ? resultList.get(0) : null;
+	}
 
 	public long getSkipTriggerQuestionsCount(Long formId) {
 		Query q = this.em.createQuery("SELECT count(asr.id) FROM AnswerSkipRule asr WHERE asr.formId = :formId");
 		q.setParameter("formId", formId);
 		long count = (Long) q.getSingleResult();
 		return count;
+	}
+
+	public int updateFormLibraryForm(QuestionnaireForm qForm, FormLibraryForm flForm) {
+		//Flush first to get callbacks set formLibraryForm to null
+		save(flForm);
+		save(qForm);
+		em.flush();
+		//Silent (without callbacks (@Pre...)) set of formLibraryForm
+		return this.em.createQuery("UPDATE QuestionnaireForm SET formLibraryForm = :lForm WHERE id = :qFormId")
+				.setParameter("lForm", flForm)
+				.setParameter("qFormId", qForm.getId())
+				.executeUpdate();
 	}
 
 }

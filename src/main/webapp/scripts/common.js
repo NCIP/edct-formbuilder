@@ -248,3 +248,36 @@ function intitTitlePane($elements) {
 	}
 	
 }
+
+// Function which adds an option to the specified select field
+function addSelectOption(selectId, newValue, newText) {
+	// the select list
+	var select = jQuery('#' + selectId);
+	
+	// add a new option
+	var option = jQuery('<option></option>').val(newValue).html(newText);
+	select.append(option);
+	return option;
+}
+
+//Function which updates an existing option in the specified select field with the new value/text
+function updateSelectOption(selectId, newValue, newText, originalValue) {
+	// the select option
+	var option = jQuery('#' + selectId + ' option[value="' + originalValue + '"]');
+	
+	// update this option
+	option.val(newValue).html(newText);
+	
+	return option;
+}
+// Function which removes an option from the specified select field
+function removeSelectOption(selectId,value){
+	var option = jQuery('#' + selectId + ' option[value="' + value + '"]');
+	//remove this option
+	option.remove();
+}
+
+// Function which checks if an element exists in an array
+function arrayContains( arr, elm ) {
+	return jQuery.inArray( elm, arr ) > -1 ;
+}

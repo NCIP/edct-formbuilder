@@ -1,12 +1,16 @@
 package com.healthcit.cacure.model;
 
 import java.util.List;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+
 import org.apache.commons.lang.StringUtils;
+
 import com.healthcit.cacure.model.Answer.AnswerType;
 
 
@@ -36,13 +40,6 @@ public class LinkElement  extends FormElement
 	{
 		return sourceElement;
 	}
-
-	@Override
-	public String getDescription()
-	{
-		return sourceElement.getDescription();
-	}
-	
 	
   public String getSourceId() {
     return sourceUuid;
@@ -64,6 +61,18 @@ public boolean isRequired()
   public String getTableShortName()
   {
 	  return isTable() ? (( TableElement ) sourceElement).getTableShortName() : null;
+  }
+  
+  @Override
+  public Set<Description> getDescriptionList()
+  {
+	  return sourceElement.getDescriptionList();
+  }
+  
+  @Override
+  public void setDescriptionList(Set<Description> descriptions)
+  {
+	  sourceElement.setDescriptionList(descriptions);
   }
   
   public void unlink()
@@ -108,6 +117,7 @@ public boolean isRequired()
 	public boolean isSimpleQuestion() {
 		return sourceElement.isSimpleQuestion();
 	}
+	
 	//public abstract QuestionType getType();
 	@Override
 	public String toString()

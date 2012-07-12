@@ -14,6 +14,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.UUID;
 
+import org.apache.commons.lang.math.NumberUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +42,7 @@ import com.healthcit.cacure.model.BaseQuestion;
 import com.healthcit.cacure.model.BaseSkipPatternDetail;
 import com.healthcit.cacure.model.Category;
 import com.healthcit.cacure.model.ContentElement;
+import com.healthcit.cacure.model.Description;
 import com.healthcit.cacure.model.ExternalQuestion;
 import com.healthcit.cacure.model.ExternalQuestionElement;
 import com.healthcit.cacure.model.FormElement;
@@ -98,6 +100,11 @@ public class QuestionAnswerManager {
 		}*/
 		//prepare question entity for being updated
 		fe.prepareForUpdate();
+		// update all links associated with this FormElement, as appropriate
+		// (NOTE: This method must be invoked BEFORE the actual updates to the FormElement are executed,
+		// since we need to be able to access the pre-update values)
+		updateAssociatedLinks(fe);
+		
 		FormElement mergedElement = null;
 		/* If Links are edited then we need to break the link and do a deep copy of the parent element
 		 *  with newly generated UUIDs all the way down
@@ -115,7 +122,7 @@ public class QuestionAnswerManager {
 			
 		}
 		else
-		{				 
+		{	
 			formElementDao.update(fe);
 			if (fe instanceof QuestionElement) 
 			{
@@ -127,6 +134,7 @@ public class QuestionAnswerManager {
 			mergedElement = fe;
 		}
 		skipDao.skipPatternCleanup();
+		
 //		processLinkedFormElements(fe);
 		return mergedElement;
 	}
@@ -552,6 +560,7 @@ public class QuestionAnswerManager {
 					linkElement.setVisible(source.isVisible());
 					linkElement.setRequired(source.isRequired());
 					linkElement.setReadonly(source.isReadonly());
+					linkElement.setDescription(source.getDescription());
 					linkElement.setSource(source);
 					newElements.add( linkElement );
 					break;
@@ -584,6 +593,18 @@ public class QuestionAnswerManager {
 	public List<Long> getLinkedFormElementIds(String linkId) {
 	  return linkDao.getLinkedFormElementIds(linkId);
 	}
+	
+	public List<String> getLinkedFormElementDescriptions(String linkId) {
+		if ( NumberUtils.isNumber(linkId)){
+			FormElement formElement = formElementDao.getById(new Long(linkId));
+			String uuid = formElement.isLink() ? (( LinkElement )formElement).getSourceId() : formElement.getUuid();
+			return linkDao.getLinkedFormElementDescriptions(uuid);
+		}
+		else{
+			return new ArrayList<String>();
+		}
+	}
+	
 	public Set<String> getLinkedFormElementUuids(Set<String> linkUuids) {
 		return linkDao.getLinkedFormElementUuids(linkUuids);
 	}
@@ -678,32 +699,47 @@ public class QuestionAnswerManager {
 		}
 	}
   }
-	
-	
+
 	@Transactional
-	public void unlink(FormElement fe, Long linkId, Long formId)
-	{
-		LinkElement link = (LinkElement)formElementDao.getById(linkId);
+	public void unlink(FormElement fe, Long linkId, Long formId) {
+		LinkElement link = (LinkElement) formElementDao.getById(linkId);
 		FormElement source = link.getSourceElement();
-		Map<String, String>uuidMap = new HashMap<String, String>();
-		List<?extends BaseQuestion> questions = fe.getQuestions();
-		for (BaseQuestion question: questions)
-		{
-			question.setId(null);
-			question.setUuid(UUID.randomUUID().toString());
-			question.setSkipAffectees(new LinkedHashSet<BaseSkipPatternDetail>());
-			List<AnswerValue> answerValues = question.getAnswer().getAnswerValues();
-			//replace permanentId to the new one
-			for(AnswerValue answerValue: answerValues)
-			{
-				String newUuid = UUID.randomUUID().toString();
-				uuidMap.put(answerValue.getPermanentId(), newUuid);
-				answerValue.setPermanentId(newUuid);
+		updateSkips(fe, formId, source);
+	
+		Set<Category> categories = new LinkedHashSet<Category>(source.getCategories());
+		fe.setCategories(categories);
+	
+		// The new formelement will have its own separate list of descriptions
+		Set<Description> descriptionList = new LinkedHashSet<Description>(fe.getDescriptionList());
+		for (Description description : descriptionList)
+			description.setId(null);
+	
+		if (fe instanceof TableElement) {
+			TableElement tableElement = (TableElement) fe;
+			tableElement.setTableColumns(new ArrayList<TableColumn>());
+			TableQuestion identifyingQuestion = tableElement
+					.getIdentifyingQuestion();
+			if (identifyingQuestion != null) {
+				identifyingQuestion.setShortName("identifyingRowShortName-"
+						+ UUID.randomUUID().toString());
 			}
-			
 		}
+		fe.resetId();
+		_addNewFormElement(fe, formId);
+		deleteLink(linkId);
+		// update the new FormElement with the new description list
+		updateDescriptionList(fe, descriptionList);
+		skipDao.skipPatternCleanup();
+	}
+	
+	public void updateSkips(FormElement newFormElement, Long newFormElementFormId, FormElement copiedFromFormElement) {
+		Map<String, String> uuidMap = regenerateAnswerValuesPermanentIds(newFormElement);
+		updateAnswerValuesPermanentIds(newFormElementFormId, copiedFromFormElement, uuidMap);
+	}
+
+	public void updateAnswerValuesPermanentIds(Long newFormElementFormId, FormElement formElement, Map<String, String> uuidMap) {
 		
-		List<? extends BaseQuestion> sourceQuestions = source.getQuestions();
+		List<? extends BaseQuestion> sourceQuestions = formElement.getQuestions();
 		
 		/* Update skips with new permanentId of the answer and new formId */
 		for(BaseQuestion question: sourceQuestions)
@@ -714,7 +750,7 @@ public class QuestionAnswerManager {
 				//BaseSkipPattern skip = detail.getSkip();
 				if(detail.getFormElementId() != null) {
 					FormElement skipOwner = formElementDao.getById(detail.getFormElementId());
-					if(skipOwner.getForm().getId().equals(formId)) {
+					if(skipOwner.getForm().getId().equals(newFormElementFormId)) {
 						QuestionSkipRule skip = detail.getSkip();
 						if(skip.getIdentifyingAnswerValueUuId() != null) {
 							String newUuid = uuidMap.get(skip.getIdentifyingAnswerValueUuId());
@@ -724,7 +760,7 @@ public class QuestionAnswerManager {
 						for (AnswerSkipRule part: parts)
 						{
 							String newUuid = uuidMap.get(part.getAnswerValueId());
-							if (newUuid != null && part.getFormId().equals(formId))
+							if (newUuid != null && part.getFormId().equals(newFormElementFormId))
 							{
 								part.setAnswerValueId(newUuid);
 							}
@@ -733,30 +769,41 @@ public class QuestionAnswerManager {
 				}
 			}
 		}
-		
-		Set<Category> categories = new LinkedHashSet<Category>(source.getCategories());
-		fe.setCategories(categories);
-		if (fe instanceof TableElement)	{
-			TableElement tableElement = (TableElement) fe;
-			tableElement.setTableColumns(new ArrayList<TableColumn>());
-			TableQuestion identifyingQuestion = tableElement.getIdentifyingQuestion();
-			if(identifyingQuestion != null) {
-				identifyingQuestion.setShortName("identifyingRowShortName-" + UUID.randomUUID().toString());
+	}
+
+	public Map<String, String> regenerateAnswerValuesPermanentIds(FormElement newFormElement) {
+		Map<String, String> uuidMap = new HashMap<String, String>();
+		List<?extends BaseQuestion> questions = newFormElement.getQuestions();
+		if(questions != null) {
+			for (BaseQuestion question: questions)
+			{
+				question.setId(null);
+				question.setUuid(UUID.randomUUID().toString());
+				question.setSkipAffectees(new LinkedHashSet<BaseSkipPatternDetail>());
+				List<AnswerValue> answerValues = question.getAnswer().getAnswerValues();
+				//replace permanentId to the new one
+				for(AnswerValue answerValue: answerValues) {
+					if(StringUtils.isNotBlank(answerValue.getPermanentId())) {
+						String newUuid = UUID.randomUUID().toString();
+						uuidMap.put(answerValue.getPermanentId(), newUuid);
+						answerValue.setPermanentId(newUuid);
+					}
+				}
+				
 			}
 		}
-		fe.resetId();
-		_addNewFormElement(fe, formId);
-		deleteLink(linkId);
-		skipDao.skipPatternCleanup();
+		return uuidMap;
 	}
 	
 	@Transactional
 	public void updateLink(FormElement fe) {
 		LinkElement linkElement = (LinkElement)getFormElement(fe.getId());
+		prepareLinkSourceForUpdateLink(linkElement.getSourceElement(), fe);
 		linkElement.setLearnMore(fe.getLearnMore());
 		linkElement.setRequired(fe.isRequired());
 		linkElement.setVisible(fe.isVisible());
 		linkElement.setReadonly(fe.isReadonly());
+		linkElement.setDescription(fe.getDescription());		
 		if(linkElement.getSkipRule() != null)
 			skipDao.delete(linkElement.getSkipRule());
 		linkElement.setSkipRule(fe.getSkipRule());
@@ -770,6 +817,99 @@ public class QuestionAnswerManager {
 		FormElement sourceElement = linkElement.getSourceElement();
 		sourceElement.setCategories(categories);
 		formElementDao.save(sourceElement);
+	}
+	
+	/**
+	 * Makes any necessary updates to a LinkElement's source element before making updates to the link.
+	 * 
+	 * (NOTE: These updates to the link source 
+	 * are NOT to be applied when a LinkElement is being unlinked, 
+	 * because the source element will be detached from the link.)
+	 * @param sourceElement
+	 * @param targetElement
+	 */
+	@Transactional
+	public void prepareLinkSourceForUpdateLink(FormElement sourceElement,FormElement targetElement) {
+		//update the list of descriptions in the source element before updating the link
+		updateDescriptionList(sourceElement,targetElement.getDescriptionList());	
+
+		
+		// Whenever a LinkElement is being updated,
+		// updates to the "main" description from the "descriptionList" collection
+		// need to be manually propagated back to the source
+		resetDescriptionInLinkSource(sourceElement,targetElement);
+	}
+	
+	/**
+	 * When necessary, updates to the "main" description from the "descriptionList" collection
+		are manually propagated back to the source
+	 * @param sourceElement
+	 * @param description
+	 */
+	
+	@Transactional
+	public void resetDescriptionInLinkSource(FormElement linkSourceElement,FormElement targetElement) {
+		if (wasMainDescriptionChangedInLink(linkSourceElement,targetElement.getDescriptionList())){
+			linkSourceElement.setDescription( targetElement.getDescription() );
+		}
+	}
+	
+	public boolean wasMainDescriptionChangedInLink(FormElement linkSource,Set<Description> descriptionList){
+		boolean changed = true;
+		
+		for ( Description description : descriptionList )
+		{
+			if ( StringUtils.equals( linkSource.getDescription(), description.getDescription()))
+			{
+				return (changed = false);
+			}
+		}
+		
+		return changed;
+	}
+	
+	/**
+	 * updates the list of descriptions in the source element before updating the link
+	 * @param linkSourceElement
+	 * @param descriptionList
+	 */
+	@Transactional
+	public void updateDescriptionList(FormElement linkSourceElement,Set<Description> descriptionList) {
+		Set<Description> oldDescriptionList = linkSourceElement.getDescriptionList();
+		Set<Description> newDescriptionList = new LinkedHashSet<Description>();
+		
+		for ( Description description : descriptionList ) {			
+			if ( description.isNew() ) // if the description had never been previously persisted, perform an insert
+			{
+				newDescriptionList.add( description );
+			}
+			else  // else perform an update
+			{ 
+				for ( Description originalDescription : oldDescriptionList ) {
+					if ( description.getId().equals(originalDescription.getId())){
+						
+						originalDescription.setDescription( description.getDescription() );
+						
+						newDescriptionList.add( originalDescription );
+					}
+				}
+			}
+		}
+		
+		// persist the decription list changes to the DB
+		linkSourceElement.setDescriptionList(newDescriptionList);
+		formElementDao.save(linkSourceElement);
+		
+		
+	}
+	
+	@Transactional
+	public void updateAssociatedLinks(FormElement fe) {
+		// 1. Update the description of all link elements associated with this FormElement, as appropriate
+		// (When the description list is modified, any modified descriptions should also be propagated to the link elements as appropriate)
+		formElementDao.updateAllFormElementsWithDescriptionChanged( fe );
+		
+		//2. .....ANY OTHER UPDATES......
 	}
 	
 	public void skipsDeepCopy(FormElement from, FormElement to) {
@@ -836,6 +976,7 @@ public class QuestionAnswerManager {
 		fElement.setForm(linkElement.getForm());
 		fElement.setUuid(linkElement.getUuid());
 		fElement.setOrd(linkElement.getOrd());
+		fElement.setDescription(linkElement.getDescription());
 		if ( fElement instanceof TableElement ) 
 		{
 			((TableElement)fElement).setTableShortName(linkElement.getTableShortName());
@@ -907,7 +1048,7 @@ public class QuestionAnswerManager {
 		return fElement;
 	}
 
-	private void modifyShortNames(List<FormElement> newElements) {
+	public void modifyShortNames(List<FormElement> newElements) {
 		//Make unique among this collection		
 		HashMap<String, Object> shortNamesMap = new HashMap<String, Object>();
 		for (FormElement formElement : newElements) {
@@ -929,21 +1070,26 @@ public class QuestionAnswerManager {
 			}
 			
 			List<? extends BaseQuestion> questions = formElement.getQuestions();
-			for (BaseQuestion baseQuestion : questions) {
-				String shortName = com.healthcit.cacure.utils.StringUtils.prepareForShortName(baseQuestion.getShortName());
-				if(StringUtils.isBlank(shortName)) {
-					shortName = "tableShortName";
-				}
-				if(shortNamesMap.containsKey(shortName)) {
-					int counter = 1;
-					while(shortNamesMap.containsKey(shortName + counter)) {
-						counter += 1;
+			if(questions != null) {
+				for (BaseQuestion baseQuestion : questions) {
+					String shortName = com.healthcit.cacure.utils.StringUtils.prepareForShortName(baseQuestion.getShortName());
+					if(StringUtils.isBlank(shortName)) {
+						shortName = "tableShortName";
 					}
-					shortNamesMap.put(shortName + counter, baseQuestion);
-				} else {
-					shortNamesMap.put(shortName, baseQuestion);
+					if(shortNamesMap.containsKey(shortName)) {
+						int counter = 1;
+						while(shortNamesMap.containsKey(shortName + counter)) {
+							counter += 1;
+						}
+						shortNamesMap.put(shortName + counter, baseQuestion);
+					} else {
+						shortNamesMap.put(shortName, baseQuestion);
+					}
 				}
 			}
+		}
+		if(shortNamesMap.isEmpty()) {
+			return;
 		}
 		//Check similar short names in DB		
 		Set<String> similarShortNamesInDb = qstDao.getQuestionsShortNamesLike(shortNamesMap.keySet(), false);
