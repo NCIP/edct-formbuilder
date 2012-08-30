@@ -111,7 +111,7 @@ public class FormElementDao
 								
 				query.setParameter("desc", newDescription.getDescription() );
 				
-				query.setParameter("uuid", formElement.isLink() ? (( LinkElement )formElement).getSourceId() : formElement.getUuid() );
+				query.setParameter("uuid", formElement.isLink() && !formElement.isExternalQuestion() ? (( LinkElement )formElement).getSourceId() : formElement.getUuid() );
 				
 				query.setParameter("id", newDescription.getId() );
 				
@@ -559,6 +559,20 @@ public class FormElementDao
 		Query query = em.createQuery("select fe from FormElement fe where id = :Id");
 		query.setParameter("Id", id);
 	    return (FormElement) query.getSingleResult();
+	}
+	
+	public FormElement getByUUID(String uuid)
+	{
+		Query query = em.createQuery("select fe from FormElement fe where uuid = :Id");
+		query.setParameter("Id", uuid);
+		try
+		{
+			return (FormElement) query.getSingleResult();
+		}
+		catch(javax.persistence.NoResultException e)
+		{
+			return null;
+		}
 	}
 	
 }

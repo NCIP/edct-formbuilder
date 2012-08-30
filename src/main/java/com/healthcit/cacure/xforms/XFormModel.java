@@ -339,7 +339,7 @@ public class XFormModel implements XFormsConstants
 		lookupInstance.setAttribute("id", XFormsUtils.getQuestionAnswerSetInstanceIDREF(q.getUuid()));
 		Element optionsInstance = new Element(LOOKUP_OPTIONS_TAG);
 		if(q.getAnswer().getType() == AnswerType.DROPDOWN && q.getParent().getForm().getModule().isShowPleaseSelectOptionInDropDown()) {
-			addAnswerElement("", PLEASE_SELECT_OPTION_TEXT, "\u00A0\u00A0", optionsInstance);
+			addAnswerElement("", PLEASE_SELECT_OPTION_TEXT, "\\xA0\\xA0", optionsInstance);
 		}
 		for (AnswerValue av: q.getAnswer().getAnswerValues())
 		{
@@ -379,7 +379,7 @@ public class XFormModel implements XFormsConstants
 				lookupInstance.setAttribute("id", XFormsUtils.getQuestionAnswerSetInstanceIDREF(question.getUuid()));
 				Element optionsInstance = new Element(LOOKUP_OPTIONS_TAG);
 				if(answerType.equals(AnswerType.DROPDOWN) && q.getForm().getModule().isShowPleaseSelectOptionInDropDown()) {
-					addAnswerElement("", PLEASE_SELECT_OPTION_TEXT, "\u00A0\u00A0", optionsInstance);
+					addAnswerElement("", PLEASE_SELECT_OPTION_TEXT, "\\xA0\\xA0", optionsInstance);
 				}
 				List<AnswerValue> answerValues = question.getAnswer().getAnswerValues();
 				for (AnswerValue answerValue: answerValues)
@@ -838,7 +838,7 @@ public class XFormModel implements XFormsConstants
 				setDefaultMultiAnswerValues(firstDataAnswer, xmlDataAnswer);
 			} else {
 				if(answerType == AnswerType.DROPDOWN && questionElement.getForm().getModule().isShowPleaseSelectOptionInDropDown()) {
-					xmlDataAnswer.setValue("\u00A0\u00A0");
+					xmlDataAnswer.setValue("\\xA0\\xA0");
 				}
 				setDefaultSingleAnswerValue(firstDataAnswer, xmlDataAnswer);
 			}
@@ -1058,7 +1058,7 @@ public class XFormModel implements XFormsConstants
 					} else if(answer.getType() == AnswerType.DROPDOWN) {
 //						Make first value selected by default
 						if(showPleaseSelectOptionInDropDown) {
-							cAnswer.setValue("\u00A0\u00A0");
+							cAnswer.setValue("\\xA0\\xA0");
 						} else {
 							List<AnswerValue> answerValues = answer.getAnswerValues();
 							if(CollectionUtils.isNotEmpty(answerValues)) {
@@ -1099,7 +1099,7 @@ public class XFormModel implements XFormsConstants
 				if(answer.getType() == AnswerType.DROPDOWN) {
 //					Make first value selected by default
 					if(showPleaseSelectOptionInDropDown) {
-						cAnswer.setValue("\u00A0\u00A0");
+						cAnswer.setValue("\\xA0\\xA0");
 					} else {
 						List<AnswerValue> answerValues = answer.getAnswerValues();
 						if(CollectionUtils.isNotEmpty(answerValues)) {

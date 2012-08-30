@@ -133,6 +133,16 @@
 		// Also, load any skips
 		loadSkipJson();
 		prepareForSave("selectedCategories");
+		if($('#externalQuestion').val() == "true") {
+			var $editQuestionForm = $('#editQuestionForm');
+			$editQuestionForm.find('input:visible').attr("disabled", "disabled");
+			$editQuestionForm.find('textarea:visible').attr("disabled", "disabled");
+			$editQuestionForm.find('button:visible').attr("disabled", "disabled");
+			$editQuestionForm.find('select:visible').attr("disabled", "disabled");
+			$editQuestionForm.find('#addAnotherAnswerDiv').hide();
+			
+			$editQuestionForm.find('input[name=answerAlignmentVal_1], input[name=defaultAnswerValue], input[name=submit], #editSkipsBtn, #removeAllSkipsBtn').removeAttr("disabled");
+		}
 	}
 
 	function loadMultiselect(){

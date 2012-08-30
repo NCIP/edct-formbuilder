@@ -57,16 +57,26 @@ public class FormDao
 	
 	public BaseForm getById(Long id)
 	{
+		BaseForm form = null;
 		Query query = em.createQuery("from BaseForm fe where id = :Id");
 		query.setParameter("Id", id);
-	    return (BaseForm) query.getSingleResult();
+		return (BaseForm) query.getSingleResult();
 	}
 	
 	public BaseForm getByUuid(String uuid)
 	{
+		BaseForm form = null;
 		Query query = em.createQuery("from BaseForm fe where uuid = :uuid");
 		query.setParameter("uuid", uuid);
-	    return (BaseForm) query.getSingleResult();
+	    try
+		{
+			form = (BaseForm) query.getSingleResult();
+		}
+		catch(javax.persistence.NoResultException e)
+		{
+			logger.debug("No object found with uuid " + uuid);
+		}
+	    return form;
 	}	
 
 	/**

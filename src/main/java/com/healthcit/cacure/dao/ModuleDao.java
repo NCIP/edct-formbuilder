@@ -57,7 +57,22 @@ public class ModuleDao {
 	    return (BaseModule) query.getSingleResult();
 	}
 	
-
+	public BaseModule getByUUID(String uuid)
+	{
+		BaseModule module = null;
+		Query query = em.createQuery("from BaseModule fe where uuid = :Id");
+		query.setParameter("Id", uuid);
+		try
+		{
+			module = (BaseModule) query.getSingleResult();
+		}
+		catch(javax.persistence.NoResultException e)
+		{
+			logger.debug("No object found with uuid " + uuid);
+		}
+	    return module;
+	}
+	
 	/**
 	 * @return Cosistently ordered list of Modules
 	 */

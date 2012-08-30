@@ -32,6 +32,7 @@ import com.healthcit.cacure.model.Question;
 import com.healthcit.cacure.utils.AppConfig;
 import com.healthcit.cacure.utils.IOUtils;
 import com.healthcit.cacure.utils.XMLUtils;
+import com.healthcit.cacure.web.FormElementSearchCriteria;
 
 public class CADSRManager {
 	private static Logger log = Logger.getLogger( CADSRManager.class );
@@ -39,7 +40,7 @@ public class CADSRManager {
 	private static String CADSR_URL_KEY = "cadsr.serviceurl";
 	private static String CADSR_SEARCH_CRITERIA_PARAM = "crit";
 	private static String CADSR_SEARCH_CRITERIA_PARAM_TYPE = "critType";
-	private static enum CADSRSearchType { SINGLEIDSEARCH, MULTIIDSEARCH, TEXTSEARCH };
+	private static enum CADSRSearchType { SINGLEIDSEARCH, MULTIIDSEARCH, TEXTSEARCH, SINGLEPUBLICIDSEARCH, CARTUSERSEARCH };
 	
 	/**
 	 * Queries CADSR repository for questions with the given UUIDs.
@@ -52,6 +53,7 @@ public class CADSRManager {
 		try 
 		{
 			String xmlResults = queryCADSR( idList, CADSRSearchType.MULTIIDSEARCH );
+			@SuppressWarnings("rawtypes")
 			List<gov.nih.nci.cadsr.domain.DataElement> results = ( List ) XMLUtils.fromXML( xmlResults );
 			return transformCADSRResultsToMap(results);
 		} 
@@ -92,7 +94,7 @@ public class CADSRManager {
 		AnswerType finalAnswerType = answerType == null ? getAnswerType(sourceQuestion) : answerType;
 		//create a question
 		ExternalQuestion targetQuestion = new ExternalQuestion();
-		targetQuestion.setShortName     ( sourceQuestion.getLongName() );
+		targetQuestion.setShortName     ( sourceQuestion.getPreferredName() );
 		targetQuestion.setType(AnswerType.CHECKBOX.equals(finalAnswerType) ? QuestionType.MULTI_ANSWER : QuestionType.SINGLE_ANSWER);
 		targetElement.setQuestion(targetQuestion);
 		
@@ -140,11 +142,15 @@ public class CADSRManager {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public static List<?> getSearchResults( String questionSearchString ) 
+	public static List<?> getSearchResults( String questionSearchString, int questionSearchType ) 
 	{
 		List<?> results = new ArrayList<Question>();
 		try {
-			String xmlResults = queryCADSR( questionSearchString, CADSRSearchType.TEXTSEARCH );
+			CADSRSearchType caDSRSearchType = 
+			 ( questionSearchType == FormElementSearchCriteria.SEARCH_BY_CADSR_TEXT      ? CADSRSearchType.TEXTSEARCH :
+			   questionSearchType == FormElementSearchCriteria.SEARCH_BY_CADSR_CART_USER ? CADSRSearchType.CARTUSERSEARCH :
+			   null );			
+			String xmlResults = queryCADSR( questionSearchString, caDSRSearchType );
 			results = ( List<DataElement> ) XMLUtils.fromXML( xmlResults );
 		} catch (Exception ex) {
 			log.debug("Error occurred during CADSR search");

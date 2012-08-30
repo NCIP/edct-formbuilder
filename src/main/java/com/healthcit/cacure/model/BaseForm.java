@@ -144,7 +144,8 @@ public abstract class BaseForm  implements StateTracker
 	 * uuid is generate and must not be reset by the application
 	 * @param uuid
 	 */
-	protected void setUuid(String uuid)
+	/* changed to public to be able to set the uuid during form's import */
+	public void setUuid(String uuid)
 	{
 		this.uuid = uuid;
 	}

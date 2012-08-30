@@ -30,6 +30,10 @@
     <script src="${appPath}/scripts/jquery-1.6.2.min.js"></script>
     <script src="${appPath}/scripts/jquery-ui-1.8.15.custom.min.js"></script>
     <script src="${appPath}/scripts/json2.js"></script>
+    
+   <!--  File uploader -->
+   <link href="${appPath}/styles/fileUploader/fileUploader.css" rel="stylesheet" type="text/css" />
+   <script src="${appPath}/scripts/jquery.fileUploader.js" type="text/javascript"></script>
 
 	<script type="text/javascript">
 	var messageSource = new Object();

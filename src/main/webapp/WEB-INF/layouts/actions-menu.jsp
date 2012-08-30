@@ -46,13 +46,18 @@
    		<c:out value="${currentItemText}"/>
    	</h3>
    <div id="header_link">
-	<ul>
+	<ul id="nav">
 		<c:if test="${ currentPage eq 'availableForms' && isEditable}">
 			<c:if test="${!moduleCmd.library}">
 				<li>
-					<a href="javascript:void(0);" onclick="$('#searchFormsDialog').dialog({close: function(event, ui) { window.location.reload(); }, open: function(event, ui) { getAllLibraryForms(); }, modal: true, height: 500, width: 700});">
-						<span>Import Section</span>
-					</a>
+					<!--  <a href="javascript:void(0);" onclick="$('#searchFormsDialog').dialog({close: function(event, ui) { window.location.reload(); }, open: function(event, ui) { getAllLibraryForms(); }, modal: true, height: 500, width: 700});"> -->
+					<!-- <a href="javascript:void(0);" onclick="$('#importFormsDialog').dialog({close: function(event, ui) { window.location.reload(); }, modal: true, height: 500, width: 700});"> -->
+						<a href="javascript:void(0);"><span>Import Section</span></a>
+					<!-- </a> -->
+					<ul class="second-nav">
+					<li><a href="javascript:void(0);" onclick="$('#searchFormsDialog').dialog({close: function(event, ui) { window.location.reload(); }, open: function(event, ui) { getAllLibraryForms(); }, modal: true, height: 500, width: 700});">From The Library</a></li>
+					<li><a href="javascript:void(0);" onclick="$('#importFromFileDialog').dialog({close: function(event, ui) { window.location.reload(); }, modal: true, height: 500, width: 700});">From the File</a></li>
+					</ul>
 				</li>
 		</c:if>
 			<li>
@@ -80,6 +85,12 @@
 			</c:if>						
 		</c:if>
 		<c:if test="${ currentPage eq 'availableModules'}">
+		     <li>
+					<!--  <a href="javascript:void(0);" onclick="$('#searchFormsDialog').dialog({close: function(event, ui) { window.location.reload(); }, open: function(event, ui) { getAllLibraryForms(); }, modal: true, height: 500, width: 700});"> -->
+					<a href="javascript:void(0);" onclick="$('#importModuleDialog').dialog({close: function(event, ui) { window.location.reload(); }, modal: true, height: 500, width: 700});">
+						<span>Import Module</span>
+					</a>
+				</li>
 			<li><a href="${appPath}/<%=Constants.LIBRARY_MANAGE_URI%>"><span>Manage Library</span></a></li>
 		  <c:if test="${isEditable}">
 			<li><a href="${appPath}/<%=Constants.MODULE_EDIT_URI%>"><span>Add Module</span></a></li>

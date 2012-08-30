@@ -132,18 +132,6 @@ public class QuestionDwrController
 		}
 		return jsonObject.toString();
 	}
-	
-	@RemoteMethod
-	public String batchDelete(String[] feUuids) {
-		HashSet<String> uniqueUuid = new HashSet<String>(Arrays.asList(feUuids));
-		Set<String> deleted = qaManager.batchDelete(uniqueUuid);
-		JSONArray jsonArray = new JSONArray();
-		for (String uuid : deleted) {
-			jsonArray.add(uuid);
-		}
-		
-		return jsonArray.toString();
-	}
 
 	@RemoteMethod
 	public String hasShortNameDuplicates(String[] shortNames) throws IOException, InterruptedException {

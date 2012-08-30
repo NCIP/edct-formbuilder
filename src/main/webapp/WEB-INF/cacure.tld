@@ -69,7 +69,7 @@
     <tag>
         <name>ifSelectTypeQuestion</name>
         <tag-class>com.healthcit.cacure.web.tag.IfSelectTypeQuestionTag</tag-class>
-        <bodycontent>jsp</bodycontent>
+        <body-content>JSP</body-content>
         <attribute>
             <name>question</name>
             <required>true</required>
@@ -79,7 +79,7 @@
     <tag>
         <name>containsType</name>
         <tag-class>com.healthcit.cacure.web.tag.HasTypeElementTag</tag-class>
-        <bodycontent>jsp</bodycontent>
+        <body-content>JSP</body-content>
         <attribute>
             <name>clazz</name>
             <required>true</required>
@@ -94,6 +94,7 @@
     <tag>
     	<name>breadcrumb</name>
     	<tag-class>com.healthcit.cacure.web.tag.BreadCrumbTag</tag-class>
+    	<body-content>JSP</body-content>
     	<attribute>
     		<name>breadCrumb</name>
     		<required>true</required>
@@ -103,7 +104,7 @@
     <tag>
         <name>ifMultiAnswerQuestion</name>
         <tag-class>com.healthcit.cacure.web.tag.IfMultiAnswerQuestionTag</tag-class>
-        <bodycontent>jsp</bodycontent>
+        <body-content>JSP</body-content>
         <attribute>
             <name>element</name>
             <required>true</required>

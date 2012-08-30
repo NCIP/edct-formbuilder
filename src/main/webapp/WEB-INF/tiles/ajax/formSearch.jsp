@@ -1,9 +1,16 @@
 <%@ include file="/WEB-INF/includes/taglibs.jsp" %>
 
 <c:choose>
+	<c:when test="${!empty existingForms}">
+	<div id="status">error</div>
+	<div id="message"><c:forEach var="entity" items="${existingForms}" varStatus="status">
+	${entity.key}
+	</c:forEach></div>
+	</c:when>
 	<c:when test="${empty forms}">
 		<div style="font-weight: bold;">There are no matches</div>
 	</c:when>
+	
 	<c:otherwise>
 	    <br/><br/>
 		<div style="font-weight: bold;">

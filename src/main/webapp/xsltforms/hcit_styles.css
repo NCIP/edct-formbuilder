@@ -12,7 +12,7 @@ The basic format of the stylesheet used by the XForms consists of several elemen
     Basic CSS class used to style the answer section of a question on the XForm that was rendered using the XForms "itemset".
 - learnmore, hcitHasLearnMore:
     CSS classes used to style the "Learn More" sections on the XForm.
-- hcitContent, hcitContentText:
+- hcit-content-heading, hcit-content-heading-text:
     CSS classes used to style the "Pure Content" sections on the XForm.
 - hcitTable, hcitTableCell, hcitOdd, hcitEven, hcitHeaderRow, hcitFirstTableCell:
     CSS class used to style the answer section of a table question on the XForm.
@@ -357,9 +357,36 @@ div.hcitEmptyGroup.xforms-group, div.hcitEmptyGroup.xforms-group * {
 	margin-bottom: 5px;
 }
 
-.hcitContentText {
-	/*background: #FAF2F3;*/
-	/*border: 3px solid #E1E1E1;*/
+/* Pure content styles */
+div.hcit-content-heading div.xforms-group-content{
+	background: #E1E1E1;
+	padding: 3px;
+	border: 1px solid #CFCACA;
+}
+.hcit-content-heading-text {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	padding-left: 5px;
+}
+div.hcit-content-subheading div.xforms-group-content{
+	background: white;
+	padding: 3px;
+	border: 1px solid #CFCACA;
+}
+.hcit-content-subheading-text {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	padding-left: 5px;
+}
+div.hcit-content-regular div.xforms-group-content{
+	background: white;
+	padding: 3px;
+}
+.hcit-content-regular-text {
 	margin-top: 10px;
 	margin-bottom: 10px;
 	padding-top: 8px;

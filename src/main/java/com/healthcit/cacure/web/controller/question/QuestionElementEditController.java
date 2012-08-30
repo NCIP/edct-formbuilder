@@ -181,6 +181,7 @@ public class QuestionElementEditController extends BaseFormElementController imp
 					if(isNew)
 					{
 						qElement.resetId();
+						qElement.getDescriptionList().clear();
 					}
 					int beginIndex = message.indexOf('[');
 					int endIndex = message.indexOf(']');

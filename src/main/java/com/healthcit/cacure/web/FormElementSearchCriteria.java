@@ -6,6 +6,7 @@ public class FormElementSearchCriteria {
 	public static final int SEARCH_BY_CATEGORY = 2;
 	public static final int SEARCH_BY_TEXT_WITHIN_CATEGORY = 3;
 	public static final int SEARCH_BY_CADSR_TEXT = 4;
+	public static final int SEARCH_BY_CADSR_CART_USER = 5;
 	
 	private final int searchType;
 	private String searchText;

@@ -31,6 +31,9 @@
     <dwr:url-mapping />
     <dwr:controller id="dwrController" debug="true" />
 
+    <!-- Used for file uploads -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+	
 	<bean name="appVer" class="com.healthcit.cacure.utils.AppVersionResolver">
 		<property name="appVersion"><value>${caCURE.version}</value></property>
 	</bean>

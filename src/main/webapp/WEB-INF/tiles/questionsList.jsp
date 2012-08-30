@@ -32,7 +32,7 @@
 
 		var q;
 		var categoryId;
-		if (searchCriteria == 1 || searchCriteria == 3 || searchCriteria == 4) {
+		if (searchCriteria == 1 || searchCriteria == 3 || searchCriteria == 4 || searchCriteria == 5) {
 			q = dwr.util.getValue("searchText");
 		} 
 		if (searchCriteria == 2 || searchCriteria == 3) {
@@ -124,11 +124,11 @@
 		$( '#search_' + uuid ).removeClass( 'plus' ).addClass( 'check' );
 	}
 	
-	function toggleFormElementSelection(checkbox, feUuid){
+	function toggleFormElementSelection(checkbox, feId){
 		if($(checkbox).is(':checked')) {
-			feSet.push(feUuid);
+			feSet.push(feId);
 		} else {
-			var index = jQuery.inArray( feUuid, feSet );
+			var index = jQuery.inArray( feId, feSet );
 			feSet.splice(index, 1);
 		}
 		$('#controlBlock_selectedElements').html('Delete&nbsp;' + feSet.length + '&nbsp;selected&nbsp;question' + (feSet.length > 1 ? 's' : '' ));
@@ -144,34 +144,26 @@
 					var hasSkips = checkData[uuid].hasSkips;
 					var hasLinks = checkData[uuid].hasLinks;
 					if(hasSkips || hasLinks) {
-						var questionText = questionTextByUuid(uuid);
+						var questionText = questionTextByUuid(id);
 						details += '\n' + questionText + (hasSkips ? '\n- attached as a skip to other qustion or a form' : '')
 							+ (hasLinks ? '\n- has linked questions' : '');  
 					}
 				}
 				if(confirm('Are you sure you want to delete ' + feSet.length + ' question' + (feSet.length > 1 ? 's' : '') + '?' + (details && details.length > 0 ? '\nNote:' + details : ''))) {
-					QuestionDwrController.batchDelete(feSet, { async: false, callback: 
-						function(data) {
-							var deletedUuids = JSON.parse(data);
-							for ( var indx in deletedUuids) {
-								$trByUuid(deletedUuids[indx]).remove();
-							}
-							feSet = new Array();
-							$('.batchDelete').removeAttr('checked');
-							$('#controlBlock').hide();
-						}
-					});
+					$.post("questionList.delete", {feIds: feSet}, function(deletedIds) {
+						window.location.reload();
+					}, "json");
 				};		
 			}
 		});
 	}
 	
-	function $trByUuid(uuid) {
-		return $('#questionList_table').find('tr[uuid=' + uuid +']');
+	function $trByFeId(uuid) {
+		return $('#questionList_table').find('tr[data-fe-id=' + uuid +']');
 	}
 	
-	function questionTextByUuid(uuid) {
-		return $trByUuid(uuid).find('.questionListQuestionText span').text().replace(/\s+/g, ' ');
+	function questionTextByUuid(id) {
+		return $trByFeId(id).find('.questionListQuestionText span').text().replace(/\s+/g, ' ');
 	}
 	
 	function getSkipQuestionElement(uuid) {
@@ -191,7 +183,7 @@
 		searchCriteria = criteria;
 		var searchTextInput = document.getElementById("searchText");
 		var searchCombo = document.getElementById("searchCombo");
-		if (criteria == 1 || criteria == 4) {
+		if (criteria == 1 || criteria == 4 || criteria == 5) {
 			searchTextInput.style.display = "inline";
 			searchCombo.style.display = "none";
 		} else if (criteria == 2) {
@@ -263,6 +255,10 @@
 			<input type="radio" name="searchBy" value="4"
 				onclick="chooseSearchCriteria(this.value)">
 			<span>Search by caDSR text</span>
+			<br />
+			<input type="radio" name="searchBy" value="5"
+				onclick="chooseSearchCriteria(this.value)">
+			<span>Search by caDSR Cart user</span>
 			<br />
 			<form:select id="searchCombo" path="categories" multiple="false"
 				cssStyle="display:none; width:175px;">
@@ -382,10 +378,10 @@
 	<div style="padding: 5px; overflow: hidden;">
 		<table id="questionList_table">
 			<c:forEach items="${elements}" var="curElement" varStatus="qCnt">
-				<tr class="dndItem" uuid="${curElement.uuid}">
+				<tr class="dndItem" data-fe-id="${curElement.id}">
 					<td valign="top" class="${isEditable and not isQLModule ? 'dndHandle' : ''}">
 						<authz:authorize ifAnyGranted="ROLE_ADMIN, ROLE_LIBRARIAN">
-							<input type="checkbox" class="batchDelete" onchange="toggleFormElementSelection(this, '${curElement.uuid}');" ${isEditable && !(curElement.form.libraryForm && curElement.linkCount > 0) ? '' : 'disabled="disabled"'}/>
+							<input type="checkbox" class="batchDelete" onchange="toggleFormElementSelection(this, '${curElement.id}');" ${isEditable && !(curElement.form.libraryForm && curElement.linkCount > 0) ? '' : 'disabled="disabled"'}/>
 						</authz:authorize>
 						<input type="hidden" name="id" value="${curElement.id}" />
 					</td>
@@ -514,7 +510,7 @@
 		        			</spring:escapeBody> </span>
 								<c:if test="${curElement.externalQuestion}">
 									<span class="noticetext"> (caDSR Public ID: <a
-										href="<%=AppConfig.getString("cdebrowser.url")%>${curElement.uuid}"
+										href="<%=AppConfig.getString("cdebrowser.url")%>${curElement.externalUuid}"
 										class="noticelink" target="_blank">${ curElement.sourceId
 											}${ empty curElement.externalVersion ? '' : ' version ' }${ curElement.externalVersion }</a>)</span>
 								</c:if>

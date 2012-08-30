@@ -70,6 +70,9 @@ public class ModuleManager {
 		return moduleDao.getById(id);
 	}
 
+	public BaseModule getModule(String uuid){
+		return moduleDao.getByUUID(uuid);
+	}
 	/**
 	 * Deletes only module with empty forms, otherwise throws NoResultException exception.
 	 * @param moduleId Long

@@ -14,8 +14,8 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.UUID;
 
-import org.apache.commons.lang.math.NumberUtils;
 import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang.math.NumberUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
@@ -173,21 +173,6 @@ public class QuestionAnswerManager {
 		deleteFormElement(fe);
 	}
 	
-	@Transactional
-	public Set<String> batchDelete( Set<String> uuids ) {
-		Set<String> deleted = new HashSet<String>();
-		List<FormElement> formElementsByUuid = qeDao.getFormElementsByUuid(uuids);
-		for (FormElement formElement : formElementsByUuid) {
-			try {
-				deleteFormElement(formElement);
-				deleted.add(formElement.getUuid());
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-		return deleted;
-	}
-	
 	private void deleteFormElement( FormElement e ) {
 		//prepare question entity for being deleted
 		if(!e.getForm().isEditable()) {
@@ -270,6 +255,12 @@ public class QuestionAnswerManager {
 	public FormElement getFormElement(Long id)
 	{
 		FormElement formElement = formElementDao.getById(id);
+		return formElement;
+	}
+	
+	public FormElement getFormElement(String uuid)
+	{
+		FormElement formElement = formElementDao.getByUUID(uuid);
 		return formElement;
 	}
 	
@@ -379,8 +370,12 @@ public class QuestionAnswerManager {
 			list = qeDao.getQuestionLibraryFormElementsByTextWithinCategories(criteria.getSearchText(), criteria.getCategoryId());
 			break;
 		case FormElementSearchCriteria.SEARCH_BY_CADSR_TEXT:
-			logger.debug( "CADSR Search...");
-			list = showCADSRFormElementSearchResults(criteria.getSearchText());
+			logger.debug( "CADSR Search by text...");
+			list = showCADSRFormElementSearchResults(criteria);
+			break;
+		case FormElementSearchCriteria.SEARCH_BY_CADSR_CART_USER:
+			logger.debug( "CADSR Search by Cart User..." );
+			list = showCADSRFormElementSearchResults(criteria);
 			break;
 		}
 		return list;
@@ -536,35 +531,30 @@ public class QuestionAnswerManager {
 			if(StringUtils.isNotBlank(deletedAnswerValuesList[ i ])) {
 				deletedAnswerValues.addAll(Arrays.asList(deletedAnswerValuesList[ i ].split("\\s*,\\s*")));
 			}
-
-			switch( searchCriteria )
+			
+			if ( searchCriteria == FormElementSearchCriteria.SEARCH_BY_CADSR_TEXT  // CADSR Text Search
+			  || searchCriteria == FormElementSearchCriteria.SEARCH_BY_CADSR_CART_USER ) // CADSR Cart User Search
 			{
-				case FormElementSearchCriteria.SEARCH_BY_CADSR_TEXT: // CADSR
-				{
-					if ( i== 0 ) dataElements = cadsrManager.findCADSRQuestionsById( StringUtils.join( questionIdList, SPLITTER ) );
-					DataElement dataElement = dataElements.get( uuid );
-					if ( dataElement != null ) {
-						FormElement newElement;
-						AnswerType answerTypeEnumEntry = AnswerType.valueOf(answerType);
-						newElement = cadsrManager.transformCADSRQuestion(dataElement, answerTypeEnumEntry, deletedAnswerValues);
-						newElements.add( newElement );
-					}
-					break;
+				if ( i== 0 ) dataElements = cadsrManager.findCADSRQuestionsById( StringUtils.join( questionIdList, SPLITTER ) );
+				DataElement dataElement = dataElements.get( uuid );
+				if ( dataElement != null ) {
+					FormElement newElement;
+					AnswerType answerTypeEnumEntry = AnswerType.valueOf(answerType);
+					newElement = cadsrManager.transformCADSRQuestion(dataElement, answerTypeEnumEntry, deletedAnswerValues);
+					newElements.add( newElement );
 				}
-
-				default: // local
-				{
-					LinkElement linkElement = new LinkElement();
-					FormElement source = linkDao.getLinkSource(uuid);
-					linkElement.setLearnMore(source.getLearnMore());
-					linkElement.setVisible(source.isVisible());
-					linkElement.setRequired(source.isRequired());
-					linkElement.setReadonly(source.isReadonly());
-					linkElement.setDescription(source.getDescription());
-					linkElement.setSource(source);
-					newElements.add( linkElement );
-					break;
-				}
+			}
+			else // local
+			{
+				LinkElement linkElement = new LinkElement();
+				FormElement source = linkDao.getLinkSource(uuid);
+				linkElement.setLearnMore(source.getLearnMore());
+				linkElement.setVisible(source.isVisible());
+				linkElement.setRequired(source.isRequired());
+				linkElement.setReadonly(source.isReadonly());
+				linkElement.setDescription(source.getDescription());
+				linkElement.setSource(source);
+				newElements.add( linkElement );
 			}
 		}
 		modifyShortNames(newElements);
@@ -577,9 +567,9 @@ public class QuestionAnswerManager {
 	 * provided in the given string.
 	 * @author Oawofolu
 	 */
-	public List<FormElement> showCADSRFormElementSearchResults( String searchQuestionText )
+	public List<FormElement> showCADSRFormElementSearchResults( FormElementSearchCriteria searchCriteria )
 	{
-		List<?> originalList = CADSRManager.getSearchResults( searchQuestionText );
+		List<?> originalList = CADSRManager.getSearchResults( searchCriteria.getSearchText(), searchCriteria.getSearchType() );
 		List<FormElement> transformedList = new ArrayList<FormElement>();
 		for ( Object obj : originalList )
 		{

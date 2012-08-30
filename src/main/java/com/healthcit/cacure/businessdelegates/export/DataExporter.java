@@ -10,10 +10,13 @@ import javax.xml.bind.Marshaller;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.healthcit.cacure.businessdelegates.FormManager;
+import com.healthcit.cacure.businessdelegates.ModuleManager;
 import com.healthcit.cacure.export.model.Cure;
 import com.healthcit.cacure.export.model.Cure.Form;
 import com.healthcit.cacure.export.model.Cure.Form.Content;
 import com.healthcit.cacure.export.model.Cure.Form.LinkElement.SourceElement;
+import com.healthcit.cacure.export.model.Cure.Module;
+import com.healthcit.cacure.export.model.Cure.Module.Section;
 import com.healthcit.cacure.export.model.Description;
 import com.healthcit.cacure.export.model.FormElementType;
 import com.healthcit.cacure.export.model.FormElementType.Categories;
@@ -28,9 +31,11 @@ import com.healthcit.cacure.model.AnswerSkipRule;
 import com.healthcit.cacure.model.AnswerValue;
 import com.healthcit.cacure.model.AnswerValueConstraint;
 import com.healthcit.cacure.model.BaseQuestion;
+import com.healthcit.cacure.model.BaseSkipRule;
 import com.healthcit.cacure.model.Category;
 import com.healthcit.cacure.model.ExternalQuestionElement;
 import com.healthcit.cacure.model.FormElementSkipRule;
+import com.healthcit.cacure.model.FormSkipRule;
 import com.healthcit.cacure.model.LinkElement;
 import com.healthcit.cacure.model.BaseForm;
 import com.healthcit.cacure.model.ContentElement;
@@ -38,13 +43,66 @@ import com.healthcit.cacure.model.FormElement;
 import com.healthcit.cacure.model.Question;
 import com.healthcit.cacure.model.QuestionElement;
 import com.healthcit.cacure.model.QuestionSkipRule;
+import com.healthcit.cacure.model.QuestionnaireForm;
 import com.healthcit.cacure.model.TableElement;
 import com.healthcit.cacure.model.TableQuestion;
 
-public class DataExport {
+public class DataExporter {
 	@Autowired
 	FormManager formManager;
 	
+	@Autowired
+	ModuleManager moduleManager;
+	
+	
+	public Cure constructModuleXML(long id)
+	{
+		com.healthcit.cacure.model.BaseModule module = moduleManager.getModule(id);
+		
+		com.healthcit.cacure.export.model.ObjectFactory jaxbFactory = new com.healthcit.cacure.export.model.ObjectFactory();
+		Cure rootElement = jaxbFactory.createCure();
+		
+		List<Module> xmlModules = rootElement.getModule();
+		
+		Module xmlModule = new Module();
+		xmlModule.setUuid(module.getUuid());
+		xmlModule.setDescription(module.getComments());
+		xmlModule.setModuleName(module.getDescription());
+		if(!module.isLibrary())
+		{
+			xmlModule.setCompletionTime(((com.healthcit.cacure.model.Module)module).getCompletionTime());
+		}
+		xmlModule.setInsertCheckAllThatApplyForMultiSelectAnswers(module.isInsertCheckAllThatApplyForMultiSelectAnswers());
+		xmlModule.setShowPleaseSelectOptionInDropDown(module.isShowPleaseSelectOptionInDropDown());
+		xmlModules.add(xmlModule);
+		List<Section> sections = xmlModule.getSection();
+		List<BaseForm> forms = module.getForms();
+		for(BaseForm form: forms)
+		{
+			Form xmlForm = processForm(form, rootElement);
+			Section xmlSection = new Section();
+			xmlSection.setOrder(form.getOrd());
+			xmlSection.setRef(xmlForm);
+			if(!form.isLibraryForm())
+			{
+				QuestionnaireForm qForm = (QuestionnaireForm)form;
+				FormSkipRule formSkipRule = qForm.getFormSkipRule();
+				
+				SkipRuleType skipRuleType = null;
+				if (formSkipRule != null)
+				{
+					skipRuleType = populateSkips(formSkipRule);
+					if(skipRuleType != null)
+					{
+						xmlSection.setSkipRule(skipRuleType);
+					}
+				}
+			}
+			sections.add(xmlSection);
+		}
+		
+		return rootElement;
+	}
 	
 	public  Cure  constructFormXML( long id)
 	{
@@ -53,14 +111,23 @@ public class DataExport {
 
 		com.healthcit.cacure.export.model.ObjectFactory jaxbFactory = new com.healthcit.cacure.export.model.ObjectFactory();
 		Cure rootElement = jaxbFactory.createCure();
+		processForm(qForm, rootElement);
+		return rootElement;
+		
+	}
+
+	
+	private Form processForm(BaseForm qForm, Cure rootElement)
+	{
 		List<Form> forms = rootElement.getForm();
 		Form form = new Form();
 		forms.add(form);
 		form.setName(qForm.getName());
-		form.setUuid(qForm.getUuid());
+		form.setId(qForm.getUuid());
 		
 		/* go over all the forElements and create objects for them in XML */
 		List<FormElement> elements = qForm.getElements();
+		
 		
 		List<Cure.Form.Content> xmlContentList = form.getContent();
 		List<Cure.Form.LinkElement>xmlLinkList = form.getLinkElement();
@@ -76,36 +143,7 @@ public class DataExport {
 			FormElementSkipRule formElementSkipRule = element.getSkipRule();
 			if (formElementSkipRule != null)
 			{
-				skipRuleType = new SkipRuleType();
-				SkipLogicalOpType skipLogicalOp = SkipLogicalOpType.fromValue(formElementSkipRule.getLogicalOp());
-				skipRuleType.setLogicalOp(skipLogicalOp);
-				List<com.healthcit.cacure.export.model.SkipRuleType.QuestionSkipRule> questionSkipRules = skipRuleType.getQuestionSkipRule();
-				
-				List<QuestionSkipRule> questionSkips = formElementSkipRule.getQuestionSkipRules();
-				for(QuestionSkipRule questionSkip: questionSkips)
-				{
-					com.healthcit.cacure.export.model.SkipRuleType.QuestionSkipRule questionSkipRule = new com.healthcit.cacure.export.model.SkipRuleType.QuestionSkipRule();
-					questionSkipRules.add(questionSkipRule);
-					if(questionSkip.getLogicalOp() != null)
-					{
-						questionSkipRule.setLogicalOp(SkipLogicalOpType.fromValue(questionSkip.getLogicalOp()));
-					}
-					List<AnswerSkipRule> answerSkips = questionSkip.getAnswerSkipRules();
-					
-					List<com.healthcit.cacure.export.model.SkipRuleType.QuestionSkipRule.AnswerSkipRule> answerSkipRules = questionSkipRule.getAnswerSkipRule();
-											
-					for(AnswerSkipRule answerSkip: answerSkips)
-					{
-						answerSkip.getAnswerValue();
-						com.healthcit.cacure.export.model.SkipRuleType.QuestionSkipRule.AnswerSkipRule answerSkipRule = new com.healthcit.cacure.export.model.SkipRuleType.QuestionSkipRule.AnswerSkipRule();
-						answerSkipRule.setAnswerValueUUID(answerSkip.getAnswerValueId());
-						long skipFormId = answerSkip.getFormId();
-						BaseForm skipForm = formManager.getForm(skipFormId);
-						answerSkipRule.setFormUUID(skipForm.getUuid());
-						answerSkipRules.add(answerSkipRule);							
-					}
-				}
-				
+				skipRuleType = populateSkips(formElementSkipRule);			
 			}
 			
 			if (element instanceof ContentElement)
@@ -131,15 +169,15 @@ public class DataExport {
 				xmlLinkElement.setLearnMore(linkElement.getLearnMore());
 				xmlLinkElement.setOrder(linkElement.getOrd());
 				xmlLinkElement.setUuid(linkElement.getUuid());
+				xmlLinkElement.setDescription(linkElement.getDescription());
 				FormElement sourceElement = linkElement.getSourceElement();
-				
 				SourceElement xmlSourceElement = new SourceElement();
 				if (sourceElement instanceof QuestionElement)
 				{
 					QuestionElementType xmlFormElementType = constructQuestionElement((QuestionElement)sourceElement);
 					xmlSourceElement.setQuestionElement(xmlFormElementType);
 				}
-				else if(element instanceof TableElement)
+				else if(sourceElement instanceof TableElement)
 				{
 					TableElementType xmlFormElementType = constructTableElement((TableElement)sourceElement);
 					xmlSourceElement.setTableElement(xmlFormElementType);
@@ -210,10 +248,50 @@ public class DataExport {
 			}
 			
 		}
+		return form;
 		
-		return rootElement;
 	}
-
+	
+	private SkipRuleType populateSkips(BaseSkipRule formElementSkipRule)
+	{
+		SkipRuleType skipRuleType = new SkipRuleType();
+		SkipLogicalOpType skipLogicalOp = SkipLogicalOpType.fromValue(formElementSkipRule.getLogicalOp());
+		skipRuleType.setLogicalOp(skipLogicalOp);
+		List<com.healthcit.cacure.export.model.SkipRuleType.QuestionSkipRule> questionSkipRules = skipRuleType.getQuestionSkipRule();
+		
+		List<QuestionSkipRule> questionSkips = formElementSkipRule.getQuestionSkipRules();
+		for(QuestionSkipRule questionSkip: questionSkips)
+		{
+			
+			com.healthcit.cacure.export.model.SkipRuleType.QuestionSkipRule questionSkipRule = new com.healthcit.cacure.export.model.SkipRuleType.QuestionSkipRule();
+			String triggerQuestionUUID = questionSkip.getDetails().getSkipTriggerQuestion().getUuid();
+			String triggerFormUUID = questionSkip.getDetails().getSkipTriggerForm().getUuid();
+			questionSkipRule.setTriggerQuestionUUID(triggerQuestionUUID);
+			questionSkipRule.setTriggerFormUUID(triggerFormUUID);
+			questionSkipRules.add(questionSkipRule);
+			
+			if(questionSkip.getLogicalOp() != null)
+			{
+				questionSkipRule.setLogicalOp(SkipLogicalOpType.fromValue(questionSkip.getLogicalOp()));
+				
+			}
+			List<AnswerSkipRule> answerSkips = questionSkip.getAnswerSkipRules();
+			
+			List<com.healthcit.cacure.export.model.SkipRuleType.QuestionSkipRule.AnswerSkipRule> answerSkipRules = questionSkipRule.getAnswerSkipRule();
+									
+			for(AnswerSkipRule answerSkip: answerSkips)
+			{
+				answerSkip.getAnswerValue();
+				com.healthcit.cacure.export.model.SkipRuleType.QuestionSkipRule.AnswerSkipRule answerSkipRule = new com.healthcit.cacure.export.model.SkipRuleType.QuestionSkipRule.AnswerSkipRule();
+				answerSkipRule.setAnswerValueUUID(answerSkip.getAnswerValueId());
+				long skipFormId = answerSkip.getFormId();
+				BaseForm skipForm = formManager.getForm(skipFormId);
+				answerSkipRule.setFormUUID(skipForm.getUuid());
+				answerSkipRules.add(answerSkipRule);							
+			}
+		}
+		return skipRuleType;
+	}
 	private void setXmlElementProperties(FormElementType xmlElement, FormElement element )
 	{
 		/* Set properties */
@@ -225,6 +303,11 @@ public class DataExport {
 		xmlElement.setOrder(element.getOrd());
 		Description descriptions = new Description();
 		descriptions.setMainDescription(element.getDescription());
+		List<String> alternativeDescriptions = descriptions.getAlternateDescription();
+		for(com.healthcit.cacure.model.Description description: element.getDescriptionList())
+		{
+			alternativeDescriptions.add(description.getDescription());
+		}
 		xmlElement.setDescriptions(descriptions);
 		
 		xmlElement.setLearnMore(element.getLearnMore());
@@ -239,15 +322,6 @@ public class DataExport {
 		QuestionElement qElement = (QuestionElement)element;
 		Question question = qElement.getQuestion();
 		
-//		QuestionType questionType = new QuestionType();
-//		xmlQuestionElement.setQuestion(questionType);
-//		
-//		questionType.setShortName(question.getShortName());
-//		questionType.setAnswerType(question.getTypeAsString());
-//		questionType.setUuid(question.getUuid());
-//		
-//		com.healthcit.cacure.export.model.QuestionType.Answer xmlAnswer = constructAnswer(question);
-//		questionType.setAnswer(xmlAnswer);
 		QuestionType questionType = constructQuestion(question);
 		xmlQuestionElement.setQuestion(questionType);
 		return xmlQuestionElement;

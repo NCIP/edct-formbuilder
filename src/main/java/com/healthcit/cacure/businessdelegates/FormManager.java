@@ -154,6 +154,11 @@ public class FormManager {
 	public BaseForm getForm(Long id) {
 		return formDao.getById(id);
 	}
+	
+	public BaseForm getForm(String uuid) {
+		return formDao.getByUuid(uuid);
+	}
+
 
 	public void setFormDao(FormDao aFormDao) {
 		this.formDao = aFormDao;

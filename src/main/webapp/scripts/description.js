@@ -32,14 +32,14 @@ function addNewDescriptionHTMLRowElement(){
 
 // Add row representing a description
 function addDescriptionHTMLRowElement(desc, rowIndex){
-	var mainDescription = jQuery('#description').val();
+	var mainDescription = htmlEscape(jQuery('#description').val());
 	
 	var formElementId = jQuery('#id').val() || '';
 	
 	var description, id='', isMainDescription, index;
 		
 	if ( rowIndex != null ) { // existing description
-		description = desc.description ? desc.description : '';
+		description = desc.description ? htmlEscape(desc.description) : '';
 		id = desc.id ? desc.id : '';
 	}
 	else { //new description
@@ -239,3 +239,9 @@ function resetDescriptionDialog(){
 	setUpDescriptions();	
 	doDescriptionReset = false;
 }
+
+function htmlEscape(text) {
+	  return text.replace(/[&<>"'`]/g, function (chr) {
+	    return '&#' + chr.charCodeAt(0) + ';';
+	  });
+	};

@@ -4,6 +4,7 @@
 <%@ page import="com.healthcit.cacure.utils.Constants"%>
 	<c:set var="formListUrl">${appPath}/<%= Constants.QUESTIONNAIREFORM_LISTING_URI %></c:set>
 	<c:set var="moduleExportUrl">${appPath}<%= Constants.MODULE_LISTING_URI %></c:set>
+	<c:set var="moduleXMLExportUrl">${appPath}<%= Constants.MODULE_XML_EXPORT_URI %></c:set>
 	<c:set var="moduleCopyUrl">${appPath}<%= Constants.MODULE_COPY_URI %></c:set>
 	<c:set var="currentUser" value="${pageContext.request.userPrincipal.name}" />
 	<authz:authorize  ifAnyGranted="ROLE_ADMIN">
@@ -77,10 +78,62 @@
               </td>
               <td class="exportModuleCol">
 	             <c:if test="${!current.library and (isAdmin or isDeployer and (current.status == 'APPROVED_FOR_PILOT' or current.status == 'APPROVED_FOR_PRODUCTION'))}">
-	             	<span class="exportModule" alt="Export '${current.description}'" title="Export '${current.description}'"><a href="${moduleExportUrl}?moduleId=${current.id}&exportMar=true">&nbsp;&nbsp;&nbsp;&nbsp;</a></span>
+	             	<span class="exportModule" alt="Export '${current.description}'" title="Export '${current.description}'">
+	             	<a href="javascript:void(0);" onclick="$('#exportModuleDialog').dialog({close: function(event, ui) { window.location.reload(); resetModuleExportUrls()},  open: function(event, ui) { generateModuleExportUrl('${current.id}'); }, modal: true, height: 500, width: 700});">&nbsp;&nbsp;</a>
+	             	  <!-- <a href="${moduleExportUrl}?moduleId=${current.id}&exportMar=true">&nbsp;&nbsp;&nbsp;&nbsp;</a> -->        	
+	             	</span>
 	             </c:if>
               </td>
 	        </tr>
 	   </c:forEach>
  </table>
+<div id="exportModuleDialog" title="Export Module"
+	style="display: none;">
+	<div
+		style="height: 400px; width: 600px; overflow: auto; padding: 20px;">
+		<div id="exportModuleOptions">
+		<form>
+			<a id="exportModuleMAR" href="">Export as a MAR Archive</a>
+			<p/>
+			<a id="exportModuleXML" href="">Export as an XML File</a>
+			<p/>
+			<a id="exportModuleEXCEL" href="">Export as an Excel File</a>
+		</form>
+		</div>
+	</div>
+</div>
+<div id="importModuleDialog" title="Import Module"
+	style="display: none;">
+	<div
+		style="height: 400px; width: 600px; overflow: auto; padding: 20px;">
+			<form action="${moduleXMLExportUrl}" method="post" enctype="multipart/form-data">
+				<input type="file" name="file" class="fileUpload" >
+				<!-- <button id="px-submit" type="submit">Upload</button>
+				<button id="px-clear" type="reset">Clear</button>
+				-->
+</form>
+	</div>
+</div>
+<script type="text/javascript">
+		jQuery(function($){
+		$('.fileUpload').fileUploader({allowedExtension: 'xml'});
+		});
+		</script>
+<script type="text/javascript">
+function generateModuleExportUrl(moduleId)
+{
+	var exportModuleMarURL = "${moduleExportUrl}?moduleId="+ moduleId+"&exportMar=true";
+	var exportModuleXmlURL =  "${moduleXMLExportUrl}?moduleId=" + moduleId + "&format=XML";
+	var exportModuleExcelURL =  "${moduleXMLExportUrl}?moduleId=" + moduleId + "&format=EXCEL";
+	$("#exportModuleMAR").attr("href", exportModuleMarURL);
+	$("#exportModuleXML").attr("href", exportModuleXmlURL);
+	$("#exportModuleEXCEL").attr("href", exportModuleExcelURL);
 
+}
+function resetModuleExportUrls()
+{
+	$("#exportModuleMAR").attr("href", "");
+	$("#exportModuleXML").attr("href", "");
+	$("#exportModuleEXCEL").attr("href", "");
+}
+</script>

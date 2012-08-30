@@ -31,23 +31,25 @@
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
-	<servlet>
+	<!--servlet>
 		<servlet-name>EncodeTastServlet</servlet-name>
 		<servlet-class>com.healthcit.cacure.encodingtest.EncodeTastServlet</servlet-class>
-	</servlet>
+	</servlet-->
 		
 		
 	<!-- Maps requests to the DispatcherServlet for handling -->
-	<servlet-mapping>
+	<!--servlet-mapping>
 		<servlet-name>EncodeTastServlet</servlet-name>
 		<url-pattern>*.test</url-pattern>
-	</servlet-mapping>
+	</servlet-mapping-->
 	<servlet-mapping>
 		<servlet-name>SpringDispatcherServlet</servlet-name>
 		<url-pattern>*.page</url-pattern>
 		<url-pattern>*.edit</url-pattern>
 		<url-pattern>*.view</url-pattern>
 		<url-pattern>*.copy</url-pattern>
+		<url-pattern>*.delete</url-pattern>
+		<url-pattern>*.export</url-pattern>
 		<url-pattern>/addToQuestionsLibrary</url-pattern>
 		<url-pattern>/addToFormsLibrary</url-pattern>
 		<url-pattern>/login</url-pattern>

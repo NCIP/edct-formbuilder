@@ -63,7 +63,8 @@
       <c:set var="action" value="<%=Constants.LINK_EDIT_URI %>" />
       <c:set var="isLink" value="true"/>
    </c:if>
-    <form:form commandName="<%=QuestionElementEditController.COMMAND_NAME%>"  onsubmit="var doSubmit = createJson(); event.returnValue=doSubmit; return doSubmit;" action="${appPath}${action}?formId=${questionCmd.form.id}&id=${questionCmd.id}">
+    <form:form id="editQuestionForm" commandName="<%=QuestionElementEditController.COMMAND_NAME%>"  onsubmit="var doSubmit = createJson(); event.returnValue=doSubmit; return doSubmit;" action="${appPath}${action}?formId=${questionCmd.form.id}&id=${questionCmd.id}">
+    	<input id="externalQuestion" type="hidden" value="${questionCmd.externalQuestion}"/>
     	<input id="id" type="hidden" value="${questionCmd.id}"/>
     	<input id="skipCtr" type="hidden" value="0"/>
     	<input id="<%=QuestionElementEditController.PARAM_SELECTED_CATEGORIES%>" name="<%=QuestionElementEditController.PARAM_SELECTED_CATEGORIES%>" type="hidden" value=""/>
@@ -183,8 +184,8 @@
 		        <c:if test="${isEditable}">
 			        <c:set var="addSkipUrlFragment" value="<%= Constants.QUESTION_LISTING_SKIP_URI %>"/>
 					<c:set var="addSkipUrl" value="${appPath}${addSkipUrlFragment}?formId=${formId}&questionId=${lookupData.questionId}"/>
-			        <input onClick="dialog('skipWindow', '${addSkipUrl}', initSkipWindow, {height: 410, width: 1000, modal: true, closeOnEscape: true, show: 'slide'}, true, cancelSkipEdit);" type="button" value="Edit Skips"/>
-			        <input onClick="removeAllSkips();" type="button" value="Remove All"/>
+			        <input id="editSkipsBtn" onClick="dialog('skipWindow', '${addSkipUrl}', initSkipWindow, {height: 410, width: 1000, modal: true, closeOnEscape: true, show: 'slide'}, true, cancelSkipEdit);" type="button" value="Edit Skips"/>
+			        <input id="removeAllSkipsBtn" onClick="removeAllSkips();" type="button" value="Remove All"/>
 					<div id="skipWindow" title="Skip Pattern List" style="display: none; width: 1000px; height: 400px; overflow: scroll;">Loading...</div>
 		       	</c:if>
 	       	</div>

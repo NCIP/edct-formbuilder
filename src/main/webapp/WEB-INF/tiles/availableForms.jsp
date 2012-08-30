@@ -1,4 +1,5 @@
 <%@page import="com.healthcit.cacure.web.controller.FormListController"%>
+<%@page import="com.healthcit.cacure.utils.Constants"%>
 <%@ include file="/WEB-INF/includes/taglibs.jsp"%>
 <%
 	pageContext.setAttribute("newLineChar", "\n");
@@ -12,8 +13,10 @@
 	src='${appPath}/dwr/interface/FormListController.js'> </script>
 <script type='text/javascript'
 	src='${appPath}/dwr/interface/FormSearchController.js'> </script>
+<script type='text/javascript'
+	src='${appPath}/dwr/interface/FormModuleImportController.js'> </script>
 
-<%@ page import="com.healthcit.cacure.utils.Constants"%>
+<c:set var="formExportUrl">${appPath}/<%= Constants.FORM_EXPORT_URI %></c:set>
 <table id="formList_table" class="border" width="800" border="0"
 	cellpadding="3" cellspacing="2">
 	<tr>
@@ -66,6 +69,11 @@
 			<h4>
 				Last Update By
 			</h4>
+		</td>
+		<td>
+		  <h4>
+		       Export
+		  </h4>
 		</td>
 	</tr>
 	<c:forEach items="${moduleForms}" var="item" varStatus="cnt">
@@ -219,32 +227,103 @@
 			<td width="100px" align="left" valign="top">
 				${item.lastUpdatedBy.userName}
 			</td>
+			<td class="exportModuleCol">
+	             <span class="exportModule" alt="Export '${item.name}'" title="Export '${item.name}'">
+	             <a href="javascript:void(0);" onclick="$('#exportFormDialog').dialog({close: function(event, ui) { window.location.reload(); resetFormExportUrls()},  open: function(event, ui) { generateFormExportUrl('${item.id}'); }, modal: true, height: 500, width: 700});">&nbsp;&nbsp;</a>
+	             <!--  <a href="${formExportUrl}?id=${item.id}">&nbsp;&nbsp;&nbsp;&nbsp;</a> -->
+	             
+	             </span>	             
+              </td>
 		</tr>
 	</c:forEach>
 </table>
 
+<div id="exportFormDialog" title="Export Module"
+	style="display: none;">
+	<div
+		style="height: 400px; width: 600px; overflow: auto; padding: 20px;">
+		<div id="exportFormOptions">
+		<form>
+			<a id="exportFormXML" href="">Export as an XML File</a>
+			<p/>
+			<a id="exportFormEXCEL" href="">Export as an Excel File</a>
+		</form>
+		</div>
+	</div>
+</div>
+
+
 <%-- import forms dialog --%>
+<!-- 
 <div id="searchFormsDialog" title="Search Sections"
 	style="display: none;">
 	<div
 		style="height: 400px; width: 600px; overflow: auto; padding: 20px;">
 		<div style="text-align: left;">
-			<!--  Hide search for now, might be used later -->
-			<!-- 
-				<span>Search by text</span>
-				<br />
-				<input type="text" id="formSearchText" style="margin-left:5px; width:175px;" class="googleSearchOn"
-					onblur="if(this.value == '') this.className = 'googleSearchOn'"
-					onfocus="this.className = 'googleSearchOff'" />
-					
-				<input type="button" id="searchButton" value="Search" onclick="searchForms()" style="width: 100px" />
-					-->
+				
 		</div>
 
 		<div id="search_result"></div>
 	</div>
 </div>
+-->
+<div id="searchFormsDialog" title="Search Sections"
+	style="display: none;">
+	<div
+		style="height: 400px; width: 600px; overflow: auto; padding: 20px;">
+		<!-- <div style="text-align: left;">
+			
+		</div> -->
 
+		<div id="search_result">
+<!--		<form> -->
+ 			<!--  <input type="button" name="fromLibrary" value="Import From the Library" onclick="$('#importFormsDialog').dialog('close');$('#searchFormsDialog').dialog({close: function(event, ui) { window.location.reload(); }, open: function(event, ui) { getAllLibraryForms(); }, modal: true, height: 500, width: 700});"/>-->
+			<!-- <input type="button" name="fromLibrary" value="Import From the Library" onclick="javascript:getAllLibraryForms();"/>
+			<input type="button" name="fromFile" value="ImportFromFile"  onclick="javascript:showFileUploadForm()"/>
+			</form>
+			-->
+		</div>
+	</div>
+</div>
+
+<div id="importFromFileDialog" title="Import Sections"
+	style="display: none;">
+	<div
+		style="height: 400px; width: 600px; overflow: auto; padding: 20px;">
+		<!-- <div style="text-align: left;">
+			
+		</div> -->
+
+		<div>
+		<form action="${formExportUrl}" method="post" enctype="multipart/form-data">
+			<input type="file" name="file" class="fileUpload" >
+			<input type="hidden" name="moduleId" value="${moduleCmd.id}"/>
+			</form>
+		</div>
+	</div>
+</div>
+ 
+<script type="text/javascript">
+		jQuery(function($){
+		$('.fileUpload').fileUploader({allowedExtension: 'xml'});
+		});
+		</script>
+		
+<script type="text/javascript">
+function importFormMenu(){
+	$(" #nav ul ").css({display: "none"}); // Opera Fix
+	$(" #nav li").hover(function(){
+			$(this).find('ul:first').css({visibility: "visible",display: "none"}).show(400);
+			},function(){
+			$(this).find('ul:first').css({visibility: "hidden"});
+			});
+	}
+
+	 $(document).ready(function(){
+		 importFormMenu();
+	});
+
+</script>
 <script type="text/javascript">
 	var moduleId = ${param['moduleId']};
 	var formSet = new Array();
@@ -252,6 +331,29 @@
 	var locked = '<%=FormListController.LOCKED_FORM%>';
 	var adminUnlocked = '<%=FormListController.ADMIN_UNLOCKED_FORM%>';
 	var okResponce = '<%=FormListController.OK_RESPONCE%>';
+	
+	function showFileUploadForm()
+	{
+		$('#search_result').html($('#importFromFile').html());
+		$('.fileUpload').fileUploader({allowedExtension: 'xml'});
+	}
+	
+	
+
+	function generateFormExportUrl(formId)
+	{
+		var exportFormXmlURL =  "${formExportUrl}?id=" + formId + "&format=XML";
+		var exportFormExcelURL =  "${formExportUrl}?id=" + formId + "&format=EXCEL";
+		$("#exportFormXML").attr("href", exportFormXmlURL);
+		$("#exportFormEXCEL").attr("href", exportFormExcelURL);
+
+	}
+	function resetFormExportUrls()
+	{
+		$("#exportFormXML").attr("href", "");
+		$("#exportFormEXCEL").attr("href", "");
+	}
+
 	
 	function toggleLock(el, formId) {
 		$el = $(el);

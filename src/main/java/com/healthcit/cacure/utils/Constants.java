@@ -91,6 +91,8 @@ public class Constants {
 	public static final String ADD_QUESTION_TO_LIBRARY_URI = "/addToQuestionsLibrary";
 	public static final String ADD_FORM_TO_LIBRARY_URI = "/addToFormsLibrary";
 	public static final String DELETE_FORM_URI = "/deleteForm";
+	public static final String FORM_EXPORT_URI = "/form.export";
+	public static final String MODULE_XML_EXPORT_URI = "/moduleXml.export";
 
 	// Admin URLs
 	public static final String USER_LISTING_URI = "/admin/userList.view";
@@ -107,6 +109,10 @@ public class Constants {
 	// HTML Generation
 	public static final String HORIZONTAL = "Horizontal";
 	public static final String VERTICAL = "Vertical";
+	
+	//Data Export
+	public static enum ExportFormat {XML, EXCEL};
+	public static final String EXPORT_EXCEL_XSLT_FILE ="export.excel_xslt_file";
 	
 	// CADSR
 	public static final String CADSR_APP_QUERY_URL = "http://localhost:8080/caDSR/CADSRServlet";

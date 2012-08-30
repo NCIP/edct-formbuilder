@@ -8,8 +8,49 @@
 
     <persistence-unit name="FormBuilder" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <class>com.healthcit.cacure.model.Answer</class>
+         <class>com.healthcit.cacure.model.AnswerSkipRule</class>
+         <class>com.healthcit.cacure.model.AnswerValue</class>
+		 <class>com.healthcit.cacure.model.AnswerValueConstraint</class>
+		 <class>com.healthcit.cacure.model.BaseForm</class>
+		 <class>com.healthcit.cacure.model.BaseModule</class>
+         <class>com.healthcit.cacure.model.BaseQuestion</class>
+         <class>com.healthcit.cacure.model.BaseSkipRule</class>
+         <class>com.healthcit.cacure.model.BaseSkipPatternDetail</class>
+		 <class>com.healthcit.cacure.model.Category</class>
+		 <class>com.healthcit.cacure.model.ConstraintValue</class>
+		 <class>com.healthcit.cacure.model.ConstraintValues</class>
+		 <class>com.healthcit.cacure.model.ContentElement</class>
+		 <class>com.healthcit.cacure.model.Description</class>
+		 <class>com.healthcit.cacure.model.DescriptionHolder</class>
+		 <class>com.healthcit.cacure.model.ExternalQuestion</class>
+		 <class>com.healthcit.cacure.model.ExternalQuestionElement</class>
+		  <class>com.healthcit.cacure.model.FormElement</class>
+         <class>com.healthcit.cacure.model.FormElementSkipRule</class>
+         <class>com.healthcit.cacure.model.FormLibraryForm</class>
+         <class>com.healthcit.cacure.model.FormSkipRule</class>
+         <class>com.healthcit.cacure.model.FormLibraryModule</class>
+		 <class>com.healthcit.cacure.model.LinkElement</class>
+		 <class>com.healthcit.cacure.model.Module</class>
+		 <class>com.healthcit.cacure.model.NumberValueConstraint</class>		 
+		 <class>com.healthcit.cacure.model.PreferenceSettings</class>
+		 <class>com.healthcit.cacure.model.Question</class>
+         <class>com.healthcit.cacure.model.QuestionElement</class>
+         <class>com.healthcit.cacure.model.QuestionLibraryForm</class>
+         <class>com.healthcit.cacure.model.QuestionnaireForm</class>
+		 <class>com.healthcit.cacure.model.QuestionSkipRule</class>
+         <class>com.healthcit.cacure.model.QuestionsLibraryModule</class>
+		 <class>com.healthcit.cacure.model.Role</class>
+         <class>com.healthcit.cacure.model.StateTracker</class>        
+         <class>com.healthcit.cacure.model.TableColumn</class>
+         <class>com.healthcit.cacure.model.TableElement</class>
+		 <class>com.healthcit.cacure.model.TableQuestion</class>
+         <class>com.healthcit.cacure.model.TextValueConstraint</class>        
+         <class>com.healthcit.cacure.model.UserCredentials</class>
+         <class>com.healthcit.cacure.model.ValueLabelPair</class>
         <properties>
         	<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
+        	<property name="jboss.as.jpa.providerModule" value="hibernate3-bundled" />
         </properties>
     </persistence-unit>
 <!--        	<property name="hibernate.cache.provider_class"
