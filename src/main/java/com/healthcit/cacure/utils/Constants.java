@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2012 HealthCare It, Inc.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the BSD 3-Clause license
+ * which accompanies this distribution, and is available at
+ * http://directory.fsf.org/wiki/License:BSD_3Clause
+ * 
+ * Contributors:
+ *     HealthCare It, Inc - initial API and implementation
+ ******************************************************************************/
 package com.healthcit.cacure.utils;
 
 /**
@@ -96,6 +106,7 @@ public class Constants {
 
 	// Admin URLs
 	public static final String USER_LISTING_URI = "/admin/userList.view";
+	public static final String LDAP_LISTING_URI = "/ldap/ldapList.view";
 	public static final String USER_EDIT_URI = "/admin/user.edit";
 	public static final String GENERATE_SAMPLE_DATA_URI = "/admin/generateSampleData.view";
 	public static final String PREFERENCES_URI = "/admin/preferences.view";
@@ -125,6 +136,17 @@ public class Constants {
 	public static final String CADSR_PREFFERD_QUESTION_TEXT = "Preferred Question Text";
 	public static final int CADSR_SEARCH_FAILED_HTTPCODE = 599;
 	public static final String ANS_VALUE = "ansValue";
+	
+	public static final String LDAP_AUTH_VALUE = "ldap";
+	public static final String DB_AUTH_VALUE = "db";
+	
+	//LDAP
+	public static final String LDAP_GROUP_UNIQUE_MEMBER = "uniqueMember";
+	public static final String LDAP_GROUPS = ",ou=groups";
+	public static final String LDAP_GROUP_CN = "cn=";
+	public static final String LDAP_ROLE_PREFIX = "ROLE_";
+	public static final String LDAP_UID = "uid";
+	public static final String LDAP_USER_SEARCH_FILTER = "(uid={0})";
 
 	
 }

@@ -1,3 +1,13 @@
+<%--
+Copyright (c) 2012 HealthCare It, Inc.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the BSD 3-Clause license
+which accompanies this distribution, and is available at
+http://directory.fsf.org/wiki/License:BSD_3Clause
+
+Contributors:
+    HealthCare It, Inc - initial API and implementation
+--%>
 <%@page import="com.healthcit.cacure.model.FormLibraryModule"%>
 <%@page import="com.healthcit.cacure.model.QuestionsLibraryModule"%>
 <%@ include file="/WEB-INF/includes/taglibs.jsp"%>
@@ -116,7 +126,13 @@
 		</c:if>
 		<c:if test="${ currentPage eq 'questionsList' && isEditable}">
 			<c:if test="${form.status ne 'QUESTION_LIBRARY'}">
-			<li><a href="javascript:void(0);" onclick="$('#searchDialog').dialog({close: function(event, ui) { window.location.reload();}, modal: true, height: 500, width: 700 });"><span>Import Question</span></a></li>
+			<li>
+				<a href="javascript:void(0);"><span>Import Question</span></a>
+				<ul class="second-nav">
+					<li><a href="javascript:void(0);" onclick="$('#searchFormsDialog').dialog({close: function(event, ui) { window.location.reload(); }, open: function(event, ui) { getAllLibraryForms(); }, modal: true, height: 500, width: 700});">From The Library</a></li>
+					<li><a href="javascript:void(0);" onclick="$('#searchDialog').dialog({close: function(event, ui) { window.location.reload(); }, modal: true, height: 500, width: 700});">Search Question</a></li>
+					</ul>
+			</li>
 			</c:if>
 			<c:if test="${form.status != 'FORM_LIBRARY'}">
 			<li><a href="${appPath}<%=Constants.QUESTION_TABLE_EDIT_URI%>?formId=${form.id}"><span>Add Table Question</span></a></li>

@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2012 HealthCare It, Inc.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the BSD 3-Clause license
+ * which accompanies this distribution, and is available at
+ * http://directory.fsf.org/wiki/License:BSD_3Clause
+ * 
+ * Contributors:
+ *     HealthCare It, Inc - initial API and implementation
+ ******************************************************************************/
 package com.healthcit.cacure.web.controller;
 
 import java.io.IOException;
@@ -79,6 +89,19 @@ public class FormSearchController {
 	public int importForms(String moduleId, String[] formSet){
 		try {
 			formManager.importForms(Long.parseLong(moduleId), formSet);
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			return ERR_STATUS;
+		}
+		return OK_STATUS;
+	}
+	
+	@RemoteMethod
+	public int importFormQuestions(String[] formSet, String formId){	
+		try{
+			for (String formUuid : formSet) {			
+				formManager.getFormQuestions(formUuid,formId);	
+			}			
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			return ERR_STATUS;

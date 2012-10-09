@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2012 HealthCare It, Inc.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the BSD 3-Clause license
+ * which accompanies this distribution, and is available at
+ * http://directory.fsf.org/wiki/License:BSD_3Clause
+ * 
+ * Contributors:
+ *     HealthCare It, Inc - initial API and implementation
+ ******************************************************************************/
 package com.healthcit.cacure.security;
 
 import java.util.Collection;
@@ -13,6 +23,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import com.healthcit.cacure.businessdelegates.UserManager;
+import com.healthcit.cacure.businessdelegates.UserManagerService;
 import com.healthcit.cacure.model.UserCredentials;
 import com.healthcit.cacure.utils.Constants;
 
@@ -29,6 +40,9 @@ public class AuthenticationProcessingFilter extends UsernamePasswordAuthenticati
 
 	@Autowired
     private UserManager userManager;
+	
+	@Autowired
+    private UserManagerService userService;
 
 	@Override
 	public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
@@ -38,7 +52,7 @@ public class AuthenticationProcessingFilter extends UsernamePasswordAuthenticati
 			Authentication auth = super.attemptAuthentication(request, response);
 			
 			//store currentUser in HttpSession
-			UserCredentials currentUser = userManager.findByName(auth.getName()); 
+			UserCredentials currentUser = userService.findByName(auth.getName()); 
 			request.getSession().setAttribute(Constants.CURRENT_USER, currentUser);
 			
 			//display info about currentUser

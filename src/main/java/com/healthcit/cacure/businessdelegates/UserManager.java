@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2012 HealthCare It, Inc.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the BSD 3-Clause license
+ * which accompanies this distribution, and is available at
+ * http://directory.fsf.org/wiki/License:BSD_3Clause
+ * 
+ * Contributors:
+ *     HealthCare It, Inc - initial API and implementation
+ ******************************************************************************/
 package com.healthcit.cacure.businessdelegates;
 
 /**
@@ -27,13 +37,17 @@ import com.healthcit.cacure.dao.UserManagerDao;
 import com.healthcit.cacure.model.Role;
 import com.healthcit.cacure.model.Role.RoleCode;
 import com.healthcit.cacure.model.UserCredentials;
+import com.healthcit.cacure.utils.Constants;
 
-public class UserManager implements UserDetailsService {
+public class UserManager implements UserDetailsService, LdapDatabaseManager {
 
 	private static final Logger log = Logger.getLogger(UserManager.class);
 
 	@Autowired
 	private UserManagerDao userManagerDao;
+	
+	@Autowired
+	private UserManagerService userService;
 
 	@Autowired
 	private RoleDao roleDao;
@@ -97,6 +111,7 @@ public class UserManager implements UserDetailsService {
 	}
 
 	public List<UserCredentials> getAllUsers() {
+		log.info("in the dao getallusers");
 		return userManagerDao.list();
 	}
 
@@ -111,6 +126,7 @@ public class UserManager implements UserDetailsService {
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException, DataAccessException {
+		userService.setAuthType(Constants.DB_AUTH_VALUE);
 		UserCredentials user = findByName(username);
 		if (user == null ) {
 			throw new UsernameNotFoundException("Username not found");

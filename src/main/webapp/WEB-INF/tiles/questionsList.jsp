@@ -1,4 +1,13 @@
+<%--
+Copyright (c) 2012 HealthCare It, Inc.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the BSD 3-Clause license
+which accompanies this distribution, and is available at
+http://directory.fsf.org/wiki/License:BSD_3Clause
 
+Contributors:
+    HealthCare It, Inc - initial API and implementation
+--%>
 <%@page import="com.healthcit.cacure.utils.AppConfig"%><%@ include
 	file="/WEB-INF/includes/taglibs.jsp"%>
 <%@page import="com.healthcit.cacure.web.controller.FormListController"%>
@@ -18,13 +27,72 @@
 	src='${appPath}/dwr/interface/QuestionDwrController.js'> </script>
 <script type='text/javascript'
 	src='${appPath}/dwr/interface/FormElementListController.js'> </script>
+<script type='text/javascript'
+	src='${appPath}/dwr/interface/FormSearchController.js'> </script>
 
 <script type="text/javascript">
     /* Global variables */
 	var formId = '${param['formId']}';
+	var moduleId = '${param['moduleId']}';
 	var searchCriteria = 1;
 	var questionSet = new Array();
 	var feSet = new Array();
+	var formSet = new Array();
+
+
+	function copyForms(moduleId, formSet, crit) {
+		var searchBtn = document.getElementById('searchImportButton');
+		if ( searchBtn ) searchBtn.disabled = true;
+		FormSearchController.importFormQuestions(formSet, formId, { callback: function(data) {
+			if (data == -1) {
+			    alert("Could not import question(s): An error occured");
+			}
+	    },
+	    async: false });
+	    window.location.reload();
+	}
+
+	function selectForm( moduleId, uuid ) {
+		var selected = toggleFormImage( uuid );
+
+		if ( selected ) {
+			if ( !isFormSelected(uuid) ) {
+				formSet.push( uuid );
+			}
+		} else {		
+			if ( isFormSelected(uuid) ) {
+				var index = jQuery.inArray( uuid, formSet );			
+				formSet.splice( index, 1 );
+			}
+		}
+	}
+
+	function isFormSelected(uuid) {
+		if ( uuid ) {
+			for ( index in formSet ) {
+				if ( formSet[index] == uuid ) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	function toggleFormImage( uuid ) {
+		var selected = (document.getElementById('search_' + uuid).className.match( 'plus' ) != null);
+		if ( selected ) displaySearchDialogCheckImage( uuid );
+		else displaySearchDialogPlusImage( uuid );
+		return selected;
+	}
+
+
+
+	function getAllLibraryForms()
+	{
+			FormSearchController.getAllLibraryForms(function(data) {
+			    dwr.util.setValue("search_result", data, { escapeHtml:false });
+			});
+	}
 
 	function include() {
 		var searchButton = document.getElementById("searchButton");
@@ -272,6 +340,17 @@
 				onclick="include()" style="width: 100px" />
 		</div>
 		<div id="include"></div>
+	</div>
+</div>
+
+<div id="searchFormsDialog" title="Search Sections"
+	style="display: none;">
+	<div
+		style="height: 400px; width: 600px; overflow: auto; padding: 20px;">
+
+		<div id="search_result">
+
+		</div>
 	</div>
 </div>
 

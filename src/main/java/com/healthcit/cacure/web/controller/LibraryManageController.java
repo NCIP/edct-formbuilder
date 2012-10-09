@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2012 HealthCare It, Inc.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the BSD 3-Clause license
+ * which accompanies this distribution, and is available at
+ * http://directory.fsf.org/wiki/License:BSD_3Clause
+ * 
+ * Contributors:
+ *     HealthCare It, Inc - initial API and implementation
+ ******************************************************************************/
 package com.healthcit.cacure.web.controller;
 
 
@@ -16,6 +26,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.healthcit.cacure.businessdelegates.ModuleManager;
 import com.healthcit.cacure.businessdelegates.UserManager;
+import com.healthcit.cacure.businessdelegates.UserManagerService;
 import com.healthcit.cacure.model.BaseModule;
 import com.healthcit.cacure.model.Module;
 import com.healthcit.cacure.model.QuestionsLibraryModule;
@@ -34,6 +45,9 @@ public class LibraryManageController implements EditControllable, BreadCrumbsSup
 
 	@Autowired
 	private UserManager userManager;
+	
+	@Autowired
+	private UserManagerService userService;
 
 	@Autowired
 	private ModuleManager moduleManager;
@@ -73,8 +87,8 @@ public class LibraryManageController implements EditControllable, BreadCrumbsSup
 	public boolean isModelEditable(ModelAndView mav)
 	{
 		// ModuleList isEditable reflects user authorization level only
-		return ( userManager.isCurrentUserInRole(RoleCode.ROLE_LIBRARIAN) ||
-				 userManager.isCurrentUserInRole(RoleCode.ROLE_ADMIN) );
+		return ( userService.isCurrentUserInRole(RoleCode.ROLE_LIBRARIAN) ||
+				userService.isCurrentUserInRole(RoleCode.ROLE_ADMIN) );
 	}
 
 	public void setModuleManager(ModuleManager moduleManager) {

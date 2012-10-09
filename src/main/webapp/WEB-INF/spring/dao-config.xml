@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright (c) 2012 HealthCare It, Inc.
+  All rights reserved. This program and the accompanying materials
+  are made available under the terms of the BSD 3-Clause license
+  which accompanies this distribution, and is available at
+  http://directory.fsf.org/wiki/License:BSD_3Clause
+  
+  Contributors:
+      HealthCare It, Inc - initial API and implementation
+-->
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" 
 "http://www.springframework.org/dtd/spring-beans.dtd">
 
@@ -22,6 +32,7 @@
 	<bean name="roleDao" class="com.healthcit.cacure.dao.RoleDao"/>
 	<bean name="categoryDao" class="com.healthcit.cacure.dao.CategoryDao"/>
 	<bean name="preferencesDao" class="com.healthcit.cacure.dao.PreferencesDao"/>
+	
 	<bean name="couchDbDao" class="com.healthcit.cacure.dao.CouchDBDao">
 		<property name="host">
 		    <value>${couchDb.host}</value>
@@ -47,7 +58,7 @@
 	<bean name="formMgr" class="com.healthcit.cacure.businessdelegates.FormManager"/>
 	<bean name="moduleMgr" class="com.healthcit.cacure.businessdelegates.ModuleManager"/>
 	<bean name="qaMgr" class="com.healthcit.cacure.businessdelegates.QuestionAnswerManager"/>
-	<bean name="userMgr" class="com.healthcit.cacure.businessdelegates.UserManager"/>
+	
 	<bean name="categoryManager" class="com.healthcit.cacure.businessdelegates.CategoryManager"/>
 	<bean name="generatedModuleDataMgr" class="com.healthcit.cacure.businessdelegates.GeneratedModuleDataManager"/> 
 	<bean name="preferencesManager" class="com.healthcit.cacure.businessdelegates.PreferencesManager"/>

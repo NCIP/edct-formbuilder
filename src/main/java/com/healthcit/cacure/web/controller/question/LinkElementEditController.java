@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2012 HealthCare It, Inc.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the BSD 3-Clause license
+ * which accompanies this distribution, and is available at
+ * http://directory.fsf.org/wiki/License:BSD_3Clause
+ * 
+ * Contributors:
+ *     HealthCare It, Inc - initial API and implementation
+ ******************************************************************************/
 package com.healthcit.cacure.web.controller.question;
 
 
@@ -28,6 +38,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import com.healthcit.cacure.businessdelegates.UserManager;
+import com.healthcit.cacure.businessdelegates.UserManagerService;
 import com.healthcit.cacure.dao.SkipPatternDao;
 import com.healthcit.cacure.model.BaseForm;
 import com.healthcit.cacure.model.Category;
@@ -59,6 +70,9 @@ public class LinkElementEditController extends BaseFormElementController impleme
 
 	@Autowired
 	private UserManager userManager;
+	
+	@Autowired
+	private UserManagerService userService;
 
 	@Autowired
 	SkipPatternDao skipDao;
@@ -153,7 +167,7 @@ public class LinkElementEditController extends BaseFormElementController impleme
 		Long formId = getFormId();
 
 		if (updateSrcCategories) {
-			EnumSet<RoleCode> roles = userManager.getCurrentUserRoleCodes();
+			EnumSet<RoleCode> roles = userService.getCurrentUserRoleCodes();
 			if (!roles.contains(RoleCode.ROLE_LIBRARIAN)
 					&& !roles.contains(RoleCode.ROLE_ADMIN)
 					&& !roles.contains(RoleCode.ROLE_AUTHOR)) {

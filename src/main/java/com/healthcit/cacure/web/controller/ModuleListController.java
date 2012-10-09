@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2012 HealthCare It, Inc.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the BSD 3-Clause license
+ * which accompanies this distribution, and is available at
+ * http://directory.fsf.org/wiki/License:BSD_3Clause
+ * 
+ * Contributors:
+ *     HealthCare It, Inc - initial API and implementation
+ ******************************************************************************/
 package com.healthcit.cacure.web.controller;
 
 
@@ -24,6 +34,7 @@ import org.springframework.web.servlet.view.RedirectView;
 import com.healthcit.cacure.businessdelegates.ModuleManager;
 import com.healthcit.cacure.businessdelegates.QuestionAnswerManager;
 import com.healthcit.cacure.businessdelegates.UserManager;
+import com.healthcit.cacure.businessdelegates.UserManagerService;
 import com.healthcit.cacure.model.BaseModule;
 import com.healthcit.cacure.model.Module;
 import com.healthcit.cacure.model.Role.RoleCode;
@@ -48,6 +59,9 @@ public class ModuleListController implements EditControllable, BreadCrumbsSuppor
 	
 	@Autowired
 	private QuestionAnswerManager qaManager;
+	
+	@Autowired
+	private UserManagerService userService;
 
 	/**
 	 * Determines whether any of the modules are editable in the current
@@ -63,7 +77,7 @@ public class ModuleListController implements EditControllable, BreadCrumbsSuppor
 	@Override
 	public boolean isModelEditable(ModelAndView mav)
 	{
-		EnumSet<RoleCode> roleCodes = userManager.getCurrentUserRoleCodes();
+		EnumSet<RoleCode> roleCodes = userService.getCurrentUserRoleCodes();
 		// ModuleList isEditable reflects user authorization level only
 		return ( roleCodes.contains(RoleCode.ROLE_AUTHOR) || roleCodes.contains(RoleCode.ROLE_ADMIN) || roleCodes.contains(RoleCode.ROLE_APPROVER));
 	}

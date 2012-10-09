@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2012 HealthCare It, Inc.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the BSD 3-Clause license
+ * which accompanies this distribution, and is available at
+ * http://directory.fsf.org/wiki/License:BSD_3Clause
+ * 
+ * Contributors:
+ *     HealthCare It, Inc - initial API and implementation
+ ******************************************************************************/
 package com.healthcit.cacure.web.controller.question;
 
 import java.io.IOException;
@@ -59,6 +69,9 @@ public class FormElementListController extends BaseFormElementController impleme
 	
 	@Autowired
 	private UserManager userManager;
+	
+	@Autowired
+	private UserManager userService;
 	
 	@ModelAttribute("questionLibraryFormExist")
 	public Boolean isQuestionLibraryExist()
@@ -122,7 +135,7 @@ public class FormElementListController extends BaseFormElementController impleme
 	public View addQuestionToLibrary(
 			@RequestParam(Constants.QUESTION_ID) Long questionId,
 			@RequestParam(Constants.FORM_ID) Long formId) {
-		if(!this.userManager.isCurrentUserInRole(RoleCode.ROLE_ADMIN) && !this.userManager.isCurrentUserInRole(RoleCode.ROLE_LIBRARIAN))
+		if(!this.userService.isCurrentUserInRole(RoleCode.ROLE_ADMIN) && !this.userService.isCurrentUserInRole(RoleCode.ROLE_LIBRARIAN))
 		{
 			throw new UnauthorizedException("You have no permissions to add question to the library.");
 		}

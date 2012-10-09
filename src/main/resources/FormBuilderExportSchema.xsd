@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2012 rel. 2 sp1 (x64) (http://www.altova.com) by Randy Wagner (Healthcare It inc) -->
+<!--
+  Copyright (c) 2012 HealthCare It, Inc.
+  All rights reserved. This program and the accompanying materials
+  are made available under the terms of the BSD 3-Clause license
+  which accompanies this distribution, and is available at
+  http://directory.fsf.org/wiki/License:BSD_3Clause
+  
+  Contributors:
+      HealthCare It, Inc - initial API and implementation
+-->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
 	<xs:element name="cure">
 		<xs:annotation>
@@ -11,6 +21,11 @@
 					<xs:complexType>
 						<xs:sequence>
 							<xs:element name="name" type="xs:string"/>
+							<xs:element name="cadsrPublicId" type="xs:int" minOccurs="0"/>
+							<xs:element name="cadsrVersion" type="xs:decimal" minOccurs="0"/>
+							<xs:element name="cadsrCategory" type="xs:string" minOccurs="0"/>
+							<xs:element name="createdBy" type="xs:string" minOccurs="0"/>
+							<xs:element name="modifiedBy" type="xs:string" minOccurs="0"/>
 							<xs:element name="questionElement" type="questionElementType" minOccurs="0" maxOccurs="unbounded"/>
 							<xs:element name="tableElement" type="tableElementType" minOccurs="0" maxOccurs="unbounded"/>
 							<xs:element name="linkElement" minOccurs="0" maxOccurs="unbounded">
@@ -131,6 +146,7 @@
 		<xs:attribute name="uuid" type="xs:ID" use="required"/>
 		<xs:attribute name="order" type="xs:int" use="required"/>
 		<xs:attribute name="isRequired" type="xs:boolean" use="required"/>
+		<xs:attribute name="isReadonly" type="xs:boolean" default="false"/>
 	</xs:complexType>
 	<xs:complexType name="questionElementType">
 		<xs:complexContent>
@@ -148,16 +164,18 @@
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="description" type="xs:string"/>
-						<xs:element name="answerValue" maxOccurs="unbounded">
+						<xs:element name="answerValue" minOccurs="0" maxOccurs="unbounded">
 							<xs:complexType>
-								<xs:sequence>
+								<xs:all>
 									<xs:element name="description" type="xs:string"/>
 									<xs:element name="value" type="xs:string"/>
 									<xs:element name="name" type="xs:string"/>
-								</xs:sequence>
+									<xs:element name="learnMore" type="xs:string" minOccurs="0"/>
+								</xs:all>
 								<xs:attribute name="uuid" type="xs:ID" use="required"/>
 								<xs:attribute name="order" type="xs:int" use="required"/>
 								<xs:attribute name="isDefault" type="xs:boolean"/>
+								<xs:attribute name="cadsrPublicId" type="xs:int"/>
 							</xs:complexType>
 						</xs:element>
 						<xs:element name="displayStyle" minOccurs="0">
@@ -168,6 +186,7 @@
 									<xs:enumeration value="Short"/>
 									<xs:enumeration value="Horizontal"/>
 									<xs:enumeration value="Vertical"/>
+									<xs:enumeration value=""/>
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:element>
@@ -198,11 +217,12 @@
 		</xs:sequence>
 		<xs:attribute name="uuid" type="xs:ID" use="required"/>
 		<xs:attribute name="order" type="xs:int" use="required"/>
-		<xs:attribute name="questionType" use="required">
+		<xs:attribute name="questionType">
 			<xs:simpleType>
 				<xs:restriction base="xs:string">
 					<xs:enumeration value="tableQuestion"/>
 					<xs:enumeration value="question"/>
+					<xs:enumeration value=""/>
 				</xs:restriction>
 			</xs:simpleType>
 		</xs:attribute>
@@ -242,8 +262,8 @@
 			</xs:element>
 		</xs:sequence>
 		<xs:attribute name="parentId" type="xs:string" use="required"/>
-		<xs:attribute name="type" type="skipTypeType" use="required"/>
-		<xs:attribute name="logicalOp" type="skipLogicalOpType" use="required"/>
+		<xs:attribute name="type" type="skipTypeType"/>
+		<xs:attribute name="logicalOp" type="skipLogicalOpType"/>
 	</xs:complexType>
 	<xs:complexType name="skipsType">
 		<xs:sequence/>

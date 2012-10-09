@@ -1,4 +1,13 @@
-
+/*******************************************************************************
+ *Copyright (c) 2012 HealthCare It, Inc.
+ *All rights reserved. This program and the accompanying materials
+ *are made available under the terms of the BSD 3-Clause license
+ *which accompanies this distribution, and is available at
+ *http://directory.fsf.org/wiki/License:BSD_3Clause
+ *
+ *Contributors:
+ *    HealthCare It, Inc - initial API and implementation
+ ******************************************************************************/
 // Global variables
 	var msp;
 	var singleAnswerQuestionTypes = new Array();
@@ -134,7 +143,7 @@
 		loadSkipJson();
 		prepareForSave("selectedCategories");
 		if($('#externalQuestion').val() == "true") {
-			var $editQuestionForm = $('#editQuestionForm');
+			var $editQuestionForm = $('#questionCmd');
 			$editQuestionForm.find('input:visible').attr("disabled", "disabled");
 			$editQuestionForm.find('textarea:visible').attr("disabled", "disabled");
 			$editQuestionForm.find('button:visible').attr("disabled", "disabled");

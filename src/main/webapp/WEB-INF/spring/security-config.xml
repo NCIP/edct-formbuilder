@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright (c) 2012 HealthCare It, Inc.
+  All rights reserved. This program and the accompanying materials
+  are made available under the terms of the BSD 3-Clause license
+  which accompanies this distribution, and is available at
+  http://directory.fsf.org/wiki/License:BSD_3Clause
+  
+  Contributors:
+      HealthCare It, Inc - initial API and implementation
+-->
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:security="http://www.springframework.org/schema/security"
@@ -20,14 +30,20 @@
 		<property name="passwordEncoder" ref="passwordEncoder"/>
 	</bean>
 
+	<!-- Authentication Providers for user authentication using Ldap or Database-->
    	<bean id="authenticationManager" class="org.springframework.security.authentication.ProviderManager">
 		<property name="providers">
 			<list>
-				<!-- <ref bean="inMemoryProvider"/>  for testing purposes only -->
+				<!-- LDAP Authentication -->							
+				<!-- ref bean="ldapAuthenticationProvider"/-->
+				<!-- Database Authentication -->
 				<ref bean="daoAuthenticationProvider"/>
+				<!-- <ref bean="inMemoryProvider"/>  for testing purposes only -->	
 			</list>
 		</property>
 	</bean>
+	
+	
 
 	<bean id="authenticationEntryPoint"
 			class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
@@ -128,6 +144,78 @@
        <security:filter-chain pattern="/**" filters="httpSessionIntegrationFilter,authenticationProcessingFilter,securityContextHolderAwareRequestFilter,anonymousProcessingFilter,exceptionTranslationFilter,filterSecurityInterceptor" />
    </security:filter-chain-map>
    </bean>
+   
+   <bean name="userMgr" class="com.healthcit.cacure.businessdelegates.UserManager" />
+   
+   <bean name="ldapUserManager" class="com.healthcit.cacure.businessdelegates.LdapUserManager" >
+   		<constructor-arg ref="contextSource"/>   		
+   </bean>
+   
+   <bean name="userService" class="com.healthcit.cacure.businessdelegates.UserManagerService" />
+   
+   <!-- LDAP configurations -->
+  <bean id="ldapAuthenticationProvider"
+      class="org.springframework.security.ldap.authentication.LdapAuthenticationProvider">   
+
+    <!-- strategy for handling the actual authentication against the LDAP repository -->
+    <constructor-arg ref="authenticator" />
+    
+
+    <!-- strategy for retrieving a user's set of granted authorities -->
+    <constructor-arg ref="populator" />     
+    
+     <property name="userDetailsContextMapper" ref="ldapUserManager" />
+</bean>
+
+<bean id="authenticator"
+      class="org.springframework.security.ldap.authentication.BindAuthenticator">
+    <constructor-arg ref="contextSource" />
+    <!--  how to find a user in LDAP -->
+    <property name="userDnPatterns">
+        <list>
+	    <!-- {0} servers as a pattern argument placeholder for a username -->
+	    <value>uid={0},ou=users</value>
+	</list>
+    </property>            
+</bean>
+
+
+	
+
+
+<bean id="userSearch"
+    class="org.springframework.security.ldap.search.FilterBasedLdapUserSearch">
+   	  <constructor-arg index="0" value="ou=users"/> 
+      <constructor-arg index="1" value="(uid={0})"/> 
+      <constructor-arg index="2" ref="contextSource" /> 
+
+</bean> 
+        
+
+
+<bean id="contextSource"
+    class="org.springframework.security.ldap.DefaultSpringSecurityContextSource">
+   <constructor-arg value="ldap://${ldap.connection.host}:${ldap.connection.port}/${ldap.connection.rdn}" />
+
+    <property name="userDn" value="${ldap.connection.userDn}" />
+    <property name="password" value="${ldap.connection.password}" />
+</bean>
+
+
+
+<bean id="populator"	  
+      class="org.springframework.security.ldap.userdetails.DefaultLdapAuthoritiesPopulator">
+    <constructor-arg ref="contextSource" />    
+    <constructor-arg value="ou=groups" />
+    <property name="groupRoleAttribute" value="ou" />
+    <property name="convertToUpperCase" value="true" />
+    <property name="rolePrefix" value="ROLE_" />
+    <property name="groupSearchFilter" value="uniqueMember={0}" />
+    
+ </bean> 
+   
+   
+   
 <!--      <bean id="securityFilterChainBean" class="org.springframework.security.util.FilterChainProxy">
 		<property name="filterInvocationDefinitionSource">
 			<value>

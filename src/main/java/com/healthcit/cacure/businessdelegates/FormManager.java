@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2012 HealthCare It, Inc.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the BSD 3-Clause license
+ * which accompanies this distribution, and is available at
+ * http://directory.fsf.org/wiki/License:BSD_3Clause
+ * 
+ * Contributors:
+ *     HealthCare It, Inc - initial API and implementation
+ ******************************************************************************/
 package com.healthcit.cacure.businessdelegates;
 
 import java.util.ArrayList;
@@ -68,6 +78,10 @@ public class FormManager {
 
 	@Autowired
 	private UserManager userManager;
+	
+	@Autowired
+	private UserManagerService userService;
+	
 
 	@Autowired
 	private ModuleManager moduleManager;
@@ -102,7 +116,7 @@ public class FormManager {
 		}
 
 		form.setOrd(ord);
-		UserCredentials currentUser = userManager.getCurrentUser();
+		UserCredentials currentUser = userService.getCurrentUser();
 
 		form.setAuthor(currentUser);
 		// Forms are created locked by default.
@@ -124,7 +138,7 @@ public class FormManager {
 		if(!form.isEditable()) {
 			throw new UnauthorizedException("This form is currently not editable");
 		}
-		UserCredentials currentUser = userManager.getCurrentUser();
+		UserCredentials currentUser = userService.getCurrentUser();
 		form.setLastUpdatedBy(currentUser);
 		form.prepareForUpdate();
 		formDao.save(form);
@@ -191,7 +205,7 @@ public class FormManager {
 	@Transactional
 	public void deleteForm(Long formId) {
 		BaseForm form = getForm(formId);
-		EnumSet<RoleCode> currentUserRoleCodes = userManager.getCurrentUserRoleCodes();
+		EnumSet<RoleCode> currentUserRoleCodes = userService.getCurrentUserRoleCodes();
 		boolean isAdmin = currentUserRoleCodes.contains(RoleCode.ROLE_ADMIN);
 		if(!isAdmin && !isEditableInCurrentContext(form)) {
 			throw new UnauthorizedException("The form is not editable in the current context");
@@ -226,11 +240,11 @@ public class FormManager {
 	 */
 	@Transactional
 	public BaseForm unlockForm(Long formId) {
-		UserCredentials currentUser = userManager.getCurrentUser();
+		UserCredentials currentUser = userService.getCurrentUser();
 		BaseForm form = this.getForm(formId);
 		if(!form.isLocked())
 			throw new RuntimeException("The form is already unlocked.");
-		if(form.getLockedBy().getId().equals(currentUser.getId()) || this.userManager.isCurrentUserInRole(RoleCode.ROLE_ADMIN)) {			
+		if(form.getLockedBy().getId().equals(currentUser.getId()) || this.userService.isCurrentUserInRole(RoleCode.ROLE_ADMIN)) {			
 			form.setLockedBy(null);
 			form.setLastUpdatedBy(currentUser);
 			form.prepareForUpdate();
@@ -249,7 +263,7 @@ public class FormManager {
 	@Transactional
 	public void lockForm(Long formId) {
 		BaseForm form = this.getForm(formId);
-		UserCredentials currentUser = userManager.getCurrentUser();
+		UserCredentials currentUser = userService.getCurrentUser();
 
 		if(!form.isLocked()) {
 			if(form instanceof QuestionnaireForm) {
@@ -275,13 +289,13 @@ public class FormManager {
 	 */
 	public void submitForApproval(final QuestionnaireForm form, final String webAppUri) {
 
-		UserCredentials currentUser = userManager.getCurrentUser();
+		UserCredentials currentUser = userService.getCurrentUser();
 		
 		if(logger.isDebugEnabled()) {
 			logger.debug("Entering submitForApproval form.id = " + form.getId() + " user.id = " + currentUser.getId() + (form.isLocked() ? "locked by user.id = " + form.getLockedBy().getId() : ""));
 		}
 
-		if(form.isLocked() && !form.getLockedBy().getId().equals(currentUser.getId()) && !this.userManager.isCurrentUserInRole(RoleCode.ROLE_ADMIN)) {
+		if(form.isLocked() && !form.getLockedBy().getId().equals(currentUser.getId()) && !this.userService.isCurrentUserInRole(RoleCode.ROLE_ADMIN)) {
 			throw new UnauthorizedException("Only the author of the form can submit it for review");
 		}
 		
@@ -291,9 +305,9 @@ public class FormManager {
 
 			form.setStatus(FormStatus.IN_REVIEW);
 
-			final Set<UserCredentials> approvers = userManager.loadUsersByRole(RoleCode.ROLE_APPROVER);
+			final Set<UserCredentials> approvers = userService.loadUsersByRole(RoleCode.ROLE_APPROVER);
 			
-			Set<UserCredentials> administrators = userManager.loadUsersByRole(RoleCode.ROLE_ADMIN);
+			Set<UserCredentials> administrators = userService.loadUsersByRole(RoleCode.ROLE_ADMIN);
 			
 			approvers.addAll(administrators);			
 
@@ -328,7 +342,7 @@ public class FormManager {
 			logger.debug("Entering decideApproval form.id = " + form.getId() + " approve = " + approve);
 		}
 
-		EnumSet<RoleCode> currentUserRoleCodes = userManager.getCurrentUserRoleCodes();
+		EnumSet<RoleCode> currentUserRoleCodes = userService.getCurrentUserRoleCodes();
 		if(!currentUserRoleCodes.contains(RoleCode.ROLE_APPROVER) && !currentUserRoleCodes.contains(RoleCode.ROLE_ADMIN)) {
 			throw new UnauthorizedException("The user does not posses the appropriate role to approve/reject forms");
 		}
@@ -361,7 +375,7 @@ public class FormManager {
 	 * @return true if editable
 	 */
 	public Boolean isEditableInCurrentContext(BaseForm form) {
-		EnumSet<RoleCode> roleCodes = userManager.getCurrentUserRoleCodes();
+		EnumSet<RoleCode> roleCodes = userService.getCurrentUserRoleCodes();
 		
 		boolean hasPermissions = form.isLibraryForm() ? 
 				roleCodes.contains(RoleCode.ROLE_ADMIN) || roleCodes.contains(RoleCode.ROLE_LIBRARIAN)
@@ -530,7 +544,7 @@ public class FormManager {
 	@Transactional
 	public void addFormToFormLibrary(Long formId)
 	{
-		if(!this.userManager.isCurrentUserInRole(RoleCode.ROLE_ADMIN) && !this.userManager.isCurrentUserInRole(RoleCode.ROLE_LIBRARIAN))
+		if(!this.userService.isCurrentUserInRole(RoleCode.ROLE_ADMIN) && !this.userService.isCurrentUserInRole(RoleCode.ROLE_LIBRARIAN))
 		{
 			throw new UnauthorizedException("You have no permissions to add form to the library.");
 		}
@@ -549,52 +563,9 @@ public class FormManager {
 		BaseForm newForm = module.newForm();			
 		newForm.setName(form.getName());
 		this.addNewForm(newForm);
+		Map<String, String> _oldAnswerValueIdsNewAnswerValueIdsMap = importQuestionsToForms(form,newForm,importToQuestionLibrary,true);
 		
-		List<FormElement> elements = new ArrayList<FormElement>(form.getElements());
-		Map<String, String> _oldAnswerValueIdsNewAnswerValueIdsMap = new HashMap<String, String>();
-		for (FormElement formElement : elements) {
-			FormElementSkipRule newSkipRule = cloneFormElementSkipRule(newForm, formElement);
-			
-			FormElement copy;
-			if(formElement instanceof ContentElement)	{
-				copy = formElement.clone();
-			} else if(formElement instanceof ExternalQuestionElement)	{
-				copy = formElement.clone();
-				BaseQuestion question = copy.getQuestions().get(0);
-				question.setShortName((question.getShortName() == null ? "" : question.getShortName()) + newForm.getId());
-				_oldAnswerValueIdsNewAnswerValueIdsMap.putAll(qaManager.regenerateAnswerValuesPermanentIds(copy));
-			} else {
-				LinkElement link = new LinkElement();
-				copy = link;
-				link.setOrd(formElement.getOrd());
-				link.setLearnMore(formElement.getLearnMore());
-				link.setDescription(formElement.getDescription());
-				if (!(formElement instanceof LinkElement)) {
-					if(importToQuestionLibrary) {
-						this.addQuestionToQuestionLibraryImpl(formElement.getId());
-					}
-					link.setSource(formElement);
-				} else {
-					link.setSource(((LinkElement)formElement).getSourceElement());
-					link.setDescription(link.getSourceElement().getDescription());
-				}
-			}
-			if (newSkipRule != null && newSkipRule.getQuestionSkipRules().size() > 0) {
-				List<QuestionSkipRule> questionSkipRules = newSkipRule.getQuestionSkipRules();
-				for (QuestionSkipRule questionSkipRule : questionSkipRules) {
-					List<AnswerSkipRule> answerSkipRules = questionSkipRule.getAnswerSkipRules();
-					for (AnswerSkipRule answerSkipRule : answerSkipRules) {
-						if(_oldAnswerValueIdsNewAnswerValueIdsMap.containsKey(answerSkipRule.getAnswerValueId())) {
-							answerSkipRule.setAnswerValueId(_oldAnswerValueIdsNewAnswerValueIdsMap.get(answerSkipRule.getAnswerValueId()));
-						}
-					}
-				}
-				copy.setSkipRule(newSkipRule);
-			}
-			copy.setForm(newForm);
-			formElementDao.save(copy);
-			newForm.getElements().add(copy);
-		}
+		
 		if(oldAnswerValueIdsNewAnswerValueIdsMap != null) {
 			oldAnswerValueIdsNewAnswerValueIdsMap.putAll(_oldAnswerValueIdsNewAnswerValueIdsMap);
 		}
@@ -670,7 +641,7 @@ public class FormManager {
 
 	@Transactional
 	public void setToInProgress(Long formId) {
-		EnumSet<RoleCode> currentUserRoleCodes = userManager.getCurrentUserRoleCodes();
+		EnumSet<RoleCode> currentUserRoleCodes = userService.getCurrentUserRoleCodes();
 		if(!currentUserRoleCodes.contains(RoleCode.ROLE_ADMIN) && !currentUserRoleCodes.contains(RoleCode.ROLE_APPROVER)) {
 			throw new UnauthorizedException("Setting to 'In Progress' is possible for user with admin/approver role.");
 		}
@@ -691,5 +662,100 @@ public class FormManager {
 	public int updateFormLibraryForm(QuestionnaireForm qForm, FormLibraryForm flForm) {
 		return formDao.updateFormLibraryForm(qForm, flForm);
 	}
+	
+	
+	private boolean isQuestionAlreadyExists(Long formId, FormElement formElement){
+		String uuid = null;
+		if(formElement instanceof ContentElement)	{
+			//uuid = formElement.getUuid();
+			//return qaManager.isContentQuestionAlreadyExistsInForm(Long.parseLong(formId), uuid);
+			return false;
+		} else if(formElement instanceof ExternalQuestionElement){
+			uuid = ((ExternalQuestionElement)formElement).getSourceId();
+		} else {
+			uuid = ((LinkElement)formElement).getSourceId();
+		}
+		return qaManager.isQuestionAlreadyExistsInForm(formId, uuid);
+	}
+	
+	
+	@Transactional
+	public void getFormQuestions(String formUuid, String formId){	
+		BaseForm form = this.formDao.getByUuid(formUuid);
+		BaseForm destForm = this.formDao.getById(Long.parseLong(formId));		
+		importQuestionsToForms(form,destForm,false,false);
+	}
+	
+	
+	@Transactional
+	private Map<String, String> importQuestionsToForms(final BaseForm form, BaseForm newForm,boolean importToQuestionLibrary, boolean importFormToModule){
+				
+		List<FormElement> elements = new ArrayList<FormElement>(form.getElements());
+		Map<String, String> _oldAnswerValueIdsNewAnswerValueIdsMap = new HashMap<String, String>();
+		for (FormElement formElement : elements) {
+			boolean questionExists = false;
+			if(! importFormToModule){
+				questionExists = isQuestionAlreadyExists(newForm.getId(),formElement);
+			}
+			
+			if(!questionExists){
+				FormElementSkipRule newSkipRule = cloneFormElementSkipRule(newForm, formElement);
+				
+				FormElement copy;
+				if(formElement instanceof ContentElement)	{
+					copy = formElement.clone();
+				} else if(formElement instanceof ExternalQuestionElement)	{
+					copy = formElement.clone();
+					BaseQuestion question = copy.getQuestions().get(0);
+					question.setShortName((question.getShortName() == null ? "" : question.getShortName()) + newForm.getId());
+					_oldAnswerValueIdsNewAnswerValueIdsMap.putAll(qaManager.regenerateAnswerValuesPermanentIds(copy));
+				} else {
+					LinkElement link =  new LinkElement();
+					copy = link;
+					link.setOrd(formElement.getOrd());
+					link.setLearnMore(formElement.getLearnMore());
+					link.setDescription(formElement.getDescription());
+					if (!(formElement instanceof LinkElement)) {
+						if(importToQuestionLibrary) {
+							this.addQuestionToQuestionLibraryImpl(formElement.getId());
+						}
+						link.setSource(formElement);
+					} else {
+						link.setSource(((LinkElement)formElement).getSourceElement());
+						link.setDescription(link.getSourceElement().getDescription());
+					}
+				}
+				
+				
+				if (newSkipRule != null && newSkipRule.getQuestionSkipRules().size() > 0) {
+					List<QuestionSkipRule> questionSkipRules = newSkipRule.getQuestionSkipRules();
+					for (QuestionSkipRule questionSkipRule : questionSkipRules) {
+						List<AnswerSkipRule> answerSkipRules = questionSkipRule.getAnswerSkipRules();
+						for (AnswerSkipRule answerSkipRule : answerSkipRules) {
+							if(_oldAnswerValueIdsNewAnswerValueIdsMap.containsKey(answerSkipRule.getAnswerValueId())) {
+								answerSkipRule.setAnswerValueId(_oldAnswerValueIdsNewAnswerValueIdsMap.get(answerSkipRule.getAnswerValueId()));
+							}
+						}
+					}
+					copy.setSkipRule(newSkipRule);
+				}
+				
+				if(! importFormToModule){
+					Integer ord = questionElementDao.calculateNextOrdNumber(newForm.getId());
+					copy.setOrd(ord);
+				} 					
+				
+				copy.setForm(newForm);
+				formElementDao.save(copy);
+				newForm.getElements().add(copy);
+				
+			}
+		}
+		
+		return _oldAnswerValueIdsNewAnswerValueIdsMap;
+	}
+	
+	
+	
 
 }

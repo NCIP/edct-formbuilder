@@ -1,3 +1,13 @@
+<%--
+Copyright (c) 2012 HealthCare It, Inc.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the BSD 3-Clause license
+which accompanies this distribution, and is available at
+http://directory.fsf.org/wiki/License:BSD_3Clause
+
+Contributors:
+    HealthCare It, Inc - initial API and implementation
+--%>
 <%@page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
@@ -63,7 +73,7 @@
       <c:set var="action" value="<%=Constants.LINK_EDIT_URI %>" />
       <c:set var="isLink" value="true"/>
    </c:if>
-    <form:form id="editQuestionForm" commandName="<%=QuestionElementEditController.COMMAND_NAME%>"  onsubmit="var doSubmit = createJson(); event.returnValue=doSubmit; return doSubmit;" action="${appPath}${action}?formId=${questionCmd.form.id}&id=${questionCmd.id}">
+    <form:form id="questionCmd" commandName="<%=QuestionElementEditController.COMMAND_NAME%>"  onsubmit="var doSubmit = createJson(); event.returnValue=doSubmit; return doSubmit;" action="${appPath}${action}?formId=${questionCmd.form.id}&id=${questionCmd.id}">
     	<input id="externalQuestion" type="hidden" value="${questionCmd.externalQuestion}"/>
     	<input id="id" type="hidden" value="${questionCmd.id}"/>
     	<input id="skipCtr" type="hidden" value="0"/>

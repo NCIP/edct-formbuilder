@@ -1,5 +1,15 @@
 <?xml version="1.0"?>
-<project name="FormBuilder" default="all">
+<!--
+  Copyright (c) 2012 HealthCare It, Inc.
+  All rights reserved. This program and the accompanying materials
+  are made available under the terms of the BSD 3-Clause license
+  which accompanies this distribution, and is available at
+  http://directory.fsf.org/wiki/License:BSD_3Clause
+  
+  Contributors:
+      HealthCare It, Inc - initial API and implementation
+-->
+<project name="FormBuilder 2.7.3" default="all">
 
 	<!-- Allows for local developer to override settings in a non-versioned file -->
 	<property file="${basedir}/configuration/${user.name}.properties" />
@@ -18,7 +28,7 @@
         <property name="build.dir" value="${basedir}/build" />
         <property name="build.classes.dir" value="${build.dir}/classes" />
         <property name="build.war.dir" value="${build.dir}/wars" />
-
+       
     	<property name="src.dir" value="${basedir}/src/main" />
     	<property name="webroot.dir" value="${src.dir}/webapp" />
     	<property name="java.src.dir" value="${src.dir}/java" />
@@ -71,6 +81,17 @@
         </path>
 
 		<taskdef resource="svntask.properties" classpathref="svntask.classpath"/>
+    	
+    	
+    	<path id="tomcat.classpath">
+    	  <pathelement location="${lib.dir}/catalina-jars/catalina-ant.jar"/>
+    		 <pathelement location="${lib.dir}/catalina-jars/jasper.jar"/>
+    		<pathelement location="${lib.dir}/catalina-jars/servlet-api.jar"/>
+    		<pathelement location="${lib.dir}/catalina-jars/juli-6.0.20.jar"/>
+    		<pathelement location="${lib.dir}/commons-logging.jar"/>
+    	</path>
+    	<taskdef resource="org/apache/catalina/ant/catalina.tasks" classpathref="tomcat.classpath"/>
+
     </target>
 
 
@@ -494,6 +515,59 @@ The application should be built with JDK1.6.0.
 		</delete>
 	</target>
 
+	
+	<target name="deploy-remote-input-server-address" unless="server.address" description="prompts for command line arguments if necessary">
+		<input message="Please enter server name (i.e. cure-test):" addproperty="server.address" />
+	</target>
+
+	<target name="deploy-remote-input-server-password" unless="server.password" description="prompts for command line arguments if necessary">
+			<input message="Please enter password for tomcat user:" addproperty="server.password" />
+		</target>
+	<target name="deploy-remote-input-server-port" unless="server.port" description="prompts for command line arguments if necessary">
+				<input message="Please enter port for tomcat user:" addproperty="server.port" />
+			</target>
+	
+	<!-- Use deploy-remote-as-war to deploy application to tomcat using tomcat manager
+	it assumes that user "tomcat" with role "manager" is enabled on the remote server
+	you will be prompted for tomcat manager user password, port, and a server to deploy to or those parameters can be specified as a command line argument -->
+	<target name="deploy-remote-as-war" depends="build-war, deploy-remote-input-server-address, deploy-remote-input-server-password, deploy-remote-input-server-port" 
+		description="Deployes WAR file to a remote server">
+       <!-- <echo message="Server is: ${server.address}"/>
+		<echo message="Tomcat Password is: ${server.password}"/>
+		<echo message="Tomcat Port is: ${server.port}"/>
+		-->
+		<property name="tomcat.manager.url" value="http://${server.address}:${server.port}/manager"/>
+		<undeploy url="${tomcat.manager.url}"
+			username="tomcat"
+            password="${server.password}"
+	        path="/${webapp.name}"/>
+		<sleep seconds="30"/>
+		<deploy url="${tomcat.manager.url}"
+		            username="tomcat"
+		            password="${server.password}"
+			        path="/${webapp.name}"
+		            war="file:${build.war.dir}/${war.name}"/>
+	
+	</target>
+	
+<!-- This targets were created for deploying application remotely via ssh
+     ideally deploy-remote-as-war should be used.
+     in case if tomcat restart is needed use deploy-via-ssh target
+     -->
+	<target name="load-remote-properties" depends="deploy-remote-input-server-address">
+		<loadproperties srcfile="${server.address}.properties"/>
+	</target>
+	<target name="deploy-via-ssh" depends="build-war, load-remote-properties, deploy-remote-input-server-password" 
+			description="Deployes WAR file to a remote server via ssh" >
+	    <echo message="Server is: ${server.address}"/>
+<!--	    <echo message="User's Password is: ${server.password}"/>
+		<echo message="User's home is: ${server.user.home}"/>
+-->		
+		<scp todir="${server.user}@${server.address}:${server.user.home}" file="${build.war.dir}/${war.name}" password="${server.password}" trust="yes"/>
+		<sshexec host="${server.address}" username="${server.user}" command="${deploy.root}/bin/restartAndDeploy.sh ${war.name}" password="${server.password}" trust="yes"/>
+		
+	</target>
+	
 	<target name="deploy-local-as-war" depends="set-properties,build-war,local-clean-deployment"
 		description="Cleans local tomcat and redeploys WAR file">
 		<!-- copy war file to local tomcat -->

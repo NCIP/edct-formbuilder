@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2012 HealthCare It, Inc.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the BSD 3-Clause license
+ * which accompanies this distribution, and is available at
+ * http://directory.fsf.org/wiki/License:BSD_3Clause
+ * 
+ * Contributors:
+ *     HealthCare It, Inc - initial API and implementation
+ ******************************************************************************/
 package com.healthcit.cacure.businessdelegates;
 
 import java.util.ArrayList;
@@ -37,6 +47,9 @@ public class ModuleManager {
 
 	@Autowired
 	private FormManager formManager;
+	
+	@Autowired
+	private UserManagerService userService;
 
 	public void setUserManager(UserManager userManager) {
 		this.userManager = userManager;
@@ -52,7 +65,7 @@ public class ModuleManager {
 	}
 
 	public void addNewModule(BaseModule module) {
-		UserCredentials user = userManager.getCurrentUser();
+		UserCredentials user = userService.getCurrentUser();
 		module.setAuthor(user);
 		moduleDao.create(module);
 	}
@@ -97,7 +110,7 @@ public class ModuleManager {
 			logger.debug("Entering decideApproval module.id = " + module.getId());
 		}
 
-		if(!userManager.isCurrentUserInRole(RoleCode.ROLE_APPROVER) && !this.userManager.isCurrentUserInRole(RoleCode.ROLE_ADMIN)) {
+		if(!userService.isCurrentUserInRole(RoleCode.ROLE_APPROVER) && !this.userService.isCurrentUserInRole(RoleCode.ROLE_ADMIN)) {
 			throw new UnauthorizedException("The user must be in approver role in order to set statuse for modules.");
 		}
 
@@ -112,7 +125,7 @@ public class ModuleManager {
 			logger.debug("Entering approveForPilot module.id = " + module.getId());
 		}
 
-		if(!userManager.isCurrentUserInRole(RoleCode.ROLE_APPROVER) && !this.userManager.isCurrentUserInRole(RoleCode.ROLE_ADMIN)) {
+		if(!userService.isCurrentUserInRole(RoleCode.ROLE_APPROVER) && !this.userService.isCurrentUserInRole(RoleCode.ROLE_ADMIN)) {
 			throw new UnauthorizedException("The user must be in approver role in order to set statuse for modules.");
 		}
 
@@ -136,7 +149,7 @@ public class ModuleManager {
 			logger.debug("Entering approveForProduction module.id = " + module.getId());
 		}
 
-		if(!userManager.isCurrentUserInRole(RoleCode.ROLE_APPROVER) && !this.userManager.isCurrentUserInRole(RoleCode.ROLE_ADMIN)) {
+		if(!userService.isCurrentUserInRole(RoleCode.ROLE_APPROVER) && !this.userService.isCurrentUserInRole(RoleCode.ROLE_ADMIN)) {
 			throw new RuntimeException("The user must be in approver role in order to set statuse for modules.");
 		}
 
@@ -160,7 +173,7 @@ public class ModuleManager {
 			logger.debug("Entering release form.id = " + module.getId());
 		}
 
-		if(!userManager.isCurrentUserInRole(RoleCode.ROLE_APPROVER) && !this.userManager.isCurrentUserInRole(RoleCode.ROLE_ADMIN)) {
+		if(!userService.isCurrentUserInRole(RoleCode.ROLE_APPROVER) && !this.userService.isCurrentUserInRole(RoleCode.ROLE_ADMIN)) {
 			throw new UnauthorizedException("The user must be in approver role in order to set statuse for modules.");
 		}
 
@@ -185,7 +198,7 @@ public class ModuleManager {
 	 * @return true when editable
 	 */
 	public Boolean isEditableInCurrentContext(BaseModule module) {
-		EnumSet<RoleCode> roleCodes = userManager.getCurrentUserRoleCodes();
+		EnumSet<RoleCode> roleCodes = userService.getCurrentUserRoleCodes();
 		
 		boolean hasPermissions = module.isLibrary() ? 
 				roleCodes.contains(RoleCode.ROLE_ADMIN) || roleCodes.contains(RoleCode.ROLE_LIBRARIAN)
@@ -223,7 +236,7 @@ public class ModuleManager {
 	
 	@Transactional
 	public Module copyModule(Module moduleToCopy) {
-		EnumSet<RoleCode> roleCodes = userManager.getCurrentUserRoleCodes();
+		EnumSet<RoleCode> roleCodes = userService.getCurrentUserRoleCodes();
 		if(roleCodes.contains(RoleCode.ROLE_ADMIN) || roleCodes.contains(RoleCode.ROLE_LIBRARIAN)) {
 			List<BaseForm> formsToCopy = new ArrayList<BaseForm>(moduleToCopy.getForms());
 			Module copiedModule = new Module();

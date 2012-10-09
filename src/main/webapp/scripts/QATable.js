@@ -1,3 +1,13 @@
+/*******************************************************************************
+ *Copyright (c) 2012 HealthCare It, Inc.
+ *All rights reserved. This program and the accompanying materials
+ *are made available under the terms of the BSD 3-Clause license
+ *which accompanies this distribution, and is available at
+ *http://directory.fsf.org/wiki/License:BSD_3Clause
+ *
+ *Contributors:
+ *    HealthCare It, Inc - initial API and implementation
+ ******************************************************************************/
 /**
  * Dependency: jQuery.js, qaObjects.js (see results() function)
  * NOTE: UI is based on id so there is no much sense to create multiple instances on the same page
