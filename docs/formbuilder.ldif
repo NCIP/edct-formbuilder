@@ -1,0 +1,72 @@
+# This is the root of the directory tree
+
+dn: dc=formbuilder,dc=com
+description: FormBuilder.Com.
+dc: formbuilder
+o: FormBuilder.Com
+objectClass: top
+objectClass: dcObject
+objectClass: organization
+
+# Subtree for users
+dn: ou=Users,dc=formbuilder,dc=com
+ou: Users
+description: formbuilder.Com Users
+objectClass: organizationalUnit
+
+
+
+##
+## USERS
+##
+
+# lkagan
+dn: uid=lkagan,ou=Users,dc=formbuilder,dc=com
+ou: Users
+uid: lkagan
+cn: Leonid Kagan
+sn: Kagan
+givenName: Leonid
+displayName: Leonid Kagan
+mail: lkagan@healthcit.com
+userPassword: {SSHA}OsjMkEdVuH9Oxua8gYxhJTsUohnXUwFR
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+
+
+# Preeti Gupta:
+dn: uid=pgupta,ou=Users,dc=formbuilder,dc=com
+ou: Users
+uid: pgupta
+sn: Gupta
+cn: Preeti Gupta
+givenName: Preeti
+displayName: Preeti Gupta
+mail: pgupta@healthcit.com
+userPassword: {SSHA}OsjMkEdVuH9Oxua8gYxhJTsUohnXUwFR
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+
+dn: ou=groups,dc=formbuilder,dc=com
+objectClass: top
+objectClass: organizationalUnit
+ou: groups
+
+dn: cn=admin,ou=groups,dc=formbuilder,dc=com
+objectClass: groupOfUniqueNames
+objectClass: top
+cn: admin
+uniqueMember: uid=lkagan,ou=users,dc=formbuilder,dc=com
+ou: admin
+
+dn: cn=author,ou=groups,dc=formbuilder,dc=com
+objectClass: groupOfUniqueNames
+objectClass: top
+cn: author
+uniqueMember: uid=lkagan,ou=users,dc=formbuilder,dc=com
+uniqueMember: uid=pgupta,ou=users,dc=formbuilder,dc=com
+ou: author
+
+

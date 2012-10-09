@@ -1,0 +1,41 @@
+# LDIF Backend configuration file
+# See slapd.conf(5) for details on configuration options.
+# This file should NOT be world readable.
+ucdata-path	./ucdata
+include		./schema/core.schema
+include		./schema/cosine.schema
+include		./schema/nis.schema
+include		./schema/inetorgperson.schema
+include		./schema/openldap.schema
+include		./schema/dyngroup.schema
+
+
+pidfile		./run/slapd.pid
+argsfile	./run/slapd.args
+
+
+# Enable TLS if port is defined for ldaps
+
+
+TLSVerifyClient never
+TLSCipherSuite HIGH:MEDIUM:-SSLv2
+TLSCertificateFile ./secure/certs/server.pem
+TLSCertificateKeyFile ./secure/certs/server.pem
+TLSCACertificateFile ./secure/certs/server.pem
+
+
+
+
+#######################################################################
+# ldif database definitions
+#######################################################################
+
+
+database	ldif
+directory 	./ldifdata
+suffix		"dc=formbuilder,dc=com"
+rootdn		"cn=manager,dc=formbuilder,dc=com"
+# Cleartext passwords, especially for the rootdn, should
+# be avoid.  See slappasswd(8) and slapd.conf(5) for details.
+# Use of strong authentication encouraged.
+rootpw    {SSHA}OsjMkEdVuH9Oxua8gYxhJTsUohnXUwFR
