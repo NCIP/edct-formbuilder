@@ -1,6 +1,6 @@
-/* Rev. 511
+/* 1.0RC
 
-Copyright (C) 2008-2011 agenceXML - Alain COUTHURES
+Copyright (C) 2008-2012 agenceXML - Alain COUTHURES
 Contact at : xsltforms@agencexml.com
 
 Copyright (C) 2006 AJAXForms S.L.
@@ -156,10 +156,6 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 	border-top			: thin solid #888888;
 	display: none;
 }
-
-#xsltforms_console div {
-	color: darkblue;
-}
 	
 		
 div.xforms-dialog {
@@ -207,15 +203,14 @@ span.xforms-required-icon, span.xforms-alert, span.xforms-help, span.xforms-hint
 .xforms-required-icon {
     display				: none;
     color				: red;
-    margin-left			: 3px;
 }
 
-.xforms-required {
+.xforms-required .xforms-required-icon {
     display				: inline;
     margin-left			: 3px;
 }
 
-div.xforms-help-value, div.xforms-alert-value, div.xforms-hint-value { 
+span.xforms-help-value, span.xforms-alert-value, span.xforms-hint-value { 
 	display				: none;
 	background-color	: #ffffee;
 	position			: absolute;
@@ -226,6 +221,7 @@ div.xforms-help-value, div.xforms-alert-value, div.xforms-hint-value {
 	margin-left			: -16px;
 	padding				: 5px;
 	-moz-box-sizing		: border-box;
+	-webkit-box-sizing	: border-box;
 	box-sizing			: border-box;
 }
 
@@ -237,7 +233,7 @@ span.xforms-alert {
 	display				: inline;
 }
 
-div.xforms-alert-value {
+span.xforms-alert-value {
 	background-color	: #ffeeee;
 }
 
