@@ -1,13 +1,4 @@
-/*******************************************************************************
- *Copyright (c) 2012 HealthCare It, Inc.
- *All rights reserved. This program and the accompanying materials
- *are made available under the terms of the BSD 3-Clause license
- *which accompanies this distribution, and is available at
- *http://directory.fsf.org/wiki/License:BSD_3Clause
- *
- *Contributors:
- *    HealthCare It, Inc - initial API and implementation
- ******************************************************************************/
+
 // Onclick handler associated with selecting a question
 function enableOrDisableRow(elmId){
 	var elm = jQuery('#'+elmId);
@@ -28,13 +19,13 @@ function enableOrDisableRow(elmId){
 function showOrHideTableQuestions(elm,id) {
 	var selectedTableQuestionRows = jQuery('tr.rowclass_'+id);
 	var selectedTableQuestionRowCheckboxes = jQuery('tr.rowclass_'+id+' input[id^=question_]');
-			
+
 	// If the table question group checkbox was checked,
 	// then show all questions associated with this table question group
 	if ( jQuery(elm).is(':checked') ) {
 		selectedTableQuestionRows.show();
 	}
-	
+
 	// otherwise,
 	// deselect all questions associated with this table question group
 	// and hide the questions
@@ -58,7 +49,7 @@ function onModuleSelectionChange(){
 	window.location.href = urlWithoutParams + '?moduleId=' + moduleId;
 }
 
-//Module dropdown's onchange method callback 
+//Module dropdown's onchange method callback
 // (CURRENTLY NOT USED)
 function updateFormsDropdown( data ){
 	//alert(data);
@@ -101,9 +92,9 @@ function mutuallyExclusiveSelect( thisElmId, otherElmId )
 {
 	var thisElm = jQuery('#' + thisElmId );
 	var otherElm = jQuery('#' + otherElmId );
-	
+
 	if ( thisElm.is(':checked') ) {
-		otherElm.removeAttr('checked').val('').attr('disabled',true);				
+		otherElm.removeAttr('checked').val('').attr('disabled',true);
 	}
 	else {
 		otherElm.attr('disabled',false);

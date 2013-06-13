@@ -1,3 +1,10 @@
+/*L
+  Copyright HealthCare IT, Inc.
+
+  Distributed under the OSI-approved BSD 3-Clause License.
+  See http://ncip.github.com/edct-formbuilder/LICENSE.txt for details.
+L*/
+
 alter table "FormBuilder".question_skip_rule add column identifying_answer_value_uuid character(36);
 update "FormBuilder".question_skip_rule
 set identifying_answer_value_uuid = (select av.permanent_id from "FormBuilder".answer_value av where av.id = identifying_answer_value_id)

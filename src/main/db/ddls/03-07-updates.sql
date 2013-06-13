@@ -1,3 +1,10 @@
+/*L
+  Copyright HealthCare IT, Inc.
+
+  Distributed under the OSI-approved BSD 3-Clause License.
+  See http://ncip.github.com/edct-formbuilder/LICENSE.txt for details.
+L*/
+
 ALTER TABLE "FormBuilder".question_categries DROP CONSTRAINT "fk_questionId_question_categories";
 
 ALTER TABLE "FormBuilder".question_categries

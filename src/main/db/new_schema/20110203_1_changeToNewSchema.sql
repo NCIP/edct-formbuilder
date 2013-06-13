@@ -1,3 +1,10 @@
+/*L
+  Copyright HealthCare IT, Inc.
+
+  Distributed under the OSI-approved BSD 3-Clause License.
+  See http://ncip.github.com/edct-formbuilder/LICENSE.txt for details.
+L*/
+
 SELECT * INTO "FormBuilder".question_orig FROM "FormBuilder".question;
 
 ALTER TABLE "FormBuilder".answer DROP CONSTRAINT "fb_answer_question_fk";

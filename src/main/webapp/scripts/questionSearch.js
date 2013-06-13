@@ -1,13 +1,4 @@
-/*******************************************************************************
- *Copyright (c) 2012 HealthCare It, Inc.
- *All rights reserved. This program and the accompanying materials
- *are made available under the terms of the BSD 3-Clause license
- *which accompanies this distribution, and is available at
- *http://directory.fsf.org/wiki/License:BSD_3Clause
- *
- *Contributors:
- *    HealthCare It, Inc - initial API and implementation
- ******************************************************************************/
+
 function addRemoveAnswerValue(aElement ) {
 	var $aElement = $(aElement);
 	var addFlag = ( $aElement.html() == 'REMOVE' );
@@ -22,8 +13,8 @@ function addRemoveAnswerValue(aElement ) {
 		return;
 	}
 	$aElement.parents('tr').eq(0).toggleClass('strikethrough');
-	$aElement.toggleClass('skipRemoveAns');	
-	$aElement.html( addFlag ? 'ADD' : 'REMOVE');	
+	$aElement.toggleClass('skipRemoveAns');
+	$aElement.html( addFlag ? 'ADD' : 'REMOVE');
 	addDeletedAnswerValue( aElement, addFlag );
 }
 
@@ -33,8 +24,8 @@ function addDeletedAnswerValue( aElement, addFlag ) {
 		var questionExtId = $(aElement).next().val();
 		var questionSetElement = getSkipQuestionElement(questionExtId);
 		if ( questionSetElement ) {
-			var temp = ( questionSetElement.length <  3 ? 
-					     new Array() : 
+			var temp = ( questionSetElement.length <  3 ?
+					     new Array() :
 					     questionSetElement[2].split(',') );
 			if ( addFlag ) {
 				temp.push(answerExtId);

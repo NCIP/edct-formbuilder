@@ -1,3 +1,10 @@
+/*L
+  Copyright HealthCare IT, Inc.
+
+  Distributed under the OSI-approved BSD 3-Clause License.
+  See http://ncip.github.com/edct-formbuilder/LICENSE.txt for details.
+L*/
+
 CREATE OR REPLACE VIEW "FormBuilder".fe_approved_links_count_vw AS 
  select sub1.id, COALESCE(sub2.cnt1, 0) as cnt
 from (select distinct id from form_element where element_type::text <> 'link'::text) sub1

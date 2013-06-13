@@ -1,3 +1,10 @@
+/*L
+  Copyright HealthCare IT, Inc.
+
+  Distributed under the OSI-approved BSD 3-Clause License.
+  See http://ncip.github.com/edct-formbuilder/LICENSE.txt for details.
+L*/
+
 INSERT INTO "FormBuilder".module(id, description, release_date, comments, update_date, author_user_id, status, is_library, module_type, completiontime)
 VALUES (1, 'Question Library', NULL, NULL, clock_timestamp(), 1, 'QUESTION_LIBRARY', TRUE, 'questionLibrary', NULL);
 INSERT INTO "FormBuilder".module(id, description, release_date, comments, update_date, author_user_id, status, is_library, module_type, completiontime)

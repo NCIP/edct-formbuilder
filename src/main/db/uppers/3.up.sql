@@ -1,3 +1,10 @@
+/*L
+  Copyright HealthCare IT, Inc.
+
+  Distributed under the OSI-approved BSD 3-Clause License.
+  See http://ncip.github.com/edct-formbuilder/LICENSE.txt for details.
+L*/
+
 DROP VIEW "FormBuilder".skip_pattern_answer_value_vw;
 DROP VIEW "FormBuilder".answer_value_form_id_vw;
  

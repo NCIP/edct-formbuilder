@@ -1,13 +1,4 @@
-/*******************************************************************************
- *Copyright (c) 2012 HealthCare It, Inc.
- *All rights reserved. This program and the accompanying materials
- *are made available under the terms of the BSD 3-Clause license
- *which accompanies this distribution, and is available at
- *http://directory.fsf.org/wiki/License:BSD_3Clause
- *
- *Contributors:
- *    HealthCare It, Inc - initial API and implementation
- ******************************************************************************/
+
 // Global variables
 	var msp;
 	var singleAnswerQuestionTypes = new Array();
@@ -62,7 +53,7 @@
 
 	  	document.getElementById("answers").value = JSON.stringify( extension.results() );
 	    //alert(document.getElementById("answers").value);
-	  	
+
 	  	// set the value of "descriptionList"
 	  	document.getElementById("allDescriptions").value = JSON.stringify( createDescriptionJSON() );
 
@@ -77,26 +68,26 @@
 		var isSkip;
 		var confirmationMessage = "";
 		QuestionDwrController.questionIsSkip(questionId, {async: false, callback: function(data) {isSkip = data;}});
-		
+
 		if(isSkip == "yes") {
 			confirmationMessage += "This Question is attached as a skip to other Question or a Form.";
 		}
 		return confirmationMessage;
 	}
-	
+
 	function checkSkipsMessage(questionId)
 	{
 		/* Check if question is attached as skip to another Question */
 		var confirmationMessage = checkIfSkip(questionId);
-		
+
 		if (confirmationMessage.length > 0) {
 			confirmationMessage += '\nAre you sure that you want to update this question?';
 			return confirm(confirmationMessage);
 		}
-		
+
 		return true;
 	}
-	
+
 	$(function() {
 	    $('#questionCmd').submit(function() {
 	    	var feid = $('#questionCmd').find('#id').val();
@@ -106,7 +97,7 @@
 	    	return true;
 	    });
 	});
-	
+
 	function createConstraintAnswerTypeMap(answersList)
 	{
 		    //for(var j=0; j<answersList.answersList.length; j++)
@@ -129,7 +120,7 @@
 			}
 
 			var answerData = JSON.parse(jsonText);
-			
+
 			var params = {containerId:'qaExtensionContainer',
 					singleAnswerQuestionTypes:singleAnswerQuestionTypes,
 					multipleAnswerQuestionTypes:multipleAnswerQuestionTypes,
@@ -149,7 +140,7 @@
 			$editQuestionForm.find('button:visible').attr("disabled", "disabled");
 			$editQuestionForm.find('select:visible').attr("disabled", "disabled");
 			$editQuestionForm.find('#addAnotherAnswerDiv').hide();
-			
+
 			$editQuestionForm.find('input[name=answerAlignmentVal_1], input[name=defaultAnswerValue], input[name=submit], #editSkipsBtn, #removeAllSkipsBtn').removeAttr("disabled");
 		}
 	}

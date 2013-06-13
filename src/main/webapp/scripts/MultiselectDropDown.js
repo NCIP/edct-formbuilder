@@ -1,13 +1,4 @@
-/*******************************************************************************
- *Copyright (c) 2012 HealthCare It, Inc.
- *All rights reserved. This program and the accompanying materials
- *are made available under the terms of the BSD 3-Clause license
- *which accompanies this distribution, and is available at
- *http://directory.fsf.org/wiki/License:BSD_3Clause
- *
- *Contributors:
- *    HealthCare It, Inc - initial API and implementation
- ******************************************************************************/
+
 var selectedOptions = 0;
 
 function MultiselectDropDown(id, menuTitle) {
@@ -70,11 +61,11 @@ function init(id, menuTitle) {
 		var comboDivId = id + ':comboDiv:' + options[i].value;
 		var comboDivClass = (options[i].selected || options[i].className == 'selected') ? "selected" : "notSelected";
 		comboDivHTML += '<div id="' + comboDivId + '" class="' + comboDivClass + '"';
-		
+
 		if(typeof(isEditable) === 'undefined' || isEditable) {
 			comboDivHTML += ' onclick="selectFromCombo(this)"';
 		}
-		
+
 		comboDivHTML += '>' + options[i].innerHTML + '</div>';
 
 		if(	(options[i].selected || options[i].className == 'selected') ){
@@ -179,7 +170,7 @@ function saveCategory(idValues) {
 		alert('Please enter category name');
 		return;
 	}
-	
+
 	if(isSimilarCategoryNameExist(categoryNameValue)) {
 		categoryName.focus();
 		alert('Category name should be unique');
@@ -187,7 +178,7 @@ function saveCategory(idValues) {
 	}
 	var categoryDescription = document.getElementById("category_description");
 	var categoryDescriptionValue = categoryDescription.value;
-	
+
 	var addedCategoryIds =  document.getElementById(idValues);
 	var tempId = 'new' + currentCategoryId;
 	if (currentCategoryId == 1) {

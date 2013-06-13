@@ -1,3 +1,10 @@
+/*L
+  Copyright HealthCare IT, Inc.
+
+  Distributed under the OSI-approved BSD 3-Clause License.
+  See http://ncip.github.com/edct-formbuilder/LICENSE.txt for details.
+L*/
+
 CREATE OR REPLACE VIEW "FormBuilder".skip_pattern_answer_value_vw AS
 select s.id "id", 
       (case s.parent_type when 'questionSkip' then s.parent_id else null end) "question_id", 

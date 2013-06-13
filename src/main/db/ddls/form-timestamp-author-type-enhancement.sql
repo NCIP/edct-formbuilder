@@ -1,3 +1,10 @@
+/*L
+  Copyright HealthCare IT, Inc.
+
+  Distributed under the OSI-approved BSD 3-Clause License.
+  See http://ncip.github.com/edct-formbuilder/LICENSE.txt for details.
+L*/
+
 ALTER TABLE "FormBuilder".form ADD COLUMN status character varying(30);
 ALTER TABLE "FormBuilder".form ALTER COLUMN status SET NOT NULL;
 ALTER TABLE "FormBuilder".form ALTER COLUMN status SET DEFAULT 'IN_PROGRESS'::character varying;

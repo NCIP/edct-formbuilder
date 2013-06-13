@@ -8,16 +8,7 @@ OVERWRITTEN WHEN YOU RE-RUN CODE GENERATION.
 Refer to the Altova MapForce Documentation for further details.
 http://www.altova.com/mapforce
 -->
-<!--
-  Copyright (c) 2012 HealthCare It, Inc.
-  All rights reserved. This program and the accompanying materials
-  are made available under the terms of the BSD 3-Clause license
-  which accompanies this distribution, and is available at
-  http://directory.fsf.org/wiki/License:BSD_3Clause
-  
-  Contributors:
-      HealthCare It, Inc - initial API and implementation
--->
+
 
 <xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fn="http://www.w3.org/2005/xpath-functions" 
    xmlns:uuid="java:java.util.UUID" xmlns:java="java"

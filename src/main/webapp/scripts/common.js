@@ -1,13 +1,4 @@
-/*******************************************************************************
- *Copyright (c) 2012 HealthCare It, Inc.
- *All rights reserved. This program and the accompanying materials
- *are made available under the terms of the BSD 3-Clause license
- *which accompanies this distribution, and is available at
- *http://directory.fsf.org/wiki/License:BSD_3Clause
- *
- *Contributors:
- *    HealthCare It, Inc - initial API and implementation
- ******************************************************************************/
+
 function ReverseContentDisplay(d) {
 		if(d.length < 1) {
 			return;
@@ -94,19 +85,19 @@ String.prototype.trim = function () {
 
 function findElementsByClassName(className, root, tagName) {
     root = root || document.body;
- 
+
     // for native implementations
     if (document.getElementsByClassName) {
         return root.getElementsByClassName(className);
     }
- 
+
     // at least try with querySelector (IE8 standards mode)
     // about 5x quicker than below
     if (root.querySelectorAll) {
         tagName = tagName || '';
         return root.querySelectorAll(tagName + '.' + className);
     }
- 
+
     // and for others... IE7-, IE8 (quirks mode), Firefox 2-, Safari 3.1-, Opera 9-
     var tagName = tagName || '*', _tags = root.getElementsByTagName(tagName), _nodeList = [];
     for (var i = 0, _tag; _tag = _tags[i++];) {
@@ -129,7 +120,7 @@ function dialog(containerId, urlToLoadFrom, afterLoadHandler, dialogParams, load
 			_filledContainers.push(dialogContainer[0]);
 		}
 	}
-	
+
 	if(onCloseButtonClick) {
 		var onOpen = dialogParams.open;
 		dialogParams.open = function() {
@@ -141,7 +132,7 @@ function dialog(containerId, urlToLoadFrom, afterLoadHandler, dialogParams, load
 		};
 	}
 	dialogContainer.dialog(dialogParams);
-	
+
 	if(urlToLoadFrom && !contains) {
 		var loadCallBack = function(responseText, textStatus, req) {
 			if(textStatus != "error") {
@@ -172,7 +163,7 @@ function intitDndItems($elements, handler) {
 		var top = 0;
 		var currentDraggable = null;
 		var before;
-		
+
 		$elements.mousedown(function(e) {
 		    if($.browser.msie) {
 		         e.stopPropagation();
@@ -193,7 +184,7 @@ function intitDndItems($elements, handler) {
 				}
 			},
 			accept: function(obj) {
-				return obj.parent()[0] == $(this).parent()[0];  
+				return obj.parent()[0] == $(this).parent()[0];
 			},
 			activate : function(event, ui) {
 				$(document).mousemove(onMouseMove);
@@ -209,7 +200,7 @@ function intitDndItems($elements, handler) {
 				$('.dndHandle').removeClass('dndHandleAfter').removeClass('dndHandleBefore');
 			}
 		});
-		
+
 		function onMouseMove(e){
 			if(currentDraggable) {
 				top = e.pageY;
@@ -239,7 +230,7 @@ function intitTitlePane($elements) {
 			$title.removeClass('TitlePaneClosed');
 		}
 	}
-	
+
 	var onClick = function()
 	{
 		var $this = $(this);
@@ -248,22 +239,22 @@ function intitTitlePane($elements) {
 		setClosedClass($this, $container.is(':visible'));
 		$container.slideToggle(200);
 	};
-	
+
 	$elements.unbind('click.titlePaneNS');
 	$elements.bind('click.titlePaneNS', onClick);
-	
+
 	for(var i = 0; i < $elements.length; i++) {
 		var $title = $($elements[i]);
 		setClosedClass($title, !$title.next().is(':visible'));
 	}
-	
+
 }
 
 // Function which adds an option to the specified select field
 function addSelectOption(selectId, newValue, newText) {
 	// the select list
 	var select = jQuery('#' + selectId);
-	
+
 	// add a new option
 	var option = jQuery('<option></option>').val(newValue).html(newText);
 	select.append(option);
@@ -274,10 +265,10 @@ function addSelectOption(selectId, newValue, newText) {
 function updateSelectOption(selectId, newValue, newText, originalValue) {
 	// the select option
 	var option = jQuery('#' + selectId + ' option[value="' + originalValue + '"]');
-	
+
 	// update this option
 	option.val(newValue).html(newText);
-	
+
 	return option;
 }
 // Function which removes an option from the specified select field

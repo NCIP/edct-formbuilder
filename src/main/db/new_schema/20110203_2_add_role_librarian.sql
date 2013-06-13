@@ -1,3 +1,10 @@
+/*L
+  Copyright HealthCare IT, Inc.
+
+  Distributed under the OSI-approved BSD 3-Clause License.
+  See http://ncip.github.com/edct-formbuilder/LICENSE.txt for details.
+L*/
+
 DELETE FROM roles WHERE name = 'librarian';
 INSERT INTO roles(id, name) VALUES (40, 'ROLE_LIBRARIAN');
 

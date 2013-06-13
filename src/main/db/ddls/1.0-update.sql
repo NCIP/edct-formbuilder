@@ -1,3 +1,10 @@
+/*L
+  Copyright HealthCare IT, Inc.
+
+  Distributed under the OSI-approved BSD 3-Clause License.
+  See http://ncip.github.com/edct-formbuilder/LICENSE.txt for details.
+L*/
+
 ALTER TABLE "FormBuilder".rpt_users ALTER email_addr TYPE character varying(100);
 ALTER TABLE "FormBuilder".answer_value ADD COLUMN cadsr_public_id bigint;
 

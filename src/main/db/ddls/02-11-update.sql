@@ -1,3 +1,10 @@
+/*L
+  Copyright HealthCare IT, Inc.
+
+  Distributed under the OSI-approved BSD 3-Clause License.
+  See http://ncip.github.com/edct-formbuilder/LICENSE.txt for details.
+L*/
+
 alter table skip_pattern_parts add column form_id bigint;
 ------------------
 CREATE OR REPLACE VIEW "FormBuilder".answer_value_form_id_vw AS 

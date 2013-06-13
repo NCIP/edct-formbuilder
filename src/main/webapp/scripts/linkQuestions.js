@@ -1,19 +1,10 @@
-/*******************************************************************************
- *Copyright (c) 2012 HealthCare It, Inc.
- *All rights reserved. This program and the accompanying materials
- *are made available under the terms of the BSD 3-Clause license
- *which accompanies this distribution, and is available at
- *http://directory.fsf.org/wiki/License:BSD_3Clause
- *
- *Contributors:
- *    HealthCare It, Inc - initial API and implementation
- ******************************************************************************/
+
 /* function checks if question have linked questions and show confirms */
 function checkLinkedQuestionsAndSkips(questionId, unlink, updateCategories,updateDescriptionList)
 {
 	/* Check if question is attached as skip to another Question */
 	var confirmationMessage = checkIfSkip(questionId);
-	
+
 //How can it be null unless it's a new question?
 		if (updateDescriptionList && !unlink){
 			var descriptionConfirmationMessage = "This question is linked to another question.\n\nYou have made updates to the list of descriptions.\nWould you like to break the link for this question?\n\n(Click OK to break the link, Cancel to keep the link.)"
@@ -28,7 +19,7 @@ function checkLinkedQuestionsAndSkips(questionId, unlink, updateCategories,updat
 				confirmationMessage += confirmationMessage.length > 0 ? "\n" : "";
 				confirmationMessage += "Categories will be modified for related library question.";
 			}
-			
+
 			if (confirmationMessage.length > 0) {
 				confirmationMessage += '\nAre you sure you want to proceed?';
 				return confirm(confirmationMessage);
@@ -38,7 +29,7 @@ function checkLinkedQuestionsAndSkips(questionId, unlink, updateCategories,updat
 }
 
 /*
-function checkLinkedQuestionsAndSkips(questionId, questionUuid) 
+function checkLinkedQuestionsAndSkips(questionId, questionUuid)
 {
 	var confirmationMessage = checkIfSkip(questionId);
 	if ( questionUuid != '' ) {
@@ -77,7 +68,7 @@ if(typeof(obj1)!='object' || typeof(x)!='object') {
 			return false;
 		}
 	}
-}	
+}
 
 for(p in obj1)
 {
@@ -179,7 +170,7 @@ function _checkLinkChanges(form) {
 		var newFormSerializedObjects = form.serializeObject();
 //		var learnMoreWasChanged = equals(newFormSerializedObjects['learnMore'], formSerializedObjects['learnMore']);
 //		var skipRuleWasChanged = equals(newFormSerializedObjects['skipRule'], formSerializedObjects['skipRule']);
-		
+
 		//Remove newly created categories and description related dummy fields
 		delete newFormSerializedObjects['addedCategoryIds'];
 		var newCategoriesWasAdded = false;
@@ -197,7 +188,7 @@ function _checkLinkChanges(form) {
 				delete formSerializedObjects[fieldName];
 			}
 		}
-		
+
 		delete newFormSerializedObjects['learnMore'];
 		delete newFormSerializedObjects['skipRule'];
 		var categories2 = newFormSerializedObjects['selectedCategories'];
@@ -208,35 +199,35 @@ function _checkLinkChanges(form) {
 		descriptionList =  newFormSerializedObjects['descriptionList'];
 		delete newFormSerializedObjects['descriptionList'];
 		delete newFormSerializedObjects['description'];
-		
+
 		learnMore = formSerializedObjects['learnMore'];
 		delete formSerializedObjects['learnMore'];
-		
+
 		skipRule = formSerializedObjects['skipRule'];
 		delete formSerializedObjects['skipRule'];
-		
+
 		categories = formSerializedObjects['selectedCategories'];
 		delete formSerializedObjects['selectedCategories'];
-		
+
 		visible = formSerializedObjects['visible'];
 		delete formSerializedObjects['visible'];
-		
+
 		required = formSerializedObjects['required'];
 		delete formSerializedObjects['required'];
-		
+
 		readonly = formSerializedObjects['readonly'];
 		delete formSerializedObjects['readonly'];
-		
+
 		description = formSerializedObjects['description'];
 		delete formSerializedObjects['description'];
-		
+
 		descriptionList2 = formSerializedObjects['descriptionList'];
 		delete formSerializedObjects['descriptionList'];
-		
+
 		addedCategoryIds = formSerializedObjects['addedCategoryIds'];
 		delete formSerializedObjects['addedCategoryIds'];
 		var restIsEquals = equals(newFormSerializedObjects, formSerializedObjects);
-		
+
 		var id = form.find('#id').val();
 		var categoryControlIsOpened = $("#categorySettingsRow").is(":visible");
 		var categoriesWasChanged = !equals(categories2, categories);
@@ -277,7 +268,7 @@ function _checkLinkChanges(form) {
 			formSerializedObjects['description'] = description;
 		if(descriptionList != null )
 			formSerializedObjects['descriptionList'] = descriptionList2;
-		if(addedCategoryIds != null ) 
+		if(addedCategoryIds != null )
 			addedCategoryIds = formSerializedObjects['addedCategoryIds'];
 	}
 	return false;
@@ -350,7 +341,7 @@ function equalsArray(arr1,arr2){
 $(window).bind("load", function() {
 	var form = $('#questionCmd');
 	formSerializedObjects = form.serializeObject();
-	
+
 	var categorySettingsRow = $('tr[id=categorySettingsRow]');
 	if(categorySettingsRow.length) {
 		categorySettingsRow.hide();

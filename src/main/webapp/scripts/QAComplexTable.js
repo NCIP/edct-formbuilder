@@ -1,20 +1,11 @@
-/*******************************************************************************
- *Copyright (c) 2012 HealthCare It, Inc.
- *All rights reserved. This program and the accompanying materials
- *are made available under the terms of the BSD 3-Clause license
- *which accompanies this distribution, and is available at
- *http://directory.fsf.org/wiki/License:BSD_3Clause
- *
- *Contributors:
- *    HealthCare It, Inc - initial API and implementation
- ******************************************************************************/
- 
+
+
 /**
  * Dependency: jQuery.js, qaObjects.js (see results() function), QAExtension.js
  * NOTE: UI is based on id so there is no much sense to create multiple instances on the same page
  */
 function QAComplexTable(params) {
-	
+
 	var DEFAULT_ANSWER_TYPE = "TEXT";
 	var EXTENDED_CONTENT_REGEX = /^[-a-zA-Z0-9\s\u00A0_"'#!$&(),.\/:;<>=?@{}%*\[\]|\\\+\^~\u2190-\u2193\u00A9\u00AE\u2022\u00F7\u2122\u00B0\u2018\u2019\u201C\u201D\u2212\u2013-\u2015]+$/;
 	var ALPHA_CONTENT_REGEX = /^[0-9A-Za-z\s_-]+$/;
@@ -22,7 +13,7 @@ function QAComplexTable(params) {
 	var JAVA_MAX_INT = 2147483647;
 	var MAX_NUMBER = JAVA_MAX_INT;
 	var answerLengthVal = "AnswerLengthVal_";
-	
+
 	var allowedAnswerTypes;
 	var isEditable;
 	var $container;
@@ -31,14 +22,14 @@ function QAComplexTable(params) {
 	var that = this;
 	var isStatic;
 	var avEditor;
-	
+
 //	TODO Remove
 	var singleAnswerQuestionTypes;
 	var multipleAnswerQuestionTypes;
 	var singleAnswerValueTypes;
 	var multipleAnswerValueTypes;
 	var answerTypeWithConstraints;
-	
+
 	function $select(items, selectedItem) {
 		var input = $('<select/>');
 		if(!isEditable)
@@ -56,7 +47,7 @@ function QAComplexTable(params) {
 
 		return input;
 	}
-	
+
 	function $button(text) {
 		var input = $('<input type="button"/>');
 		if(!isEditable)
@@ -64,7 +55,7 @@ function QAComplexTable(params) {
 		input.attr('value', text);
 		return input;
 	}
-	
+
 	function $checkbox(checked) {
 		var input = $('<input type="checkbox"/>');
 		if(!isEditable)
@@ -73,7 +64,7 @@ function QAComplexTable(params) {
 			input.attr('checked', 'checked');
 		return input;
 	}
-	
+
 	function $radio(checked) {
 		var input = $('<input type="radio"/>');
 		if(!isEditable)
@@ -82,34 +73,34 @@ function QAComplexTable(params) {
 			input.attr('checked', 'checked');
 		return input;
 	}
-	
+
 	function $input() {
 		var input = $('<input type="input"/>');
 		if(!isEditable)
 			input.attr('disabled', 'disabled');
 		return input;
 	}
-	
+
 	function createStaticIdentifyingColumn(question) {
 		var div = $('<div></div>').attr('id', 'ctColParentDivStaticIdentifyingColumn').attr('name', 'ctColParentDiv');
-		
+
 		var qTextInpId = "ctqDescriptionStaticIdentifyingColumn";
 		var qTextInp = $('<input type="hidden"/>')
 			.attr('value', question ? question.description : '')
 			.attr('name', qTextInpId)
 			.attr('id', qTextInpId);
-		
+
 		var qShortNameInpId = "ctqShortNameStaticIdentifyingColumn";
 		var qShortNameInp = $('<input type="hidden"/>')
 			.attr('value', question ? question.shortName : '')
 			.attr('name', qShortNameInpId)
 			.attr('id', qShortNameInpId);
-		
+
 		div.append(qTextInp).append(qShortNameInp);
-		
+
 		var answerDataHidden = $('<input type="hidden"/>').attr('name', 'ctAnswerData');
 		div.append(answerDataHidden);
-		
+
 		if(question) {
 			answerDataHidden[0].answerData = question.answer;
 			for(i = 0; i < question.answer.answerValuesArray.length; i++){
@@ -120,24 +111,24 @@ function QAComplexTable(params) {
 			a.type = "DROPDOWN";
 			answerDataHidden[0].answerData = a;
 		}
-		
+
 		div[0].questionId = question && question.id ? question.id : '';
 		div[0].uuid = question && question.uuid ? question.uuid : '';
 		div[0].isIdentifying = true;
-		
+
 		$('#ctIdentifyingColumnContainer').children('div[id=ctColParentDivStaticIdentifyingColumn]').remove();
 		$('#ctIdentifyingColumnContainer').append(div);
 	}
-	
+
 	function createIdentifyingColumn(question) {
 		var div = $('<div></div>').attr('id', 'ctColParentDivIdentifyingColumn').attr('name', 'ctColParentDiv');
-		
+
 		var qTextInpId = "ctqDescriptionIdentifyingColumn";
 		var qTextInp = $input()
 			.attr('value', question ? question.description : '')
 			.attr('name', qTextInpId)
 			.attr('id', qTextInpId);
-		
+
 		var qShortNameInpId = "ctqShortNameIdentifyingColumn";
 		var qShortNameInp = $input()
 			.attr('value', question ? question.shortName : '')
@@ -145,18 +136,18 @@ function QAComplexTable(params) {
 			.attr('id', qShortNameInpId)
 			.css('width', '80px')
 			.addClass("identification");
-		
+
 		var tableAnswerTypeInp = $('<input type="input"/>')
 			.attr('disabled', 'disabled')
 			.attr('name', 'ctTableAnswerType')
 			.attr('id', 'ctTableAnswerTypeIdentifyingColumn')
 			.css('width', '110px')
 			.val("DROPDOWN");
-		
+
 		div.append('Column Heading: ').append(qTextInp)
 			.append(' Short Name: ').append(qShortNameInp)
 			.append(' <b>Answer Type:</b>').append(tableAnswerTypeInp);
-		
+
 		var answerDataHidden = $('<input type="hidden"/>').attr('name', 'ctAnswerData');
 		div.append(answerDataHidden);
 		if(isEditable) {
@@ -168,19 +159,19 @@ function QAComplexTable(params) {
 		}
 		answerDataHidden[0].answerData = question ? question.answer : new AnswerData();
 		answerDataHidden[0].answerData.type = "DROPDOWN";
-		
+
 		div[0].questionId = question && question.id ? question.id : '';
 		div[0].uuid = question && question.uuid ? question.uuid : '';
 		div[0].isIdentifying = true;
-		
+
 		$('#ctIdentifyingColumnContainer').children('div[id=ctColParentDivIdentifyingColumn]').remove();
 		$('#ctIdentifyingColumnContainer').append(div);
 	}
-	
+
 	function removeIdentifyingColumn() {
 		$('#ctIdentifyingColumnContainer').html('');
 	}
-	
+
 	function addColumn(question) {
 		++columnCtr;
 		var div = $('<div></div>').addClass('tableColumnValue').attr('id', 'ctColParentDiv' + columnCtr).attr('name', 'ctColParentDiv');
@@ -188,13 +179,13 @@ function QAComplexTable(params) {
 			div.append($("<div></div>").addClass('dndHandle'));
 			intitDndItems(div);
 		}
-		
+
 		var qTextInpId = "ctqDescription" + columnCtr;
 		var qTextInp = $input()
 			.attr('value', question ? question.description : '')
 			.attr('name', qTextInpId)
 			.attr('id', qTextInpId);
-		
+
 		var qShortNameInpId = "ctqShortName" + columnCtr;
 		var qShortNameInp = $input()
 			.attr('value', question ? question.shortName : '')
@@ -202,21 +193,21 @@ function QAComplexTable(params) {
 			.attr('id', qShortNameInpId)
 			.css('width', '80px')
 			.addClass("identification");
-		
+
 		var answerType = question ? question.answer.type : DEFAULT_ANSWER_TYPE;
 		var tableAnswerTypeSelect = $select(allowedAnswerTypes, answerType)
 			.attr('name', 'ctTableAnswerType')
 			.attr('id', 'ctTableAnswerType' + columnCtr)
 			.bind('change', function() {answerTypeChange(this);});
-		
-		
+
+
 		div.append('Column Heading: ').append(qTextInp)
 			.append(' Short Name: ').append(qShortNameInp)
 			.append(' <b>Answer Type:</b>').append(tableAnswerTypeSelect);
-		
+
 		var answerDataHidden = $('<input type="hidden"/>').attr('name', 'ctAnswerData');
 		div.append(answerDataHidden);
-		
+
 		if(isEditable) {
 			var _columnCtr = columnCtr;
 			var removeHr = $('<a>Remove</a>').attr('href', 'javascript:void(0);').click(function() {removeColumn(_columnCtr);});
@@ -230,11 +221,11 @@ function QAComplexTable(params) {
 				controlButtonsSpan.append($('<span>&nbsp</span>').addClass('ctEditDropDownValues').append(editHr));
 			}
 		}
-		
+
 		var answerLengthDiv = $('<div></div>').addClass('answerLengthDiv').hide();
 		div.append(answerLengthDiv);
 		populateAnswerLengthControls(div, answerType, question ? question.answer.answerDisplayStyle : undefined);
-		
+
 		var constraintsDiv = $('<div></div>').addClass('constraintsDiv').css('display', 'block');
 		div.append(constraintsDiv);
 		if(question && question.answer) {
@@ -245,14 +236,14 @@ function QAComplexTable(params) {
 			answerDataHidden[0].answerData.type = answerType;
 			populateConstraintsDiv(constraintsDiv, answerTypeConstraintsMappingObj[answerType]);
 		}
-		
+
 		div[0].questionId = question && question.id ? question.id : '';
 		div[0].uuid = question && question.uuid ? question.uuid : '';
 		div[0].isIdentifying = false;
-		
+
 		$('#ctColumns').append(div);
 	}
-	
+
 	function answerTypeChange(el) {
 		var $el = $(el);
 		var $parent=$el.parent();
@@ -266,7 +257,7 @@ function QAComplexTable(params) {
 		}
 		/*answer length fields*/
 		populateAnswerLengthControls($col, $el.val());
-		
+
 		/*constraints*/
 		var constraintsDiv = $col.children('.constraintsDiv');
 		constraintsDiv.html('');
@@ -286,8 +277,8 @@ function QAComplexTable(params) {
 			$parent.find('.ctEditDropDownValues').remove();
 			removeAvEditor();
 		}
-	} 
-	
+	}
+
 	function populateAnswerLengthControls($col, answerType, selectedLength)	{
 		var lengthValues = answerMappingsObj[answerType].displayStyle.LENGTH;
 		var $answerLengthDiv = $col.children('.answerLengthDiv');
@@ -299,11 +290,11 @@ function QAComplexTable(params) {
 		$answerLengthDiv
 			.append('Select the length for the field:&nbsp;&nbsp;&nbsp;')
 			.append($select(lengthValues, selectedLength ? selectedLength : lengthValues[0]).addClass('answerLengthSelect'));
-		
+
 		$col.children('.answerLengthDiv').show();
-		
+
 	}
-	
+
 	function populateConstraintsDiv(constraintsDiv, list)
 	{
 		if(list) {
@@ -314,7 +305,7 @@ function QAComplexTable(params) {
 				.attr("name", list[i].name)
 				.attr("value", list[i].value)
 				.attr("displayname", list[i].displayName);
-				
+
 				var displayName = messageSource[list[i].displayName];
 				var constraintSpan2 = $('<span></span>').html(' <b>' + displayName + ':</b> ');
 				constraintsDiv.append(constraintSpan2);
@@ -322,11 +313,11 @@ function QAComplexTable(params) {
 			}
 		}
 	}
-	
+
 	function removeAvEditor(confirmed) {
 		var $containerDiv = $('div[id=ctqaExtensionContainer]');
 		if($containerDiv.length > 0) {
-//			TODO changed is not implemented 
+//			TODO changed is not implemented
 			var doRemove = ($containerDiv.changed && !confirmed) ? confirm('Previous changes will not be saved. Continue?') : true;
 			if(doRemove) {
 				var $colEl = $containerDiv.closest('div[name=ctColParentDiv]');
@@ -336,36 +327,36 @@ function QAComplexTable(params) {
 			}
 		}
 	}
-	
+
 	// Function which handles population of answer values when "Checkmark" is selected as the answer type
 	function populateCheckMarkAnswerValues(colEl,doConfirm){
 		// Hide all elements that should be hidden
 		$(colEl).parent().find('.ctEditDropDownValues').remove();
 		removeAvEditor();
-		
+
 		var confirmed =  doConfirm ? confirm('Previous changes to this column will not be saved. Continue?') : true;
-		if ( confirmed ){	
+		if ( confirmed ){
 			// remove all previous answer values associated with this column except for the first one
 			clearNonCheckMarkAnswerValues(colEl);
-			
+
 			// Create the Answer Values editor
 			createAvEditor(colEl,'CHECKMARK');
-						
+
 			// update the AnswerData object
 			updateAnswerDataFromAvEditor(colEl,'CHECKMARK');
 		}
 		else{
 			$(colEl).find('select[name=ctTableAnswerType]').val('TEXT');
-		}		
+		}
 	}
-	
+
 	function clearNonCheckMarkAnswerValues(colEl){
-		var answerData =$(colEl).find('input[name=ctAnswerData]')[0].answerData; 
+		var answerData =$(colEl).find('input[name=ctAnswerData]')[0].answerData;
 		if ( answerData && answerData.answerValuesArray && answerData.answerValuesArray.length != undefined ) {
 			answerData.answerValuesArray = answerData.answerValuesArray.splice(0,1);
 		}
 	}
-	
+
 	function createAvEditor(colEl,ansType) {
 		var $colEl = $(colEl);
 		removeAvEditor();
@@ -384,29 +375,29 @@ function QAComplexTable(params) {
 						answerData:answerData
 						,fixedAnswerType:ansType
 							};
-		
+
 		$ctqaExtensionContainer.append($button().val('Ok').bind('click', function() {avEditorOkClick(colEl);}));
 		$ctqaExtensionContainer.append($button().val('Cancel').bind('click', function() {removeAvEditor(true);}));
 		$colEl.find('a[name=ctDropdownAnswerValuesEdit]').unbind('click');
 		avEditor = new QAExtension(params);
-		
+
 	}
-	
+
 	function avEditorOkClick(colEl) {
 		var messageStr = avEditor.validationMsg();
-//		TODO Dependency from common.js 
+//		TODO Dependency from common.js
 		if ( messageStr != '' ) {
 			alert(messageStr);
 			return false;
-		}		
+		}
 		updateAnswerDataFromAvEditor(colEl);
 	}
-	
+
 	function updateAnswerDataFromAvEditor(colEl,aType){
 		$(colEl).children('input[name=ctAnswerData]')[0].answerData = avEditor.results(aType);
 		removeAvEditor();
 	}
-	
+
 	function addRow(answerValue) {
 		if($('#ctColParentDivStaticIdentifyingColumn').length < 1) {
 			createStaticIdentifyingColumn();
@@ -420,40 +411,40 @@ function QAComplexTable(params) {
 		var headingInp = $input()
 			.attr('value', answerValue ? answerValue.answerValue : '')
 			.attr('name', 'ctRows');
-		
+
 		headingInp[0].avId = answerValue && answerValue.id ? answerValue.id : '';
 		headingInp[0].permanentId = answerValue && answerValue.permanentId ? answerValue.permanentId : '';
 		headingInp[0].formId = answerValue && answerValue.formId ? answerValue.formId : '';
 		headingInp[0].internalId = answerValue && answerValue.internalId ? answerValue.internalId : '';
 		headingInp[0].answerValueDescription = answerValue && answerValue.answerValueDescription ? answerValue.answerValueDescription : '';
-		
+
 		div.append('Row Heading: ').append(headingInp);
-	    
+
 	    if(isEditable) {
 	    	var _rowsCtr = rowsCtr;
 			var removeHr = $('<a>Remove</a>').attr('href', 'javascript:void(0);').click(function() {removeRow(_rowsCtr);});
 			div.append('&nbsp;').append(removeHr);
 		}
-		
+
 	    $('#ctRows').append(div);
 	}
-	
+
 	function rowAnswerValues() {
 		var answerValues = new Array();
 		var ctRows = $('input[name=ctRows]');
 		for (var i = 0; i < ctRows.length; i++) {
 			var av = new AnswerValue();
-			av.id = new String(ctRows[i].avId); 
-			av.permanentId = new String(ctRows[i].permanentId); 
-			av.formId = new String(ctRows[i].formId); 
-			av.internalId = new String(ctRows[i].internalId); 
+			av.id = new String(ctRows[i].avId);
+			av.permanentId = new String(ctRows[i].permanentId);
+			av.formId = new String(ctRows[i].formId);
+			av.internalId = new String(ctRows[i].internalId);
 			av.answerValueDescription = new String(ctRows[i].value);
 			av.answerValue = new String(ctRows[i].value);
 			answerValues.push(av);
 		}
 		return answerValues;
 	}
-	
+
 	function removeRow(num) {
 		var rowDiv = $('#ctRowParentDiv' + num);
 		rowDiv.remove();
@@ -461,10 +452,10 @@ function QAComplexTable(params) {
 	}
 	function removeColumn(num) {
 		var $coldiv = $('#ctColParentDiv' + num);
-		
+
 		var answerDataHidden = $coldiv.find('input[name=ctAnswerData]')[0];
 		var answerData = answerDataHidden.answerData;
-		
+
 		if(answerData && answerData.answerValuesArray.length > 0) {
 			var permIdArray = new Array();
 			var formId = null;
@@ -497,10 +488,10 @@ function QAComplexTable(params) {
 			columnCtr--;
 		}
 	}
-	
+
 	var columnsContainer;
 	var rowsContainer;
-	
+
 	function getNumericFromElementId( elm )
 	{
 		if ( !elm.id ) return null;
@@ -508,10 +499,10 @@ function QAComplexTable(params) {
 		if ( matches == null ) return null;
 		return parseInt( matches[0] );
 	}
-	
+
 	function columnsCreator(item, hint) {
 		var col = getNumericFromElementId(item);
-		
+
 		if (hint == "avatar") {
 			var avatar = document.createElement("div");
 			avatar.className = "ansAvatar";
@@ -521,10 +512,10 @@ function QAComplexTable(params) {
 			return {node: item, data: item};
 		}
 	}
-	
+
 	function rowsCreator(item, hint) {
 		var row = getNumericFromElementId(item);
-		
+
 		if (hint == "avatar") {
 			var avatar = document.createElement("div");
 			avatar.className = "ansAvatar";
@@ -538,16 +529,16 @@ function QAComplexTable(params) {
 	function initUI(qlo) {
 		$container.hide();
 		$container.html('');
-		
+
 		var staticRadio = $radio(isStatic).attr('name', 'complexTableType').bind('change', function() {if(this.checked) {setComplexTableType(true);}});
 		$container.append('Static&nbsp;');
 		$container.append(staticRadio);
-		
+
 		var dynamicRadio = $radio(!isStatic).attr('name', 'complexTableType').bind('change', function() {if(this.checked) {setComplexTableType(false);}});
 		$container.append(" Dynamic&nbsp;");
 		$container.append(dynamicRadio);
 		$container.append('<br/>');
-		
+
 		var identifyingColumnCheckBox = $checkbox().bind('click', function() {if(this.checked) {createIdentifyingColumn();} else {removeIdentifyingColumn();}});
 		var identifyingColumnControl = $('<div></div>').attr('id', 'ctIdentifyingColumnControl').append("Create Identifying Column&nbsp;").append(identifyingColumnCheckBox);
 		identifyingColumnControl.append('<br/>');
@@ -555,7 +546,7 @@ function QAComplexTable(params) {
 		identifyingColumnControl.append(answersControlPanelDiv);
 		identifyingColumnControl.append('<br/>');
 		$container.append(identifyingColumnControl);
-		
+
 		var columnsControlDiv = $('<div></div>').attr('id', 'ctColumnsControl').css('padding-top', 15).css('padding-bottom', 15).css('width', 100);
 		var addColumnButton = $button('Add').css('float', 'right').bind('click', function() {addColumn();});
 		columnsControlDiv.append('Columns: ').append(addColumnButton);
@@ -567,7 +558,7 @@ function QAComplexTable(params) {
 		rowsControlDiv.append('Rows: ').append(addRowButton);
 		$container.append(rowsControlDiv);
 		$container.append($('<div></div>').attr('id', 'ctRows').addClass('tableRowsContainer'));
-		
+
 		if (qlo.questionList) {
 			for(var i = 0; i < qlo.questionList.length; i++) {
 				if(qlo.questionList[i].isIdentifying) {
@@ -582,11 +573,11 @@ function QAComplexTable(params) {
 				}
 			}
 		}
-		
+
 		setComplexTableType(isStatic);
 		$container.show();
 	}
-	
+
 	function setComplexTableType(staticType) {
 		if(staticType) {
 			$('#ctRows,#ctRowsControl').show();
@@ -601,7 +592,7 @@ function QAComplexTable(params) {
 		}
 		isStatic = staticType;
 	}
-	
+
 	function finish() {
 		var $containerDiv = $('div[id=ctqaExtensionContainer]');
 		if($containerDiv.length > 0) {
@@ -609,26 +600,26 @@ function QAComplexTable(params) {
 			avEditorOkClick($colEl[0]);
 		}
 	}
-	
+
 //	***************Public Members*************
-	
+
 	this.init = function(params) {
 		allowedAnswerTypes = params && params.allowedAnswerTypes ? params.allowedAnswerTypes : new Array();
 		isEditable = params && params.isEditable ? params.isEditable : true;
-		
+
 		singleAnswerQuestionTypes = params.singleAnswerQuestionTypes;
 		multipleAnswerQuestionTypes = params.multipleAnswerQuestionTypes;
 		singleAnswerValueTypes = params.singleAnswerValueTypes;
 		multipleAnswerValueTypes = params.multipleAnswerValueTypes;
 		answerTypeWithConstraints = params.answerTypeWithConstraints;
 		isStatic = params.type == 'STATIC';
-		
+
 		$container = $('#' + (params ? params.containerId : 'ctqaTableContainer'));
-		
+
 		initUI(params ? params.json : null);
 	}
 	this.init(params);
-	
+
 	this.results = function() {
 		finish();
 		var questionsList = new QuestionsList();
@@ -636,7 +627,7 @@ function QAComplexTable(params) {
 		var cols = $container.find('div[id^=ctColParentDiv]');
 		for (var i = 0; i < cols.length; i++) {
 //			escape identifying column from another table type
-			if(cols[i].isIdentifying && 
+			if(cols[i].isIdentifying &&
 				   (isStatic && cols[i].id == 'ctColParentDivIdentifyingColumn'
 				|| !isStatic && cols[i].id == 'ctColParentDivStaticIdentifyingColumn')) {
 				continue;
@@ -652,9 +643,9 @@ function QAComplexTable(params) {
 			if(isStatic && cols[i].isIdentifying) {
 				answerData.answerValuesArray = rowAnswerValues();
 			}
-			
+
 			var constraintsInputs = $col.find('.constraint');
-			
+
 			var constraintsArray = new Array();
 			for(var j = 0; j < constraintsInputs.length; j++) {
 				var constraint = new Constraint();
@@ -663,7 +654,7 @@ function QAComplexTable(params) {
 				constraint.value = new String(constraintsInputs[j].value);
 				constraintsArray.push(constraint);
 			}
-			
+
 			answerData.answerConstraintsArray = constraintsArray;
 			var answerLength = $col.find('select.answerLengthSelect option:selected').val();
 			if(answerLength) {
@@ -675,27 +666,27 @@ function QAComplexTable(params) {
 		questionsList.questionList = questionsArray;
 		return questionsList;
 	}
-	
+
 	this.validationMsg = function(){
 		var errMsg = '';
-		
+
 		if(avEditor) {
 			errMsg = avEditor.validationMsg();
 			if(errMsg != '') {
 				return errMsg;
 			}
 		}
-		
+
 		// Do not allow submission unless a short name has been provided for the table question
 		if ( $('input[id=tableShortName]').length > 0 && $('input[id=tableShortName]')[0].value=='' ) {
 			errMsg += "- A short name is required.\n";
 			$('input[id=tableShortName]')[0].focus();
 		}
-		
+
 		if ($('input[id^=ctqShortName][value!=""]').length == 0 ) {
 			errMsg += ' - At least one column is required.\n';
 		}
-		
+
 		if (isStatic && $('input[name=ctRows][value!=""]').length == 0 ) {
 			errMsg += ' - At least one row is required.\n';
 		}
@@ -714,7 +705,7 @@ function QAComplexTable(params) {
 				break;
 			}
 		}
-		
+
 		inputs = $('.constraint:visible');
 		for ( var i = 0; i < inputs.length; i++) {
 			if(inputs[i].value && inputs[i].value.length > 0) {
@@ -730,7 +721,7 @@ function QAComplexTable(params) {
 				}
 			}
 		}
-		
+
 		$('#ctColumns input[name=ctAnswerData]').each(function() {
 			var answerData = this.answerData;
 			if(answerData.type == 'DROPDOWN') {
@@ -740,7 +731,7 @@ function QAComplexTable(params) {
 				}
 			}
 		});
-		
+
 		var $minValues = $('#ctColumns input[name=minValue]');
 		if($minValues.length > 0) {
 			$minValues.each(function(indx, inp) {
@@ -758,10 +749,10 @@ function QAComplexTable(params) {
 				}
 			});
 		}
-		
+
 		return errMsg;
 	}
-	
+
 	this.type = function() {
 		return isStatic ? 'STATIC' : 'DYNAMIC';
 	}

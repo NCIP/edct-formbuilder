@@ -1,3 +1,10 @@
+/*L
+  Copyright HealthCare IT, Inc.
+
+  Distributed under the OSI-approved BSD 3-Clause License.
+  See http://ncip.github.com/edct-formbuilder/LICENSE.txt for details.
+L*/
+
 CREATE OR REPLACE FUNCTION check_shortname_uniqueness() RETURNS trigger AS $check_shortname_uniqueness$
 DECLARE
     record_count int;

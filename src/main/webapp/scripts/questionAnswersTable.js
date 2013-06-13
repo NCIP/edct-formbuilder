@@ -1,13 +1,4 @@
-/*******************************************************************************
- *Copyright (c) 2012 HealthCare It, Inc.
- *All rights reserved. This program and the accompanying materials
- *are made available under the terms of the BSD 3-Clause license
- *which accompanies this distribution, and is available at
- *http://directory.fsf.org/wiki/License:BSD_3Clause
- *
- *Contributors:
- *    HealthCare It, Inc - initial API and implementation
- ******************************************************************************/
+
 // Global variables
 	var msp;
 	var rowsCtr = 0;
@@ -15,22 +6,22 @@
     var simpleAnswerTypesFilteredList = new Array();
     var complexAnswerTypesFilteredList = new Array();
     var qaTable;
-    
+
     var singleAnswerQuestionTypes = new Array();
 	var multipleAnswerQuestionTypes = new Array();
 	var singleAnswerValueTypes = new Array();
 	var multipleAnswerValueTypes = new Array();
     var answerTypeWithConstraints = new Array();
 
-//    TODO This functions are common for many js files 
+//    TODO This functions are common for many js files
     function loadQuestionTypeToAnswerMappings(){
 		for ( propertyName in answerMappingsObj ) {
 			//if(propertyName =="RADIO" || propertyName=="CHECKBOX")
-			if( jQuery.inArray('SIMPLE_TABLE_QUESTION',answerMappingsObj[propertyName].questionElementTypes) > -1) //simple table 
+			if( jQuery.inArray('SIMPLE_TABLE_QUESTION',answerMappingsObj[propertyName].questionElementTypes) > -1) //simple table
 			{
 				simpleAnswerTypesFilteredList.push( propertyName );
 			}
-			if( jQuery.inArray('STATIC_TABLE_QUESTION',answerMappingsObj[propertyName].questionElementTypes) > -1 || 
+			if( jQuery.inArray('STATIC_TABLE_QUESTION',answerMappingsObj[propertyName].questionElementTypes) > -1 ||
 				jQuery.inArray('DYNAMIC_TABLE_QUESTION',answerMappingsObj[propertyName].questionElementTypes) > -1) //simple table //complex table
 			{
 				complexAnswerTypesFilteredList.push( propertyName );
@@ -51,7 +42,7 @@
 			}
 		}
 	}
-    
+
     function loadQuestionTypeConstraints()
 	{
 		for ( propertyName in answerTypeConstraintsMappingObj )
@@ -96,20 +87,20 @@
 		if(validateInputAlphaRequired(document.getElementById('tableShortName'), document.getElementById('tableShortName').value) == false) {
 			return false;
 		}
-		
+
 		//validate question description
 		if(validateInputAlphaPlusRequired(document.getElementById('description'), document.getElementById('description').value) == false) {
 			return false;
 		}
-		
+
 	    document.getElementById("questions").value = JSON.stringify( qaTable.results() );
-	    
+
 	    // set the value of "descriptionList"
 	  	document.getElementById("allDescriptions").value = JSON.stringify( createDescriptionJSON() );
-	  	
+
 	    //for complex table
 	    if(qaTable.type) {
-	    	document.getElementById("tableTypeHidden").value = qaTable.type(); 
+	    	document.getElementById("tableTypeHidden").value = qaTable.type();
 	    }
 	    // create a JSON object for the skip patterns
 	  	createSkipJson();
@@ -122,26 +113,26 @@
 		var isSkip;
 		var confirmationMessage = "";
 		QuestionDwrController.questionIsSkip(questionId, {async: false, callback: function(data) {isSkip = data;}});
-		
+
 		if(isSkip == "yes") {
 			confirmationMessage += "This Question is attached as a skip to other Question or a Form.";
 		}
 		return confirmationMessage;
 	}
-	
+
 	function checkSkipsMessage(questionId)
 	{
 		/* Check if question is attached as skip to another Question */
 		var confirmationMessage = checkIfSkip(questionId);
-		
+
 		if (confirmationMessage.length > 0) {
 			confirmationMessage += '\nAre you sure that you want to update this question?';
 			return confirm(confirmationMessage);
 		}
-		
+
 		return true;
 	}
-	
+
 	$(function() {
 	    $('#questionCmd').submit(function() {
 	    	var feid = $('#questionCmd').find('#id').val();
@@ -151,7 +142,7 @@
 	    	return true;
 	    });
 	});
-	
+
 	function loadJson() {
 		if ( document.getElementById("questions") ) {
 			var jsonText = document.getElementById("questions").value;

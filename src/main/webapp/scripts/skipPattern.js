@@ -1,13 +1,4 @@
-/*******************************************************************************
- *Copyright (c) 2012 HealthCare It, Inc.
- *All rights reserved. This program and the accompanying materials
- *are made available under the terms of the BSD 3-Clause license
- *which accompanies this distribution, and is available at
- *http://directory.fsf.org/wiki/License:BSD_3Clause
- *
- *Contributors:
- *    HealthCare It, Inc - initial API and implementation
- ******************************************************************************/
+
 // Global variables
 
 
@@ -120,7 +111,7 @@ function addSkipElement( skip )
 	var deleteId = 'deleteSkip_' + numSkipPatterns;
 	var skipDisplayId = 'skipDisplay_' + numSkipPatterns;
 	var skipDiv = document.getElementById('skipPatternsDiv');
-	
+
 	// Hidden Field
 	var elm = document.createElement( "input" );
 	elm.setAttribute("id",hiddenFieldId);
@@ -135,21 +126,21 @@ function addSkipElement( skip )
 	elm.setAttribute("formId", formId);
 	elm.setAttribute("formElementId", formElementId);
 	skipDiv.appendChild( elm );
-	
+
 	// Display Text
 	var elm3 = createSpan(skipDisplayId, skipDescription.replace('\n', '<br/>')+"<br/>");
 	skipDiv.appendChild( elm3 );
 }
 
 
-function selectSkipElement( skipDescription, formId, formElementId, rowUuId, questionId, skipAnswerValueIds  ) 
+function selectSkipElement( skipDescription, formId, formElementId, rowUuId, questionId, skipAnswerValueIds  )
 {
 	++numSkipPatterns;
 	var hiddenFieldId = 'hiddenSkipElm_' + numSkipPatterns;
 	var deleteId = 'deleteSkip_' + numSkipPatterns;
 	var skipDisplayId = 'skipDisplay_' + numSkipPatterns;
 	var skipDiv = document.getElementById('rightSkipPanel-child');
-	
+
 	// Hidden Field
 	var elm = document.createElement( "input" );
 	elm.setAttribute("id", hiddenFieldId);
@@ -180,7 +171,7 @@ function createSkipDiv(skipOrder, skipSpanElement)
 		var elm2 = createSpan(deleteId, "<img src=\"images/delete.jpg\" alt=\"delete\" height=\"18\" width=\"18\" border=\"0\" style=\"cursor:pointer;\" onclick=\"javascript:removeFromSelection("+skipOrder+")\"/>&nbsp;");
 		skipDiv.appendChild( elm2 );
 	}
-	
+
 	// Display Text
 	div.appendChild(elm2);
 	div.appendChild(skipSpanElement);
@@ -194,8 +185,8 @@ function loadSkipJson()
 	var skipRuleLogicalOp = skipRule["logicalOp"];
 	var skipRuleId = skipRule["id"];
 	var skipList = skipRule["skipList"];
-	
-	
+
+
 	/* create element for logical operator */
 	var skipDiv = document.getElementById('skipPatternsDiv');
 	var elm = document.createElement( "input" );
@@ -203,15 +194,15 @@ function loadSkipJson()
 	elm.setAttribute("id","skipRuleLogicalOp");
 	elm.setAttribute("value",skipRuleLogicalOp);
 	parentElement.appendChild( elm );
-	
+
 	var elm1 = document.createElement( "input" );
 	elm1.setAttribute("type", "hidden");
 	elm1.setAttribute("id","skipRuleId");
 	elm1.setAttribute("value",skipRuleId);
 	parentElement.appendChild( elm1 );
-	
+
 	/* create skip elements */
-	for ( i=0; i < skipList.length; ++i ) 
+	for ( i=0; i < skipList.length; ++i )
 	{
 		if(i > 0)
 		{
@@ -282,12 +273,12 @@ function createSkipJson()
 		var skipList = new SkipList();
 		var skips = document.getElementById('skipPatternsDiv').getElementsByTagName('input');
 		var list = new Array();
-		for ( i = 0; i < skips.length; ++i ) 
+		for ( i = 0; i < skips.length; ++i )
 		{
 			var skip =  new Skip();
-			if ( skips[i].getAttribute('skipAnswerValueId') ) 
+			if ( skips[i].getAttribute('skipAnswerValueId') )
 				skip.answerValueId = skips[i].getAttribute('skipAnswerValueId');
-			if ( skips[i].getAttribute('rowUuId') ) 
+			if ( skips[i].getAttribute('rowUuId') )
 				skip.rowUuId = skips[i].getAttribute('rowUuId');
 			skip.formElementId = skips[i].getAttribute('formElementId');
 			skip.questionId = skips[i].getAttribute('questionId');
@@ -296,13 +287,13 @@ function createSkipJson()
 			skip.description = skips[i].getAttribute('description');
 			list.push( skip );
 		}
-		
+
 		skipList["skipList"] = list;
 		skipList["logicalOp"] = document.getElementById('skipRuleLogicalOp').value;
 		var skipRuleId = document.getElementById('skipRuleId').value;
 		if(typeof(skipRuleId) != 'undefined' && skipRuleId != 'undefined')
 			skipList["id"] = document.getElementById('skipRuleId').value;
-		
+
 		document.getElementById("skipRule").value = JSON.stringify( skipList );
   	}
 }
@@ -330,12 +321,12 @@ function initSkipWindow()
 	if(!$('#skipWindow').is(':visible')) {
 		return;
 	}
-	
+
 	intitTitlePane($(".TitlePane"));
-	 
+
 	displayAllQuestions();
-	
-	//Check if window had been initialized 
+
+	//Check if window had been initialized
 	var rightSkipPanelChild = document.getElementById("rightSkipPanel-child");
 	if (rightSkipPanelChild != null)
 	{
@@ -347,9 +338,9 @@ function initSkipWindow()
 			{
 				logicalOpElement.checked = true;
 			}
-			
+
 		}
-		
+
 		//Populate selected skips if any
 		$('#skipPatternsDiv input[id*=hiddenSkipElm_]').each(function()
 			{
@@ -416,10 +407,10 @@ function addSkipBlock(formId, formElementId, rowUuId, questionId, logicalOperato
 		var rowDescription = parents.filter('.rowBlock').attr('title');
 		var columnDescription = parents.filter('.columnBlock').attr('title');
 		var questionDescription = parents.filter('.questionBlock').attr('title');
-		
+
 		answerValues = answers.join(" " + logicalOperator + " ");
 		answerIds= ids.join(" " + logicalOperator + " ");
-		
+
 		var skipDescription = "Show this question when answer: " + answerValues;
 		if(questionDescription)
 			skipDescription += "<br/>Question: \"" + questionDescription + "\"";

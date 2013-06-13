@@ -1,4 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
+
+<!--L
+  Copyright HealthCare IT, Inc.
+
+  Distributed under the OSI-approved BSD 3-Clause License.
+  See http://ncip.github.com/edct-formbuilder/LICENSE.txt for details.
+L-->
+
 <Context path="howformbuilder" reloadable="true" docBase="D:\BBRC\workspace\HowFormBuilder\build\build-local\dist\srv\how-local\www\webapps\ROOT" workDir="D:\BBRC\workspace\HowFormBuilder\work" >
   <Logger className="org.apache.catalina.logger.SystemOutLogger" verbosity="4" timestamp="true"/>
   <!-- 
