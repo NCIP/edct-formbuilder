@@ -2,7 +2,7 @@
 How to Contribute
 =================
 
-We welcome community contributions to the EDCT FormBuilder project.
+We welcome community contributions to the EDCT Form Builder project.
 Your contributions back to this repository will allow the broader
 research community to benefit from your work and will allow your
 enhancements to be integrated with those of others.  There are a few
