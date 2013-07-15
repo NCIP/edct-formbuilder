@@ -1,4 +1,4 @@
-Welcome to the EDCT FormBuilder Project!
+Welcome to the EDCT Form Builder Project!
 =========================================
 
 eDCT Form Builder allows users to design data collection instruments utilizing a “drag-and-drop” interface.  
