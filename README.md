@@ -1,16 +1,19 @@
 Welcome to the EDCT FormBuilder Project!
 =========================================
 
-EDCT FormBuilder tool allows users to design data collection instruments utilizing a “drag-and-drop” interface. It is developed in Java and requires Apache Ant for building.
+eDCT Form Builder allows users to design data collection instruments utilizing a “drag-and-drop” interface.  
+It provides a full range of options required for developing a complex and interdependent set of objects representing 
+a complete model for collecting data.  It is used by [eDCT Collector](https://github.com/NCIP/edct-collector).
 
-EDCT FormBuilder is distributed under the BSD 3-Clause License. Please see the NOTICE and LICENSE files for details.
+It is developed in Java and requires Apache Ant for building.
+
+EDCT Form Builder is distributed under the BSD 3-Clause License. Please see the NOTICE and LICENSE files for details.
 
 You will find more details about EDCT FormBuilder in the following links:
 
-
  * [Code Repository](https://github.com/NCIP/edct-formbuilder)
  * [Issue Tracker](https://tracker.nci.nih.gov/browse/EDCT)
- * [Documentation](https://wiki.nci.nih.gov/display/eDCT/Enterprise+Data+Collection+Tool)
+ * [Documentation](https://wiki.nci.nih.gov/x/KgawB)
  
  
-Please join us in further developing and improving EDCT FormBuilder.
+Please join us in further developing and improving EDCT FormBuilder project.
