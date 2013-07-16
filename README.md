@@ -16,4 +16,4 @@ You will find more details about eDCT Form Builder in the following links:
  * [Documentation](https://wiki.nci.nih.gov/x/KgawB)
  
  
-Please join us in further developing and improving EDCT Form Builder project.
+Please join us in further developing and improving eDCT Form Builder project.
