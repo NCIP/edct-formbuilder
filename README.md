@@ -1,7 +1,7 @@
 Welcome to the eDCT Form Builder Project!
 =========================================
 
-eDCT Form Builder allows users to design data collection instruments utilizing a “drag-and-drop” interface.  
+Enterprise Data Collection Tool (eDCT) Form Builder allows users to design data collection instruments utilizing a “drag-and-drop” interface.  
 It provides a full range of options required for developing a complex and interdependent set of objects representing 
 a complete model for collecting data.  It is used by [eDCT Collector](https://github.com/NCIP/edct-collector).
 
